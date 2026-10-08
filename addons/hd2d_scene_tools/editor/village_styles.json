@@ -1,0 +1,32 @@
+[
+  {
+    "id": "jiangnan",
+    "title": "江南 · 瓦顶木居",
+    "color": "b5b0a0",
+    "assets": [
+      "preset-SM_cz_fangzi005_db21fef5",
+      "preset-SM_cz_fangzi006_243091d3",
+      "preset-SM_JN_Gbfangzi001_e3faca88"
+    ]
+  },
+  {
+    "id": "nanjiang",
+    "title": "南疆 · 木楼村寨",
+    "color": "80664e",
+    "assets": [
+      "preset-SM_NJ_Fangzi001_04c5b592",
+      "preset-SM_NJ_Fangzi004_9fb6f5af",
+      "preset-SM_NJ_Fangzi006_4dd6e0b5"
+    ]
+  },
+  {
+    "id": "woodland",
+    "title": "山林 · 石墙瓦舍",
+    "color": "81715c",
+    "assets": [
+      "preset-SM_linchang_fangzi002_a2f58193",
+      "preset-SM_linchang_fangzi004_fba52d64",
+      "preset-SM_linchang_fangzi006_2df97899"
+    ]
+  }
+]

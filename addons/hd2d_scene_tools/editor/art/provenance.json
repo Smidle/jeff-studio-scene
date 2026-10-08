@@ -1,0 +1,7 @@
+{
+  "method": "Native 16x16 pixel drawing in Aseprite Lua; Aseprite exports PNG/GIF.",
+  "source_brazier_sha256": "79da60f3e4850aa3bef9da315eff3cd6222ed717d8419938d47ce20cef0f873e",
+  "icons": 30,
+  "star_frames": 12,
+  "brazier_frames": 16
+}

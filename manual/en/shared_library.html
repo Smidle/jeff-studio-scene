@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>02 · Shared Asset Library · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">Skip to content</a><details class="manual-sidebar" open><summary>Contents · Jeff Studio Scene</summary><div class="manual-nav-inner"><a class="manual-brand" href="index.html">Jeff Studio Scene<span class="manual-version">USER MANUAL · 0.4.6</span></a><nav aria-label="Manual contents"><section class="nav-group"><h2 class="nav-group-title">Get started</h2><a class="nav-link" href="index.html">Manual home</a><a class="nav-link" href="quick_start.html">01 Install Plugin</a><a class="nav-link" href="shared_library.html" aria-current="page">02 Shared Library</a><a class="nav-link" href="history.html">03 Cases & History</a></section><section class="nav-group"><h2 class="nav-group-title">Tools</h2><a class="nav-link" href="reference/toolbar.html">Interface & Saving</a><a class="nav-link" href="reference/terrain.html">Terrain</a><a class="nav-link" href="reference/generation.html">One-click Generation</a><a class="nav-link" href="reference/assets.html">Assets & Instances</a><a class="nav-link" href="reference/scatter.html">Scatter & Roads</a><a class="nav-link" href="reference/character.html">Characters</a><a class="nav-link" href="reference/camera.html">Camera</a><a class="nav-link" href="reference/environment.html">Environment</a><a class="nav-link" href="reference/music.html">Music</a><a class="nav-link" href="reference/preview.html">Scene Preview</a></section><section class="nav-group"><h2 class="nav-group-title">Reference</h2><a class="nav-link" href="appendices/inventory.html">Resource Inventory</a><a class="nav-link" href="appendices/scenes.html">Scene Paths</a><a class="nav-link" href="appendices/music_sources.html">Music Sources</a></section></nav><a class="language-switch" lang="zh" href="../zh/shared_library.html">中文说明书 ↗</a></div></details><main class="manual-content" id="manual-content"><h1>02 · Shared Asset Library</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub public edition:</strong> The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. <a href="../DISTRIBUTION.md">Public distribution details</a></p></aside>
+<p>File: <code>02_HD2D_0.4.6_Shared_Asset_Library.zip</code>. Install package 01 first, extract this library outside the project, then use <strong>Location… → HD2D_Shared_Asset_Library → Recheck</strong> at the top of the plugin.</p>
+<p>Keep <code>preset-index.json</code> beside <code>presets</code>, <code>terrain-index.json</code> beside <code>terrain</code>, and <code>character-index.json</code> beside <code>characters</code>. Retain <code>.gdignore</code>. Back up existing libraries and preserve custom entries.</p>
+<p>Choose models in <strong>Asset Workbench → Presets</strong>. For full-resolution terrain, use <strong>Surface Textures → Surface Source → Shared Originals / Extensions</strong>. Browsing loads only indexes and current-page thumbnails; selected dependencies are prepared for preview and use. Fully prepared, saved assets use project-local files.</p>
+<p>Built-in buildings, terrain and characters remain available without a shared library. For connection failures, check the selected directory level and the status tooltip, then <strong>Recheck</strong> after repairing the path.</p>
+<p>The package preserves existing resources and local-study provenance. Extracted artwork is not covered by the plugin MIT license. Case scenes are supplied separately in package 03.</p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>

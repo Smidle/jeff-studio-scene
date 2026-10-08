@@ -1,0 +1,254 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Part III · Environment · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">Skip to content</a><details class="manual-sidebar" open><summary>Contents · Jeff Studio Scene</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio Scene<span class="manual-version">USER MANUAL · 0.4.6</span></a><nav aria-label="Manual contents"><section class="nav-group"><h2 class="nav-group-title">Get started</h2><a class="nav-link" href="../index.html">Manual home</a><a class="nav-link" href="../quick_start.html">01 Install Plugin</a><a class="nav-link" href="../shared_library.html">02 Shared Library</a><a class="nav-link" href="../history.html">03 Cases & History</a></section><section class="nav-group"><h2 class="nav-group-title">Tools</h2><a class="nav-link" href="toolbar.html">Interface & Saving</a><a class="nav-link" href="terrain.html">Terrain</a><a class="nav-link" href="generation.html">One-click Generation</a><a class="nav-link" href="assets.html">Assets & Instances</a><a class="nav-link" href="scatter.html">Scatter & Roads</a><a class="nav-link" href="character.html">Characters</a><a class="nav-link" href="camera.html">Camera</a><a class="nav-link" href="environment.html" aria-current="page">Environment</a><a class="nav-link" href="music.html">Music</a><a class="nav-link" href="preview.html">Scene Preview</a></section><section class="nav-group"><h2 class="nav-group-title">Reference</h2><a class="nav-link" href="../appendices/inventory.html">Resource Inventory</a><a class="nav-link" href="../appendices/scenes.html">Scene Paths</a><a class="nav-link" href="../appendices/music_sources.html">Music Sources</a></section></nav><a class="language-switch" lang="zh" href="../../zh/reference/environment.html">中文说明书 ↗</a></div></details><main class="manual-content" id="manual-content"><h1>Part III · Environment</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub public edition:</strong> The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. <a href="../../DISTRIBUTION.md">Public distribution details</a></p></aside>
+<p>Select the stage root, adjust sky, sunlight and effects, then apply. Presentation post-processing is visible in the game or isolated preview; the native editor viewport remains an editing view.</p>
+<h2>Collapsible visual groups</h2>
+<p>Click a bordered heading to expand or collapse it. Common groups start open (★); your choice is remembered per project. <strong>Expand All / Collapse All</strong> only affects this page. Tab to a heading and use Enter/Space, or Left/Right. Hiding controls keeps drafts and active tools/audition; it neither applies settings nor saves the scene. Shared Apply buttons stay outside the folds.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Contains</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>★ <a href="#group-environment-sky">Sky &amp; background</a></td>
+<td>Sky mode, sky and horizon/fog colors; does not generate a sky model.</td>
+</tr>
+<tr>
+<td>★ <a href="#group-environment-sun">Sun &amp; shadows</a></td>
+<td>Sun color/energy, azimuth/elevation and shadow toggle.</td>
+</tr>
+<tr>
+<td><a href="#group-environment-ambient">Ambient fill</a></td>
+<td>Ambient color and energy for shadowed areas.</td>
+</tr>
+<tr>
+<td><a href="#group-environment-wind">Wind &amp; cloud shadows</a></td>
+<td>Stage-wide wind and cloud-shadow strengths; per-asset wind stays in Assets.</td>
+</tr>
+<tr>
+<td><a href="#group-environment-fog">Distance fog</a></td>
+<td>Ordinary distance fog toggle and density, not volumetric fog.</td>
+</tr>
+<tr>
+<td><a href="#group-environment-color">Color adjustments</a></td>
+<td>Saturation and contrast.</td>
+</tr>
+<tr>
+<td><a href="#group-environment-dof">Real depth of field</a></td>
+<td>Far DOF strength; disabled in Compatibility, with the limitation outside the fold.</td>
+</tr>
+<tr>
+<td><a href="#group-environment-post">Presentation effects</a></td>
+<td>Presentation toggle, vignette and screen-zone blur for game/Preview only.</td>
+</tr>
+</tbody></table>
+<div class="ui-gallery">
+<section id="group-environment-sky"><strong>Sky & background</strong></section>
+<section id="group-environment-sun"><strong>Sun & shadows</strong></section>
+<section id="group-environment-ambient"><strong>Ambient fill</strong></section>
+<section id="group-environment-wind"><strong>Wind & cloud shadows</strong></section>
+<section id="group-environment-fog"><strong>Distance fog</strong></section>
+<section id="group-environment-color"><strong>Color adjustments</strong></section>
+<section id="group-environment-dof"><strong>Real depth of field</strong></section>
+<section id="group-environment-post"><strong>Presentation effects</strong></section>
+</div>
+
+<h2>Buttons and operations</h2>
+<table>
+<thead>
+<tr>
+<th>Visible button</th>
+<th>What it does / when it applies</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Apply Environment Settings</td>
+<td>Commits sky, sunlight, fog, wind, cloud shadows and post-processing in one undoable action, without switching the project renderer.</td>
+</tr>
+</tbody></table>
+<h2>Every parameter</h2>
+<p>Most numeric fields are drafts until the relevant Apply button is clicked. Tool settings are read when you paint/place; imports and file-selection actions run immediately. Apply is not a disk save: use Ctrl+S / Cmd+S afterward. Check the action descriptions for exceptions.</p>
+<p>Ranges show minimum … maximum; step. Options show the available choices. Units and conditions are explained in the final column. Sliders and their numeric boxes edit the same value, not two separate parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Initial default</th>
+<th>Range / step / options</th>
+<th>Meaning and limits</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span id="control-sky_color"></span>Sky<br><a href="#group-environment-sky">Sky &amp; background</a></td>
+<td>72b5cd</td>
+<td>Color</td>
+<td>Zenith sky color or background color, depending on the sky mode.</td>
+</tr>
+<tr>
+<td><span id="control-sky_mode"></span>Sky mode<br><a href="#group-environment-sky">Sky &amp; background</a></td>
+<td>Procedural sky</td>
+<td>Procedural sky, Background color / sky model</td>
+<td>Procedural sky generates a gradient sky. Background color / sky model provides a background color only; it does not create a cloud plane or model.</td>
+</tr>
+<tr>
+<td><span id="control-ambient_color"></span>Ambient light color<br><a href="#group-environment-ambient">Ambient fill</a></td>
+<td>0.86,0.91,0.76</td>
+<td>Color</td>
+<td>Color of ambient fill light, including otherwise shadowed areas.</td>
+</tr>
+<tr>
+<td><span id="control-horizon_color"></span>Horizon / fog color<br><a href="#group-environment-sky">Sky &amp; background</a></td>
+<td>e4e7d0</td>
+<td>Color</td>
+<td>Color used for the procedural horizon and distance fog, helping unify distant tones.</td>
+</tr>
+<tr>
+<td><span id="control-sun_color"></span>Sunlight<br><a href="#group-environment-sun">Sun &amp; shadows</a></td>
+<td>fff2ca</td>
+<td>Color</td>
+<td>Color of the main directional light; does not select a sun image.</td>
+</tr>
+<tr>
+<td><span id="control-sun_energy"></span>Sunlight energy<br><a href="#group-environment-sun">Sun &amp; shadows</a></td>
+<td>0.85</td>
+<td>0 … 8; 0.01</td>
+<td>Main sunlight energy; excessive values can wash out highlights and pale textures.</td>
+</tr>
+<tr>
+<td><span id="control-sun_yaw"></span>Sun azimuth<br><a href="#group-environment-sun">Sun &amp; shadows</a></td>
+<td>-35</td>
+<td>-180 … 180; 0.01</td>
+<td>Sun azimuth around the world&#39;s vertical axis in degrees, controlling shadow direction.</td>
+</tr>
+<tr>
+<td><span id="control-sun_elevation"></span>Sun elevation<br><a href="#group-environment-sun">Sun &amp; shadows</a></td>
+<td>48</td>
+<td>0 … 90; 0.01</td>
+<td>Sun elevation above the horizon in degrees; lower angles generally produce longer shadows.</td>
+</tr>
+<tr>
+<td><span id="control-shadows"></span>Cast shadows<br><a href="#group-environment-sun">Sun &amp; shadows</a></td>
+<td>On / 开</td>
+<td>—</td>
+<td>Enables sunlight shadows; individual objects must also permit shadow casting.</td>
+</tr>
+<tr>
+<td><span id="control-ambient_energy"></span>Ambient light energy<br><a href="#group-environment-ambient">Ambient fill</a></td>
+<td>0.35</td>
+<td>0 … 1; 0.01</td>
+<td>Ambient fill intensity; increasing it brightens shaded areas but reduces lighting contrast.</td>
+</tr>
+<tr>
+<td><span id="control-wind_strength"></span>Plant wind strength<br><a href="#group-environment-wind">Wind &amp; cloud shadows</a></td>
+<td>0.5</td>
+<td>0 … 3; 0.01</td>
+<td>Procedural wind strength for plugin plant materials; arbitrary imported materials may not support it.</td>
+</tr>
+<tr>
+<td><span id="control-cloud_shadows"></span>Cloud shadow strength<br><a href="#group-environment-wind">Wind &amp; cloud shadows</a></td>
+<td>0.18</td>
+<td>0 … 1; 0.01</td>
+<td>Procedural cloud-shadow strength in plugin materials; does not automatically load a game&#39;s cloud-shadow PNG.</td>
+</tr>
+<tr>
+<td><span id="control-fog_enabled"></span>Distance fog<br><a href="#group-environment-fog">Distance fog</a></td>
+<td>On / 开</td>
+<td>—</td>
+<td>Enables ordinary distance fog, not volumetric fog.</td>
+</tr>
+<tr>
+<td><span id="control-fog_density"></span>Fog density<br><a href="#group-environment-fog">Distance fog</a></td>
+<td>0.001</td>
+<td>0 … 0.1; 0.001</td>
+<td>Distance-fog density; higher values obscure distant objects sooner and can wash out the entire image.</td>
+</tr>
+<tr>
+<td><span id="control-saturation"></span>Saturation<br><a href="#group-environment-color">Color adjustments</a></td>
+<td>1.05</td>
+<td>0.2 … 2; 0.01</td>
+<td>Color saturation, with 1 neutral. Editor and presentation paths can differ; judge the final look in Preview.</td>
+</tr>
+<tr>
+<td><span id="control-contrast"></span>Contrast<br><a href="#group-environment-color">Color adjustments</a></td>
+<td>1.04</td>
+<td>0.2 … 2; 0.01</td>
+<td>Color contrast, with 1 neutral; higher values increase tonal separation.</td>
+</tr>
+<tr>
+<td><span id="control-depth_blur"></span>Far depth of field<br><a href="#group-environment-dof">Real depth of field</a></td>
+<td>0</td>
+<td>0 … 1; 0.01</td>
+<td>Depth-based far-field blur strength; disabled in Compatibility, with an available path in Forward+ / Mobile.</td>
+</tr>
+<tr>
+<td><span id="control-presentation_enabled"></span>Presentation effects (game / preview only)<br><a href="#group-environment-post">Presentation effects</a></td>
+<td>Off / 关</td>
+<td>—</td>
+<td>Enables presentation post-processing in game/Preview without applying the final-film filter to the native editing viewport.</td>
+</tr>
+<tr>
+<td><span id="control-vignette"></span>Vignette<br><a href="#group-environment-post">Presentation effects</a></td>
+<td>0.36</td>
+<td>0 … 1; 0.01</td>
+<td>Edge-darkening strength in the presentation pass; requires presentation post-processing.</td>
+</tr>
+<tr>
+<td><span id="control-zone_blur"></span>Screen-zone blur (not depth of field)<br><a href="#group-environment-post">Presentation effects</a></td>
+<td>0</td>
+<td>0 … 2; 0.01</td>
+<td>Blur based on screen zones, not object distance; available in Compatibility, but not a substitute for actual depth of field.</td>
+</tr>
+</tbody></table>
+<h2>Recommended sequence and pitfalls</h2>
+<p>Start with procedural sky and sunlight; add fog and post-processing after framing. A cloudy PNG requires an imported plane and native Inspector placement/unshaded material; there is no one-click sky-model generator. These screenshots use Compatibility: disabled depth-of-field controls are expected, not a broken plugin.</p>
+<p>Use the shared toolbar reference for saving, stopping tools and previews. This workflow uses the dock, thumbnails, brush and native Inspector; you do not need to write GDScript to author the scene.</p>
+<p>To disable wind for one brazier using Assets → Asset wind sway=0 → Apply. Plant wind strength here affects the whole stage. Category names do not enable or disable wind. See the <a href="assets.html#control-asset_wind">brazier example</a>.</p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>

@@ -1,0 +1,315 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第三部分 · 地形 · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">跳到正文</a><details class="manual-sidebar" open><summary>目录 · Jeff Studio 场景</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio 场景<span class="manual-version">用户说明书 · 0.4.6</span></a><nav aria-label="说明书目录"><section class="nav-group"><h2 class="nav-group-title">开始使用</h2><a class="nav-link" href="../index.html">说明书首页</a><a class="nav-link" href="../quick_start.html">01 安装插件</a><a class="nav-link" href="../shared_library.html">02 共享素材库</a><a class="nav-link" href="../history.html">03 案例与历史资源</a></section><section class="nav-group"><h2 class="nav-group-title">功能指南</h2><a class="nav-link" href="toolbar.html">界面与保存</a><a class="nav-link" href="terrain.html" aria-current="page">地形制作</a><a class="nav-link" href="generation.html">一键生成</a><a class="nav-link" href="assets.html">素材与实例编辑</a><a class="nav-link" href="scatter.html">铺设与道路</a><a class="nav-link" href="character.html">角色</a><a class="nav-link" href="camera.html">镜头</a><a class="nav-link" href="environment.html">环境</a><a class="nav-link" href="music.html">音乐</a><a class="nav-link" href="preview.html">场景预览</a></section><section class="nav-group"><h2 class="nav-group-title">参考资料</h2><a class="nav-link" href="../appendices/inventory.html">资源清单</a><a class="nav-link" href="../appendices/scenes.html">场景入口</a><a class="nav-link" href="../appendices/music_sources.html">音乐来源</a></section></nav><a class="language-switch" lang="en" href="../../en/reference/terrain.html">English Manual ↗</a></div></details><main class="manual-content" id="manual-content"><h1>第三部分 · 地形</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub 公开版说明：</strong>下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。<a href="../../DISTRIBUTION.md">查看分发说明</a></p></aside>
+<p><strong>设置地图规格 → 选择地表方案 → 右侧预览 → 底部应用。</strong> 已有地形可直接雕刻和绘制，不必重新创建。</p>
+<h2>地形制作引导</h2>
+<p>地形页最上方显示实时地形预览，显示新地图草稿或当前地形与未应用地表。<strong>地图规格…</strong> 打开设置。此处直接看地形／草稿预览；需要运行场景时，从 <strong>镜头 → 预览当前场景</strong> 进入。</p>
+<p>右侧最下方的淡金色应用框固定在滚动区外，浅黄色按钮突出主要动作：新地图草稿显示 <strong>应用：创建地图</strong>，已有地形显示 <strong>应用地表设置</strong>。预览使用简化网格；实际创建采用所选采样点数。雕刻和绘制直接修改场景；应用按钮只提交新地图或地表草稿，保存仍用 Cmd+S / Ctrl+S。</p>
+<h2>可折叠功能分组</h2>
+<p>点击标题展开／收起；★为首次默认展开，之后记住本工程选择。<strong>全部展开／全部收起</strong>只影响当前页。Tab 聚焦标题，Enter/Space 切换，左/右键收起或展开。折叠保留草稿与活动工具，不应用、不保存。</p>
+<table>
+<thead>
+<tr>
+<th>分组</th>
+<th>生效方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="#group-terrain-template">新建地图</a></td>
+<td>设置规格和地表，在侧栏底部点击“应用：创建地图”。</td>
+</tr>
+<tr>
+<td>★ <a href="#group-terrain-brush">地形雕刻</a></td>
+<td>在原生 3D 视口按住左键直接修改高度。</td>
+</tr>
+<tr>
+<td><a href="#group-terrain-layers">地表层与绘制</a></td>
+<td>选纹理进入草稿；应用后绘制各层占比。</td>
+</tr>
+<tr>
+<td><a href="#group-terrain-conform">贴地维护</a></td>
+<td>雕刻后自动或手动更新关联植物和道路。</td>
+</tr>
+<tr>
+<td><a href="#group-terrain-world">地形制作引导</a></td>
+<td>新地图草稿／当前地形预览；地图规格入口。</td>
+</tr>
+</tbody></table>
+<div class="ui-gallery">
+<span id="group-terrain-world"></span>
+<section id="group-terrain-template"><strong>新建地图</strong></section>
+<section id="group-terrain-brush"><strong>地形雕刻</strong></section>
+<section id="group-terrain-layers"><strong>地表层与绘制</strong></section>
+<section id="group-terrain-conform"><strong>贴地维护</strong></section>
+<section><strong></strong></section>
+</div>
+
+<h2>1. 创建地图</h2>
+<p>顶部与地形页的 <strong>新建地图…</strong> 打开同一个窗口。默认 <strong>自由地图、64 米、129 个采样点/边</strong>，采样间距 <strong>0.5 米</strong>。</p>
+<p>64 米表示 <strong>X、Z 两边各 64 米</strong>，面积为 64×64 平方米。高度采样是记录高低的网格点，不是高度上限；129 表示每边 129 点，总计 16,641 点。<strong>点间距=边长÷(点数−1)</strong>。</p>
+<p>尺寸和点数都可选 <strong>自定义…</strong>：边长 1–4096 米、步长 0.5 米；每边点数 3–513、整数。例如 75.5 米 / 100 点，间距约 0.763 米。点越密，细小坡度越细腻，内存和编辑成本也越高。窗口底部点 <strong>使用纯色地表</strong>，或点 <strong>选择预设方案…</strong> 后在底部素材工作台单击方案。设置窗口随即隐藏，参数保留；查看右侧预览后，点侧栏底部 <strong>应用：创建地图</strong>。选方案不会创建场景，也不会重新弹出设置窗口。关闭设置窗口的 × 放弃本次新建草稿。</p>
+<p>创建后得到独立场景和外部地形资源，保存于 levels；同名文件自动加编号。每次创建使用独立资源，不缩放、重采样或清空现有地形。“另存场景”仍不会自动复制所有引用资源。</p>
+<h3>湖、河、海和火山</h3>
+<p><strong>地形形状</strong>提供平地、湖泊与湖岸、蜿蜒河谷、海岸沙滩、大海与小岛、火山口。右侧预览形状，创建时使用左侧设定的点数。立体预设使用自由地图；循环舞台使用平地，避免滚动物件与高度错位。</p>
+<ol>
+<li>选择地形形状。</li>
+<li>需要水面时保持 <strong>生成独立水面／熔岩</strong> 开启，再设置动画速度；速度 0 表示停止。</li>
+<li>点窗口底部 <strong>选择预设方案…</strong>，在工作台选择湖岸、河岸、海岸、小岛或火山方案；也可选择 <strong>使用纯色地表</strong>。确认右侧预览，点击侧栏底部 <strong>应用：创建地图</strong>。没有共享库也能选择内置预设或使用纯色创建。</li>
+<li>创建后继续雕刻、绘制。在场景树选择 <strong>Water / Lava</strong>，通过 Inspector 的 Position Y 改水位、Extent 改覆盖尺寸、Animation Speed 改速度、Water Color / Lava Color 改颜色。雕刻不会自动改变水位。</li>
+</ol>
+<p>水面和熔岩仅提供动画外观，无流体、游泳、浮力或伤害逻辑。水面没有碰撞，角色仍站在地形上；游戏需要游泳或熔岩伤害时须另加逻辑。</p>
+<div class="landform-gallery">
+<section><strong>湖泊与湖岸</strong></section>
+<section><strong>蜿蜒河谷</strong></section>
+<section><strong>海岸沙滩</strong></section>
+<section><strong>大海与小岛</strong></section>
+<section><strong>火山口</strong></section>
+</div>
+
+<h2>2. 雕刻高度</h2>
+<p><strong>制作过程中可以直接修改已有地形，不必再次新建地图。</strong> 在场景树选中包含地形的 HD2DStage，或其中的 HD2DTerrain，再使用雕刻工具或地表绘制。原生网格地板（如案例05）不是可雕刻的高度地形。</p>
+<p>地形页上方的 <strong>只显示地形（临时）</strong> 可隐藏当前场景的建筑、角色、植被、道路、水面／熔岩和场景界面，保留地形、灯光与笔刷。新出现的物件也会隐藏。取消勾选、离开地形页、切换场景或关闭插件会恢复；原本隐藏的物件仍隐藏。这只改变编辑视图，保存、运行及隔离测试仍显示正常场景，不需要点击应用按钮。</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>逻辑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>升高／降低</td>
+<td>按每秒强度增减高度，中心强、边缘弱。</td>
+</tr>
+<tr>
+<td>平滑</td>
+<td>缓和相邻高度差，不把整块地形清零。</td>
+</tr>
+<tr>
+<td>平台</td>
+<td>逐渐趋近目标高度；填入数值后仍须使用工具。</td>
+</tr>
+<tr>
+<td>坡道</td>
+<td>从按下处已有高度连接至拖动终点的目标高度，形成连续坡面；无拖动方向时不生成坡道。</td>
+</tr>
+</tbody></table>
+<p>升降、平滑、平台和绘制支持 <strong>按住不动持续生效</strong>。强度按时间累计；松开、Esc 或窗口失焦结束本笔，一笔一次撤销。雕刻和绘制分别记住半径、强度。只有平台／坡道显示目标高度。</p>
+<p>笔刷命中当前地形，不被布景物件截获。请在原生 3D 编辑区操作，隔离预览里不能绘制。地形保持原点、缩放 1 便于按米调整。</p>
+<h2>3. 内置地表在哪里选</h2>
+<p>主入口：<strong>地形 → 地表层与绘制 → 选择预设纹理…／选择整套预设…</strong>，或 <strong>素材工作台 → 地表纹理</strong>。</p>
+<p>0.4.6 第一包已内置 <strong>35 张原创 512×512 地表纹理、14 套方案</strong>，无需安装或连接共享素材库。轻量原图约 18.1 MiB；加缩略图与索引约 19.6 MiB。使用最近邻缩小以保留硬边像素；平铺周期和稳定标识保持不变。原 1024×1024 文件仍在共享库。</p>
+<p>浏览只读取索引及当前页缩略图，不会首次启动就导入全部原图。选中纹理或方案后，只将所需图片准备到当前工程的 <code>hd2d_imports/terrain</code>；再次选择相同内容会复用。保存场景时保留该目录，运行不依赖外部共享库。</p>
+<p>工作台的 <strong>地表来源</strong> 默认是 <strong>内置轻量 · 512×512</strong>；需要原尺寸时，在顶部 <strong>位置…</strong> 连接共享库，再选择 <strong>共享原图 / 扩展 · 1024×1024</strong>。两种来源分开浏览，切换来源不会自动替换已应用纹理。外部库不可用时，可切回内置预设继续使用。</p>
+<p><img src="../../images/046_builtin_surfaces_zh.png" alt="0.4.6 内置地表方案，无需共享库"></p>
+<ol>
+<li>选择单张纹理或整套方案，按场景、搜索与分页浏览；单层入口会提示正在修改第几层。</li>
+<li>单击条目会准备资源并立即选入草稿，同时更新预览。查看原图、3×3 重复铺贴和独立地表；<strong>放大原图…</strong> 打开大图。切换 <strong>柔和光照预览／原色预览（无光照）</strong> 可区分纹理本色与光照影响，不改变场景灯光。</li>
+<li>无需再次点击“使用”或“取消选择”。卡片显示“第 N 层 · 实际纹理名称”、缩略图和“未应用”。</li>
+<li>调整所有层共用重复周期，<strong>数值越大，图案越大</strong>。点击右侧最下方 <strong>应用地表设置</strong> 一次提交；<strong>还原未应用修改</strong> 放弃草稿。</li>
+<li>点击层卡片，再点 <strong>绘制第 N 层</strong>。有草稿时先应用或还原。换纹理保留高度和已绘制分布。</li>
+</ol>
+<p>浏览只读索引与当前页缩略图；实际预览才复制并导入单张或方案所需张数，相同内容按哈希复用。共享库未安装、旧包缺少地表目录或磁盘断开时会提示原因；本地图片、纯色与已准备完整的场景继续可用。不要把整个共享库放入工程扫描范围。</p>
+<p>35 张 512×512 原创 PNG 组成 14 套方案；湖岸等复用相应原图，按下列顺序填入纹理槽：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>纹理顺序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>草原</td>
+<td>短草、黄绿草、裸土、细砾土</td>
+</tr>
+<tr>
+<td>森林</td>
+<td>苔草、腐殖土、落叶、苔石</td>
+</tr>
+<tr>
+<td>农田</td>
+<td>田埂草、耕土、干土、泥径</td>
+</tr>
+<tr>
+<td>古镇</td>
+<td>青石板、夯土地、旧砖地、碎石路</td>
+</tr>
+<tr>
+<td>山地</td>
+<td>灰岩、风化岩、碎石、稀草土</td>
+</tr>
+<tr>
+<td>沙漠</td>
+<td>细沙、风纹沙、干裂土、砂岩</td>
+</tr>
+<tr>
+<td>雪地</td>
+<td>积雪、压实雪、冻土、霜岩</td>
+</tr>
+<tr>
+<td>湿地</td>
+<td>湿草、淤泥、湿砂、湿卵石</td>
+</tr>
+<tr>
+<td>火山</td>
+<td>玄武岩、火山灰、冷却熔岩（3 层）</td>
+</tr>
+<tr>
+<td>湖岸</td>
+<td>苔草、湿卵石、淤泥（3 层）</td>
+</tr>
+<tr>
+<td>河岸</td>
+<td>短草、湿砂、湿卵石（3 层）</td>
+</tr>
+<tr>
+<td>海岸</td>
+<td>稀草土、细沙、湿砂（3 层）</td>
+</tr>
+<tr>
+<td>小岛</td>
+<td>短草、细沙（2 层）</td>
+</tr>
+<tr>
+<td>纯积雪</td>
+<td>积雪（1 层）</td>
+</tr>
+</tbody></table>
+<p>使用 imagegen 重新制作纹理结构，参考整体像素武侠美术特征，没有复制、拼贴或仅调色提取原图。尚无原图商业使用及原文件再分发授权。新地表来源独立记录；<strong>既有提取模型、音乐、截图仍为本机学习素材，整个共享包不因此成为商用素材包。</strong></p>
+<h2>4. 绘制与维护</h2>
+<p>平地初始全部为第 1 层，应用该层图片后可立即看到底色；其他层需绘制才出现。这是场景制作常见的“地表纹理绘制”：多张纹理在同一地面按占比混合，层号不代表上下遮挡顺序。增加一层占比会减弱其他层；想擦回底色就绘制第 1 层。湖、河等形状预设已预先绘制高地、岸边和底部的分布。</p>
+<p>默认 4 层适合草、土、岩石、道路等组合，游戏没有统一的“四层上限”。复杂区域可点 <strong>增加地表层（最多 8 层）</strong>，应用后绘制新层。第五层起增加额外权重和纹理采样成本，无需加满。旧四层地形保留原材质路径。新建时使用 1–3 张方案就是 1–3 层；将较短方案应用到已有地图，只替换对应槽，保留其余层和已画分布，避免误删。</p>
+<p>雪地的积雪、压实雪与沙漠的细沙、风纹沙已重绘。先用原色预览检查，再看柔和光照；实际场景过白时检查环境亮度和灯光强度。</p>
+<p><strong>松开笔刷后自动贴地</strong> 默认开启，仅在高度变化后更新关联植物和道路，与雕刻共用一次撤销。纹理绘制不触发贴地。关闭自动后，<strong>重新贴地：植物与道路</strong> 是单独可撤销的操作。</p>
+<p>旧案例复合材质不自动转换。先点 <strong>预览四层地表</strong>，确认外观后点底部 <strong>应用地表设置</strong>。保留四槽、高度与权重，不烘焙旧材质；外观会变化，一次撤销可恢复。</p>
+<p>应用不是保存。最后按 <strong>Cmd+S / Ctrl+S</strong>，重开检查笔触。切换地形会清理未应用草稿；撤销重做后卡片同步实际状态。</p>
+<h2>逐项参数</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>初始默认</th>
+<th>范围 / 步长 / 选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span id="control-terrain_map_type"></span>地图类型</td>
+<td>自由地图 / Free map</td>
+<td>自由地图／循环舞台 · Free / Loop</td>
+<td>只用于新地图。</td>
+</tr>
+<tr>
+<td><span id="control-terrain_size"></span>地图每边长度（米）</td>
+<td>64</td>
+<td>64, 128, 256, 512；自定义 1–4096 / 0.5</td>
+<td>X、Z 每边长度，只用于新地图。</td>
+</tr>
+<tr>
+<td><span id="control-terrain_resolution"></span>每边高度点数</td>
+<td>129</td>
+<td>129, 257, 513；自定义 3–513 / 1</td>
+<td>间距=尺寸÷(采样数−1)。</td>
+</tr>
+<tr>
+<td><span id="control-terrain_only_view"></span>只显示地形（临时）</td>
+<td>关闭</td>
+<td>开／关</td>
+<td>临时编辑视图，不保存到场景。</td>
+</tr>
+<tr>
+<td><span id="control-radius"></span>雕刻半径（米）</td>
+<td>4</td>
+<td>0.2 … 64; 0.1</td>
+<td>半径，不是直径。</td>
+</tr>
+<tr>
+<td><span id="control-strength"></span>雕刻强度 / 秒</td>
+<td>3</td>
+<td>0.05 … 30; 0.05</td>
+<td>每秒高度增减或趋近速度。</td>
+</tr>
+<tr>
+<td><span id="control-level"></span>平台 / 坡道终点高度</td>
+<td>2</td>
+<td>-50 … 100; 0.1</td>
+<td>地形本地高度（米）。</td>
+</tr>
+<tr>
+<td><span id="control-layer"></span>当前层卡片</td>
+<td>1</td>
+<td>1–8</td>
+<td>实际名称；空层显示未设置（纯色）。</td>
+</tr>
+<tr>
+<td><span id="control-texture_scale"></span>纹理重复周期（米）</td>
+<td>2</td>
+<td>0.1 … 32; 0.1</td>
+<td>所有层共用，应用后生效。</td>
+</tr>
+<tr>
+<td><span id="control-paint_radius"></span>绘制半径（米）</td>
+<td>4</td>
+<td>0.2 … 64; 0.1</td>
+<td>与雕刻设置分别记忆。</td>
+</tr>
+<tr>
+<td><span id="control-paint_strength"></span>绘制强度 / 秒</td>
+<td>3</td>
+<td>0.05 … 30; 0.05</td>
+<td>改变占比，不改高度。</td>
+</tr>
+<tr>
+<td><span id="control-terrain_auto_conform"></span>松开笔刷后自动贴地</td>
+<td>开启 / On</td>
+<td>开／关 · On / Off</td>
+<td>本工程记忆。</td>
+</tr>
+</tbody></table>
+<p>本版提供固定地形形状和简单水面／熔岩外观，不提供现有地形尺寸重采样、随机生成、洞穴、悬空地形、LOD 或流体模拟。先用 64 米 / 129 采样练习；大采样网格成本较高。循环舞台若沿滚动方向起伏，仍需检查布景与地面的吻合。</p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>

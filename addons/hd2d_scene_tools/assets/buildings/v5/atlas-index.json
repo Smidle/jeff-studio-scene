@@ -1,0 +1,48 @@
+{
+  "version": 5,
+  "grid": [
+    4,
+    4
+  ],
+  "rows": [
+    {
+      "style": "jiangnan",
+      "file": "jiangnan.png",
+      "sha256": "d0836b9b8cd68a324e012c8cc7e402bc0c06ba15c3ac6d562cc6feb77d605434",
+      "source": "Original imagegen artwork, 2026-09-20",
+      "method": "Original role atlas; runtime extracts independent tiles with isolated mipmaps."
+    },
+    {
+      "style": "forest",
+      "file": "forest.png",
+      "sha256": "26150c9e395823b25a5d2f74f8f56e9582ef4c3bb4d0d7ec627c9d48917ced7d",
+      "source": "Original imagegen artwork, 2026-09-20",
+      "method": "Original role atlas; runtime extracts independent tiles with isolated mipmaps."
+    },
+    {
+      "style": "desert",
+      "file": "desert.png",
+      "sha256": "f45c3c718b4f5469027c210c80b5c88f12bb4ca9414f24dabd3aaa2fcf688ef7",
+      "source": "Original imagegen artwork, 2026-09-20",
+      "method": "Original role atlas; runtime extracts independent tiles with isolated mipmaps."
+    }
+  ],
+  "roles": [
+    "roof",
+    "wood",
+    "wall",
+    "stone",
+    "trim",
+    "glass",
+    "cloth",
+    "metal",
+    "shadow",
+    "accent",
+    "door",
+    "window",
+    "roof_edge",
+    "wall_base",
+    "sign",
+    "shutter"
+  ]
+}

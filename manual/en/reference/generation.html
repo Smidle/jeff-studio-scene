@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>One-click Generation: From Style to Town · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">Skip to content</a><details class="manual-sidebar" open><summary>Contents · Jeff Studio Scene</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio Scene<span class="manual-version">USER MANUAL · 0.4.6</span></a><nav aria-label="Manual contents"><section class="nav-group"><h2 class="nav-group-title">Get started</h2><a class="nav-link" href="../index.html">Manual home</a><a class="nav-link" href="../quick_start.html">01 Install Plugin</a><a class="nav-link" href="../shared_library.html">02 Shared Library</a><a class="nav-link" href="../history.html">03 Cases & History</a></section><section class="nav-group"><h2 class="nav-group-title">Tools</h2><a class="nav-link" href="toolbar.html">Interface & Saving</a><a class="nav-link" href="terrain.html">Terrain</a><a class="nav-link" href="generation.html" aria-current="page">One-click Generation</a><a class="nav-link" href="assets.html">Assets & Instances</a><a class="nav-link" href="scatter.html">Scatter & Roads</a><a class="nav-link" href="character.html">Characters</a><a class="nav-link" href="camera.html">Camera</a><a class="nav-link" href="environment.html">Environment</a><a class="nav-link" href="music.html">Music</a><a class="nav-link" href="preview.html">Scene Preview</a></section><section class="nav-group"><h2 class="nav-group-title">Reference</h2><a class="nav-link" href="../appendices/inventory.html">Resource Inventory</a><a class="nav-link" href="../appendices/scenes.html">Scene Paths</a><a class="nav-link" href="../appendices/music_sources.html">Music Sources</a></section></nav><a class="language-switch" lang="zh" href="../../zh/reference/generation.html">中文说明书 ↗</a></div></details><main class="manual-content" id="manual-content"><h1>One-click Generation: From Style to Town</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub public edition:</strong> The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. <a href="../../DISTRIBUTION.md">Public distribution details</a></p></aside>
+<p>The 0.4.6 built-in generators need only the plugin. No shared library is required. Recipes retain parameters and seeds; applying saves actual meshes, materials and terrain inside your project.</p>
+<p><span id="group-generation-palette"></span></p>
+<h2>1. Choose a building style</h2>
+<p>Create a free map under <strong>Terrain → New Map</strong>. Start with a 128 m map and 129 height samples per side. Open <strong>One-click → Building Style</strong> and choose <strong>Built-in · Jiangnan / European / Desert Settlement</strong>. The three styles share 10 categories and 46 functional types; the automatic town pool uses settlement-appropriate entries.</p>
+<p>Position is chosen through the blueprint in the 3D viewport. The center selector and X/Z inputs have been removed. Apply, point to the location, rotate with Q / E, then left-click to confirm. Enable walls if desired. Older styles labelled Shared Library still require the historical optional library.</p>
+<p><span id="group-generation-preview"></span></p>
+<h2>2. Inspect the draft</h2>
+<p>Drag to rotate and use the wheel to zoom; neither action regenerates models. Settings refresh after a short debounce. Preparation shows progress and retains the previous image with Apply disabled. Rapid selections discard stale tasks; leaving the module or changing scenes cancels them. Road, spacing and direction edits reuse buildings; appearance changes update materials only. With a valid terrain target, the preview includes the proposed grading and paving without changing the scene. Without terrain it is a style illustration; Apply is disabled.</p>
+<p><span id="group-generation-layout"></span></p>
+<p><img src="../../images/046_generation_en.png" alt="0.4.6 · Built-in style, draft preview and fixed Apply, Compatibility"></p>
+<h2>3. Adjust the town</h2>
+<ul>
+<li>Choose a one-sided street, two-sided street or concentric layout. Concentric layouts include one to three ring roads and two or four connecting streets, linked to building entrances, the center plaza and gates. Reduce the count or building size, or use larger terrain when space is insufficient.</li>
+<li>Choose a central plaza or building. The central building counts toward the 24-building limit.</li>
+<li>Open <strong>Layout &amp; Custom Buildings → Building Types to Generate</strong> below the layout parameters. It starts collapsed and summarizes the selected count. Choose eligible types without percentage inputs. New classified towns use constrained per-type shapes. Refine an individual building in the workbench; legacy and custom palettes retain their existing controls.</li>
+<li>Layout, shape, detail and appearance seeds are separate. The Original, Elegant, Warm and Weathered looks preserve the geometry and placement.</li>
+<li>Local grading creates individual foundations with blended slopes. The height limit bounds terrain adjustment; move the town or edit the terrain when it is exceeded.</li>
+<li>Matching ground adds the selected style’s base tile only when the terrain has no image textures; existing texture slots remain intact.</li>
+<li>Paving can use an automatically allocated empty surface layer, a selected existing layer or a fitted pixel mesh. When the terrain sample spacing exceeds half the narrowest road width, Auto explicitly reports a switch to a fitted mesh to keep narrow paths and rings continuous. The mesh merges intersections and plaza paving. Sufficiently fine terrain still uses painted weights. With all eight layers full, choose an existing layer or mesh paving; existing textures are never overwritten.</li>
+</ul>
+<p><img src="../../images/046_radial_roads.png" alt="0.4.6 · Ring roads, plaza and entrance paths, Compatibility"></p>
+<h2>4. Apply and save</h2>
+<p>Click the fixed gold <strong>Apply to Scene (New Town)</strong> button to enter <strong>town blueprint placement</strong> in the 3D viewport. This does not yet create scene objects or change the terrain.</p>
+<ol>
+<li>Move the pointer over the current terrain to position the blueprint.</li>
+<li>Press <strong>Q / E</strong> to rotate the entire town, roads and walls by <strong>15°</strong> per press.</li>
+<li>Blue means the town can be placed. Red indicates a boundary, overlap or grading problem; the footer explains the cause. A brief checking state appears while moving.</li>
+<li><strong>Left-click to confirm</strong> and create the town with its grading and paving. <strong>Esc cancels</strong> without terrain changes or leftover objects. Changing module, scene or target, or losing window focus, also exits placement.</li>
+</ol>
+<p>Village contains selectable buildings and walls. Painted roads become terrain weights; mesh paving becomes a saved node. Confirmation exits placement. One Undo restores the town, terrain, asset registration and associated grounding changes. The editor-only blueprint is never saved in the scene.</p>
+<p><img src="../../images/046_town_blueprint.png" alt="0.4.6 · Town blueprint in the actual test scene, Compatibility"></p>
+<p><img src="../../images/046_town_placement_en.png" alt="0.4.6 · Placement controls in the native dock, Compatibility"></p>
+<p><strong>Apply to Selected…</strong> regenerates the existing town using its loaded and adjusted parameters; it does not start new-town placement.</p>
+<p>Select a Village or its building and use <strong>Read Selected Village</strong> to continue. <strong>Apply to Selected…</strong> explains the replacement scope. Later manual edits overlapping the original grading stop replacement instead of being overwritten.</p>
+<p>Save with Ctrl+S / Cmd+S. Reopening never regenerates the town automatically. Prepared scenes run offline. Recipes retain generator/preset versions, parameters and seeds; identical versions and inputs reproduce the same structure. Saved meshes do not depend on editor caches.</p>
+<h2>Limits</h2>
+<p>Buildings are exteriors without rooms. Generation does not cross water, create bridges or edit partitioned world maps. Existing objects are retained; move the town when roads or foundations conflict. External shared assets retain their original provenance and usage labels.</p>
+<h2>Revised buildings and existing towns</h2>
+<p>See the <a href="assets.html#builtin-buildings">nine revised House, General Store and Inn designs</a> for actual renders. New buildings use v5 with original style atlases; v1–v4 retain their versioned reading and reproduction paths.</p>
+<p><code>hd2d_generated</code> contains applied project resources, not disposable caches. Back it up with your scenes; clearing <code>.godot</code> does not remove it.</p>
+<h2>Make an individual building</h2>
+<p>Open <strong>Asset Workbench → Built-in Buildings</strong>, choose a style, category and specific building, then edit dimensions, floors, roof, windows, appearance and seeds with a live preview. <strong>Place This Building</strong> starts blueprint placement. <strong>Add to Town Palette</strong> adds the draft to One-click’s custom building palette. See <a href="assets.html#builtin-buildings">building parameters and instance editing</a>.</p>
+<p>See <a href="assets.html#builtin-buildings">Built-in Buildings</a> for detailed samples, seeded variants and explicit legacy upgrades. New v5 towns store their type pool, internal weights and individual recipes. Reading an old town retains its saved weights and models despite the removed inputs. Explicitly selecting a built-in style again opts into the default mix and new generator.</p>
+<h2>Functional composition and two random levels</h2>
+<p><strong>Layout &amp; Custom Buildings → Building Types to Generate</strong> is initially collapsed with a selected-type count. Each <strong>Choose Types…</strong> menu controls its eligible types. Internal weights default to Residential 50, Hospitality 15, Commerce 15, Crafts 10 and Public Buildings 10. Empty categories are excluded; enabling Agriculture adds weight 10. Remaining weights are normalized; largest fractional remainders receive leftover slots. The exact requested count is retained: 20 buildings become 10 / 3 / 3 / 2 / 2.</p>
+<p>The default pool contains Common House, Farmhouse, Inn, Tavern, General Store, Apothecary, Forge, Carpenter and the style&#39;s civic hall. A central building comes from enabled public types and consumes one public quota and total slot. Defense, transport and exploration types are placed individually through the workbench. No valid public choice means a visible warning rather than an extra building.</p>
+<p>Layout Seed determines assignment and layout; Shape Seed determines structural variants; Detail Seed determines local features; Appearance Seed changes pixel textures. New towns use per-type shapes. Refine one building through Read Selected Building in the workbench. Old recipes and custom palettes retain their original controls.</p>
+<p><strong>Random Building</strong> changes structure and details; <strong>Randomize Details Only</strong> preserves body, windows, entrance and collisions; <strong>Reproduce from Seeds</strong> refills random parameters using the current seeds. Manual edits require saving the complete recipe. See <a href="assets.html#builtin-buildings">the building catalog</a>.</p>
+<p><img src="../../images/046_v5_types_en.png" alt="0.4.6 · Expanded building type choices"></p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>

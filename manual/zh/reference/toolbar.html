@@ -1,0 +1,141 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>界面、素材工作台与保存 · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">跳到正文</a><details class="manual-sidebar" open><summary>目录 · Jeff Studio 场景</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio 场景<span class="manual-version">用户说明书 · 0.4.6</span></a><nav aria-label="说明书目录"><section class="nav-group"><h2 class="nav-group-title">开始使用</h2><a class="nav-link" href="../index.html">说明书首页</a><a class="nav-link" href="../quick_start.html">01 安装插件</a><a class="nav-link" href="../shared_library.html">02 共享素材库</a><a class="nav-link" href="../history.html">03 案例与历史资源</a></section><section class="nav-group"><h2 class="nav-group-title">功能指南</h2><a class="nav-link" href="toolbar.html" aria-current="page">界面与保存</a><a class="nav-link" href="terrain.html">地形制作</a><a class="nav-link" href="generation.html">一键生成</a><a class="nav-link" href="assets.html">素材与实例编辑</a><a class="nav-link" href="scatter.html">铺设与道路</a><a class="nav-link" href="character.html">角色</a><a class="nav-link" href="camera.html">镜头</a><a class="nav-link" href="environment.html">环境</a><a class="nav-link" href="music.html">音乐</a><a class="nav-link" href="preview.html">场景预览</a></section><section class="nav-group"><h2 class="nav-group-title">参考资料</h2><a class="nav-link" href="../appendices/inventory.html">资源清单</a><a class="nav-link" href="../appendices/scenes.html">场景入口</a><a class="nav-link" href="../appendices/music_sources.html">音乐来源</a></section></nav><a class="language-switch" lang="en" href="../../en/reference/toolbar.html">English Manual ↗</a></div></details><main class="manual-content" id="manual-content"><h1>界面、素材工作台与保存</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub 公开版说明：</strong>下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。<a href="../../DISTRIBUTION.md">查看分发说明</a></p></aside>
+<p><strong>Jeff Studio 场景 0.4.6</strong>。左侧 Godot 场景树选择对象，中央 3D 视图观察、摆放和绘制，右侧插件栏调整参数。</p>
+<h2>顶部与右侧</h2>
+<p>3D 视图顶部保留 <strong>新建地图、素材工作台、当前工具</strong>。将鼠标停在当前工具上，可查看当前场景、地形尺寸与采样信息。<strong>Esc</strong> 退出笔刷或摆放。</p>
+<p>右侧品牌卡显示名称、版本、语言与主题。语言可选中文或 English；主题可选 <strong>青竹墨绿、曜石深灰、暖纸浅色</strong>。选择保存在本工程编辑器偏好中，不改变 Godot 自身语言或场景效果。火盆与共享库两侧的星星在面板可见时播放。</p>
+<p>共享库状态下有 <strong>位置…</strong> 和 <strong>重新检查</strong>。前者连接工程外的共享库文件夹，后者重新读取索引并刷新列表，完成后显示检查时间。完整路径和错误原因在悬停提示中；已在另一工程设置同一位置，无需重复设置。未连接也能制作纯色地形并使用本地素材。</p>
+<h2>八个模块与固定应用区</h2>
+<p>导航第一行是 <strong>地形 → 一键生成 → 素材 → 铺设</strong>，第二行是 <strong>角色 → 镜头 → 环境 → 音乐</strong>。导航框下面的操作框可以滚动。点击分组标题展开／收起；“全部展开／全部收起”只影响当前模块，选择会记住。</p>
+<p>地形、一键生成和镜头页的应用框固定在右侧底部，滚动参数、折叠分组或打开底部素材工作台时仍可操作。淡金色边框与浅黄色按钮突出主要动作；暖纸主题使用琥珀色。禁用按钮表示当前没有可提交的修改，或尚缺必要目标。其他模块在各自参数下方提供对应应用按钮。切换模块或折叠分组不会自动应用或保存。小镇蓝图摆放在切换模块时取消。</p>
+<ul>
+<li><strong>地形：</strong> 最上方“地形制作引导”显示当前地形或新地图草稿。新地图用“应用：创建地图”；已有地形的纹理草稿用“应用地表设置”。</li>
+<li><strong>一键生成：</strong> 选择风格与围墙即可预览，点击“应用到场景（新建小镇）”进入蓝图摆放：鼠标选位置，Q / E 旋转，左键确认，Esc 取消。</li>
+<li><strong>预览：</strong> 从“镜头 → 预览当前场景”主动打开。</li>
+</ul>
+<p>Tab 可聚焦模块或分组；模块用左右键切换，Home／End 到首尾。分组用 Enter／Space 切换，左／右键收起或展开。</p>
+<h2>素材工作台</h2>
+<p>点击顶部 <strong>素材工作台</strong> 打开底部面板，拖动上边缘调整高度。工作台跟随当前主题，包含三个入口：</p>
+<table>
+<thead>
+<tr>
+<th>入口</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>预设素材</td>
+<td>搜索、筛选、分页浏览；选中项准备完成后，在右侧预览并“摆放选中素材”</td>
+</tr>
+<tr>
+<td>我的素材</td>
+<td>浏览自己导入共享库的条目，操作与预设相同</td>
+</tr>
+<tr>
+<td>地表纹理</td>
+<td>选择单张或整套方案；点击缩略图即选入目标层或新地图草稿，再到右侧固定应用框提交</td>
+</tr>
+</tbody></table>
+<p>模型预览按住左键旋转。皮肤选择只影响后续摆放；已有物件使用“应用皮肤”及其范围选项。地表纹理不会加入可摆放物件列表。</p>
+<p>新建地图选择方案时，设置窗口隐藏并保留规格；选完后看右侧地形预览，再应用创建。选择过程中不生成场景。首次展开只读索引和当前页缩略图，首次选中某项才准备它的文件。</p>
+<h2>新地图包含什么</h2>
+<p><span id="new-free-template"></span></p>
+<p>顶部和“地形 → 新建地图”的 <strong>新建地图…</strong> 打开同一窗口。默认自由地图、每边 64 米、每边 129 个高度点。设置规格，选择纯色或预设，再点击侧栏底部“应用：创建地图”。详细步骤见<a href="terrain.html">地形</a>。</p>
+<table>
+<thead>
+<tr>
+<th>节点或文件</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HD2D_FreeWalk / HD2D_LoopStage</td>
+<td>舞台根节点，保存模式、素材库、音乐库与舞台参数</td>
+</tr>
+<tr>
+<td>Terrain</td>
+<td>可雕刻高度和纹理权重；生成地面与碰撞</td>
+</tr>
+<tr>
+<td>Scenery → Foliage</td>
+<td>布景和可编辑的植物散布记录</td>
+</tr>
+<tr>
+<td>Characters → Hero</td>
+<td>默认角色位置；在角色页选择预设或导入动画后显示人物</td>
+</tr>
+<tr>
+<td>CameraRig</td>
+<td>正式镜头与跟随设置；新自由地图默认 45° 正交</td>
+</tr>
+<tr>
+<td>levels 中的 .tscn 与对应 _terrain.res</td>
+<td>场景及独立地形数据；同名时生成新文件名</td>
+</tr>
+</tbody></table>
+<p>基础地图不包含建筑、花田或背景音乐。继续使用对应模块布置。循环舞台保留循环演出的镜头与运行行为。</p>
+<h2>原生 Inspector 与控制柄</h2>
+<p>选择 Stage、Terrain、Character、CameraRig 或 Road 后，Inspector 的“在 Jeff Studio 场景中编辑”可跳到插件对应位置。Transform 中 Position 是位置，Rotation 是角度，Scale 是倍率；也可拖动 Godot 移动、旋转和缩放控制柄。道路选中后可拖曲线点及切线。</p>
+<p>保持地形原点、Scale=1 有利于后续制作。生成的 Chunk 网格由地形数据重建，请用地形笔刷修改。植物擦除处理 Foliage 记录；普通单件在场景树中选择并删除。</p>
+<h2>应用、撤销、保存</h2>
+<ol>
+<li>修改参数通常先形成草稿；点击对应 <strong>应用</strong> 才提交。导入立即执行，地表选择先留在草稿。</li>
+<li>地形雕刻和绘制直接生效；从按下到松开是一笔，可用 <strong>Cmd+Z / Ctrl+Z</strong> 撤销。重做使用 Godot 编辑菜单。</li>
+<li><strong>Cmd+S / Ctrl+S</strong> 保存到磁盘。应用成功不等于已经保存。</li>
+<li>另存一个 .tscn 可能仍引用同一外部地形或其他资源。需要独立变体时，备份并复制相应资源，或在 Inspector 中设为独立资源后另存。</li>
+<li>预览中的行走、临时镜头和速度不会写回源场景。关闭预览后返回制作；改过正式参数时，重新打开预览查看结果。</li>
+</ol>
+<p>运行场景仍需要 addons 中的 runtime 与 shaders 文件。可停用编辑器插件，但请保留整个插件目录。</p>
+<h2>文件选择与操作提示</h2>
+<p>共享库位置和导入文件窗口使用 Godot 原生编辑器主题。返回、前进、上级目录和显示方式等按钮保留原生图标，不随插件主题换成空白按钮。插件自己的操作仍使用像素图标。</p>
+<p>共享库下方的信息栏保留“操作结果＋下一步建议”。例如创建地图后提示导入角色和植物，镜头应用后提示预览、保存。普通界面同步不会立即清除消息；下一次操作或切换场景会更新它。</p>
+<p>三套主题的固定应用区使用相同的位置与操作方式。下图分别为暖纸与曜石主题的实际镜头草稿：</p>
+<p>素材工作台另有 <strong>内置建筑</strong> 页，可直接预览、调整和摆放参数化建筑，无需共享库。</p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>

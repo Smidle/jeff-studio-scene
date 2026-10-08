@@ -1,0 +1,23 @@
+# Godot editor cache and local import files
+.godot/
+*.import
+
+# The supplied distribution.json explicitly excludes these local-study assets
+# from public distribution. Keep the originals locally, outside Git history.
+/addons/hd2d_scene_tools/assets/local_study_characters/
+
+# Local projects, generated content, and release archives
+/project.godot
+/hd2d_generated/
+/hd2d_imports/
+/dist/
+*.zip
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+__pycache__/

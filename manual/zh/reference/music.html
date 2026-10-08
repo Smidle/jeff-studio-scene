@@ -1,0 +1,233 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第三部分 · 音乐 · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">跳到正文</a><details class="manual-sidebar" open><summary>目录 · Jeff Studio 场景</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio 场景<span class="manual-version">用户说明书 · 0.4.6</span></a><nav aria-label="说明书目录"><section class="nav-group"><h2 class="nav-group-title">开始使用</h2><a class="nav-link" href="../index.html">说明书首页</a><a class="nav-link" href="../quick_start.html">01 安装插件</a><a class="nav-link" href="../shared_library.html">02 共享素材库</a><a class="nav-link" href="../history.html">03 案例与历史资源</a></section><section class="nav-group"><h2 class="nav-group-title">功能指南</h2><a class="nav-link" href="toolbar.html">界面与保存</a><a class="nav-link" href="terrain.html">地形制作</a><a class="nav-link" href="generation.html">一键生成</a><a class="nav-link" href="assets.html">素材与实例编辑</a><a class="nav-link" href="scatter.html">铺设与道路</a><a class="nav-link" href="character.html">角色</a><a class="nav-link" href="camera.html">镜头</a><a class="nav-link" href="environment.html">环境</a><a class="nav-link" href="music.html" aria-current="page">音乐</a><a class="nav-link" href="preview.html">场景预览</a></section><section class="nav-group"><h2 class="nav-group-title">参考资料</h2><a class="nav-link" href="../appendices/inventory.html">资源清单</a><a class="nav-link" href="../appendices/scenes.html">场景入口</a><a class="nav-link" href="../appendices/music_sources.html">音乐来源</a></section></nav><a class="language-switch" lang="en" href="../../en/reference/music.html">English Manual ↗</a></div></details><main class="manual-content" id="manual-content"><h1>第三部分 · 音乐</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub 公开版说明：</strong>下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。<a href="../../DISTRIBUTION.md">查看分发说明</a></p></aside>
+<p>导入后选曲，试听、调节、应用，再设为场景 BGM。列表选中与场景启用是两件事：♪ 标记才表示当前场景曲目。</p>
+<h2>可折叠功能分组</h2>
+<p>点击带边框的标题展开或收起。★为首次默认展开，之后记住本工程的选择。<strong>全部展开／全部收起</strong>只作用于当前页。可用Tab聚焦标题，Enter/Space切换，左/右键收起或展开。收起保留草稿和正在使用的工具／试听，不会应用或保存；跨组“应用”按钮保留在方框外。</p>
+<table>
+<thead>
+<tr>
+<th>分组</th>
+<th>包含功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>★ <a href="#group-music-import">音乐导入与曲库</a></td>
+<td>导入音乐、多曲库列表与搜索；选中不等于启用BGM。</td>
+</tr>
+<tr>
+<td><a href="#group-music-bgm">场景BGM管理</a></td>
+<td>设为BGM、移除条目、关闭BGM但保留曲库。</td>
+</tr>
+<tr>
+<td>★ <a href="#group-music-audition">试听与波形</a></td>
+<td>波形、试听/暂停/停止、进度跳转与时间状态；收起继续试听。</td>
+</tr>
+<tr>
+<td><a href="#group-music-identity">名称分类与来源</a></td>
+<td>修改曲目显示名、分类和来源用途；不修改音频文件名。</td>
+</tr>
+<tr>
+<td><a href="#group-music-playback">自动播放与循环</a></td>
+<td>运行自动播放、循环、是否随舞台暂停。</td>
+</tr>
+<tr>
+<td><a href="#group-music-volume">音量与淡入淡出</a></td>
+<td>音量dB、开始淡入秒数、主动停止淡出秒数。</td>
+</tr>
+<tr>
+<td><a href="#group-music-interval">循环区间</a></td>
+<td>循环起点与终点；首次从0播放，非零终点仅PCM WAV支持。</td>
+</tr>
+</tbody></table>
+<div class="ui-gallery">
+<section id="group-music-import"><strong>音乐导入与曲库</strong></section>
+<section id="group-music-bgm"><strong>场景BGM管理</strong></section>
+<section id="group-music-audition"><strong>试听与波形</strong></section>
+<section id="group-music-identity"><strong>名称分类与来源</strong></section>
+<section id="group-music-playback"><strong>自动播放与循环</strong></section>
+<section id="group-music-volume"><strong>音量与淡入淡出</strong></section>
+<section id="group-music-interval"><strong>循环区间</strong></section>
+</div>
+
+<h2>按钮与操作</h2>
+<table>
+<thead>
+<tr>
+<th>界面按钮</th>
+<th>作用 / 何时生效</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>＋ 导入音乐（可多选）</td>
+<td>导入 WAV/OGG Vorbis/MP3 到场景曲库，工程外文件会复制；编辑时不会自动播放。</td>
+</tr>
+<tr>
+<td>设为场景 BGM</td>
+<td>把选中曲目设为启用曲目（♪）。先应用参数，避免以为未提交草稿也已保存。</td>
+</tr>
+<tr>
+<td>移除条目</td>
+<td>移除选中曲库条目，可撤销，不删除音频文件。</td>
+</tr>
+<tr>
+<td>关闭场景 BGM（保留曲库）</td>
+<td>禁用当前场景音乐，保留全部曲目和设置。</td>
+</tr>
+<tr>
+<td>▶ 试听</td>
+<td>使用当前面板草稿从 0 秒播放；不是提交设置，也不代表最终循环已无缝。</td>
+</tr>
+<tr>
+<td>暂停 / 继续</td>
+<td>暂停或恢复当前试听，不改变场景自动播放设置。</td>
+</tr>
+<tr>
+<td>■ 停止</td>
+<td>按淡出时长停止试听；切换场景或关闭预览则直接停止。</td>
+</tr>
+<tr>
+<td>应用音乐参数（可撤销）</td>
+<td>验证曲目参数后提交一个可撤销操作。无效区间会拒绝提交，保留原配置；最后仍需保存场景。</td>
+</tr>
+</tbody></table>
+<h2>逐项参数</h2>
+<p>多数数值先留在面板草稿，点击对应“应用”才提交。笔刷参数在绘制时读取；导入和选择纹理等动作立即执行。应用不等于磁盘保存，最后按 Ctrl+S / Cmd+S。例外以各按钮说明为准。</p>
+<p>范围列中“最小值 … 最大值；步长”对应控件限制；下拉框列出可选值。单位和前提写在含义列。滑块与右侧数字框是同一个参数的两种输入方式。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>初始默认</th>
+<th>范围 / 步长 / 选项</th>
+<th>含义与限制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span id="control-music_autoplay"></span>运行 / 隔离测试时自动播放<br><a href="#group-music-playback">自动播放与循环</a></td>
+<td>On / 开</td>
+<td>—</td>
+<td>运行场景或打开隔离测试时播放启用的曲目；编辑时不自动播放。</td>
+</tr>
+<tr>
+<td><span id="control-music_loop"></span>循环播放<br><a href="#group-music-playback">自动播放与循环</a></td>
+<td>On / 开</td>
+<td>—</td>
+<td>到终点后回到循环起点；关闭则播放结束停止。不会自动修补旋律接缝。</td>
+</tr>
+<tr>
+<td><span id="control-music_pause_stage"></span>随舞台暂停（默认不勾选）<br><a href="#group-music-playback">自动播放与循环</a></td>
+<td>Off / 关</td>
+<td>—</td>
+<td>舞台背景暂停时音乐也暂停；默认关闭，所以暂停背景仍能听到音乐。</td>
+</tr>
+<tr>
+<td><span id="control-music_volume"></span>音量（dB，0 为原音量）<br><a href="#group-music-volume">音量与淡入淡出</a></td>
+<td>-18</td>
+<td>-60 … 0; 0.01</td>
+<td>播放增益，单位 dB；0 为原音量，负值衰减，不会改写音频文件。</td>
+</tr>
+<tr>
+<td><span id="control-music_fade_in"></span>开始淡入（秒）<br><a href="#group-music-volume">音量与淡入淡出</a></td>
+<td>1.5</td>
+<td>0 … 10; 0.1</td>
+<td>每次开始播放时由静音到目标音量的时间，单位秒；不是循环接缝交叉淡化。</td>
+</tr>
+<tr>
+<td><span id="control-music_fade_out"></span>试听停止淡出（秒）<br><a href="#group-music-volume">音量与淡入淡出</a></td>
+<td>0.8</td>
+<td>0 … 10; 0.1</td>
+<td>主动停止试听时的淡出时间；关闭预览或切换场景会立即停止，不等待淡出。</td>
+</tr>
+<tr>
+<td><span id="control-music_loop_start"></span>循环回到（秒）<br><a href="#group-music-interval">循环区间</a></td>
+<td>0</td>
+<td>0 … 7200; 0.01</td>
+<td>首次仍从 0 秒开始，之后每次循环回到此秒数；必须早于有效终点。</td>
+</tr>
+<tr>
+<td><span id="control-music_loop_end"></span>循环终点（0 = 文件结尾）<br><a href="#group-music-interval">循环区间</a></td>
+<td>0</td>
+<td>0 … 7200; 0.01</td>
+<td>0 表示文件末尾。非零自定义终点只支持 PCM WAV；OGG/MP3 使用文件末尾。</td>
+</tr>
+</tbody></table>
+<h2>其他可见控件</h2>
+<table>
+<thead>
+<tr>
+<th>控件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>音乐搜索与曲库</td>
+<td>按名称或分类筛选；选中只准备编辑，♪ 才是场景 BGM。</td>
+</tr>
+<tr>
+<td>抽样波形与进度条</td>
+<td>播放后点击波形或拖动进度条跳转。波形只是抽样概览，不是逐样本剪辑器。</td>
+</tr>
+<tr>
+<td>名称 / 分类</td>
+<td>填写显示名与分类后点应用；不会重命名磁盘文件。</td>
+</tr>
+<tr>
+<td>来源与用途说明</td>
+<td>随场景保存的自由文本，记录来源和使用限制；不会自动获取授权。</td>
+</tr>
+<tr>
+<td>曲目信息 / 播放状态</td>
+<td>只读显示路径、格式、长度、播放时间与状态；编辑器不自动播放。</td>
+</tr>
+</tbody></table>
+<h2>操作顺序与常见误区</h2>
+<p>每场景一个背景播放器，不随三段舞台复制三份。先应用，再设为 BGM，保存后重开检查；完整试听一圈，音乐接缝需用音频工具在插件外制作。本页没有多轨混音、自动节拍对齐、降噪、波形裁剪或广告插入功能。</p>
+<p>保存、退出笔刷和预览请看顶部工具栏说明。这里使用侧栏、缩略图、笔刷和原生 Inspector 完成布景，不要求用户编写 GDScript。</p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>

@@ -1,0 +1,686 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Assets and Scene Instance Editing · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">Skip to content</a><details class="manual-sidebar" open><summary>Contents · Jeff Studio Scene</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio Scene<span class="manual-version">USER MANUAL · 0.4.6</span></a><nav aria-label="Manual contents"><section class="nav-group"><h2 class="nav-group-title">Get started</h2><a class="nav-link" href="../index.html">Manual home</a><a class="nav-link" href="../quick_start.html">01 Install Plugin</a><a class="nav-link" href="../shared_library.html">02 Shared Library</a><a class="nav-link" href="../history.html">03 Cases & History</a></section><section class="nav-group"><h2 class="nav-group-title">Tools</h2><a class="nav-link" href="toolbar.html">Interface & Saving</a><a class="nav-link" href="terrain.html">Terrain</a><a class="nav-link" href="generation.html">One-click Generation</a><a class="nav-link" href="assets.html" aria-current="page">Assets & Instances</a><a class="nav-link" href="scatter.html">Scatter & Roads</a><a class="nav-link" href="character.html">Characters</a><a class="nav-link" href="camera.html">Camera</a><a class="nav-link" href="environment.html">Environment</a><a class="nav-link" href="music.html">Music</a><a class="nav-link" href="preview.html">Scene Preview</a></section><section class="nav-group"><h2 class="nav-group-title">Reference</h2><a class="nav-link" href="../appendices/inventory.html">Resource Inventory</a><a class="nav-link" href="../appendices/scenes.html">Scene Paths</a><a class="nav-link" href="../appendices/music_sources.html">Music Sources</a></section></nav><a class="language-switch" lang="zh" href="../../zh/reference/assets.html">中文说明书 ↗</a></div></details><main class="manual-content" id="manual-content"><h1>Assets and Scene Instance Editing</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub public edition:</strong> The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. <a href="../../DISTRIBUTION.md">Public distribution details</a></p></aside>
+<p><span id="builtin-buildings"></span></p>
+<h2>Built-in Buildings: choose a function, then its shape</h2>
+<p>Open <strong>Asset Workbench → Built-in Buildings</strong> and choose <strong>Building Style → Building Category → Building Type → Appearance</strong>. Jiangnan, European and Desert Settlement each support the 46 functional entries below without a shared library. Changing style or type loads a complete default design and live preview immediately.</p>
+<p>Jiangnan uses curved tiled roofs, timber frames and stone bases; European uses pitched roofs, timber/stone construction and suitable towers; Desert uses thick walls, arched openings, terraces and shade canopies. Shared structural skeletons carry distinct functional components: a forge has a furnace and chimney, an apothecary has medicine drawers, a mill has a wheel, and a dock has decking and supports.</p>
+<p><img src="../../images/046_v5_workbench_en.png" alt="0.4.6 · Categories, live preview and fixed actions"></p>
+<h3>Building catalog</h3>
+<p>Cultural names vary while functional IDs remain stable. Differing names below are listed in Jiangnan / European / Desert order.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Building types</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Residential</td>
+<td>Home; Farmhouse; Merchant Residence; Manor</td>
+</tr>
+<tr>
+<td>Commerce</td>
+<td>General Store; Weapon Shop; Armor Shop; Apothecary; Market Stall</td>
+</tr>
+<tr>
+<td>Hospitality</td>
+<td>Inn; Tavern; Tea House / Tea Room / Desert Tea House; Posthouse / Coaching Inn / Caravanserai</td>
+</tr>
+<tr>
+<td>Crafts</td>
+<td>Smithy; Carpentry Workshop; Tailor Workshop; Elixir Workshop / Alchemy Workshop / Potion Workshop</td>
+</tr>
+<tr>
+<td>Agriculture &amp; Storage</td>
+<td>Granary; Mill; Stable; Animal Shed; Greenhouse</td>
+</tr>
+<tr>
+<td>Administration</td>
+<td>Magistrate Office / Administrative Residence / Governor Palace; Council Hall / Town Hall / Council House; Guild Hall; Escort Guild / Mercenary Lodge / Caravan Guardhouse; Sect Great Hall / Knight Order Hall / Tribal Great Hall</td>
+</tr>
+<tr>
+<td>Religion &amp; Culture</td>
+<td>Temple / Monastery / Prayer Courtyard; Ancestral Hall / Memorial Hall / Ancestral Sanctuary; Sacred Great Hall / Cathedral / Domed Sanctuary; Scholars Academy / Academy / School; Book Pavilion / Library / House of Books</td>
+</tr>
+<tr>
+<td>Defense</td>
+<td>City Gate; City Wall; Watchtower; Barracks; Fortress</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>Dock; Boathouse; Carriage Station / Coach Station / Caravan Station; Mountain Pass</td>
+</tr>
+<tr>
+<td>Exploration</td>
+<td>Abandoned House; Ruins; Tomb Entrance; Mine Entrance; Mystic Tower / Mage Tower / Astronomer Tower</td>
+</tr>
+</tbody></table>
+<h3>Two random levels and independent appearance</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Changes</th>
+<th>Preserves</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Random Building</td>
+<td>New shape/detail seeds; constrained dimensions, floors, roof and porch</td>
+<td>Style, type and mandatory functional components</td>
+</tr>
+<tr>
+<td>Randomize Details Only</td>
+<td>Window decoration, signs and local detail combinations</td>
+<td>Body dimensions, entrance, window columns and collisions</td>
+</tr>
+<tr>
+<td>Reproduce from Seeds</td>
+<td>Refills structural parameters from the shape seed, using the current detail/appearance seeds</td>
+<td>Identical version, style, type and seeds reproduce the same combination</td>
+</tr>
+<tr>
+<td>Original / Elegant / Warm / Weathered</td>
+<td>Semantic material slots for roof, wall, timber and stone</td>
+<td>Geometry, layout and collision</td>
+</tr>
+</tbody></table>
+<p>Save the complete scene and generated resources after manual edits: seeds alone do not preserve those changes. <strong>Shape Seed, Detail Seed and Appearance Seed</strong> are independent. Reproduce from Seeds refills structural parameters, so it replaces manual shape edits in the draft.</p>
+<p>Houses expose dimensions, 1–3 floors, roofs, pitch, eaves and window columns. Stalls expose canopy height and shelf bays; walls expose length, thickness, height and segmentation; docks expose platform width, pier length, deck height and supports. Inapplicable controls are hidden. Window columns count actual windows on each main wall and floor, excluding doors and dormers; odd front counts put one extra on the left. Narrow walls compress complete frames.</p>
+<p>Three original style atlases organize roofing, timber, walls, stone bases, doors, windows and decoration. Fine tile joints, grain, lower-wall bands and wear are textures; eaves, beams and frames retain geometry. Repeating materials target about 40 pixels per metre; component panels fit their door/window dimensions. Godot cuts separate role tiles and builds independent mip chains to prevent adjacent atlas cells bleeding. Nearest sampling is used nearby and mipmaps at distance. Appearance Seed adjusts material tones without changing structure. These remain lit 3D models; screen-space silhouette edges are not automatically pixelated.</p>
+<h3>Place, apply and save</h3>
+<ol>
+<li>Drag the preview to inspect it. Dimensions describe the main body; eaves, steps and wings extend the actual footprint. Public buildings retain preset body scaling.</li>
+<li>The gold <strong>Place This Building</strong> opens a blueprint. Point to terrain, Q / E rotate 15°, left-click confirms, Esc cancels. Static collision is enabled; individual placement does not grade slopes, so prepare a foundation first.</li>
+<li>Select a placed building or its internal mesh, <strong>Read Selected Building</strong>, edit, then <strong>Apply to Selected Building</strong>. Transform and instance settings remain intact. Undo / Redo is a single action.</li>
+<li><strong>Add to Town Palette</strong> creates a custom palette entry. Automatic functional quotas are described under <a href="generation.html">One-click</a>.</li>
+<li>Save with Ctrl+S / Cmd+S. Back up <code>hd2d_generated/buildings</code> with your scene: it holds meshes, materials and complete recipes. Runtime needs neither external libraries nor regeneration.</li>
+</ol>
+<p>New recipes use generator <strong>v5</strong>, while the plugin stays 0.4.6. Reading v1–v4 preserves their geometry and IDs; selecting a category/style creates a v5 draft, and only Apply changes the instance. The legacy v2 window correction path remains compatible. The internal <code>forest</code> identifier is retained; its display name is now <strong>European</strong>.</p>
+<p>These are exterior models with basic collision, without interiors, commerce, production, underground caves or transport systems. Gates and open shelters retain entrances; docks have solid decks. Tomb and mine entrances have closed rear walls and do not lead underground.</p>
+<h3>Nine revised HD2D designs</h3>
+<p>This revision individually refines the House, General Store and Inn in all three styles. Other functional types retain their defining components and reuse applicable new materials; they were not individually polished in this pass. Shared-library models informed proportions and material layering only. These generated models and original atlases work independently inside the plugin.</p>
+<table>
+<thead>
+<tr>
+<th>Style</th>
+<th>House</th>
+<th>General Store</th>
+<th>Inn</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Jiangnan</td>
+<td><img src="../../images/046_v5_jiangnan_house_front.png" alt="Jiangnan / house"></td>
+<td><img src="../../images/046_v5_jiangnan_general_store_front.png" alt="Jiangnan / general_store"></td>
+<td><img src="../../images/046_v5_jiangnan_inn_front.png" alt="Jiangnan / inn"></td>
+</tr>
+<tr>
+<td>European</td>
+<td><img src="../../images/046_v5_forest_house_front.png" alt="European / house"></td>
+<td><img src="../../images/046_v5_forest_general_store_front.png" alt="European / general_store"></td>
+<td><img src="../../images/046_v5_forest_inn_front.png" alt="European / inn"></td>
+</tr>
+<tr>
+<td>Desert</td>
+<td><img src="../../images/046_v5_desert_house_front.png" alt="Desert / house"></td>
+<td><img src="../../images/046_v5_desert_general_store_front.png" alt="Desert / general_store"></td>
+<td><img src="../../images/046_v5_desert_inn_front.png" alt="Desert / inn"></td>
+</tr>
+</tbody></table>
+<p>Actual Godot 4.7.2 / Compatibility captures with the same lighting, orthographic angle and display dimensions, framed to each model’s bounds. Jiangnan features curved eaves, stone bases and galleries; European adds timber/stone construction, shop canopies and guest floors; Desert uses thick walls, terraces, niches and recessed upper floors.</p>
+<h2>External assets and scene instances</h2>
+<p>The workbench selects assets for repeated placement. The right Assets module edits an explicitly selected scene instance.</p>
+<ol>
+<li>Choose an asset, click the gold Place Selected Asset button and click the terrain.</li>
+<li>Use Edit Last Placed Object, or press Esc and select the object in the scene tree or viewport.</li>
+<li>Adjust applicable settings and Apply Asset Settings to change only this instance.</li>
+<li>To synchronize the same asset throughout the scene, use Apply to All Matching Scene Assets and review the scope. Only changed fields are copied.</li>
+</ol>
+<p>Selecting an asset thumbnail alone does not identify an instance. Use Choose Scene Instance… to choose one. Clicking the current instance&#39;s asset preserves its target and draft. Model instances hide image-only atlas, crop and card controls.</p>
+<p>Library thumbnails are reused in the right panel and cached locally. If the cache is removed, previews are regenerated from prepared project resources. Replacing the placed object is unnecessary.</p>
+<p>Use the bottom Asset Workbench to select shared assets, and the right-hand Assets module to edit scene objects.</p>
+<p><strong>Surface textures are selected in Terrain:</strong> the shared package also contains 35 original textures and 14 schemes. Open the bottom terrain workspace from <a href="terrain.html">Terrain → Surface layers &amp; painting</a>. It shares the object-library path without registering terrain as placeable entries. Keep terrain-index.json beside terrain when upgrading.</p>
+<p>The library provides original appearances for models and image cards, marked for local study. Available skins are listed on each entry.</p>
+<p><strong>Place first, then select a scene object to edit its parameters.</strong> The prominent <strong>Preset Asset Library</strong> opens the bottom Asset Workbench for image cards and solid models. PNG files remain image cards.</p>
+<h2>Preset Asset Library and shared location</h2>
+<p>Use <strong>choose asset → choose skin → preview → place</strong>. The <strong>Presets / My Assets</strong> source filter shares series, category, search and preview controls. Each page loads at most48 thumbnails. Presets are read-only; your imports enter My Assets. Hold the left mouse button over the model preview to rotate it.</p>
+<p>Choose the library folder on your computer. <strong>Location…</strong> at the top of the plugin selects a folder outside the project. Godot editor settings store the location for other projects. The separate third ZIP, <code>03_HD2D_0.4.5_Shared_Asset_Library.zip</code>, supplies the <code>HD2D_Shared_Asset_Library</code> folder for this external location. <strong>Keep it outside your project.</strong> Case Assets does not bundle the shared library; the five cases work without downloading it. Keep <code>preset-index.json</code> beside <code>presets</code>; preserve your existing <code>index.json</code> and <code>objects</code>. For historical cases, follow their original packaged instructions under <a href="../history.html">Historical Cases and Resources</a>.</p>
+<p>Browsing reads the index and current-page thumbnails. Selecting an asset prepares only that entry and its dependencies inside the project, with progress. An outdated preparation cannot replace a newer selection’s preview. Prepared and saved scenes use project-local resources and continue running with the shared drive disconnected. First placement registers the entry in the scene list; repeated placement does not duplicate it. Registration and placement undo together. Associated but unregistered objects also appear in the scene list; browsing does not save the scene.</p>
+<p>Skins are preconfigured complete appearances. Available choices depend on the installed entry. <strong>Selecting a skin affects preview and future placement</strong>. To change existing objects, click <strong>Apply Skin</strong> for Selected Objects or All Compatible Objects in Current Scene. The panel reports impact and incompatibilities; a batch is one undo step. <strong>Restore Original Appearance</strong> stages the original; Apply Skin commits it. Shape, transform and collision remain unchanged. The study package mainly provides original appearances. Entries without alternatives need no extra skin selection.</p>
+<h2>Shared import settings on another computer</h2>
+<p>An error naming <code>.png.import</code> occurs while preparing a selected entry; it does not mean the model catalog is absent. Keep the extracted library outside the project. If that sidecar was deleted or rewritten, extract a fresh copy or update both the numbered plugin package and shared-library package. The catalog retains verified original import settings independently, and <code>.gdignore</code> prevents accidental bulk scans. Raw images and models still require matching hashes. Preserve your personal index.json and objects when upgrading.</p>
+<p>For a new scene, install <strong>01 Plugin</strong> and connect <strong>03 Shared Library</strong> outside the project; <strong>02 Cases is not required</strong>. You can browse and preview before creating a map. An active stage is needed for placement. To test, search for <code>SM_NJ_JiuGuan001</code>, select its thumbnail, and check that the rotatable tavern appears on the right.</p>
+<p>The preparation status shows the selected asset, the file being copied or the elapsed Godot import wait. Use <strong>Cancel Preparation</strong>, or select another asset. An import wait exceeding 90 seconds names the pending files and offers <strong>Retry Preparation</strong>. Check Godot’s Output and Import panels before retrying. Keep an already connected library path; copying the entire library into the project is unnecessary. Failed or changed selections clear the previous preview image.</p>
+<h2>Import destination</h2>
+<p>Expand <strong>Import &amp; checks</strong>, which starts collapsed, then choose the destination before using the file picker, OS drop window or project-file drop area.</p>
+<table>
+<thead>
+<tr>
+<th><span id="control-import_target"></span>Destination</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Local Shared Asset Library</td>
+<td>No active stage required. Saves complete dependencies and a real thumbnail to My Assets; does not register or place anything in the current scene.</td>
+</tr>
+<tr>
+<td>Current Scene → Library &amp; Placement</td>
+<td>Adds entries to the current stage only. This is the first-use default; the project remembers the next choice.</td>
+</tr>
+</tbody></table>
+<p>Import Results reports destination, successes, duplicates and failure reasons. Shared imports reuse identical content and keep different content with the same filename separate. Missing dependencies, unresolved UIDs, remote glTF references and custom scripts with unverifiable runtime dependencies are rejected with a reason; the original project importer remains available. A write lock and atomic index update protect simultaneous writers. After an abnormal exit, confirm that the owning process has exited before backing up and moving <code>.write-lock</code> aside to retry.</p>
+<p>Import settings such as model scale travel with the resource and participate in duplicate detection. For custom import settings that reference external resources or scripts, first export a self-contained GLB from the source project; the library does not silently discard those settings.</p>
+<h2>Single-object and batch parameters</h2>
+<p><strong>Current scene asset editing</strong> contains Library &amp; placement through Color key &amp; native material sections. The parent, Library &amp; placement, and Import &amp; checks start collapsed, then remember your choices. Current object, source, changed fields and tool status remain visible. Thumbnail selection alone disables parameter Apply.</p>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span id="control-apply_asset"></span>Apply Asset Settings</td>
+<td>The single selected linked object.</td>
+</tr>
+<tr>
+<td><span id="control-apply_same"></span>Apply to All Matching Assets in Current Scene</td>
+<td>Matching objects and linked foliage records throughout the edited scene. Review count, fields and skipped reasons before committing one undoable transaction.</td>
+</tr>
+</tbody></table>
+<p>Only fields edited in this draft are synchronized. A collision-only change preserves other objects’ animation, wind, skin and Transform. Single Apply retains the changed-field set for a subsequent batch; selecting another object clears it. Stable entry IDs keep separate crops of one atlas distinct. Legacy resources match only when they share the actual Resource reference.</p>
+<p>Name, category, duplication, relinking and removal remain separate entry-management operations. Use <strong>Save Entry Name &amp; Category</strong> for metadata. Duplicate a read-only preset before editing its entry. A duplicate has a new ID and shares its source image or model. Instance settings do not rewrite source meshes, images or preset materials. Save with Cmd+S / Ctrl+S.</p>
+<h2>Default collision and gold placement action</h2>
+<p>New imports, placements and foliage scatter enable static collision for both image cards and 3D models. Newly placing an older library entry follows the same rule; reinstalling the shared package is unnecessary.</p>
+<p>Enable static collision starts checked. Selecting a library entry shows the collision settings for a new placement; selecting a scene object shows that object&#39;s saved effective settings. Built-in buildings and generated towns also enable building collision by default.</p>
+<ul>
+<li><strong>2D images:</strong> an anchor-aligned box matches the card width and height, with 0.5 m depth. Transparent pixels do not cut holes.</li>
+<li><strong>3D models:</strong> reuse authored static collision when available; otherwise generate collision from the original meshes. Choose Box or Capsule to simplify it.</li>
+<li><strong>Adjust or disable:</strong> select the placed object, edit Enable static collision and its shape, then Apply Asset Settings. Use the separate matching-assets action for a batch.</li>
+</ul>
+<p>Previously placed objects and foliage records keep their saved settings. To update them, explicitly apply collision settings.</p>
+<p>After preparation completes, click the gold <strong>Place Selected Asset</strong> button at the bottom of the workbench, then click a ground position in the scene.</p>
+<p>Godot 4.7.2 / Compatibility, using simple image and box fixtures. The enabled gold action starts placement.</p>
+<h2>Collision reference lines and testing</h2>
+<p>Use <strong>place → select object → confirm static collision is enabled → Show Collision Reference Lines → edit shape, size and offset → single or batch Apply → isolated walking test</strong>.</p>
+<p><span id="control-selected_collision_lines"></span><strong>Show Collision Reference Lines</strong> starts off and remembers the project’s editor preference. Only the selected object is outlined. Drafts immediately update the outline and show Unapplied; physical collision changes only on Apply. The editor Gizmo follows move, rotation and scale. It is not serialized and does not enter the game or isolated preview. Deselecting, disabling the checkbox or disabling collision clears it. The existing placement-wireframe checkbox independently controls the placement ghost.</p>
+<p>Use boxes for crates and simple walls, capsules for trunks, and original mesh shapes when geometric detail matters. Transparency does not generate holes. Test three placements: single Apply should change one; batch Apply should copy only the collision fields to the others. One Undo reverses the batch. Save/reopen, then verify walking collision in isolated preview; editor outlines are absent there.</p>
+<h2>Categories, brazier sheets and wind</h2>
+<p><strong>Assign an imported entry:</strong> select the stage root → Assets → click its thumbnail → expand <strong>Entry management</strong> and edit <strong>Asset category</strong> → <strong>Save Entry Name &amp; Category</strong> → save. Use a name such as Props / Braziers. If filtering hides the entry, switch Category to All. The text above Import assigns the next batch; the dropdown by Search only filters. Categories do not move files, create collision or control wind/animation, and user-authored category names are not translated.</p>
+<p><strong>Use wind sway 0 for rigid objects.</strong> New imports default to 0; existing plants can keep their own wind values. A category name does not enable or disable motion.</p>
+<p><span id="control-asset_wind"></span></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>New import default</th>
+<th>Range / step</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Asset wind sway</td>
+<td>0</td>
+<td>0…1 / 0.01</td>
+<td>0 keeps a card rigid; try 0.08 for plants. Applies to plugin picture-card materials, not arbitrary imported 3D shaders. Legacy resources may still show 0.08.</td>
+</tr>
+</tbody></table>
+<p>Select the brazier → expand <strong>Card appearance &amp; wind</strong> → set <strong>Asset wind sway=0</strong>, Apply Asset Settings and save. Environment → Plant wind strength is the whole-stage multiplier: zero stops the flowers too. Wind bends geometry; sprite-sheet playback changes frames independently. Procedural cloud shadows can still vary brightness without bending an object.</p>
+<p><strong>Configure the actual fire sheet:</strong> brazier_lit_sheet.png is 256×256, four columns/four rows, 16 frames of 64×64. Place it and select the scene object, Reset to Full Image (region width/height both zero), then apply:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Suggested value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Loop Regular Sprite Sheet</td>
+<td>On</td>
+</tr>
+<tr>
+<td>Sprite sheet columns / rows</td>
+<td>4 / 4</td>
+</tr>
+<tr>
+<td>Start frame (zero-based)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Frame count</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Sheet FPS</td>
+<td>8, a suggestion rather than verified original timing</td>
+</tr>
+<tr>
+<td>Asset wind sway</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Horizontal / foot anchor</td>
+<td>0.5 / 1; refine against the visible base</td>
+</tr>
+<tr>
+<td>Card width / height</td>
+<td>Start at 2 / 2 m, then scale for the scene</td>
+</tr>
+<tr>
+<td>Nearest sampling / Color-key transparency</td>
+<td>On / Off; this image has alpha</td>
+</tr>
+</tbody></table>
+<p>Frames run left-to-right, then top-to-bottom; 16 frames at 8 FPS take about two seconds. Check Play Applied Asset Preview, place a linked prop, then open scene Preview. brazier_unlit.png is static: leave sheet animation off and wind zero. Images do not generate light; add a native OmniLight3D if the flame should illuminate its surroundings.</p>
+<p><strong>An old placed brazier does not update?</strong> Earlier placements are independent MeshInstance3D nodes, not linked HD2DProp nodes. Back up the project and record the old Transform, place a new instance using the updated entry, match its transform and verify it before removing the old node. Do not delete all of Scenery. To stop wind on an old card only, use native Material Override → Shader Parameters → wind_amount=0; Make Unique first if the material is shared. This does not connect its old material to the new sheet settings.</p>
+<p>Single Apply changes the selected linked prop. The separate batch button also updates matching Foliage records. Save and back up your project before replacing the addon; keep your scenes and original images.</p>
+<h2>Collapsible visual groups</h2>
+<p>Click a bordered heading to expand or collapse it. Common groups start open (★); your choice is remembered per project. <strong>Expand All / Collapse All</strong> only affects this page. Tab to a heading and use Enter/Space, or Left/Right. Hiding controls keeps drafts and active tools/audition; it neither applies settings nor saves the scene. Asset Apply buttons are inside Current scene asset editing, outside its parameter subgroups.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Contains</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="#group-assets-import">Import &amp; checks</a></td>
+<td>OS drop window, project drop zone, import category, pixel import, results and missing-resource check.</td>
+</tr>
+<tr>
+<td><a href="#group-assets-scene">Current scene asset editing</a></td>
+<td>Scene asset subgroups and single/batch Apply; initially collapsed.</td>
+</tr>
+<tr>
+<td><a href="#group-assets-library">Library &amp; placement</a></td>
+<td>Search, category filter, multi-select thumbnails and placement; collapsing does not stop the tool.</td>
+</tr>
+<tr>
+<td><a href="#group-assets-entry">Entry management</a></td>
+<td>Entry name/category, duplicate and relink; disk filenames are unchanged.</td>
+</tr>
+<tr>
+<td><a href="#group-assets-card">Card appearance &amp; wind</a></td>
+<td>Size, anchors, facing, alpha cutoff, filtering and per-asset wind.</td>
+</tr>
+<tr>
+<td><a href="#group-assets-crop">Atlas crop</a></td>
+<td>Crop preview, X/Y/width/height and reset; values remain drafts until Apply.</td>
+</tr>
+<tr>
+<td><a href="#group-assets-sheet">Sprite-sheet animation</a></td>
+<td>Sheet toggle, grid, frame interval, FPS, aspect fitting and applied-asset preview.</td>
+</tr>
+<tr>
+<td><a href="#group-assets-collision">Static collision</a></td>
+<td>Collision toggle, mesh/box/capsule, dimensions/offset, box fitting and placement wireframe.</td>
+</tr>
+<tr>
+<td><a href="#group-assets-material">Color key &amp; native material</a></td>
+<td>Color key, tolerance and native material editor; keep keying off for real alpha.</td>
+</tr>
+</tbody></table>
+<div class="ui-gallery">
+<section id="group-assets-import"><strong>Import & checks</strong></section>
+<section id="group-assets-scene"><strong>Current scene asset editing</strong></section>
+<section id="group-assets-library"><strong>Library & placement</strong></section>
+<section id="group-assets-entry"><strong>Entry management</strong></section>
+<section id="group-assets-card"><strong>Card appearance & wind</strong></section>
+<section id="group-assets-crop"><strong>Atlas crop</strong></section>
+<section id="group-assets-sheet"><strong>Sprite-sheet animation</strong></section>
+<section><strong>Sprite-sheet animation · lower controls</strong></section>
+<section id="group-assets-collision"><strong>Static collision</strong></section>
+<section id="group-assets-material"><strong>Color key & native material</strong></section>
+</div>
+
+<h2>Buttons and operations</h2>
+<table>
+<thead>
+<tr>
+<th>Visible button</th>
+<th>What it does / when it applies</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+ Import Assets (multiple)</td>
+<td>Imports images, GLB/glTF, scenes or mesh resources into the library. External files are copied into the project; preserve scene dependencies rather than copying only a tscn.</td>
+</tr>
+<tr>
+<td>Place Asset</td>
+<td>Shows a placement preview; click the ground to place the selected asset and press Esc to finish. Thumbnail dragging is an alternative.</td>
+</tr>
+<tr>
+<td>Reset to Full Image</td>
+<td>Resets the four crop values to zero; Apply Asset Settings is still required to commit them.</td>
+</tr>
+<tr>
+<td>Edit Current Object in Inspector</td>
+<td>Opens the selected linked object for its own Material Override, Cast Shadow and Transform settings.</td>
+</tr>
+<tr>
+<td>Apply Asset Settings</td>
+<td>Commits overrides to one selected linked object. Use the separate batch button to synchronize changed fields to matching objects and foliage records.</td>
+</tr>
+<tr>
+<td>Remove Entry (keep file)</td>
+<td>Removes the selected library entry without deleting its disk file; separately check existing scenery references.</td>
+</tr>
+</tbody></table>
+<h2>Every parameter</h2>
+<p>Most numeric fields are drafts until the relevant Apply button is clicked. Tool settings are read when you paint/place; imports and file-selection actions run immediately. Apply is not a disk save: use Ctrl+S / Cmd+S afterward. Check the action descriptions for exceptions.</p>
+<p>Ranges show minimum … maximum; step. Options show the available choices. Units and conditions are explained in the final column. Sliders and their numeric boxes edit the same value, not two separate parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Initial default</th>
+<th>Range / step / options</th>
+<th>Meaning and limits</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span id="control-protect_pixels"></span>Lossless pixel art / disable auto 3D compression<br><a href="#group-assets-import">Import &amp; checks</a></td>
+<td>On / 开</td>
+<td>—</td>
+<td>Preserves pixel textures during import by disabling automatic 3D compression; does not upscale or improve the original artwork.</td>
+</tr>
+<tr>
+<td><span id="control-category_filter"></span>Category<br><a href="#group-assets-library">Library &amp; placement</a></td>
+<td>All</td>
+<td>All</td>
+<td>Filters the visible library entries only; does not recategorize or delete assets.</td>
+</tr>
+<tr>
+<td><span id="control-card_width"></span>Card width (m)<br><a href="#group-assets-card">Card appearance &amp; wind</a></td>
+<td>2</td>
+<td>0.05 … 100; 0.05</td>
+<td>Card width in world meters; import may initialize it from the image aspect ratio.</td>
+</tr>
+<tr>
+<td><span id="control-card_height"></span>Card height (m)<br><a href="#group-assets-card">Card appearance &amp; wind</a></td>
+<td>2</td>
+<td>0.05 … 100; 0.05</td>
+<td>Card height in world meters; together with width, determines the displayed aspect ratio.</td>
+</tr>
+<tr>
+<td><span id="control-asset_anchor_x"></span>Horizontal anchor<br><a href="#group-assets-card">Card appearance &amp; wind</a></td>
+<td>0.5</td>
+<td>-0.5 … 1.5; 0.01</td>
+<td>Horizontal placement pivot: 0 left, 0.5 center, 1 right; values can extend outside the image.</td>
+</tr>
+<tr>
+<td><span id="control-asset_anchor_y"></span>Foot anchor<br><a href="#group-assets-card">Card appearance &amp; wind</a></td>
+<td>1</td>
+<td>-0.5 … 1.5; 0.01</td>
+<td>Vertical pivot: 0 top, 1 bottom. With transparent margins, align it to the visible plant base.</td>
+</tr>
+<tr>
+<td><span id="control-asset_facing"></span>Card facing<br><a href="#group-assets-card">Card appearance &amp; wind</a></td>
+<td>Fixed plane</td>
+<td>Fixed plane, Face camera around Y</td>
+<td>Fixed plane preserves the authored orientation; Y-axis billboarding turns toward the viewer without tilting up or down.</td>
+</tr>
+<tr>
+<td><span id="control-alpha_cut"></span>Alpha cutoff<br><a href="#group-assets-card">Card appearance &amp; wind</a></td>
+<td>0.5</td>
+<td>0 … 1; 0.01</td>
+<td>Pixels below the alpha threshold are discarded. Increasing it tightens edges but can remove thin leaves or hair.</td>
+</tr>
+<tr>
+<td><span id="control-asset_nearest"></span>Nearest-neighbor sampling<br><a href="#group-assets-card">Card appearance &amp; wind</a></td>
+<td>On / 开</td>
+<td>—</td>
+<td>Nearest filtering retains hard pixel edges; disable it for smoothly filtered high-resolution textures.</td>
+</tr>
+<tr>
+<td><span id="control-asset_collision"></span>Enable static collision<br><a href="#group-assets-collision">Static collision</a></td>
+<td>On for new imports / placements</td>
+<td>—</td>
+<td>Adds the configured collision shape; see the collision parameters below. Alpha does not cut holes.</td>
+</tr>
+<tr>
+<td><span id="control-color_key_enabled"></span>Color key (solid-background RGB images only)<br><a href="#group-assets-material">Color key &amp; native material</a></td>
+<td>Off / 关</td>
+<td>—</td>
+<td>Display-time color removal for RGB images with a solid background; leave disabled for images with real alpha.</td>
+</tr>
+<tr>
+<td><span id="control-color_key"></span>Key color<br><a href="#group-assets-material">Color key &amp; native material</a></td>
+<td>212121</td>
+<td>Color</td>
+<td>Selects the background color to hide; matching colors inside the artwork are affected too.</td>
+</tr>
+<tr>
+<td><span id="control-color_key_tolerance"></span>Key tolerance (linear color)<br><a href="#group-assets-material">Color key &amp; native material</a></td>
+<td>0.005</td>
+<td>0 … 0.25; 0.001</td>
+<td>Allowed linear color difference. Higher values remove more neighboring colors; the 0.001 step cannot reliably retain finer input.</td>
+</tr>
+<tr>
+<td><span id="control-region_x"></span>Region X (px)<br><a href="#group-assets-crop">Atlas crop</a></td>
+<td>0</td>
+<td>0 … 32768; 1</td>
+<td>X pixel coordinate of the crop&#39;s top-left corner in the source image, increasing rightward; not a world coordinate.</td>
+</tr>
+<tr>
+<td><span id="control-region_y"></span>Region Y (px)<br><a href="#group-assets-crop">Atlas crop</a></td>
+<td>0</td>
+<td>0 … 32768; 1</td>
+<td>Y pixel coordinate of the crop&#39;s top-left corner, increasing downward.</td>
+</tr>
+<tr>
+<td><span id="control-region_w"></span>Region width (px)<br><a href="#group-assets-crop">Atlas crop</a></td>
+<td>0</td>
+<td>0 … 32768; 1</td>
+<td>Crop width in source pixels. Both width and height must be zero to use the entire image.</td>
+</tr>
+<tr>
+<td><span id="control-region_h"></span>Region height (px)<br><a href="#group-assets-crop">Atlas crop</a></td>
+<td>0</td>
+<td>0 … 32768; 1</td>
+<td>Crop height in source pixels; keep the rectangle inside the source image.</td>
+</tr>
+</tbody></table>
+<h2>Other visible controls</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Import category</td>
+<td>Category name for newly imported assets; user-authored names are not translated.</td>
+</tr>
+<tr>
+<td>Name search and thumbnails</td>
+<td>Typing searches names, categories and paths immediately. Ctrl-select supports mixed brushes; drag thumbnails for placement.</td>
+</tr>
+<tr>
+<td>Yellow atlas crop rectangle</td>
+<td>Drag in the preview to update four region fields. This changes sampling, not the PNG file; apply to commit.</td>
+</tr>
+</tbody></table>
+<h2>Recommended sequence and pitfalls</h2>
+<p>Place first, then select a scene object and apply parameters. Use Godot’s native move/rotate/scale gizmos to edit individual placed nodes. Copy complete dependency folders for glTF/scenes into the project and let Godot finish importing.</p>
+<p>Use the shared toolbar reference for saving, stopping tools and previews. This workflow uses the dock, thumbnails, brush and native Inspector; you do not need to write GDScript to author the scene.</p>
+<h2>Drop files from an OS folder</h2>
+<p>Choose the import destination; an active stage is required only for the Current Scene target. Click <strong>Open Folder Drop Window</strong>, then drop files or a folder from Finder / the OS file manager onto the HD-2D window. Return to Assets afterward. Project FileSystem files can be dropped directly onto the top hint area or thumbnail library. The existing multiple-file picker remains available.</p>
+<p>Use the plugin&#39;s drop window for OS files, not an arbitrary part of Godot&#39;s main window. The latter uses Godot&#39;s native copy handling and does not necessarily populate this library. The drop window is not a second scene editor and does not overwrite originals.</p>
+<p>Formats: PNG, WebP, JPG/JPEG, SVG, GLB, glTF, 3D Godot scenes and Mesh. With the Current Scene target, external images / GLB are copied to res://hd2d_imports. Shared imports validate and copy dependencies in an isolated staging project. Different content sharing a filename gets a distinct path/title; an already imported source is skipped. For Current Scene imports of external glTF, tscn/scn or tres/res, copy the complete dependency directory into the project first. The plugin does not fetch arbitrary external dependencies. GLB files with external references also require their dependencies. Folder batches allow up to200 assets and8 levels, excluding hidden folders, symbolic links and addons. Use Character, Terrain and Music for those inputs rather than importing them as plants.</p>
+<h2>New controls, categories and missing files</h2>
+<table>
+<thead>
+<tr>
+<th>Button / control</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Import Results</td>
+<td>Lists added, skipped and failed files with paths; failures do not silently create empty entries.</td>
+</tr>
+<tr>
+<td>Check Resources</td>
+<td>Checks source files and declared dependencies, not runtime script-built paths. Missing entries retain a warning icon/path.</td>
+</tr>
+<tr>
+<td>Search names, categories or paths</td>
+<td>Case-insensitive; the visible count distinguishes filtering from absent imports. Node selection preserves filters; changing cases clears old filters.</td>
+</tr>
+<tr>
+<td>Asset name / Asset category</td>
+<td>Commits entry metadata with Save Entry Name &amp; Category. Name cannot be empty; disk filenames are unchanged.</td>
+</tr>
+<tr>
+<td>Duplicate Entry (share source)</td>
+<td>Copies settings while sharing the PNG. Use this to make another crop, then rename and crop it; do not reimport the same file.</td>
+</tr>
+<tr>
+<td>Relink Source File…</td>
+<td>Replaces the source, resets crop, disables sheet playback and clears the old thumbnail. Other dimensions remain; review the aspect ratio. Supports undo.</td>
+</tr>
+<tr>
+<td>Fit Width to Frame Aspect</td>
+<td>Computes frame width from region, grid and card height, within the width field&#39;s range. Apply to commit.</td>
+</tr>
+<tr>
+<td>Fit Box to Card Size</td>
+<td>Drafts a box matching card width/height with0.5 m depth and anchor-aligned center. Enable collision and Apply. Not opaque-pixel detection or fitting a3D model&#39;s bounds.</td>
+</tr>
+</tbody></table>
+<h2>Sprite sheets: static crops and looping animation</h2>
+<p>For a static clump, set a region and leave sprite looping off. For another clump in the same file, Duplicate Entry and change the crop.</p>
+<p>Example: a128×128 image containing2×2 cells of64×64 pixels. Enable looping, set columns2, rows2, first frame0, count4 and FPS8; Fit Width to Frame Aspect, then Apply Asset Settings. Place and select an object before editing. The dock previews its applied frames. The library entry keeps its original parameters; use the matching-asset batch button for other placements or foliage.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Range and meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Loop a regular sprite sheet</td>
+<td>Off</td>
+<td>Texture images only; splits the crop into equal cells, left to right then top to bottom.</td>
+</tr>
+<tr>
+<td>Sprite sheet columns / rows</td>
+<td>1 each</td>
+<td>1–128 integers; region dimensions must divide evenly into cells.</td>
+</tr>
+<tr>
+<td>First frame (zero-based)</td>
+<td>0</td>
+<td>0–16383;0 is top-left, and2 in a2×2 grid is bottom-left.</td>
+</tr>
+<tr>
+<td>Frame count</td>
+<td>1</td>
+<td>1–16384; sequential cells, first frame plus count cannot exceed the grid.</td>
+</tr>
+<tr>
+<td>Sprite frame rate (FPS)</td>
+<td>8</td>
+<td>0.1–60, step0.1; four frames at8 FPS loop in about0.5 seconds.</td>
+</tr>
+<tr>
+<td>Play applied asset preview</td>
+<td>On</td>
+<td>Plays/pauses only the dock preview. Apply drafts first; this toggle does not change scene playback.</td>
+</tr>
+</tbody></table>
+<p>Scene sheets use shader engine time, including MultiMesh batches, synchronized per asset. <strong>Stage pause does not pause this material animation.</strong> Irregular packed-atlas JSON, variable frame durations, per-instance actions and arbitrary frame ordering are unsupported here. Missing frames are not synthesized. Use <a href="character.html">Character</a> for directional actors, PNG sequences and SpriteFrames. Align frame canvases and feet in advance.</p>
+<h2>Add collision volume</h2>
+<p>Place → select object → confirm static collision is enabled → Show Collision Reference Lines → choose shape, size and offset → Apply → isolated walking test. A library entry alone has no collision in the scene until placed.</p>
+<p>For a tree, try a0.6×2×0.6 m box at offset(0,1,0), blocking only the trunk. Grass and flowers also start with collision; disable it if characters should walk through them. Alpha, wind and per-frame silhouettes do not alter it; collision does not follow billboard rotation toward the camera.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Range and meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Enable static collision</td>
+<td>On for new imports / placements</td>
+<td>Individual props and scatter both support it. Large quantities add physics cost.</td>
+</tr>
+<tr>
+<td>Collision shape</td>
+<td>2D: Box; 3D: original mesh / authored shapes</td>
+<td>Box adds depth; Capsule suits trunks. Existing enabled collision settings are retained; new placements of collision-free entries receive suitable defaults.</td>
+</tr>
+<tr>
+<td>Collision size X / Y / Z</td>
+<td>1 /2 /0.5 m</td>
+<td>0.05–100 each, step0.05. Image import initializes X/Y from card dimensions. Box uses width/height/depth; Capsule uses X as diameter and Y as total height, clamped to at least the diameter, ignoring Z. Original mesh ignores these fields.</td>
+</tr>
+<tr>
+<td>Collision offset X / Y / Z</td>
+<td>0 /1 /0 m</td>
+<td>-100–100 each, step0.05; relative to the placement pivot, Y up. Image imports initialize Y to half height. Original mesh ignores offsets.</td>
+</tr>
+<tr>
+<td>Show collision wireframe on placement</td>
+<td>On</td>
+<td>Editor-only current placement aid, not permanent scene data or an always-on global display. Shows the effective collision configuration for the new placement.</td>
+</tr>
+</tbody></table>
+<p>New placements use linked HD2DProp nodes. Instance Apply rebuilds only that object’s display and collision data with undo. Native Transform remains available; Material Override and Cast Shadow are per-object overrides. Generated mesh children are not authoring data. A custom material replaces sheet/wind shading; Case01 section7 demonstrates a sky.</p>
+<p>Earlier independent MeshInstance3D placements are not automatically converted. Keep the old object if replacing it, place a new one and verify transforms before deciding what to retain. Do not delete existing work merely to upgrade. Each foliage record uses its effective parameter overrides. Authored 3D static collision is reused; explicitly choosing a box or capsule replaces it rather than adding a duplicate blocker.</p>
+<p>External asset Resources participate in unsaved warnings and the save hook. Shared settings affect every reference; Duplicate Entry or Make Unique creates independent variants. Save with Cmd+S / Ctrl+S and reopen to check. Preview is not Save.</p>
+<p><img src="../../images/046_asset_instances_en.png" alt="0.4.6 · Selected instance and actual thumbnails, Warm Paper"></p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>

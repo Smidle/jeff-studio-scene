@@ -1,0 +1,97 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>一键生成：从风格到小镇 · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">跳到正文</a><details class="manual-sidebar" open><summary>目录 · Jeff Studio 场景</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio 场景<span class="manual-version">用户说明书 · 0.4.6</span></a><nav aria-label="说明书目录"><section class="nav-group"><h2 class="nav-group-title">开始使用</h2><a class="nav-link" href="../index.html">说明书首页</a><a class="nav-link" href="../quick_start.html">01 安装插件</a><a class="nav-link" href="../shared_library.html">02 共享素材库</a><a class="nav-link" href="../history.html">03 案例与历史资源</a></section><section class="nav-group"><h2 class="nav-group-title">功能指南</h2><a class="nav-link" href="toolbar.html">界面与保存</a><a class="nav-link" href="terrain.html">地形制作</a><a class="nav-link" href="generation.html" aria-current="page">一键生成</a><a class="nav-link" href="assets.html">素材与实例编辑</a><a class="nav-link" href="scatter.html">铺设与道路</a><a class="nav-link" href="character.html">角色</a><a class="nav-link" href="camera.html">镜头</a><a class="nav-link" href="environment.html">环境</a><a class="nav-link" href="music.html">音乐</a><a class="nav-link" href="preview.html">场景预览</a></section><section class="nav-group"><h2 class="nav-group-title">参考资料</h2><a class="nav-link" href="../appendices/inventory.html">资源清单</a><a class="nav-link" href="../appendices/scenes.html">场景入口</a><a class="nav-link" href="../appendices/music_sources.html">音乐来源</a></section></nav><a class="language-switch" lang="en" href="../../en/reference/generation.html">English Manual ↗</a></div></details><main class="manual-content" id="manual-content"><h1>一键生成：从风格到小镇</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub 公开版说明：</strong>下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。<a href="../../DISTRIBUTION.md">查看分发说明</a></p></aside>
+<p>0.4.6 的内置生成器只需要插件，无需共享素材库。它保存建筑参数和随机种子，应用后将实际模型、材质与地形留在当前工程。</p>
+<p><span id="group-generation-palette"></span></p>
+<h2>1. 选择建筑风格</h2>
+<p>先在 <strong>地形 → 新建地图</strong> 创建自由地图。初次尝试建议 128 米、129 个高度采样点。进入 <strong>一键生成 → 建筑风格</strong>，选择 <strong>内置 · 江南古镇／欧式风格／沙漠聚落</strong>。三种风格共用 10 大类、46 个功能条目；小镇自动池使用其中适合聚落的类型。</p>
+<p>位置统一通过 3D 视图中的蓝图选择，不再设置“中心位置”或 X/Z 坐标。点击应用后，鼠标选择落点、Q / E 旋转，左键确认。按需开启围墙。名称带“共享库”的旧风格需要另行安装历史共享素材包。</p>
+<p><span id="group-generation-preview"></span></p>
+<h2>2. 查看预览</h2>
+<p>右侧显示草稿，可拖动旋转、滚轮缩放；旋转和缩放不重新生成模型。修改参数后短暂等待即可自动刷新，准备中显示建筑进度并保留上一幅预览，应用暂时禁用。快速换选会取消过期任务；离开模块或切换场景也会取消。道路、间距和方向调整复用建筑模型，换皮只更新材质。选中有效地形时，预览包含局部整地与铺装，尚未修改场景。未选地形时只显示风格示意，并禁用应用。</p>
+<p><span id="group-generation-layout"></span></p>
+<p><img src="../../images/046_generation_zh.png" alt="0.4.6 · 内置风格、草稿预览与底部应用，Compatibility"></p>
+<h2>3. 调整布局、建筑与外观</h2>
+<ul>
+<li><strong>小镇排布</strong>：单排、双排或中心环绕。环绕包含一至三圈环路、两条或四条贯通道路，并接到各栋建筑的入口、中心广场和城门。空间不足时减少数量、缩小建筑或换更大的地形。</li>
+<li><strong>城镇中心</strong>：中心环绕可选广场或中心建筑；中心建筑计入最多 24 栋。</li>
+<li><strong>参与生成的建筑类型</strong>：位于布局参数下方，默认收起，标题显示已选类型数。展开后按类别点击“选择类型…”勾选即可，不需要调整百分比。内部分配为居住 50、食宿 15、商业 15、手工业 10、公共建筑 10；关闭某类全部类型后自动排除并归一化。农业默认关闭，勾选后按内部权重 10 加入分配。总数始终等于建筑数量；默认 20 栋为 10／3／3／2／2。</li>
+<li>默认池：普通民居、农舍、客栈、酒馆、杂货铺、药铺、铁匠铺、木工作坊及本风格议事厅／市政厅／议事院。中心建筑从勾选的公共类型抽取，占用公共配额和总数；未启用公共类型时会提示。城防、交通和探索类通过工作台单栋摆放，不进入普通小镇随机池。</li>
+<li>新版小镇按各类型约束生成外形；需要精调单栋尺寸、楼层、窗列时，在工作台“读取选中建筑”后调整。旧配方与自定义组合保留原有控制。</li>
+<li><strong>随机种子</strong>决定布局；<strong>外形种子</strong>决定各栋结构；<strong>细节种子</strong>决定门窗和用途细节；<strong>外观种子</strong>决定像素纹理。它们互不代替。</li>
+<li><strong>建筑外观</strong>：原色、素雅、暖色、风化。换皮保持位置与形状。</li>
+<li><strong>预览局部整地</strong>：为各栋建筑创建地基与坡面过渡。最大地基高差限制本次可调整的高度；超限时换位置或手动整地。</li>
+<li><strong>纯色地表使用配套底材</strong>：为尚未设置图片的地表添加本风格底材；已有地表纹理不替换。</li>
+<li><strong>道路铺装</strong>：自动分配空层、使用已有层、贴地像素铺装网格。自动模式发现地形采样间距大于最窄道路宽度的一半时，会提示并使用贴地网格，避免环路与入户小路断续。网格将路口、广场合为同一张铺装，不重复叠面；足够细的地形仍使用权重绘制。八层占满且未触发网格模式时，请选择已有层或主动切换网格；不会覆盖已有纹理。</li>
+</ul>
+<p><img src="../../images/046_radial_roads.png" alt="0.4.6 · 中心环绕的环路、广场与入户支路，Compatibility"></p>
+<h2>4. 应用与保存</h2>
+<p>点击底部金色 <strong>应用到场景（新建小镇）</strong>，进入 3D 视图中的<strong>小镇蓝图摆放</strong>，此时还未修改地形或生成正式物件。</p>
+<ol>
+<li>将鼠标移到当前地形上，蓝图跟随鼠标选择位置。</li>
+<li>按 <strong>Q / E</strong> 每次左转／右转 <strong>15°</strong>，建筑、道路和围墙一起旋转。</li>
+<li>蓝色表示可放置；红色表示越界、冲突或整地条件不满足，底部提示具体原因。移动时会短暂显示检查中。</li>
+<li><strong>单击鼠标左键确认</strong>，才创建 Village 并提交整地与铺装；<strong>Esc 取消</strong>，不会留下蓝图或整地修改。切换模块、场景、目标或窗口失焦也会退出摆放。</li>
+</ol>
+<p>生成的 Village 内有可选中的建筑与围墙，地表道路写入地形权重；网格铺装模式保存单独铺装节点。确认后退出摆放，一次撤销恢复小镇、地形、素材登记与关联贴地修改。蓝图只是编辑器辅助显示，不保存到场景。</p>
+<p><img src="../../images/046_town_blueprint.png" alt="0.4.6 · 真实场景中的小镇蓝图，Compatibility"></p>
+<p><img src="../../images/046_town_placement_zh.png" alt="0.4.6 · 蓝图摆放中的操作提示，Compatibility"></p>
+<p>已有小镇的 <strong>应用到选中小镇…</strong> 按读入后调整的参数重新生成，不进入新建摆放。</p>
+<p>选择现有 Village 或建筑，点 <strong>读取选中村落</strong> 可继续调整；<strong>应用到选中小镇…</strong> 会先说明替换范围。已人工修改的原整地范围会阻止覆盖，不会静默抹掉。</p>
+<p>Ctrl+S / Cmd+S 保存场景。再次打开不会自动重建，完全准备并保存的工程可以离线运行。保存的配方包括生成器版本、预设版本、参数与种子；相同版本和输入可重复生成相同结构。导出的实际模型不依赖编辑器缓存。</p>
+<h2>边界</h2>
+<p>内置建筑为外观模型，没有室内房间。自动生成不跨越水面，不制作桥梁，也不接入分区大地图。已有普通物件保留；地基或道路与关联物件冲突时，请先调整位置。原始共享素材仍保持其原有来源与使用标识。</p>
+<h2>新版建筑与旧小镇</h2>
+<p>九套新版普通民居、杂货铺和客栈的真实画面见<a href="assets.html#builtin-buildings">内置建筑</a>。新版模型采用 v5 生成器和原创风格图集；旧 v1–v4 仍按原版本读取与重现。</p>
+<p>应用后生成的 <code>hd2d_generated</code> 是工程资源，不是缓存。请随场景备份，勿删除；清除 <code>.godot</code> 编辑器缓存不会删除它。</p>
+<h2>单独制作一栋建筑</h2>
+<p>打开 <strong>素材工作台 → 内置建筑</strong>，选择风格、建筑大类与具体建筑，实时查看外形与皮肤；可修改宽深、楼层、屋顶、门窗和随机种子。点 <strong>摆放此建筑</strong> 用蓝图选择位置。需要加入小镇组合时，点 <strong>加入小镇建筑组合</strong>，再到一键生成查看布局。详见<a href="assets.html#builtin-buildings">内置建筑参数与实例编辑</a>。</p>
+<p>46 类建筑、两级随机及旧配方兼容说明见<a href="assets.html#builtin-buildings">内置建筑</a>。新建小镇保存 v5 配方、类型池、内部配比及每栋参数。读取旧小镇保留已保存的配比和模型；即使界面不再显示百分比，也不会因此改变结果。重新选择内置风格才启用默认配比和新版生成器。</p>
+<p><img src="../../images/046_v5_types_zh.png" alt="0.4.6 · 参与生成的建筑类型，展开后选择"></p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>

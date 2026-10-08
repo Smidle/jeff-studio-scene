@@ -1,0 +1,313 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Part III · Terrain · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">Skip to content</a><details class="manual-sidebar" open><summary>Contents · Jeff Studio Scene</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio Scene<span class="manual-version">USER MANUAL · 0.4.6</span></a><nav aria-label="Manual contents"><section class="nav-group"><h2 class="nav-group-title">Get started</h2><a class="nav-link" href="../index.html">Manual home</a><a class="nav-link" href="../quick_start.html">01 Install Plugin</a><a class="nav-link" href="../shared_library.html">02 Shared Library</a><a class="nav-link" href="../history.html">03 Cases & History</a></section><section class="nav-group"><h2 class="nav-group-title">Tools</h2><a class="nav-link" href="toolbar.html">Interface & Saving</a><a class="nav-link" href="terrain.html" aria-current="page">Terrain</a><a class="nav-link" href="generation.html">One-click Generation</a><a class="nav-link" href="assets.html">Assets & Instances</a><a class="nav-link" href="scatter.html">Scatter & Roads</a><a class="nav-link" href="character.html">Characters</a><a class="nav-link" href="camera.html">Camera</a><a class="nav-link" href="environment.html">Environment</a><a class="nav-link" href="music.html">Music</a><a class="nav-link" href="preview.html">Scene Preview</a></section><section class="nav-group"><h2 class="nav-group-title">Reference</h2><a class="nav-link" href="../appendices/inventory.html">Resource Inventory</a><a class="nav-link" href="../appendices/scenes.html">Scene Paths</a><a class="nav-link" href="../appendices/music_sources.html">Music Sources</a></section></nav><a class="language-switch" lang="zh" href="../../zh/reference/terrain.html">中文说明书 ↗</a></div></details><main class="manual-content" id="manual-content"><h1>Part III · Terrain</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub public edition:</strong> The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. <a href="../../DISTRIBUTION.md">Public distribution details</a></p></aside>
+<p><strong>Set map specifications → Choose a surface → Inspect the right-side preview → Apply at the bottom.</strong> Existing terrain can be sculpted and painted directly.</p>
+<h2>Terrain Creation Guide</h2>
+<p>The first section displays a live terrain preview of the new-map draft, or the current terrain with its surface draft. <strong>Map Settings…</strong> opens settings. Inspect terrain directly here; use <strong>Camera → Preview Scene</strong> when you want an isolated run.</p>
+<p>The gold-bordered Apply frame stays outside the scrolling operations area, with a pale-yellow primary button. It shows <strong>Apply: Create Map</strong> for a new draft, or <strong>Apply Surface Settings</strong> for existing terrain. The preview uses a simplified mesh; creation uses your requested sample count. Sculpting and painting change the scene directly. Apply commits a new map or surface draft; save with Cmd+S / Ctrl+S.</p>
+<h2>Collapsible visual groups</h2>
+<p>Click a heading to toggle. ★ starts open; the project remembers your choices. <strong>Expand All / Collapse All</strong> affects this page only. Tab to a heading, then use Enter/Space or Left/Right. Folding keeps drafts and active tools without applying or saving.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>When it takes effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="#group-terrain-template">New Map</a></td>
+<td>Set specifications and surface, then Apply: Create Map in the dock footer.</td>
+</tr>
+<tr>
+<td>★ <a href="#group-terrain-brush">Terrain sculpting</a></td>
+<td>Hold the left mouse button in the native 3D viewport to edit height.</td>
+</tr>
+<tr>
+<td><a href="#group-terrain-layers">Surface layers &amp; painting</a></td>
+<td>Choose textures into a draft; apply before painting blend weights.</td>
+</tr>
+<tr>
+<td><a href="#group-terrain-conform">Terrain conformance</a></td>
+<td>Automatically or manually update linked plants and roads after sculpting.</td>
+</tr>
+<tr>
+<td><a href="#group-terrain-world">Terrain Creation Guide</a></td>
+<td>New-map/current-terrain preview, and map specifications.</td>
+</tr>
+</tbody></table>
+<div class="ui-gallery">
+<span id="group-terrain-world"></span>
+<section id="group-terrain-template"><strong>New Map</strong></section>
+<section id="group-terrain-brush"><strong>Terrain sculpting</strong></section>
+<section id="group-terrain-layers"><strong>Surface layers & painting</strong></section>
+<section id="group-terrain-conform"><strong>Terrain conformance</strong></section>
+<section><strong></strong></section>
+</div>
+
+<h2>1. Create a map</h2>
+<p>Both <strong>New Map…</strong> entries open the same dialog. Defaults are <strong>Free map, 64 meters, 129 samples per side</strong>, giving <strong>0.5-meter spacing</strong>. 64 m means <strong>both X and Z sides are 64 m</strong>, an area of 64×64 m². Samples store elevation, not a maximum height. 129 per side means 16,641 points in total. <strong>Spacing = side length ÷ (samples − 1).</strong></p>
+<p>Select <strong>Custom…</strong> for either value: side length 1–4096 m in 0.5 m steps, samples per side 3–513 in integer steps. For example, 75.5 m / 100 samples gives about 0.763 m spacing. Denser grids capture finer slopes and cost more memory and editing time. At the bottom choose <strong>Use Solid Colors</strong>, or <strong>Choose Preset Scheme…</strong> and click a scheme in the workbench. Settings close with parameters retained. Inspect the right-side preview and click <strong>Apply: Create Map</strong> in the dock footer. Choosing a scheme does not create a scene or reopen settings. The settings window’s × abandons the new-map draft.</p>
+<p>Each creation saves an independent scene and external terrain resource under levels. Existing filenames get a unique suffix. This does not resize, resample or clear existing terrain. Save As still does not duplicate all referenced resources.</p>
+<h3>Lakes, rivers, seas and volcanoes</h3>
+<p><strong>Landform</strong> offers Flat Ground, Lake and Shore, Winding River, Coast and Beach, Sea and Island, and Volcanic Crater. The right side previews the shape independently; creation uses your sample count. Landform presets use free maps. Loop stages use flat ground so scrolling scenery stays aligned.</p>
+<ol>
+<li>Select a landform.</li>
+<li>Keep <strong>Create Separate Water / Lava</strong> enabled if wanted and set animation speed; speed 0 pauses it.</li>
+<li>Click <strong>Choose Preset Scheme…</strong> and select a lakeshore, riverbank, coast, island or volcano scheme in the workbench, or choose <strong>Use Solid Colors</strong>. Inspect the right preview, then click <strong>Apply: Create Map</strong> in the dock footer. Built-in presets and solid colors both work without a shared library.</li>
+<li>Continue sculpting and painting. Select <strong>Water / Lava</strong> in the scene tree. In the Inspector, Position Y controls water level, Extent controls coverage, Animation Speed controls motion, and Water Color / Lava Color controls color. Sculpting does not automatically change water level.</li>
+</ol>
+<p>Water and lava are animated visuals without fluid simulation, swimming, buoyancy or damage. The surface has no collision; characters still stand on the heightfield. Add gameplay logic for swimming or lava damage.</p>
+<div class="landform-gallery">
+<section><strong>Lake and Shore</strong></section>
+<section><strong>Winding River</strong></section>
+<section><strong>Coast and Beach</strong></section>
+<section><strong>Sea and Island</strong></section>
+<section><strong>Volcanic Crater</strong></section>
+</div>
+
+<h2>2. Sculpt height</h2>
+<p><strong>Edit existing terrain directly; you do not need to create another map.</strong> Select its HD2DStage or HD2DTerrain in the scene tree, then sculpt or paint. Native mesh floors such as Case05 are not sculptable heightfields.</p>
+<p><strong>Show Terrain Only (Temporary)</strong> at the top of the Terrain page hides buildings, characters, foliage, roads, water/lava and scene UI, while retaining terrain, lighting and the brush cursor. Newly created scenery is hidden too. Turn it off, leave the Terrain page, switch scenes or disable the plugin to restore the view. Objects originally hidden remain hidden. This affects the editor view only: saved scenes, the game and isolated previews keep their normal visibility. No Apply action is needed.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Raise / Lower</td>
+<td>Adds or subtracts height per second, strongest at the brush center.</td>
+</tr>
+<tr>
+<td>Smooth</td>
+<td>Reduces neighboring height differences without resetting the ground.</td>
+</tr>
+<tr>
+<td>Flatten</td>
+<td>Gradually approaches the target height; entering a value alone does nothing.</td>
+</tr>
+<tr>
+<td>Ramp</td>
+<td>Connects the initial height to the dragged endpoint&#39;s target along a continuous corridor. No drag direction means no ramp.</td>
+</tr>
+</tbody></table>
+<p>Raise, Lower, Smooth, Flatten and painting work while <strong>holding the mouse still</strong>. Strength accumulates with time. Release, Esc or focus loss ends the stroke; one stroke is one undo. Sculpt and paint settings are remembered separately. Only Flatten/Ramp show target height.</p>
+<p>Terrain tools hit the current heightfield behind scene props. Use the native 3D editor, not the isolated preview. Keeping terrain at the origin with scale 1 makes meter-based authoring easier.</p>
+<h2>3. Choose built-in surfaces</h2>
+<p>Use <strong>Terrain → Surface layers &amp; painting → Choose Preset Texture… / Choose Terrain Scheme…</strong>, or <strong>Asset Workbench → Terrain Textures</strong>.</p>
+<p>Package 01 now includes <strong>35 original 512×512 terrain textures and 14 schemes</strong>. No shared library is required. Lightweight textures occupy about 18.1 MiB; thumbnails and the index bring this to 19.6 MiB. Nearest-neighbor downsampling preserves hard pixel edges. Tiling periods and stable IDs are unchanged. The original 1024×1024 files remain in the shared library.</p>
+<p>Browsing reads only the index and current-page thumbnails. Startup does not import all original images. Selecting a texture or scheme prepares only its images under <code>hd2d_imports/terrain</code>; identical content is reused. Keep that folder with your saved scenes. Runtime does not need an external library.</p>
+<p><strong>Surface source</strong> defaults to <strong>Built-in Light · 512×512</strong>. For full-size textures, connect the library through <strong>Location…</strong>, then choose <strong>Shared Originals / Extensions · 1024×1024</strong>. Sources are browsed separately. Switching sources never replaces applied textures automatically. If the external library is unavailable, switch back to built-ins.</p>
+<p><img src="../../images/046_builtin_surfaces_en.png" alt="0.4.6 built-in terrain schemes, no shared library required"></p>
+<ol>
+<li>Browse single textures or complete schemes using scene filters, search and pages. Per-layer entry points identify the target layer.</li>
+<li>Selection prepares resources, immediately selects the draft and updates the preview: original image, 3×3 repeat and isolated terrain. <strong>Enlarge Original…</strong> opens the large image. Switch between <strong>Soft Lighting Preview / Albedo Preview (Unlit)</strong> to separate texture color from lighting. This does not change scene lighting.</li>
+<li>No extra Use or Cancel Selection action is required. Cards show the actual name, thumbnail and unapplied state.</li>
+<li>Adjust the shared tiling period: <strong>larger values make texture features larger</strong>. <strong>Apply Surface Settings</strong> in the dock footer commits the changes together; <strong>Revert Unapplied Changes</strong> discards them.</li>
+<li>Click a layer card, then <strong>Paint Layer N</strong>. Apply or revert pending changes first. Replacing textures preserves heights and painted distribution.</li>
+</ol>
+<p>35 original 512×512 PNGs form 14 schemes. Shore schemes reuse appropriate textures in the following order:</p>
+<table>
+<thead>
+<tr>
+<th>Scheme</th>
+<th>Texture order</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Grassland</td>
+<td>Short grass, Yellow-green grass, Bare earth, Fine gravel earth</td>
+</tr>
+<tr>
+<td>Forest</td>
+<td>Mossy grass, Forest humus, Leaf litter, Mossy stone</td>
+</tr>
+<tr>
+<td>Farmland</td>
+<td>Field-edge grass, Tilled soil, Dry earth, Earth path</td>
+</tr>
+<tr>
+<td>Old town</td>
+<td>Blue flagstone, Rammed earth, Old brick paving, Gravel path</td>
+</tr>
+<tr>
+<td>Mountain</td>
+<td>Gray limestone, Weathered rock, Mountain scree, Sparse grass earth</td>
+</tr>
+<tr>
+<td>Desert</td>
+<td>Fine sand, Wind-rippled sand, Cracked earth, Sandstone</td>
+</tr>
+<tr>
+<td>Snowland</td>
+<td>Fresh snow, Packed snow, Frozen earth, Frosted rock</td>
+</tr>
+<tr>
+<td>Wetland</td>
+<td>Wet grass, Silt mud, Wet sand, Wet pebbles</td>
+</tr>
+<tr>
+<td>Volcano</td>
+<td>Basalt, Volcanic ash, Cooled lava crust (3 layers)</td>
+</tr>
+<tr>
+<td>Lakeshore</td>
+<td>Mossy grass, Wet pebbles, Silt mud (3 layers)</td>
+</tr>
+<tr>
+<td>Riverbank</td>
+<td>Short grass, Wet sand, Wet pebbles (3 layers)</td>
+</tr>
+<tr>
+<td>Coast</td>
+<td>Sparse grass earth, Fine sand, Wet sand (3 layers)</td>
+</tr>
+<tr>
+<td>Island</td>
+<td>Short grass, Fine sand (2 layers)</td>
+</tr>
+<tr>
+<td>Snow plain</td>
+<td>Fresh snow (1 layer)</td>
+</tr>
+</tbody></table>
+<p>These textures were newly made with imagegen, referring to broad pixel-art wuxia characteristics without copying, collaging or simply recoloring extracted originals. Permission for commercial use and raw redistribution of those originals has not been established. New terrain provenance is separate. <strong>Existing extracted models, music and screenshots remain private local-study content; the complete shared package is not a commercial asset pack.</strong></p>
+<h2>4. Paint and maintain terrain</h2>
+<p>Flat ground initially uses layer 1 everywhere. Applying that image shows the base immediately; other layers appear where painted. This is conventional terrain texture painting: textures blend on one surface by weight. Layer numbers do not control stacking. Increasing one weight reduces the others. Paint layer 1 to restore the base. Landform recipes already paint upland, bank and bed distributions.</p>
+<p>The default four layers cover combinations such as grass, soil, rock and paths; games have no universal four-layer limit. Use <strong>Add Surface Layer (up to 8)</strong> when a complex area needs more, apply, then paint the new layer. Layers 5–8 require extra weights and texture sampling. Existing four-layer terrain keeps its original material path. A new map using a 1–3 texture scheme has that many layers. Applying a shorter scheme to an existing map replaces only its corresponding slots and retains the other layers and painted distribution.</p>
+<p>Fresh snow, packed snow, fine sand and wind-rippled sand have been redrawn. Compare the albedo and soft-lighting previews; if the actual scene washes out, inspect its environment and light intensity.</p>
+<p><strong>Auto-conform after sculpting</strong> starts enabled. Height edits update linked plants and roads in the same undo action. Texture painting never conforms scenery. With automatic conformance off, <strong>Snap Plants and Roads to Terrain</strong> is a separate undoable action.</p>
+<p>Old composite materials remain unchanged. Inspect <strong>Preview Four Surface Layers</strong>, then click <strong>Apply Surface Settings</strong> in the dock footer. Conversion retains four slots, heights and weights without baking the old material. Appearance changes; one undo restores it.</p>
+<p>Applying is not saving. Press <strong>Cmd+S / Ctrl+S</strong>, then reopen to inspect strokes. Switching terrain clears unapplied drafts; undo and redo synchronize the cards.</p>
+<h2>Every parameter</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Initial default</th>
+<th>Range / step / options</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span id="control-terrain_map_type"></span>Map type</td>
+<td>自由地图 / Free map</td>
+<td>自由地图／循环舞台 · Free / Loop</td>
+<td>New maps only.</td>
+</tr>
+<tr>
+<td><span id="control-terrain_size"></span>Map side length (m)</td>
+<td>64</td>
+<td>64, 128, 256, 512; custom 1–4096 / 0.5</td>
+<td>Length on both X and Z; new maps only.</td>
+</tr>
+<tr>
+<td><span id="control-terrain_resolution"></span>Samples per side</td>
+<td>129</td>
+<td>129, 257, 513; custom 3–513 / 1</td>
+<td>Spacing=size÷(samples−1).</td>
+</tr>
+<tr>
+<td><span id="control-terrain_only_view"></span>Show Terrain Only (Temporary)</td>
+<td>Off</td>
+<td>On / Off</td>
+<td>Temporary editor view; never saved into the scene.</td>
+</tr>
+<tr>
+<td><span id="control-radius"></span>Sculpt radius (m)</td>
+<td>4</td>
+<td>0.2 … 64; 0.1</td>
+<td>Radius, not diameter.</td>
+</tr>
+<tr>
+<td><span id="control-strength"></span>Sculpt strength / second</td>
+<td>3</td>
+<td>0.05 … 30; 0.05</td>
+<td>Height or approach rate per second.</td>
+</tr>
+<tr>
+<td><span id="control-level"></span>Flatten / ramp endpoint height</td>
+<td>2</td>
+<td>-50 … 100; 0.1</td>
+<td>Terrain-local height in meters.</td>
+</tr>
+<tr>
+<td><span id="control-layer"></span>Active layer card</td>
+<td>1</td>
+<td>1–8</td>
+<td>Actual image name; empty slots show Unset (plain color).</td>
+</tr>
+<tr>
+<td><span id="control-texture_scale"></span>Texture repeat period (m)</td>
+<td>2</td>
+<td>0.1 … 32; 0.1</td>
+<td>Shared by all layers; requires Apply.</td>
+</tr>
+<tr>
+<td><span id="control-paint_radius"></span>Paint radius (m)</td>
+<td>4</td>
+<td>0.2 … 64; 0.1</td>
+<td>Remembered separately from sculpting.</td>
+</tr>
+<tr>
+<td><span id="control-paint_strength"></span>Paint strength / second</td>
+<td>3</td>
+<td>0.05 … 30; 0.05</td>
+<td>Changes weights, never height.</td>
+</tr>
+<tr>
+<td><span id="control-terrain_auto_conform"></span>Auto-conform after sculpting</td>
+<td>开启 / On</td>
+<td>开／关 · On / Off</td>
+<td>Remembered per project.</td>
+</tr>
+</tbody></table>
+<p>This version provides fixed landforms and simple animated water/lava visuals. It does not resample existing maps or add random generation, caves, overhangs, LOD or fluid simulation. Start at 64 m / 129 samples; larger grids cost more. Loop stages with height changes along the scrolling axis still need scenery/ground alignment checks.</p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>

@@ -1,0 +1,278 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Part III · Camera and looping · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">Skip to content</a><details class="manual-sidebar" open><summary>Contents · Jeff Studio Scene</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio Scene<span class="manual-version">USER MANUAL · 0.4.6</span></a><nav aria-label="Manual contents"><section class="nav-group"><h2 class="nav-group-title">Get started</h2><a class="nav-link" href="../index.html">Manual home</a><a class="nav-link" href="../quick_start.html">01 Install Plugin</a><a class="nav-link" href="../shared_library.html">02 Shared Library</a><a class="nav-link" href="../history.html">03 Cases & History</a></section><section class="nav-group"><h2 class="nav-group-title">Tools</h2><a class="nav-link" href="toolbar.html">Interface & Saving</a><a class="nav-link" href="terrain.html">Terrain</a><a class="nav-link" href="generation.html">One-click Generation</a><a class="nav-link" href="assets.html">Assets & Instances</a><a class="nav-link" href="scatter.html">Scatter & Roads</a><a class="nav-link" href="character.html">Characters</a><a class="nav-link" href="camera.html" aria-current="page">Camera</a><a class="nav-link" href="environment.html">Environment</a><a class="nav-link" href="music.html">Music</a><a class="nav-link" href="preview.html">Scene Preview</a></section><section class="nav-group"><h2 class="nav-group-title">Reference</h2><a class="nav-link" href="../appendices/inventory.html">Resource Inventory</a><a class="nav-link" href="../appendices/scenes.html">Scene Paths</a><a class="nav-link" href="../appendices/music_sources.html">Music Sources</a></section></nav><a class="language-switch" lang="zh" href="../../zh/reference/camera.html">中文说明书 ↗</a></div></details><main class="manual-content" id="manual-content"><h1>Part III · Camera and looping</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub public edition:</strong> The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. <a href="../../DISTRIBUTION.md">Public distribution details</a></p></aside>
+<p>New free maps default to an overhead 45° orthographic camera. Placing a player enables orthographic follow in the same undo action; existing saved scenes are not rewritten. Preset characters fully face the camera to preserve their proportions; the visual rotates while feet, body and collision stay anchored.</p>
+<p>Apply the production camera settings, then inspect them in Preview. The lock-and-follow checkbox changes the test viewing mode; free observation never writes its orientation into the production camera.</p>
+<h2>Camera presets</h2>
+<p>Select the stage root → Camera → <strong>Presets &amp; preview lock</strong> → choose a preset → adjust fields → <strong>Apply Camera Settings</strong> in the fixed footer.</p>
+<p>A preset fills a framing draft without modifying the scene, follow target or draft bounds. Manual framing edits display <strong>Custom</strong>; matching a preset displays its name. The pale-yellow footer button commits framing, projection and follow bounds in one undo action. It is disabled when no camera exists or nothing has changed.</p>
+<p>The footer distinguishes pending changes, applied settings awaiting a save, and an unavailable target. Module changes, folded groups and passive refreshes retain the draft. Changing scene/camera, external camera edits and undo/redo resynchronize the actual values and show a notice. <strong>Apply is not Save</strong>: apply, preview, then press Ctrl / Cmd + S.</p>
+<table>
+<thead>
+<tr>
+<th>Preset, in order</th>
+<th>Projection</th>
+<th>Yaw / pitch</th>
+<th>Distance</th>
+<th>FOV</th>
+<th>Focus height</th>
+<th>Ortho height</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 · Side Follow · Low-angle Perspective</td>
+<td>Perspective</td>
+<td>0° / 5.19°</td>
+<td>43.9 m</td>
+<td>15.01°</td>
+<td>2.02 m</td>
+<td>18 m (inactive)</td>
+</tr>
+<tr>
+<td>2 · Overhead 45° · Orthographic</td>
+<td>Orthographic</td>
+<td>0° / 45°</td>
+<td>36 m</td>
+<td>50° (inactive)</td>
+<td>2 m</td>
+<td>17 m</td>
+</tr>
+<tr>
+<td>3 · Overhead 45° · Perspective 25°</td>
+<td>Perspective</td>
+<td>0° / 45°</td>
+<td>35 m</td>
+<td>25°</td>
+<td>2 m</td>
+<td>17 m (inactive)</td>
+</tr>
+<tr>
+<td>4 · Overhead 45° · Perspective 30°</td>
+<td>Perspective</td>
+<td>0° / 45°</td>
+<td>30 m</td>
+<td>30°</td>
+<td>2 m</td>
+<td>17 m (inactive)</td>
+</tr>
+</tbody></table>
+<p>Selecting a preset fills only these seven framing draft fields. Target, smoothing, bounds, stage mode, renderer and native editor view stay unchanged. Front means looking from +Z toward −Z; 45° is pitch, not yaw. Use view height for orthographic zoom. Case01 matches preset 1; Cases02–04 still need their own documented values. Case05 defaults to preset 2, with presets 3 and 4 available for comparison.</p>
+<p>For orthographic zoom, adjust view height. Perspective framing depends on distance and FOV; the stored ortho height is inactive. Depth blur is configured separately in Environment.</p>
+<p>Scene Preview shows applied settings. A pending draft reminds you to apply first. Free observation in Preview never writes back to the production camera.</p>
+<p>To view the result: close an existing Preview → select the stage root → select and apply a preset → open Preview again → walk with WASD. Close the isolated copy before trying another preset; it does not automatically inherit subsequent editor changes. Undo with Cmd+Z; save with Cmd+S. Updating the addon does not rewrite existing scenes: reapply preset2 or select3/4 yourself. See <a href="../history.html">Case05</a>.</p>
+<h2>Collapsible visual groups</h2>
+<p>Click a bordered heading to expand or collapse it. Common groups start open (★); your choice is remembered per project. <strong>Expand All / Collapse All</strong> only affects this page. Tab to a heading and use Enter/Space, or Left/Right. Hiding controls keeps drafts and active tools/audition; it neither applies settings nor saves the scene. Shared Apply buttons stay outside the folds.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Contains</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>★ <a href="#group-camera-presets">Presets &amp; preview lock</a></td>
+<td>Four presets, Custom status and preview lock; use the single fixed Apply.</td>
+</tr>
+<tr>
+<td>★ <a href="#group-camera-framing">Production framing</a></td>
+<td>Yaw, pitch, distance, FOV, focus height, ortho height and projection.</td>
+</tr>
+<tr>
+<td><a href="#group-camera-bounds">Follow bounds</a></td>
+<td>Boundary toggle, X/Z origin, width/depth; shares Apply with framing.</td>
+</tr>
+<tr>
+<td><a href="#group-camera-loop">Loop stage</a></td>
+<td>Segment length, speed, pause and seams; loop settings have a separate Apply.</td>
+</tr>
+</tbody></table>
+<div class="ui-gallery">
+<section id="group-camera-presets"><strong>Presets & preview lock</strong></section>
+<section id="group-camera-framing"><strong>Production framing</strong></section>
+<section id="group-camera-bounds"><strong>Follow bounds</strong></section>
+<section id="group-camera-loop"><strong>Loop stage</strong></section>
+</div>
+
+<h2>Buttons and operations</h2>
+<table>
+<thead>
+<tr>
+<th>Visible button</th>
+<th>What it does / when it applies</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Apply Camera Settings</td>
+<td>Commits production projection, framing and follow bounds; free-observation orientation is not substituted for these settings.</td>
+</tr>
+<tr>
+<td>Apply Loop Settings</td>
+<td>Commits segment length, speed, pause and seam display; inspect the running loop. The stage mode is chosen by the template.</td>
+</tr>
+</tbody></table>
+<h2>Every parameter</h2>
+<p>Initial values below describe a new free map; an existing scene displays its saved settings.</p>
+<p>Most numeric fields are drafts until the relevant Apply button is clicked. Tool settings are read when you paint/place; imports and file-selection actions run immediately. Apply is not a disk save: use Ctrl+S / Cmd+S afterward. Check the action descriptions for exceptions.</p>
+<p>Ranges show minimum … maximum; step. Options show the available choices. Units and conditions are explained in the final column. Sliders and their numeric boxes edit the same value, not two separate parameters. Existing follow bounds outside the ordinary limits expand the inputs to display their values. Fractional bounds use 0.01 m steps; untouched fields retain their original values.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Initial default</th>
+<th>Range / step / options</th>
+<th>Meaning and limits</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span id="control-camera_locked"></span>Lock angle and follow (preview)<br><a href="#group-camera-presets">Presets &amp; preview lock</a></td>
+<td>On / 开</td>
+<td>—</td>
+<td>Immediately switches isolated-preview observation mode; does not change the native editor&#39;s free view.</td>
+</tr>
+<tr>
+<td><span id="control-camera_yaw"></span>Scene camera yaw<br><a href="#group-camera-framing">Production framing</a></td>
+<td>0</td>
+<td>-180 … 180; 0.01</td>
+<td>Production camera azimuth around the Y axis, in degrees.</td>
+</tr>
+<tr>
+<td><span id="control-camera_pitch"></span>Scene camera pitch<br><a href="#group-camera-framing">Production framing</a></td>
+<td>45</td>
+<td>5 … 85; 0.01</td>
+<td>Production camera downward pitch in degrees; smaller values approach an eye-level view.</td>
+</tr>
+<tr>
+<td><span id="control-camera_distance"></span>Camera distance<br><a href="#group-camera-framing">Production framing</a></td>
+<td>36</td>
+<td>2 … 100; 0.1</td>
+<td>Distance from the follow focus in meters; affects perspective framing but is not the orthographic zoom control.</td>
+</tr>
+<tr>
+<td><span id="control-camera_fov"></span>Perspective FOV<br><a href="#group-camera-framing">Production framing</a></td>
+<td>50</td>
+<td>5 … 100; 0.01</td>
+<td>Perspective field of view in degrees; does not control frame size in orthographic mode.</td>
+</tr>
+<tr>
+<td><span id="control-camera_focus"></span>Follow focus height<br><a href="#group-camera-framing">Production framing</a></td>
+<td>2</td>
+<td>0 … 10; 0.01</td>
+<td>Height offset of the follow focus relative to the actor, in meters.</td>
+</tr>
+<tr>
+<td><span id="control-camera_size"></span>Orthographic view height<br><a href="#group-camera-framing">Production framing</a></td>
+<td>17</td>
+<td>2 … 100; 0.1</td>
+<td>Orthographic frame height in meters; smaller values enlarge objects. Unused in perspective mode.</td>
+</tr>
+<tr>
+<td><span id="control-orthographic"></span>Orthographic projection<br><a href="#group-camera-framing">Production framing</a></td>
+<td>On / 开</td>
+<td>—</td>
+<td>Enables orthographic projection without perspective size falloff; disabled uses perspective.</td>
+</tr>
+<tr>
+<td><span id="control-bounds"></span>Enable follow bounds<br><a href="#group-camera-bounds">Follow bounds</a></td>
+<td>Off / 关</td>
+<td>—</td>
+<td>Constrains the follow focus in X/Z; it does not guarantee that every edge of the camera frame remains inside the map.</td>
+</tr>
+<tr>
+<td><span id="control-bound_x"></span>Bounds origin X<br><a href="#group-camera-bounds">Follow bounds</a></td>
+<td>-120</td>
+<td>-512 … 512; 1</td>
+<td>Starting X coordinate of the boundary rectangle, in meters.</td>
+</tr>
+<tr>
+<td><span id="control-bound_z"></span>Bounds origin Z<br><a href="#group-camera-bounds">Follow bounds</a></td>
+<td>-120</td>
+<td>-512 … 512; 1</td>
+<td>Starting Z coordinate of the boundary rectangle, in meters.</td>
+</tr>
+<tr>
+<td><span id="control-bound_w"></span>Bounds width<br><a href="#group-camera-bounds">Follow bounds</a></td>
+<td>240</td>
+<td>1 … 1024; 1</td>
+<td>Boundary width along X, in meters.</td>
+</tr>
+<tr>
+<td><span id="control-bound_d"></span>Bounds depth<br><a href="#group-camera-bounds">Follow bounds</a></td>
+<td>240</td>
+<td>1 … 1024; 1</td>
+<td>Boundary depth along Z, in meters.</td>
+</tr>
+<tr>
+<td><span id="control-segment_length"></span>Segment length (m)<br><a href="#group-camera-loop">Loop stage</a></td>
+<td>40</td>
+<td>4 … 256; 0.1</td>
+<td>Width of one reused segment in meters. Artwork must join at its edges; this does not generate seamless terrain automatically.</td>
+</tr>
+<tr>
+<td><span id="control-scroll_speed"></span>Scroll speed (negative = reverse)<br><a href="#group-camera-loop">Loop stage</a></td>
+<td>2</td>
+<td>-20 … 20; 0.1</td>
+<td>Scrolling speed in meters per second; negative reverses direction and zero stops motion.</td>
+</tr>
+<tr>
+<td><span id="control-loop_pause"></span>Pause scrolling<br><a href="#group-camera-loop">Loop stage</a></td>
+<td>Off / 关</td>
+<td>—</td>
+<td>Pauses background scrolling at its current position; music pause behavior is configured separately.</td>
+</tr>
+<tr>
+<td><span id="control-seams"></span>Show segment boundaries<br><a href="#group-camera-loop">Loop stage</a></td>
+<td>Off / 关</td>
+<td>—</td>
+<td>Shows segment boundaries for seam inspection; disable after checking the final composition.</td>
+</tr>
+</tbody></table>
+<h2>Recommended sequence and pitfalls</h2>
+<p>Scenery is the scrolling container; Characters, static sky and camera remain in their appropriate root branches. Author matching segment edges: arbitrary terrain or images are not automatically seamless. Test pause, reverse and speed changes, then hide seam guides for the final view.</p>
+<p>Use the shared toolbar reference for saving, stopping tools and previews. This workflow uses the dock, thumbnails, brush and native Inspector; you do not need to write GDScript to author the scene.</p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>

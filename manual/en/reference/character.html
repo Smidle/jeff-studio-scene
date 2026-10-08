@@ -1,0 +1,328 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Part III · Character · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
+.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
+.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
+.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
+.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
+.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
+.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
+.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
+.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
+@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
+@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.manual-page{--nav-width:248px}
+.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
+.skip-link:focus{top:12px}
+.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
+.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
+.manual-sidebar>summary::-webkit-details-marker{display:none}
+.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
+.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
+.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
+.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
+.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
+.nav-group{margin:0 0 20px}
+.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
+.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
+.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
+.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
+.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
+.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
+.manual-content>h1:first-child{margin-top:0}
+.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
+.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
+@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
+@media(max-width:860px){
+ .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
+ .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
+ .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
+ .manual-sidebar[open]>summary::after{content:'−'}
+ .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
+ .manual-content{margin:0;padding:26px 18px 52px}
+ .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
+ .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
+ .skip-link{left:18px}
+}
+@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
+</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">Skip to content</a><details class="manual-sidebar" open><summary>Contents · Jeff Studio Scene</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio Scene<span class="manual-version">USER MANUAL · 0.4.6</span></a><nav aria-label="Manual contents"><section class="nav-group"><h2 class="nav-group-title">Get started</h2><a class="nav-link" href="../index.html">Manual home</a><a class="nav-link" href="../quick_start.html">01 Install Plugin</a><a class="nav-link" href="../shared_library.html">02 Shared Library</a><a class="nav-link" href="../history.html">03 Cases & History</a></section><section class="nav-group"><h2 class="nav-group-title">Tools</h2><a class="nav-link" href="toolbar.html">Interface & Saving</a><a class="nav-link" href="terrain.html">Terrain</a><a class="nav-link" href="generation.html">One-click Generation</a><a class="nav-link" href="assets.html">Assets & Instances</a><a class="nav-link" href="scatter.html">Scatter & Roads</a><a class="nav-link" href="character.html" aria-current="page">Characters</a><a class="nav-link" href="camera.html">Camera</a><a class="nav-link" href="environment.html">Environment</a><a class="nav-link" href="music.html">Music</a><a class="nav-link" href="preview.html">Scene Preview</a></section><section class="nav-group"><h2 class="nav-group-title">Reference</h2><a class="nav-link" href="../appendices/inventory.html">Resource Inventory</a><a class="nav-link" href="../appendices/scenes.html">Scene Paths</a><a class="nav-link" href="../appendices/music_sources.html">Music Sources</a></section></nav><a class="language-switch" lang="zh" href="../../zh/reference/character.html">中文说明书 ↗</a></div></details><main class="manual-content" id="manual-content"><h1>Part III · Character</h1>
+<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub public edition:</strong> The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. <a href="../../DISTRIBUTION.md">Public distribution details</a></p></aside>
+<p>0.4.6 fixes occasional scrambled character frames when starting, turning or switching between walking and running. Close Godot, update the plugin from package 01, then reopen the project. Existing characters receive the fix without reimporting images or placing them again.</p>
+<p>Player placement defaults to orthographic follow. Preset character visuals face the camera including its pitch, preserving proportions in both projections. The body, feet and collision do not tilt. For manually imported legacy characters, enable Face Camera in Foot Anchor &amp; Appearance, then apply the character settings.</p>
+<p>Select an actor in the scene tree; Hero is the fallback target. Import each action and direction separately, click the feet in the image preview, then apply. One image cannot automatically supply all animations.</p>
+<p>The three built-in presets now align to their visible soles so their feet do not sink into the ground after placement. Replace package 01 and reopen the scene: built-in characters still using the old default anchor receive a corrected local profile; save the scene to keep it. Custom anchors and manually imported characters retain their settings. No shared-library reinstall or raised character/collider position is needed.</p>
+<h2>Characters near building walls</h2>
+<p>Face Camera keeps characters readable in orthographic and perspective views. Occlusion uses an upright depth plane on the camera-facing side of the existing collision footprint, anchored at the feet. This prevents the tilted visual from pushing the upper body into a wall and keeps small front eaves from clipping the head. Buildings still hide characters standing behind them. This correction applies to existing camera-facing characters and new placements. Close Godot, replace package 01, and reopen the project; case files and the shared library do not need replacement.</p>
+<p>Collision radius and height control physical movement; the foot anchor controls image alignment with the ground. A stopped body with a clipped upper half indicates the visual occlusion issue above. If the entire actor can walk into a building, check its static collision shape, dimensions and offset. Enable Show Collision Guides in Assets → Static Collision to inspect the wall coverage.</p>
+<p>These captures use the Case05 martial-hall model and character in an isolated scene with original-mesh collision. Camera and collision are identical in both images.</p>
+<h2>Place Preset Characters</h2>
+<p>Open <strong>Character → Place Preset Character</strong>. The 0.4.6 local-study plugin package includes Wandering Swordsman, Leng Wuqing and Lv Xiaoling. No shared library or case package is required. Nine source images and the action index total about 179 KiB (about 154 KiB compressed). Selecting a preset prepares only its three sheets. Optional external characters are deduplicated by stable ID; a missing or damaged external index does not block builtins.</p>
+<ol>
+<li>Choose Wandering Swordsman, Leng Wuqing or Lü Xiaoling. The plugin prepares only that character’s three sheets. Preview idle, walk and run in four directions.</li>
+<li>Choose <strong>Player (unique), Companion (follows player), or NPC (stays in place)</strong> below the preview.</li>
+<li>Click <strong>Place Character in 3D View</strong>, then click ground or a bridge. Esc cancels and each placement supports undo. Placing another player replaces and moves the same player instead of creating a second one.</li>
+<li>Save and run or deliberately open Preview. In free-walk maps use WASD / arrows to walk and hold Shift to run. The game camera follows the player; the editor viewport stays free. Companions follow the recorded route and run to catch up. NPCs remain in place with idle animation.</li>
+</ol>
+<p>Companions may be placed first and wait until a player exists. Following respects physics collisions and does not include obstacle pathfinding. Fix blocked routes or collisions when needed. Role placement is intended for free-walk maps; looping showcases retain their existing stage behavior.</p>
+<p>Select a placed character to adjust the existing anchor, display, movement and collision controls, then click <strong>Apply Character Settings / Foot Anchor</strong>. Presets walk at 3.5 m/s and run at 6.5 m/s. Companion spacing defaults to 1.8 m and can be changed through the node’s <code>follow_spacing</code>. The placement role selector affects future placements only.</p>
+<p>Prepared sheets live in the project’s <code>hd2d_imports/characters</code>; saved scenes run without the shared drive. Animations, speed, role and anchor are saved with the scene. East explicitly mirrors the supplied west view. These extracted game presets remain local-study assets, without a commercial-use grant.</p>
+<figure id="group-character-presets"><a href="../../images/046_builtin_character_en.png"><img src="../../images/046_builtin_character_en.png" alt="Place Preset Character" width="960"></a><figcaption>0.4.6 · Bundled characters without a shared library: actions, roles and placement.</figcaption></figure>
+
+
+<h2>Collapsible visual groups</h2>
+<p>Click a bordered heading to expand or collapse it. Common groups start open (★); your choice is remembered per project. <strong>Expand All / Collapse All</strong> only affects this page. Tab to a heading and use Enter/Space, or Left/Right. Hiding controls keeps drafts and active tools/audition; it neither applies settings nor saves the scene. Shared Apply buttons stay outside the folds.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Contains</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>★ <a href="#group-character-action">Action &amp; direction</a></td>
+<td>Direction count, action/custom action, source direction and import FPS.</td>
+</tr>
+<tr>
+<td>★ <a href="#group-character-import">Asset import</a></td>
+<td>PNG sequence, atlas grid/row/frame count and SpriteFrames import.</td>
+</tr>
+<tr>
+<td><a href="#group-character-mapping">Animation mapping</a></td>
+<td>Map the selected action/direction to an existing animation name.</td>
+</tr>
+<tr>
+<td><a href="#group-character-appearance">Foot anchor &amp; appearance</a></td>
+<td>Foot preview and anchors, meters per pixel, shading and horizontal flip.</td>
+</tr>
+<tr>
+<td><a href="#group-character-movement">Movement &amp; collision</a></td>
+<td>Walk speed, collider radius/height and actor placement tool.</td>
+</tr>
+<tr>
+<td><a href="#group-character-shadow">Character shadows</a></td>
+<td>Contact and flat-ground projected shadow toggles.</td>
+</tr>
+</tbody></table>
+<div class="ui-gallery">
+<section id="group-character-action"><strong>Action & direction</strong></section>
+<section id="group-character-import"><strong>Asset import</strong></section>
+<section id="group-character-mapping"><strong>Animation mapping</strong></section>
+<section id="group-character-appearance"><strong>Foot anchor & appearance</strong></section>
+<section id="group-character-movement"><strong>Movement & collision</strong></section>
+<section id="group-character-shadow"><strong>Character shadows</strong></section>
+</div>
+
+<h2>Buttons and operations</h2>
+<table>
+<thead>
+<tr>
+<th>Visible button</th>
+<th>What it does / when it applies</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Import PNG Sequence (natural name order)</td>
+<td>Imports equal-canvas PNGs in natural name order into the current action/direction; set action, direction and FPS first.</td>
+</tr>
+<tr>
+<td>Import This Atlas Row</td>
+<td>Slices a row using the configured columns, rows and row index; does not infer irregular packed atlases.</td>
+</tr>
+<tr>
+<td>Import Existing SpriteFrames</td>
+<td>Loads a prepared SpriteFrames .tres/.res, not an asset library or character Profile; dependent images must be accessible.</td>
+</tr>
+<tr>
+<td>Map Action / Direction to Animation</td>
+<td>Maps the selected action/direction to the named existing animation; does not duplicate or generate frames.</td>
+</tr>
+<tr>
+<td>Apply Character / Foot Anchor</td>
+<td>Commits pivots, direction count, scale, movement, collision and shadows to the current actor profile; check foot alignment in Preview.</td>
+</tr>
+<tr>
+<td>Place Character on Ground</td>
+<td>Enters the actor placement tool; clicking the terrain moves the current actor rather than creating a new one each time.</td>
+</tr>
+</tbody></table>
+<h2>Every parameter</h2>
+<p>Most numeric fields are drafts until the relevant Apply button is clicked. Tool settings are read when you paint/place; imports and file-selection actions run immediately. Apply is not a disk save: use Ctrl+S / Cmd+S afterward. Check the action descriptions for exceptions.</p>
+<p>Ranges show minimum … maximum; step. Options show the available choices. Units and conditions are explained in the final column. Sliders and their numeric boxes edit the same value, not two separate parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Initial default</th>
+<th>Range / step / options</th>
+<th>Meaning and limits</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span id="control-directions"></span>Direction count<br><a href="#group-character-action">Action &amp; direction</a></td>
+<td>4</td>
+<td>2, 4, 8</td>
+<td>Desired direction count, not the number of available images; missing directions produce warnings and fallbacks.</td>
+</tr>
+<tr>
+<td><span id="control-action"></span>Action<br><a href="#group-character-action">Action &amp; direction</a></td>
+<td>idle</td>
+<td>idle, walk, run</td>
+<td>Action key currently being imported or mapped: idle for standing and walk for locomotion.</td>
+</tr>
+<tr>
+<td><span id="control-direction"></span>Source direction<br><a href="#group-character-action">Action &amp; direction</a></td>
+<td>s</td>
+<td>s, w, n, e, sw, nw, ne, se</td>
+<td>Actual source direction for this batch: s south, w west, n north, e east; remaining keys are diagonals.</td>
+</tr>
+<tr>
+<td><span id="control-fps"></span>Frames per second<br><a href="#group-character-action">Action &amp; direction</a></td>
+<td>8</td>
+<td>1 … 60; 1</td>
+<td>Playback frames per second for the imported action; higher values play faster, without generating in-between frames.</td>
+</tr>
+<tr>
+<td><span id="control-atlas_columns"></span>Atlas columns<br><a href="#group-character-import">Asset import</a></td>
+<td>4</td>
+<td>1 … 128; 1</td>
+<td>Number of equal-width columns in a regular sprite atlas.</td>
+</tr>
+<tr>
+<td><span id="control-atlas_rows"></span>Atlas rows<br><a href="#group-character-import">Asset import</a></td>
+<td>4</td>
+<td>1 … 128; 1</td>
+<td>Number of equal-height rows in a regular sprite atlas.</td>
+</tr>
+<tr>
+<td><span id="control-atlas_row"></span>Row to read (starts at 1)<br><a href="#group-character-import">Asset import</a></td>
+<td>1</td>
+<td>1 … 128; 1</td>
+<td>One-based row number to import; it must be within the atlas row count.</td>
+</tr>
+<tr>
+<td><span id="control-atlas_count"></span>Frames in this row<br><a href="#group-character-import">Asset import</a></td>
+<td>4</td>
+<td>1 … 128; 1</td>
+<td>Number of consecutive usable frames in this row; cannot exceed the column count.</td>
+</tr>
+<tr>
+<td><span id="control-foot_x"></span>Horizontal anchor<br><a href="#group-character-appearance">Foot anchor &amp; appearance</a></td>
+<td>0.5</td>
+<td>-0.5 … 1.5; 0.01</td>
+<td>Horizontal normalized foot pivot: 0 left, 0.5 center, 1 right; different from atlas crop coordinates.</td>
+</tr>
+<tr>
+<td><span id="control-foot_y"></span>Foot anchor<br><a href="#group-character-appearance">Foot anchor &amp; appearance</a></td>
+<td>1</td>
+<td>-0.5 … 1.5; 0.01</td>
+<td>Vertical normalized foot pivot; align to the visible soles, not blindly to the bottom of a transparent canvas.</td>
+</tr>
+<tr>
+<td><span id="control-pixel_size"></span>Meters per pixel<br><a href="#group-character-appearance">Foot anchor &amp; appearance</a></td>
+<td>0.025</td>
+<td>0.001 … 0.1; 0.001</td>
+<td>World meters per source pixel. Display height is approximately image height in pixels times this value.</td>
+</tr>
+<tr>
+<td><span id="control-move_speed"></span>Walk speed (m/s)<br><a href="#group-character-movement">Movement &amp; collision</a></td>
+<td>4</td>
+<td>0 … 20; 0.1</td>
+<td>Basic movement speed in meters per second, independent of animation FPS.</td>
+</tr>
+<tr>
+<td><span id="control-collider_radius"></span>Collision radius<br><a href="#group-character-movement">Movement &amp; collision</a></td>
+<td>0.3</td>
+<td>0.1 … 3; 0.05</td>
+<td>Capsule collider radius in meters; collision is separate from sprite rendering.</td>
+</tr>
+<tr>
+<td><span id="control-collider_height"></span>Collision height<br><a href="#group-character-movement">Movement &amp; collision</a></td>
+<td>1.5</td>
+<td>0.2 … 5; 0.05</td>
+<td>Total capsule height in meters, which should be at least its diameter; do not count transparent margins as body height.</td>
+</tr>
+<tr>
+<td><span id="control-character_shaded"></span>Receive sunlight shading<br><a href="#group-character-appearance">Foot anchor &amp; appearance</a></td>
+<td>Off / 关</td>
+<td>—</td>
+<td>Lets scene lighting shade the sprite; disabled gives more stable color but less scene-light response.</td>
+</tr>
+<tr>
+<td><span id="control-character_flip"></span>Manual horizontal flip (no new directions)<br><a href="#group-character-appearance">Foot anchor &amp; appearance</a></td>
+<td>Off / 关</td>
+<td>—</td>
+<td>Manually mirrors existing images horizontally; does not create a missing directional animation.</td>
+</tr>
+<tr>
+<td><span id="control-contact_shadow"></span>Foot contact shadow<br><a href="#group-character-shadow">Character shadows</a></td>
+<td>On / 开</td>
+<td>—</td>
+<td>Contact shadow beneath the feet to communicate ground contact.</td>
+</tr>
+<tr>
+<td><span id="control-projected_shadow"></span>Flat-ground shadow (use cautiously on slopes)<br><a href="#group-character-shadow">Character shadows</a></td>
+<td>Off / 关</td>
+<td>—</td>
+<td>A projected-shadow approximation suited to flat ground; inspect slopes for floating or intersecting shadows.</td>
+</tr>
+<tr>
+<td><span id="control-custom_action"></span>Optional custom action (e.g. attack)<br><a href="#group-character-action">Action &amp; direction</a></td>
+<td>—</td>
+<td>Text</td>
+<td>Nonempty text overrides the action dropdown, e.g. attack. The basic walking controller is not a combat state machine; custom actions need game logic.</td>
+</tr>
+<tr>
+<td><span id="control-animation_mapping"></span>Existing animation, e.g. WalkSouth<br><a href="#group-character-mapping">Animation mapping</a></td>
+<td>—</td>
+<td>Text</td>
+<td>Exact existing animation name inside SpriteFrames, not the resource file path.</td>
+</tr>
+</tbody></table>
+<h2>Other visible controls</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Foot image and yellow baseline</td>
+<td>Click the preview to set both pivots, then apply. Equal canvases across animations make consistent alignment easier.</td>
+</tr>
+<tr>
+<td>Missing-direction warning</td>
+<td>Lists missing animations and the actual fallback; does not generate frames or automatically mirror them.</td>
+</tr>
+</tbody></table>
+<h2>Recommended sequence and pitfalls</h2>
+<p>Start with walk_e and check foot alignment, then add idle and other directions for which actual images exist. Test direction switching and slope collision with WASD/arrows. Legacy manually imported actors retain idle/walk; preset-role actors switch idle/walk/run with movement. This is not a complete combat-animation controller.</p>
+<p>Use the shared toolbar reference for saving, stopping tools and previews. This workflow uses the dock, thumbnails, brush and native Inspector; you do not need to write GDScript to author the scene.</p>
+<h2>Facing and mirroring</h2>
+<p>Preset actors automatically face the camera; do not tilt their root nodes. For manually imported actors, enable <strong>Foot Pivot &amp; Appearance → Face the camera</strong> and apply. This corresponds to Profile&#39;s <strong>Full Billboard</strong> and affects only the visual.</p>
+<p>Expand Profile in the actor&#39;s Inspector. <strong>Mirror Directions</strong> is an array of direction keys and defaults to empty. Adding <code>e</code> explicitly mirrors supplied frames for the east direction, as in Case 5. It combines with Flip H and never generates new frames. Unprovided directions without an explicit mirror still use animation-mapping fallbacks.</p>
+<h2>Facing and running</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Range</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span id="control-character_face_camera"></span>Face the camera (automatic for preset characters)</td>
+<td>On for presets</td>
+<td>On / Off</td>
+<td>The visual follows camera pitch while feet and collision stay anchored. Enable and apply explicitly for legacy imported actors.</td>
+</tr>
+<tr>
+<td><span id="control-run_speed"></span>Run speed</td>
+<td>6.5 m/s</td>
+<td>0–30; step 0.1</td>
+<td>Hold Shift in a free map; preset run animation follows movement speed.</td>
+</tr>
+</tbody></table>
+<p>The bundled game-extracted characters remain local-study material. A future public GitHub distribution must exclude <code>addons/hd2d_scene_tools/assets/local_study_characters</code> and its index. No repository is created or uploaded by this update.</p>
+</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>
