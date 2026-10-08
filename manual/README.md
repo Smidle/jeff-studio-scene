@@ -1,12 +1,18 @@
-# Jeff Studio Scene 0.4.6 · 独立说明书
+<a name="manual-top"></a>
 
-本目录保存完整的中英文说明书。GitHub 阅读版与 HTML 版位于相同位置，图片统一保存在 `images/` 中。
+# Jeff Studio Godot场景插件 · 说明书
+
+[← 返回项目首页](../README.md)
+
+本目录保存完整的中英文说明书。GitHub 阅读版与 HTML 版位于相同位置，图片统一保存在 `images/` 中。在线阅读请选择下面的 Markdown 页面，操作截图会直接显示在正文中。
 
 - **在线阅读**：[中文说明书](zh/index.md) · [English Manual](en/index.md)
 - **离线阅读**：下载仓库或 Release，解压后用浏览器打开根目录的 `START_HERE.html`，选择语言。保留整个 `manual/` 目录和图片的相对位置。
 - **版本范围**：0.4.6「插件与说明书」公开发布包；[公开分发说明](DISTRIBUTION.md)。
 
 ## 中文目录
+
+[功能指南目录](zh/reference/README.md) · [参考资料目录](zh/appendices/README.md)
 
 | 章节 | 内容 |
 | --- | --- |
@@ -29,8 +35,14 @@
 
 ## English contents
 
+[Tool guides](en/reference/README.md) · [Reference appendices](en/appendices/README.md)
+
 [Getting started](en/quick_start.md) · [Shared library](en/shared_library.md) · [Cases & history](en/history.md)
 
 [Interface & saving](en/reference/toolbar.md) · [Terrain](en/reference/terrain.md) · [Generation](en/reference/generation.md) · [Assets](en/reference/assets.md) · [Scatter & roads](en/reference/scatter.md) · [Characters](en/reference/character.md) · [Camera](en/reference/camera.md) · [Environment](en/reference/environment.md) · [Music](en/reference/music.md) · [Preview](en/reference/preview.md)
 
 [Resource inventory](en/appendices/inventory.md) · [Scene paths](en/appendices/scenes.md) · [Music sources](en/appendices/music_sources.md)
+
+---
+
+[← 返回项目首页](../README.md) · [↑ 回到页首](#manual-top)

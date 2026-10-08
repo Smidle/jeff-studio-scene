@@ -1,14 +1,39 @@
+<a name="manual-top"></a>
+
 # 第三部分 · 地形
+
+<!-- manual-navigation:start -->
+[项目首页](../../../README.md) / [说明书总目录](../../README.md) / [中文说明书](../index.md) / [功能指南](README.md)
+
+[← 返回上一级](README.md) · [English](../../en/reference/terrain.md)
+
+<details>
+<summary>本页目录（点击展开）</summary>
+
+- [地形制作引导](#manual-section-01)
+- [可折叠功能分组](#manual-section-02)
+- [1. 创建地图](#manual-section-03)
+- [2. 雕刻高度](#manual-section-04)
+- [3. 内置地表在哪里选](#manual-section-05)
+- [4. 绘制与维护](#manual-section-06)
+- [逐项参数](#manual-section-07)
+
+</details>
+<!-- manual-navigation:end -->
 
 > **GitHub 公开版说明：**下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。[查看分发说明](../../DISTRIBUTION.md)
 
 **设置地图规格 → 选择地表方案 → 右侧预览 → 底部应用。** 已有地形可直接雕刻和绘制，不必重新创建。
+
+<a name="manual-section-01"></a>
 
 ## 地形制作引导
 
 地形页最上方显示实时地形预览，显示新地图草稿或当前地形与未应用地表。**地图规格…** 打开设置。此处直接看地形／草稿预览；需要运行场景时，从 **镜头 → 预览当前场景** 进入。
 
 右侧最下方的淡金色应用框固定在滚动区外，浅黄色按钮突出主要动作：新地图草稿显示 **应用：创建地图**，已有地形显示 **应用地表设置**。预览使用简化网格；实际创建采用所选采样点数。雕刻和绘制直接修改场景；应用按钮只提交新地图或地表草稿，保存仍用 Cmd+S / Ctrl+S。
+
+<a name="manual-section-02"></a>
 
 ## 可折叠功能分组
 
@@ -22,25 +47,27 @@
 | [贴地维护](#group-terrain-conform) | 雕刻后自动或手动更新关联植物和道路。 |
 | [地形制作引导](#group-terrain-world) | 新地图草稿／当前地形预览；地图规格入口。 |
 
-<a id="group-terrain-world"></a>
+<a name="group-terrain-world"></a>
 
-<a id="group-terrain-template"></a>
+<a name="group-terrain-template"></a>
 
 **新建地图**
 
-<a id="group-terrain-brush"></a>
+<a name="group-terrain-brush"></a>
 
 **地形雕刻**
 
-<a id="group-terrain-layers"></a>
+<a name="group-terrain-layers"></a>
 
 **地表层与绘制**
 
-<a id="group-terrain-conform"></a>
+<a name="group-terrain-conform"></a>
 
 **贴地维护**
 
 ****
+
+<a name="manual-section-03"></a>
 
 ## 1. 创建地图
 
@@ -73,6 +100,8 @@
 
 **火山口**
 
+<a name="manual-section-04"></a>
+
 ## 2. 雕刻高度
 
 **制作过程中可以直接修改已有地形，不必再次新建地图。** 在场景树选中包含地形的 HD2DStage，或其中的 HD2DTerrain，再使用雕刻工具或地表绘制。原生网格地板（如案例05）不是可雕刻的高度地形。
@@ -89,6 +118,8 @@
 升降、平滑、平台和绘制支持 **按住不动持续生效**。强度按时间累计；松开、Esc 或窗口失焦结束本笔，一笔一次撤销。雕刻和绘制分别记住半径、强度。只有平台／坡道显示目标高度。
 
 笔刷命中当前地形，不被布景物件截获。请在原生 3D 编辑区操作，隔离预览里不能绘制。地形保持原点、缩放 1 便于按米调整。
+
+<a name="manual-section-05"></a>
 
 ## 3. 内置地表在哪里选
 
@@ -131,6 +162,8 @@
 
 使用 imagegen 重新制作纹理结构，参考整体像素武侠美术特征，没有复制、拼贴或仅调色提取原图。尚无原图商业使用及原文件再分发授权。新地表来源独立记录；**既有提取模型、音乐、截图仍为本机学习素材，整个共享包不因此成为商用素材包。**
 
+<a name="manual-section-06"></a>
+
 ## 4. 绘制与维护
 
 平地初始全部为第 1 层，应用该层图片后可立即看到底色；其他层需绘制才出现。这是场景制作常见的“地表纹理绘制”：多张纹理在同一地面按占比混合，层号不代表上下遮挡顺序。增加一层占比会减弱其他层；想擦回底色就绘制第 1 层。湖、河等形状预设已预先绘制高地、岸边和底部的分布。
@@ -145,21 +178,27 @@
 
 应用不是保存。最后按 **Cmd+S / Ctrl+S**，重开检查笔触。切换地形会清理未应用草稿；撤销重做后卡片同步实际状态。
 
+<a name="manual-section-07"></a>
+
 ## 逐项参数
 
 | 参数 | 初始默认 | 范围 / 步长 / 选项 | 含义 |
 | --- | --- | --- | --- |
-| <a id="control-terrain_map_type"></a>地图类型 | 自由地图 / Free map | 自由地图／循环舞台 · Free / Loop | 只用于新地图。 |
-| <a id="control-terrain_size"></a>地图每边长度（米） | 64 | 64, 128, 256, 512；自定义 1–4096 / 0.5 | X、Z 每边长度，只用于新地图。 |
-| <a id="control-terrain_resolution"></a>每边高度点数 | 129 | 129, 257, 513；自定义 3–513 / 1 | 间距=尺寸÷(采样数−1)。 |
-| <a id="control-terrain_only_view"></a>只显示地形（临时） | 关闭 | 开／关 | 临时编辑视图，不保存到场景。 |
-| <a id="control-radius"></a>雕刻半径（米） | 4 | 0.2 … 64; 0.1 | 半径，不是直径。 |
-| <a id="control-strength"></a>雕刻强度 / 秒 | 3 | 0.05 … 30; 0.05 | 每秒高度增减或趋近速度。 |
-| <a id="control-level"></a>平台 / 坡道终点高度 | 2 | -50 … 100; 0.1 | 地形本地高度（米）。 |
-| <a id="control-layer"></a>当前层卡片 | 1 | 1–8 | 实际名称；空层显示未设置（纯色）。 |
-| <a id="control-texture_scale"></a>纹理重复周期（米） | 2 | 0.1 … 32; 0.1 | 所有层共用，应用后生效。 |
-| <a id="control-paint_radius"></a>绘制半径（米） | 4 | 0.2 … 64; 0.1 | 与雕刻设置分别记忆。 |
-| <a id="control-paint_strength"></a>绘制强度 / 秒 | 3 | 0.05 … 30; 0.05 | 改变占比，不改高度。 |
-| <a id="control-terrain_auto_conform"></a>松开笔刷后自动贴地 | 开启 / On | 开／关 · On / Off | 本工程记忆。 |
+| <a name="control-terrain_map_type"></a>地图类型 | 自由地图 / Free map | 自由地图／循环舞台 · Free / Loop | 只用于新地图。 |
+| <a name="control-terrain_size"></a>地图每边长度（米） | 64 | 64, 128, 256, 512；自定义 1–4096 / 0.5 | X、Z 每边长度，只用于新地图。 |
+| <a name="control-terrain_resolution"></a>每边高度点数 | 129 | 129, 257, 513；自定义 3–513 / 1 | 间距=尺寸÷(采样数−1)。 |
+| <a name="control-terrain_only_view"></a>只显示地形（临时） | 关闭 | 开／关 | 临时编辑视图，不保存到场景。 |
+| <a name="control-radius"></a>雕刻半径（米） | 4 | 0.2 … 64; 0.1 | 半径，不是直径。 |
+| <a name="control-strength"></a>雕刻强度 / 秒 | 3 | 0.05 … 30; 0.05 | 每秒高度增减或趋近速度。 |
+| <a name="control-level"></a>平台 / 坡道终点高度 | 2 | -50 … 100; 0.1 | 地形本地高度（米）。 |
+| <a name="control-layer"></a>当前层卡片 | 1 | 1–8 | 实际名称；空层显示未设置（纯色）。 |
+| <a name="control-texture_scale"></a>纹理重复周期（米） | 2 | 0.1 … 32; 0.1 | 所有层共用，应用后生效。 |
+| <a name="control-paint_radius"></a>绘制半径（米） | 4 | 0.2 … 64; 0.1 | 与雕刻设置分别记忆。 |
+| <a name="control-paint_strength"></a>绘制强度 / 秒 | 3 | 0.05 … 30; 0.05 | 改变占比，不改高度。 |
+| <a name="control-terrain_auto_conform"></a>松开笔刷后自动贴地 | 开启 / On | 开／关 · On / Off | 本工程记忆。 |
 
 本版提供固定地形形状和简单水面／熔岩外观，不提供现有地形尺寸重采样、随机生成、洞穴、悬空地形、LOD 或流体模拟。先用 64 米 / 129 采样练习；大采样网格成本较高。循环舞台若沿滚动方向起伏，仍需检查布景与地面的吻合。
+
+---
+
+[← 上一章：界面与保存](toolbar.md) · [↑ 返回上一级](README.md) · [说明书总目录](../../README.md) · [↑ 回到页首](#manual-top) · [下一章：一键生成 →](generation.md)

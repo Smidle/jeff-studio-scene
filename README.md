@@ -1,8 +1,8 @@
-# Jeff Studio Scene · 0.4.6
+# Jeff Studio Godot场景插件
 
 **在 Godot 中，通过可视化工具制作 HD-2D 地形、建筑与小镇。**
 
-Jeff Studio Scene（Jeff Studio 场景）是一款 Godot 4.7 场景制作插件，提供中英文界面，将地形编辑、建筑生成、素材摆放、角色、镜头、环境和音乐工具集中在编辑器中。
+Jeff Studio Godot场景插件（Jeff Studio Scene）是一款 Godot 场景制作插件，提供中英文界面，将地形编辑、建筑生成、素材摆放、角色、镜头、环境和音乐工具集中在编辑器中。
 
 [下载 0.4.6](https://github.com/Smidle/jeff-studio-scene/releases/tag/v0.4.6) · [独立说明书](manual/README.md) · [反馈问题](https://github.com/Smidle/jeff-studio-scene/issues)
 
@@ -20,7 +20,7 @@ Jeff Studio Scene（Jeff Studio 场景）是一款 Godot 4.7 场景制作插件�
 
 ## 安装概要
 
-1. 使用 **Godot 4.7 系列**，建议使用 **Godot 4.7.1**。本版使用 `EditorDock` 等编辑器 API；更早的 Godot 版本未在本次发布中验证。
+1. 打开或新建一个 **Godot 工程**。
 2. 从 [Releases](https://github.com/Smidle/jeff-studio-scene/releases/tag/v0.4.6) 下载 `01_HD2D_0.4.6_Plugin_Manual.zip` 并解压。
 3. 将 `addons/hd2d_scene_tools/` 复制到已有 Godot 工程的 `addons/` 目录。
 4. 等待资源导入完成，在 **项目 → 项目设置 → 插件** 中启用 **Jeff Studio Scene**。

@@ -1,4 +1,12 @@
+<a name="manual-top"></a>
+
 # 03 · Cases and Historical Resources
+
+<!-- manual-navigation:start -->
+[Project home](../../README.md) / [Manual contents](../README.md) / [English manual](index.md)
+
+[← Up one level](../README.md) · [中文](../zh/history.md)
+<!-- manual-navigation:end -->
 
 > **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../DISTRIBUTION.md)
 
@@ -23,3 +31,7 @@ This acceptance run covers only the plugin and shared library. Cases have not be
 For Case 6, obtain `04_HD2D_0.4.5_Case06_WorldMap.zip` from the earlier release and follow its included guide, preferably in a separate project. Older releases use package 02 for cases and 03 for the shared library; **0.4.6 uses 02 for the shared library and 03 for cases**. Identify each package by its filename.
 
 Extracted artwork, music and screenshots retain their local-study designation and are not covered by the plugin's MIT code license. Original release files remain unchanged; installed project resources are never automatically migrated or deleted.
+
+---
+
+[← Previous: Shared asset library](shared_library.md) · [↑ Up one level](../README.md) · [Manual contents](../README.md) · [↑ Back to top](#manual-top) · [Next: Interface and saving →](reference/toolbar.md)

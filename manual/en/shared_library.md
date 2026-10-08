@@ -1,4 +1,12 @@
+<a name="manual-top"></a>
+
 # 02 · Shared Asset Library
+
+<!-- manual-navigation:start -->
+[Project home](../../README.md) / [Manual contents](../README.md) / [English manual](index.md)
+
+[← Up one level](../README.md) · [中文](../zh/shared_library.md)
+<!-- manual-navigation:end -->
 
 > **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../DISTRIBUTION.md)
 
@@ -11,3 +19,7 @@ Choose models in **Asset Workbench → Presets**. For full-resolution terrain, u
 Built-in buildings, terrain and characters remain available without a shared library. For connection failures, check the selected directory level and the status tooltip, then **Recheck** after repairing the path.
 
 The package preserves existing resources and local-study provenance. Extracted artwork is not covered by the plugin MIT license. Case scenes are supplied separately in package 03.
+
+---
+
+[← Previous: Getting started](quick_start.md) · [↑ Up one level](../README.md) · [Manual contents](../README.md) · [↑ Back to top](#manual-top) · [Next: Cases and history →](history.md)

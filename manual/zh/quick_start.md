@@ -1,6 +1,25 @@
+<a name="manual-top"></a>
+
 # 按顺序安装 0.4.6
 
+<!-- manual-navigation:start -->
+[项目首页](../../README.md) / [说明书总目录](../README.md) / [中文说明书](index.md)
+
+[← 返回上一级](../README.md) · [English](../en/quick_start.md)
+
+<details>
+<summary>本页目录（点击展开）</summary>
+
+- [1. 插件与说明书](#manual-section-01)
+- [2. 共享素材库（按需）](#manual-section-02)
+- [3. 案例（按需）](#manual-section-03)
+
+</details>
+<!-- manual-navigation:end -->
+
 > **GitHub 公开版说明：**下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。[查看分发说明](../DISTRIBUTION.md)
+
+<a name="manual-section-01"></a>
 
 ## 1. 插件与说明书
 
@@ -8,11 +27,15 @@
 
 只安装第一包，即可使用内置建筑、35 张地表纹理和三位学习版预设角色。
 
+<a name="manual-section-02"></a>
+
 ## 2. 共享素材库（按需）
 
 将 `02_HD2D_0.4.6_Shared_Asset_Library.zip` 解压到 **Godot 工程外**。在插件顶部 **位置…** 选择含 `preset-index.json` 的 `HD2D_Shared_Asset_Library` 文件夹，再点 **重新检查**。在素材工作台浏览、选择和摆放；只准备选中条目所需资源。
 
 不要将整个库复制进工程。已有共享库时先备份，保留自己的 `index.json` 与 `objects`。[共享库详细安装](shared_library.md)。
+
+<a name="manual-section-03"></a>
 
 ## 3. 案例（按需）
 
@@ -26,11 +49,11 @@
 
 在 **角色 → 放置预设角色** 选择角色及主角／队友／NPC 身份。继续阅读[一键生成](reference/generation.md)与[素材及实例编辑](reference/assets.md)。
 
-<a id="community"></a>
+<a name="community"></a>
 
 JEFF STUDIO · COMMUNITY
 
-<a id="community-title"></a>
+<a name="community-title"></a>
 
 ### 交流与反馈
 
@@ -38,7 +61,7 @@ JEFF STUDIO · COMMUNITY
 
 微信群
 
-<a id="community-wechat-title"></a>
+<a name="community-wechat-title"></a>
 
 ### Jeff Studio 内测群
 
@@ -52,7 +75,7 @@ JEFF STUDIO · COMMUNITY
 
 QQ 群
 
-<a id="community-qq-title"></a>
+<a name="community-qq-title"></a>
 
 ### Jeff Studio 插件
 
@@ -65,3 +88,7 @@ QQ 群
 群号 **482858198**
 
 也可在 QQ 中搜索群号加入。
+
+---
+
+[← 上一章：中文说明书](index.md) · [↑ 返回上一级](../README.md) · [说明书总目录](../README.md) · [↑ 回到页首](#manual-top) · [下一章：共享素材库 →](shared_library.md)

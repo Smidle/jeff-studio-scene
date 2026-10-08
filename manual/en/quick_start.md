@@ -1,6 +1,25 @@
+<a name="manual-top"></a>
+
 # Install 0.4.6 in Package Order
 
+<!-- manual-navigation:start -->
+[Project home](../../README.md) / [Manual contents](../README.md) / [English manual](index.md)
+
+[← Up one level](../README.md) · [中文](../zh/quick_start.md)
+
+<details>
+<summary>On this page (expand)</summary>
+
+- [1. Plugin and manual](#manual-section-01)
+- [2. Shared library (optional)](#manual-section-02)
+- [3. Cases (optional)](#manual-section-03)
+
+</details>
+<!-- manual-navigation:end -->
+
 > **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../DISTRIBUTION.md)
+
+<a name="manual-section-01"></a>
 
 ## 1. Plugin and manual
 
@@ -8,11 +27,15 @@ Extract `01_HD2D_0.4.6_Plugin_Manual.zip`. Copy only `addons` into your Godot pr
 
 Package 01 alone provides built-in buildings, 35 terrain textures and three local-study character presets.
 
+<a name="manual-section-02"></a>
+
 ## 2. Shared library (optional)
 
 Extract `02_HD2D_0.4.6_Shared_Asset_Library.zip` **outside your Godot project**. At the top of the plugin, choose **Location…**, select `HD2D_Shared_Asset_Library` containing `preset-index.json`, then **Recheck**. Browse, select and place assets from the workbench; only selected dependencies are prepared.
 
 Do not copy the entire library into the project. Back up an existing library and preserve your own `index.json` and `objects`. See [shared-library installation](shared_library.md).
+
+<a name="manual-section-03"></a>
 
 ## 3. Cases (optional)
 
@@ -26,11 +49,11 @@ Choose **New Map**, a free map of 128 meters and 129 height samples per side, th
 
 Use **Character → Place Preset Character** to choose a character and Player / Companion / NPC role. Continue with [Generation](reference/generation.md) and [Assets and instance editing](reference/assets.md).
 
-<a id="community"></a>
+<a name="community"></a>
 
 JEFF STUDIO · COMMUNITY
 
-<a id="community-title"></a>
+<a name="community-title"></a>
 
 ### Community & feedback
 
@@ -38,7 +61,7 @@ Share scenes, report issues and follow updates. Joining is optional; the manual 
 
 WeChat group
 
-<a id="community-wechat-title"></a>
+<a name="community-wechat-title"></a>
 
 ### Jeff Studio 内测群
 
@@ -52,7 +75,7 @@ Image states: valid before 1 October 2026. If expired, use the QQ group number o
 
 QQ group
 
-<a id="community-qq-title"></a>
+<a name="community-qq-title"></a>
 
 ### Jeff Studio 插件
 
@@ -65,3 +88,7 @@ Scan with QQ
 Group ID **482858198**
 
 You can also search this group ID in QQ.
+
+---
+
+[← Previous: English manual](index.md) · [↑ Up one level](../README.md) · [Manual contents](../README.md) · [↑ Back to top](#manual-top) · [Next: Shared asset library →](shared_library.md)

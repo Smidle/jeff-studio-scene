@@ -1,4 +1,8 @@
+<a name="manual-top"></a>
+
 # 0.4.6 公开分发说明
+
+[← 返回上一级：说明书目录](README.md) · [项目首页](../README.md)
 
 ## 本仓库与 Release 包含的内容
 
@@ -40,3 +44,7 @@ This repository and its 0.4.6 release contain the plugin, its original built-in 
 The original `local_study_characters` directory is marked `local-study-only` and `exclude_from_public: true`; it is excluded from public Git history and release archives. The three extracted game-character presets are not bundled. Character import and configuration tools remain available for your own assets or an applicable external library. An empty preset list or a missing study-preset message is expected without such a library.
 
 Manual screenshots demonstrate the original learning package. They do not imply that the displayed character sheets, historical cases, or music are included in this public release.
+
+---
+
+[← 返回上一级：说明书目录](README.md) · [项目首页](../README.md) · [↑ 回到页首](#manual-top)

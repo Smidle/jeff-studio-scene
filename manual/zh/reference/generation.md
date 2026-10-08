@@ -1,10 +1,33 @@
+<a name="manual-top"></a>
+
 # 一键生成：从风格到小镇
+
+<!-- manual-navigation:start -->
+[项目首页](../../../README.md) / [说明书总目录](../../README.md) / [中文说明书](../index.md) / [功能指南](README.md)
+
+[← 返回上一级](README.md) · [English](../../en/reference/generation.md)
+
+<details>
+<summary>本页目录（点击展开）</summary>
+
+- [1. 选择建筑风格](#manual-section-01)
+- [2. 查看预览](#manual-section-02)
+- [3. 调整布局、建筑与外观](#manual-section-03)
+- [4. 应用与保存](#manual-section-04)
+- [边界](#manual-section-05)
+- [新版建筑与旧小镇](#manual-section-06)
+- [单独制作一栋建筑](#manual-section-07)
+
+</details>
+<!-- manual-navigation:end -->
 
 > **GitHub 公开版说明：**下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。[查看分发说明](../../DISTRIBUTION.md)
 
 0.4.6 的内置生成器只需要插件，无需共享素材库。它保存建筑参数和随机种子，应用后将实际模型、材质与地形留在当前工程。
 
-<a id="group-generation-palette"></a>
+<a name="group-generation-palette"></a>
+
+<a name="manual-section-01"></a>
 
 ## 1. 选择建筑风格
 
@@ -12,15 +35,19 @@
 
 位置统一通过 3D 视图中的蓝图选择，不再设置“中心位置”或 X/Z 坐标。点击应用后，鼠标选择落点、Q / E 旋转，左键确认。按需开启围墙。名称带“共享库”的旧风格需要另行安装历史共享素材包。
 
-<a id="group-generation-preview"></a>
+<a name="group-generation-preview"></a>
+
+<a name="manual-section-02"></a>
 
 ## 2. 查看预览
 
 右侧显示草稿，可拖动旋转、滚轮缩放；旋转和缩放不重新生成模型。修改参数后短暂等待即可自动刷新，准备中显示建筑进度并保留上一幅预览，应用暂时禁用。快速换选会取消过期任务；离开模块或切换场景也会取消。道路、间距和方向调整复用建筑模型，换皮只更新材质。选中有效地形时，预览包含局部整地与铺装，尚未修改场景。未选地形时只显示风格示意，并禁用应用。
 
-<a id="group-generation-layout"></a>
+<a name="group-generation-layout"></a>
 
 ![0.4.6 · 内置风格、草稿预览与底部应用，Compatibility](../../images/046_generation_zh.png)
+
+<a name="manual-section-03"></a>
 
 ## 3. 调整布局、建筑与外观
 
@@ -36,6 +63,8 @@
 - **道路铺装**：自动分配空层、使用已有层、贴地像素铺装网格。自动模式发现地形采样间距大于最窄道路宽度的一半时，会提示并使用贴地网格，避免环路与入户小路断续。网格将路口、广场合为同一张铺装，不重复叠面；足够细的地形仍使用权重绘制。八层占满且未触发网格模式时，请选择已有层或主动切换网格；不会覆盖已有纹理。
 
 ![0.4.6 · 中心环绕的环路、广场与入户支路，Compatibility](../../images/046_radial_roads.png)
+
+<a name="manual-section-04"></a>
 
 ## 4. 应用与保存
 
@@ -58,15 +87,21 @@
 
 Ctrl+S / Cmd+S 保存场景。再次打开不会自动重建，完全准备并保存的工程可以离线运行。保存的配方包括生成器版本、预设版本、参数与种子；相同版本和输入可重复生成相同结构。导出的实际模型不依赖编辑器缓存。
 
+<a name="manual-section-05"></a>
+
 ## 边界
 
 内置建筑为外观模型，没有室内房间。自动生成不跨越水面，不制作桥梁，也不接入分区大地图。已有普通物件保留；地基或道路与关联物件冲突时，请先调整位置。原始共享素材仍保持其原有来源与使用标识。
+
+<a name="manual-section-06"></a>
 
 ## 新版建筑与旧小镇
 
 九套新版普通民居、杂货铺和客栈的真实画面见[内置建筑](assets.md#builtin-buildings)。新版模型采用 v5 生成器和原创风格图集；旧 v1–v4 仍按原版本读取与重现。
 
 应用后生成的 `hd2d_generated` 是工程资源，不是缓存。请随场景备份，勿删除；清除 `.godot` 编辑器缓存不会删除它。
+
+<a name="manual-section-07"></a>
 
 ## 单独制作一栋建筑
 
@@ -75,3 +110,7 @@ Ctrl+S / Cmd+S 保存场景。再次打开不会自动重建，完全准备并�
 46 类建筑、两级随机及旧配方兼容说明见[内置建筑](assets.md#builtin-buildings)。新建小镇保存 v5 配方、类型池、内部配比及每栋参数。读取旧小镇保留已保存的配比和模型；即使界面不再显示百分比，也不会因此改变结果。重新选择内置风格才启用默认配比和新版生成器。
 
 ![0.4.6 · 参与生成的建筑类型，展开后选择](../../images/046_v5_types_zh.png)
+
+---
+
+[← 上一章：地形制作](terrain.md) · [↑ 返回上一级](README.md) · [说明书总目录](../../README.md) · [↑ 回到页首](#manual-top) · [下一章：素材与实例编辑 →](assets.md)

@@ -1,4 +1,12 @@
-# Jeff Studio 场景 0.4.6
+<a name="manual-top"></a>
+
+# Jeff Studio Godot场景插件 · 中文说明书
+
+<!-- manual-navigation:start -->
+[项目首页](../../README.md) / [说明书总目录](../README.md)
+
+[← 返回上一级](../README.md) · [English](../en/index.md)
+<!-- manual-navigation:end -->
 
 > **GitHub 公开版说明：**下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。[查看分发说明](../DISTRIBUTION.md)
 
@@ -19,11 +27,11 @@
 - [预览](reference/preview.md)
 - [案例与历史资源](history.md)
 
-<a id="community"></a>
+<a name="community"></a>
 
 JEFF STUDIO · COMMUNITY
 
-<a id="community-title"></a>
+<a name="community-title"></a>
 
 ### 交流与反馈
 
@@ -31,7 +39,7 @@ JEFF STUDIO · COMMUNITY
 
 微信群
 
-<a id="community-wechat-title"></a>
+<a name="community-wechat-title"></a>
 
 ### Jeff Studio 内测群
 
@@ -45,7 +53,7 @@ JEFF STUDIO · COMMUNITY
 
 QQ 群
 
-<a id="community-qq-title"></a>
+<a name="community-qq-title"></a>
 
 ### Jeff Studio 插件
 
@@ -58,3 +66,7 @@ QQ 群
 群号 **482858198**
 
 也可在 QQ 中搜索群号加入。
+
+---
+
+[↑ 返回上一级](../README.md) · [说明书总目录](../README.md) · [↑ 回到页首](#manual-top) · [下一章：安装插件 →](quick_start.md)

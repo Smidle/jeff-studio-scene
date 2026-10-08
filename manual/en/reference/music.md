@@ -1,8 +1,29 @@
+<a name="manual-top"></a>
+
 # Part III · Music
+
+<!-- manual-navigation:start -->
+[Project home](../../../README.md) / [Manual contents](../../README.md) / [English manual](../index.md) / [Tool guides](README.md)
+
+[← Up one level](README.md) · [中文](../../zh/reference/music.md)
+
+<details>
+<summary>On this page (expand)</summary>
+
+- [Collapsible visual groups](#manual-section-01)
+- [Buttons and operations](#manual-section-02)
+- [Every parameter](#manual-section-03)
+- [Other visible controls](#manual-section-04)
+- [Recommended sequence and pitfalls](#manual-section-05)
+
+</details>
+<!-- manual-navigation:end -->
 
 > **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../../DISTRIBUTION.md)
 
 Import and select a track, audition it, adjust and apply settings, then set it as scene BGM. List selection is not activation: the ♪ mark identifies the active scene track.
+
+<a name="manual-section-01"></a>
 
 ## Collapsible visual groups
 
@@ -18,33 +39,35 @@ Click a bordered heading to expand or collapse it. Common groups start open (★
 | [Volume & fades](#group-music-volume) | Volume in dB, start fade-in and explicit-stop fade-out in seconds. |
 | [Loop interval](#group-music-interval) | Loop start/end; first playback starts at zero, nonzero end requires PCM WAV. |
 
-<a id="group-music-import"></a>
+<a name="group-music-import"></a>
 
 **Music import & library**
 
-<a id="group-music-bgm"></a>
+<a name="group-music-bgm"></a>
 
 **Scene BGM management**
 
-<a id="group-music-audition"></a>
+<a name="group-music-audition"></a>
 
 **Audition & waveform**
 
-<a id="group-music-identity"></a>
+<a name="group-music-identity"></a>
 
 **Name, category & source**
 
-<a id="group-music-playback"></a>
+<a name="group-music-playback"></a>
 
 **Autoplay & looping**
 
-<a id="group-music-volume"></a>
+<a name="group-music-volume"></a>
 
 **Volume & fades**
 
-<a id="group-music-interval"></a>
+<a name="group-music-interval"></a>
 
 **Loop interval**
+
+<a name="manual-section-02"></a>
 
 ## Buttons and operations
 
@@ -59,6 +82,8 @@ Click a bordered heading to expand or collapse it. Common groups start open (★
 | ■ Stop | Stops audition using the fade-out duration; changing scenes or closing Preview stops immediately instead. |
 | Apply Music Settings (undoable) | Validates and commits one undoable settings change. Invalid loop ranges are rejected without replacing the old configuration; save the scene afterward. |
 
+<a name="manual-section-03"></a>
+
 ## Every parameter
 
 Most numeric fields are drafts until the relevant Apply button is clicked. Tool settings are read when you paint/place; imports and file-selection actions run immediately. Apply is not a disk save: use Ctrl+S / Cmd+S afterward. Check the action descriptions for exceptions.
@@ -67,14 +92,16 @@ Ranges show minimum … maximum; step. Options show the available choices. Units
 
 | Parameter | Initial default | Range / step / options | Meaning and limits |
 | --- | --- | --- | --- |
-| <a id="control-music_autoplay"></a>Autoplay in game / preview<br>[Autoplay & looping](#group-music-playback) | On / 开 | — | Plays the active track when the scene or isolated preview starts; does not autoplay during editing. |
-| <a id="control-music_loop"></a>Loop playback<br>[Autoplay & looping](#group-music-playback) | On / 开 | — | Returns to the loop start at the end; disabled plays once. Does not automatically repair musical seams. |
-| <a id="control-music_pause_stage"></a>Pause with stage (off by default)<br>[Autoplay & looping](#group-music-playback) | Off / 关 | — | Pauses music with the stage; disabled by default, so pausing the background normally leaves music playing. |
-| <a id="control-music_volume"></a>Volume (dB, 0 = original)<br>[Volume & fades](#group-music-volume) | -18 | -60 … 0; 0.01 | Playback gain in dB; 0 retains the original level and negative values attenuate it, without rewriting the audio file. |
-| <a id="control-music_fade_in"></a>Fade in (s)<br>[Volume & fades](#group-music-volume) | 1.5 | 0 … 10; 0.1 | Seconds to fade from silence to the target level when starting; not crossfading between loop endpoints. |
-| <a id="control-music_fade_out"></a>Audition fade out (s)<br>[Volume & fades](#group-music-volume) | 0.8 | 0 … 10; 0.1 | Fade-out duration when explicitly stopping audition; closing Preview or switching scenes stops immediately. |
-| <a id="control-music_loop_start"></a>Loop start (s)<br>[Loop interval](#group-music-interval) | 0 | 0 … 7200; 0.01 | Initial playback still begins at zero; subsequent loops return to this time, which must precede the effective endpoint. |
-| <a id="control-music_loop_end"></a>Loop end (0 = EOF)<br>[Loop interval](#group-music-interval) | 0 | 0 … 7200; 0.01 | Zero means end of file. Nonzero custom endpoints are supported only for PCM WAV; OGG/MP3 use the file end. |
+| <a name="control-music_autoplay"></a>Autoplay in game / preview<br>[Autoplay & looping](#group-music-playback) | On / 开 | — | Plays the active track when the scene or isolated preview starts; does not autoplay during editing. |
+| <a name="control-music_loop"></a>Loop playback<br>[Autoplay & looping](#group-music-playback) | On / 开 | — | Returns to the loop start at the end; disabled plays once. Does not automatically repair musical seams. |
+| <a name="control-music_pause_stage"></a>Pause with stage (off by default)<br>[Autoplay & looping](#group-music-playback) | Off / 关 | — | Pauses music with the stage; disabled by default, so pausing the background normally leaves music playing. |
+| <a name="control-music_volume"></a>Volume (dB, 0 = original)<br>[Volume & fades](#group-music-volume) | -18 | -60 … 0; 0.01 | Playback gain in dB; 0 retains the original level and negative values attenuate it, without rewriting the audio file. |
+| <a name="control-music_fade_in"></a>Fade in (s)<br>[Volume & fades](#group-music-volume) | 1.5 | 0 … 10; 0.1 | Seconds to fade from silence to the target level when starting; not crossfading between loop endpoints. |
+| <a name="control-music_fade_out"></a>Audition fade out (s)<br>[Volume & fades](#group-music-volume) | 0.8 | 0 … 10; 0.1 | Fade-out duration when explicitly stopping audition; closing Preview or switching scenes stops immediately. |
+| <a name="control-music_loop_start"></a>Loop start (s)<br>[Loop interval](#group-music-interval) | 0 | 0 … 7200; 0.01 | Initial playback still begins at zero; subsequent loops return to this time, which must precede the effective endpoint. |
+| <a name="control-music_loop_end"></a>Loop end (0 = EOF)<br>[Loop interval](#group-music-interval) | 0 | 0 … 7200; 0.01 | Zero means end of file. Nonzero custom endpoints are supported only for PCM WAV; OGG/MP3 use the file end. |
+
+<a name="manual-section-04"></a>
 
 ## Other visible controls
 
@@ -86,8 +113,14 @@ Ranges show minimum … maximum; step. Options show the available choices. Units
 | Source and usage note | Free text saved with the scene for provenance and usage limits; does not grant usage rights. |
 | Track information / playback status | Read-only path, format, duration, time and playback state; the editor does not autoplay. |
 
+<a name="manual-section-05"></a>
+
 ## Recommended sequence and pitfalls
 
 There is one background player per scene, not one per loop segment. Apply, activate and save, then reopen to check. Audition a complete loop; prepare musical seams in an external audio editor. This page has no multitrack mixer, automatic beat matching, denoising, waveform trimming or ad insertion.
 
 Use the shared toolbar reference for saving, stopping tools and previews. This workflow uses the dock, thumbnails, brush and native Inspector; you do not need to write GDScript to author the scene.
+
+---
+
+[← Previous: Environment](environment.md) · [↑ Up one level](README.md) · [Manual contents](../../README.md) · [↑ Back to top](#manual-top) · [Next: Scene preview →](preview.md)

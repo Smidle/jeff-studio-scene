@@ -1,10 +1,34 @@
+<a name="manual-top"></a>
+
 # One-click Generation: From Style to Town
+
+<!-- manual-navigation:start -->
+[Project home](../../../README.md) / [Manual contents](../../README.md) / [English manual](../index.md) / [Tool guides](README.md)
+
+[← Up one level](README.md) · [中文](../../zh/reference/generation.md)
+
+<details>
+<summary>On this page (expand)</summary>
+
+- [1. Choose a building style](#manual-section-01)
+- [2. Inspect the draft](#manual-section-02)
+- [3. Adjust the town](#manual-section-03)
+- [4. Apply and save](#manual-section-04)
+- [Limits](#manual-section-05)
+- [Revised buildings and existing towns](#manual-section-06)
+- [Make an individual building](#manual-section-07)
+- [Functional composition and two random levels](#manual-section-08)
+
+</details>
+<!-- manual-navigation:end -->
 
 > **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../../DISTRIBUTION.md)
 
 The 0.4.6 built-in generators need only the plugin. No shared library is required. Recipes retain parameters and seeds; applying saves actual meshes, materials and terrain inside your project.
 
-<a id="group-generation-palette"></a>
+<a name="group-generation-palette"></a>
+
+<a name="manual-section-01"></a>
 
 ## 1. Choose a building style
 
@@ -12,15 +36,19 @@ Create a free map under **Terrain → New Map**. Start with a 128 m map and 129 
 
 Position is chosen through the blueprint in the 3D viewport. The center selector and X/Z inputs have been removed. Apply, point to the location, rotate with Q / E, then left-click to confirm. Enable walls if desired. Older styles labelled Shared Library still require the historical optional library.
 
-<a id="group-generation-preview"></a>
+<a name="group-generation-preview"></a>
+
+<a name="manual-section-02"></a>
 
 ## 2. Inspect the draft
 
 Drag to rotate and use the wheel to zoom; neither action regenerates models. Settings refresh after a short debounce. Preparation shows progress and retains the previous image with Apply disabled. Rapid selections discard stale tasks; leaving the module or changing scenes cancels them. Road, spacing and direction edits reuse buildings; appearance changes update materials only. With a valid terrain target, the preview includes the proposed grading and paving without changing the scene. Without terrain it is a style illustration; Apply is disabled.
 
-<a id="group-generation-layout"></a>
+<a name="group-generation-layout"></a>
 
 ![0.4.6 · Built-in style, draft preview and fixed Apply, Compatibility](../../images/046_generation_en.png)
+
+<a name="manual-section-03"></a>
 
 ## 3. Adjust the town
 
@@ -33,6 +61,8 @@ Drag to rotate and use the wheel to zoom; neither action regenerates models. Set
 - Paving can use an automatically allocated empty surface layer, a selected existing layer or a fitted pixel mesh. When the terrain sample spacing exceeds half the narrowest road width, Auto explicitly reports a switch to a fitted mesh to keep narrow paths and rings continuous. The mesh merges intersections and plaza paving. Sufficiently fine terrain still uses painted weights. With all eight layers full, choose an existing layer or mesh paving; existing textures are never overwritten.
 
 ![0.4.6 · Ring roads, plaza and entrance paths, Compatibility](../../images/046_radial_roads.png)
+
+<a name="manual-section-04"></a>
 
 ## 4. Apply and save
 
@@ -55,9 +85,13 @@ Select a Village or its building and use **Read Selected Village** to continue. 
 
 Save with Ctrl+S / Cmd+S. Reopening never regenerates the town automatically. Prepared scenes run offline. Recipes retain generator/preset versions, parameters and seeds; identical versions and inputs reproduce the same structure. Saved meshes do not depend on editor caches.
 
+<a name="manual-section-05"></a>
+
 ## Limits
 
 Buildings are exteriors without rooms. Generation does not cross water, create bridges or edit partitioned world maps. Existing objects are retained; move the town when roads or foundations conflict. External shared assets retain their original provenance and usage labels.
+
+<a name="manual-section-06"></a>
 
 ## Revised buildings and existing towns
 
@@ -65,11 +99,15 @@ See the [nine revised House, General Store and Inn designs](assets.md#builtin-bu
 
 `hd2d_generated` contains applied project resources, not disposable caches. Back it up with your scenes; clearing `.godot` does not remove it.
 
+<a name="manual-section-07"></a>
+
 ## Make an individual building
 
 Open **Asset Workbench → Built-in Buildings**, choose a style, category and specific building, then edit dimensions, floors, roof, windows, appearance and seeds with a live preview. **Place This Building** starts blueprint placement. **Add to Town Palette** adds the draft to One-click’s custom building palette. See [building parameters and instance editing](assets.md#builtin-buildings).
 
 See [Built-in Buildings](assets.md#builtin-buildings) for detailed samples, seeded variants and explicit legacy upgrades. New v5 towns store their type pool, internal weights and individual recipes. Reading an old town retains its saved weights and models despite the removed inputs. Explicitly selecting a built-in style again opts into the default mix and new generator.
+
+<a name="manual-section-08"></a>
 
 ## Functional composition and two random levels
 
@@ -82,3 +120,7 @@ Layout Seed determines assignment and layout; Shape Seed determines structural v
 **Random Building** changes structure and details; **Randomize Details Only** preserves body, windows, entrance and collisions; **Reproduce from Seeds** refills random parameters using the current seeds. Manual edits require saving the complete recipe. See [the building catalog](assets.md#builtin-buildings).
 
 ![0.4.6 · Expanded building type choices](../../images/046_v5_types_en.png)
+
+---
+
+[← Previous: Terrain](terrain.md) · [↑ Up one level](README.md) · [Manual contents](../../README.md) · [↑ Back to top](#manual-top) · [Next: Assets and instances →](assets.md)

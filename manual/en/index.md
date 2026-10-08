@@ -1,4 +1,12 @@
-# Jeff Studio Scene 0.4.6
+<a name="manual-top"></a>
+
+# Jeff Studio Scene · English Manual
+
+<!-- manual-navigation:start -->
+[Project home](../../README.md) / [Manual contents](../README.md)
+
+[← Up one level](../README.md) · [中文](../zh/index.md)
+<!-- manual-navigation:end -->
 
 > **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../DISTRIBUTION.md)
 
@@ -19,11 +27,11 @@ Install the local-study plugin for three styles, 10 categories / 46 building typ
 - [Preview](reference/preview.md)
 - [Historical resources](history.md)
 
-<a id="community"></a>
+<a name="community"></a>
 
 JEFF STUDIO · COMMUNITY
 
-<a id="community-title"></a>
+<a name="community-title"></a>
 
 ### Community & feedback
 
@@ -31,7 +39,7 @@ Share scenes, report issues and follow updates. Joining is optional; the manual 
 
 WeChat group
 
-<a id="community-wechat-title"></a>
+<a name="community-wechat-title"></a>
 
 ### Jeff Studio 内测群
 
@@ -45,7 +53,7 @@ Image states: valid before 1 October 2026. If expired, use the QQ group number o
 
 QQ group
 
-<a id="community-qq-title"></a>
+<a name="community-qq-title"></a>
 
 ### Jeff Studio 插件
 
@@ -58,3 +66,7 @@ Scan with QQ
 Group ID **482858198**
 
 You can also search this group ID in QQ.
+
+---
+
+[↑ Up one level](../README.md) · [Manual contents](../README.md) · [↑ Back to top](#manual-top) · [Next: Getting started →](quick_start.md)

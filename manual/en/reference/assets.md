@@ -1,8 +1,42 @@
+<a name="manual-top"></a>
+
 # Assets and Scene Instance Editing
+
+<!-- manual-navigation:start -->
+[Project home](../../../README.md) / [Manual contents](../../README.md) / [English manual](../index.md) / [Tool guides](README.md)
+
+[← Up one level](README.md) · [中文](../../zh/reference/assets.md)
+
+<details>
+<summary>On this page (expand)</summary>
+
+- [Built-in Buildings: choose a function, then its shape](#manual-section-01)
+- [External assets and scene instances](#manual-section-02)
+- [Preset Asset Library and shared location](#manual-section-03)
+- [Shared import settings on another computer](#manual-section-04)
+- [Import destination](#manual-section-05)
+- [Single-object and batch parameters](#manual-section-06)
+- [Default collision and gold placement action](#manual-section-07)
+- [Collision reference lines and testing](#manual-section-08)
+- [Categories, brazier sheets and wind](#manual-section-09)
+- [Collapsible visual groups](#manual-section-10)
+- [Buttons and operations](#manual-section-11)
+- [Every parameter](#manual-section-12)
+- [Other visible controls](#manual-section-13)
+- [Recommended sequence and pitfalls](#manual-section-14)
+- [Drop files from an OS folder](#manual-section-15)
+- [New controls, categories and missing files](#manual-section-16)
+- [Sprite sheets: static crops and looping animation](#manual-section-17)
+- [Add collision volume](#manual-section-18)
+
+</details>
+<!-- manual-navigation:end -->
 
 > **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../../DISTRIBUTION.md)
 
-<a id="builtin-buildings"></a>
+<a name="builtin-buildings"></a>
+
+<a name="manual-section-01"></a>
 
 ## Built-in Buildings: choose a function, then its shape
 
@@ -68,6 +102,8 @@ This revision individually refines the House, General Store and Inn in all three
 
 Actual Godot 4.7.2 / Compatibility captures with the same lighting, orthographic angle and display dimensions, framed to each model’s bounds. Jiangnan features curved eaves, stone bases and galleries; European adds timber/stone construction, shop canopies and guest floors; Desert uses thick walls, terraces, niches and recessed upper floors.
 
+<a name="manual-section-02"></a>
+
 ## External assets and scene instances
 
 The workbench selects assets for repeated placement. The right Assets module edits an explicitly selected scene instance.
@@ -89,6 +125,8 @@ The library provides original appearances for models and image cards, marked for
 
 **Place first, then select a scene object to edit its parameters.** The prominent **Preset Asset Library** opens the bottom Asset Workbench for image cards and solid models. PNG files remain image cards.
 
+<a name="manual-section-03"></a>
+
 ## Preset Asset Library and shared location
 
 Use **choose asset → choose skin → preview → place**. The **Presets / My Assets** source filter shares series, category, search and preview controls. Each page loads at most48 thumbnails. Presets are read-only; your imports enter My Assets. Hold the left mouse button over the model preview to rotate it.
@@ -99,6 +137,8 @@ Browsing reads the index and current-page thumbnails. Selecting an asset prepare
 
 Skins are preconfigured complete appearances. Available choices depend on the installed entry. **Selecting a skin affects preview and future placement**. To change existing objects, click **Apply Skin** for Selected Objects or All Compatible Objects in Current Scene. The panel reports impact and incompatibilities; a batch is one undo step. **Restore Original Appearance** stages the original; Apply Skin commits it. Shape, transform and collision remain unchanged. The study package mainly provides original appearances. Entries without alternatives need no extra skin selection.
 
+<a name="manual-section-04"></a>
+
 ## Shared import settings on another computer
 
 An error naming `.png.import` occurs while preparing a selected entry; it does not mean the model catalog is absent. Keep the extracted library outside the project. If that sidecar was deleted or rewritten, extract a fresh copy or update both the numbered plugin package and shared-library package. The catalog retains verified original import settings independently, and `.gdignore` prevents accidental bulk scans. Raw images and models still require matching hashes. Preserve your personal index.json and objects when upgrading.
@@ -107,11 +147,13 @@ For a new scene, install **01 Plugin** and connect **03 Shared Library** outside
 
 The preparation status shows the selected asset, the file being copied or the elapsed Godot import wait. Use **Cancel Preparation**, or select another asset. An import wait exceeding 90 seconds names the pending files and offers **Retry Preparation**. Check Godot’s Output and Import panels before retrying. Keep an already connected library path; copying the entire library into the project is unnecessary. Failed or changed selections clear the previous preview image.
 
+<a name="manual-section-05"></a>
+
 ## Import destination
 
 Expand **Import & checks**, which starts collapsed, then choose the destination before using the file picker, OS drop window or project-file drop area.
 
-| <a id="control-import_target"></a>Destination | Result |
+| <a name="control-import_target"></a>Destination | Result |
 | --- | --- |
 | Local Shared Asset Library | No active stage required. Saves complete dependencies and a real thumbnail to My Assets; does not register or place anything in the current scene. |
 | Current Scene → Library & Placement | Adds entries to the current stage only. This is the first-use default; the project remembers the next choice. |
@@ -120,18 +162,22 @@ Import Results reports destination, successes, duplicates and failure reasons. S
 
 Import settings such as model scale travel with the resource and participate in duplicate detection. For custom import settings that reference external resources or scripts, first export a self-contained GLB from the source project; the library does not silently discard those settings.
 
+<a name="manual-section-06"></a>
+
 ## Single-object and batch parameters
 
 **Current scene asset editing** contains Library & placement through Color key & native material sections. The parent, Library & placement, and Import & checks start collapsed, then remember your choices. Current object, source, changed fields and tool status remain visible. Thumbnail selection alone disables parameter Apply.
 
 | Button | Scope |
 | --- | --- |
-| <a id="control-apply_asset"></a>Apply Asset Settings | The single selected linked object. |
-| <a id="control-apply_same"></a>Apply to All Matching Assets in Current Scene | Matching objects and linked foliage records throughout the edited scene. Review count, fields and skipped reasons before committing one undoable transaction. |
+| <a name="control-apply_asset"></a>Apply Asset Settings | The single selected linked object. |
+| <a name="control-apply_same"></a>Apply to All Matching Assets in Current Scene | Matching objects and linked foliage records throughout the edited scene. Review count, fields and skipped reasons before committing one undoable transaction. |
 
 Only fields edited in this draft are synchronized. A collision-only change preserves other objects’ animation, wind, skin and Transform. Single Apply retains the changed-field set for a subsequent batch; selecting another object clears it. Stable entry IDs keep separate crops of one atlas distinct. Legacy resources match only when they share the actual Resource reference.
 
 Name, category, duplication, relinking and removal remain separate entry-management operations. Use **Save Entry Name & Category** for metadata. Duplicate a read-only preset before editing its entry. A duplicate has a new ID and shares its source image or model. Instance settings do not rewrite source meshes, images or preset materials. Save with Cmd+S / Ctrl+S.
+
+<a name="manual-section-07"></a>
 
 ## Default collision and gold placement action
 
@@ -149,13 +195,17 @@ After preparation completes, click the gold **Place Selected Asset** button at t
 
 Godot 4.7.2 / Compatibility, using simple image and box fixtures. The enabled gold action starts placement.
 
+<a name="manual-section-08"></a>
+
 ## Collision reference lines and testing
 
 Use **place → select object → confirm static collision is enabled → Show Collision Reference Lines → edit shape, size and offset → single or batch Apply → isolated walking test**.
 
-<a id="control-selected_collision_lines"></a>**Show Collision Reference Lines** starts off and remembers the project’s editor preference. Only the selected object is outlined. Drafts immediately update the outline and show Unapplied; physical collision changes only on Apply. The editor Gizmo follows move, rotation and scale. It is not serialized and does not enter the game or isolated preview. Deselecting, disabling the checkbox or disabling collision clears it. The existing placement-wireframe checkbox independently controls the placement ghost.
+<a name="control-selected_collision_lines"></a>**Show Collision Reference Lines** starts off and remembers the project’s editor preference. Only the selected object is outlined. Drafts immediately update the outline and show Unapplied; physical collision changes only on Apply. The editor Gizmo follows move, rotation and scale. It is not serialized and does not enter the game or isolated preview. Deselecting, disabling the checkbox or disabling collision clears it. The existing placement-wireframe checkbox independently controls the placement ghost.
 
 Use boxes for crates and simple walls, capsules for trunks, and original mesh shapes when geometric detail matters. Transparency does not generate holes. Test three placements: single Apply should change one; batch Apply should copy only the collision fields to the others. One Undo reverses the batch. Save/reopen, then verify walking collision in isolated preview; editor outlines are absent there.
+
+<a name="manual-section-09"></a>
 
 ## Categories, brazier sheets and wind
 
@@ -163,7 +213,7 @@ Use boxes for crates and simple walls, capsules for trunks, and original mesh sh
 
 **Use wind sway 0 for rigid objects.** New imports default to 0; existing plants can keep their own wind values. A category name does not enable or disable motion.
 
-<a id="control-asset_wind"></a>
+<a name="control-asset_wind"></a>
 
 | Setting | New import default | Range / step | Effect |
 | --- | --- | --- | --- |
@@ -191,6 +241,8 @@ Frames run left-to-right, then top-to-bottom; 16 frames at 8 FPS take about two 
 
 Single Apply changes the selected linked prop. The separate batch button also updates matching Foliage records. Save and back up your project before replacing the addon; keep your scenes and original images.
 
+<a name="manual-section-10"></a>
+
 ## Collapsible visual groups
 
 Click a bordered heading to expand or collapse it. Common groups start open (★); your choice is remembered per project. **Expand All / Collapse All** only affects this page. Tab to a heading and use Enter/Space, or Left/Right. Hiding controls keeps drafts and active tools/audition; it neither applies settings nor saves the scene. Asset Apply buttons are inside Current scene asset editing, outside its parameter subgroups.
@@ -207,43 +259,45 @@ Click a bordered heading to expand or collapse it. Common groups start open (★
 | [Static collision](#group-assets-collision) | Collision toggle, mesh/box/capsule, dimensions/offset, box fitting and placement wireframe. |
 | [Color key & native material](#group-assets-material) | Color key, tolerance and native material editor; keep keying off for real alpha. |
 
-<a id="group-assets-import"></a>
+<a name="group-assets-import"></a>
 
 **Import & checks**
 
-<a id="group-assets-scene"></a>
+<a name="group-assets-scene"></a>
 
 **Current scene asset editing**
 
-<a id="group-assets-library"></a>
+<a name="group-assets-library"></a>
 
 **Library & placement**
 
-<a id="group-assets-entry"></a>
+<a name="group-assets-entry"></a>
 
 **Entry management**
 
-<a id="group-assets-card"></a>
+<a name="group-assets-card"></a>
 
 **Card appearance & wind**
 
-<a id="group-assets-crop"></a>
+<a name="group-assets-crop"></a>
 
 **Atlas crop**
 
-<a id="group-assets-sheet"></a>
+<a name="group-assets-sheet"></a>
 
 **Sprite-sheet animation**
 
 **Sprite-sheet animation · lower controls**
 
-<a id="group-assets-collision"></a>
+<a name="group-assets-collision"></a>
 
 **Static collision**
 
-<a id="group-assets-material"></a>
+<a name="group-assets-material"></a>
 
 **Color key & native material**
+
+<a name="manual-section-11"></a>
 
 ## Buttons and operations
 
@@ -256,6 +310,8 @@ Click a bordered heading to expand or collapse it. Common groups start open (★
 | Apply Asset Settings | Commits overrides to one selected linked object. Use the separate batch button to synchronize changed fields to matching objects and foliage records. |
 | Remove Entry (keep file) | Removes the selected library entry without deleting its disk file; separately check existing scenery references. |
 
+<a name="manual-section-12"></a>
+
 ## Every parameter
 
 Most numeric fields are drafts until the relevant Apply button is clicked. Tool settings are read when you paint/place; imports and file-selection actions run immediately. Apply is not a disk save: use Ctrl+S / Cmd+S afterward. Check the action descriptions for exceptions.
@@ -264,23 +320,25 @@ Ranges show minimum … maximum; step. Options show the available choices. Units
 
 | Parameter | Initial default | Range / step / options | Meaning and limits |
 | --- | --- | --- | --- |
-| <a id="control-protect_pixels"></a>Lossless pixel art / disable auto 3D compression<br>[Import & checks](#group-assets-import) | On / 开 | — | Preserves pixel textures during import by disabling automatic 3D compression; does not upscale or improve the original artwork. |
-| <a id="control-category_filter"></a>Category<br>[Library & placement](#group-assets-library) | All | All | Filters the visible library entries only; does not recategorize or delete assets. |
-| <a id="control-card_width"></a>Card width (m)<br>[Card appearance & wind](#group-assets-card) | 2 | 0.05 … 100; 0.05 | Card width in world meters; import may initialize it from the image aspect ratio. |
-| <a id="control-card_height"></a>Card height (m)<br>[Card appearance & wind](#group-assets-card) | 2 | 0.05 … 100; 0.05 | Card height in world meters; together with width, determines the displayed aspect ratio. |
-| <a id="control-asset_anchor_x"></a>Horizontal anchor<br>[Card appearance & wind](#group-assets-card) | 0.5 | -0.5 … 1.5; 0.01 | Horizontal placement pivot: 0 left, 0.5 center, 1 right; values can extend outside the image. |
-| <a id="control-asset_anchor_y"></a>Foot anchor<br>[Card appearance & wind](#group-assets-card) | 1 | -0.5 … 1.5; 0.01 | Vertical pivot: 0 top, 1 bottom. With transparent margins, align it to the visible plant base. |
-| <a id="control-asset_facing"></a>Card facing<br>[Card appearance & wind](#group-assets-card) | Fixed plane | Fixed plane, Face camera around Y | Fixed plane preserves the authored orientation; Y-axis billboarding turns toward the viewer without tilting up or down. |
-| <a id="control-alpha_cut"></a>Alpha cutoff<br>[Card appearance & wind](#group-assets-card) | 0.5 | 0 … 1; 0.01 | Pixels below the alpha threshold are discarded. Increasing it tightens edges but can remove thin leaves or hair. |
-| <a id="control-asset_nearest"></a>Nearest-neighbor sampling<br>[Card appearance & wind](#group-assets-card) | On / 开 | — | Nearest filtering retains hard pixel edges; disable it for smoothly filtered high-resolution textures. |
-| <a id="control-asset_collision"></a>Enable static collision<br>[Static collision](#group-assets-collision) | On for new imports / placements | — | Adds the configured collision shape; see the collision parameters below. Alpha does not cut holes. |
-| <a id="control-color_key_enabled"></a>Color key (solid-background RGB images only)<br>[Color key & native material](#group-assets-material) | Off / 关 | — | Display-time color removal for RGB images with a solid background; leave disabled for images with real alpha. |
-| <a id="control-color_key"></a>Key color<br>[Color key & native material](#group-assets-material) | 212121 | Color | Selects the background color to hide; matching colors inside the artwork are affected too. |
-| <a id="control-color_key_tolerance"></a>Key tolerance (linear color)<br>[Color key & native material](#group-assets-material) | 0.005 | 0 … 0.25; 0.001 | Allowed linear color difference. Higher values remove more neighboring colors; the 0.001 step cannot reliably retain finer input. |
-| <a id="control-region_x"></a>Region X (px)<br>[Atlas crop](#group-assets-crop) | 0 | 0 … 32768; 1 | X pixel coordinate of the crop's top-left corner in the source image, increasing rightward; not a world coordinate. |
-| <a id="control-region_y"></a>Region Y (px)<br>[Atlas crop](#group-assets-crop) | 0 | 0 … 32768; 1 | Y pixel coordinate of the crop's top-left corner, increasing downward. |
-| <a id="control-region_w"></a>Region width (px)<br>[Atlas crop](#group-assets-crop) | 0 | 0 … 32768; 1 | Crop width in source pixels. Both width and height must be zero to use the entire image. |
-| <a id="control-region_h"></a>Region height (px)<br>[Atlas crop](#group-assets-crop) | 0 | 0 … 32768; 1 | Crop height in source pixels; keep the rectangle inside the source image. |
+| <a name="control-protect_pixels"></a>Lossless pixel art / disable auto 3D compression<br>[Import & checks](#group-assets-import) | On / 开 | — | Preserves pixel textures during import by disabling automatic 3D compression; does not upscale or improve the original artwork. |
+| <a name="control-category_filter"></a>Category<br>[Library & placement](#group-assets-library) | All | All | Filters the visible library entries only; does not recategorize or delete assets. |
+| <a name="control-card_width"></a>Card width (m)<br>[Card appearance & wind](#group-assets-card) | 2 | 0.05 … 100; 0.05 | Card width in world meters; import may initialize it from the image aspect ratio. |
+| <a name="control-card_height"></a>Card height (m)<br>[Card appearance & wind](#group-assets-card) | 2 | 0.05 … 100; 0.05 | Card height in world meters; together with width, determines the displayed aspect ratio. |
+| <a name="control-asset_anchor_x"></a>Horizontal anchor<br>[Card appearance & wind](#group-assets-card) | 0.5 | -0.5 … 1.5; 0.01 | Horizontal placement pivot: 0 left, 0.5 center, 1 right; values can extend outside the image. |
+| <a name="control-asset_anchor_y"></a>Foot anchor<br>[Card appearance & wind](#group-assets-card) | 1 | -0.5 … 1.5; 0.01 | Vertical pivot: 0 top, 1 bottom. With transparent margins, align it to the visible plant base. |
+| <a name="control-asset_facing"></a>Card facing<br>[Card appearance & wind](#group-assets-card) | Fixed plane | Fixed plane, Face camera around Y | Fixed plane preserves the authored orientation; Y-axis billboarding turns toward the viewer without tilting up or down. |
+| <a name="control-alpha_cut"></a>Alpha cutoff<br>[Card appearance & wind](#group-assets-card) | 0.5 | 0 … 1; 0.01 | Pixels below the alpha threshold are discarded. Increasing it tightens edges but can remove thin leaves or hair. |
+| <a name="control-asset_nearest"></a>Nearest-neighbor sampling<br>[Card appearance & wind](#group-assets-card) | On / 开 | — | Nearest filtering retains hard pixel edges; disable it for smoothly filtered high-resolution textures. |
+| <a name="control-asset_collision"></a>Enable static collision<br>[Static collision](#group-assets-collision) | On for new imports / placements | — | Adds the configured collision shape; see the collision parameters below. Alpha does not cut holes. |
+| <a name="control-color_key_enabled"></a>Color key (solid-background RGB images only)<br>[Color key & native material](#group-assets-material) | Off / 关 | — | Display-time color removal for RGB images with a solid background; leave disabled for images with real alpha. |
+| <a name="control-color_key"></a>Key color<br>[Color key & native material](#group-assets-material) | 212121 | Color | Selects the background color to hide; matching colors inside the artwork are affected too. |
+| <a name="control-color_key_tolerance"></a>Key tolerance (linear color)<br>[Color key & native material](#group-assets-material) | 0.005 | 0 … 0.25; 0.001 | Allowed linear color difference. Higher values remove more neighboring colors; the 0.001 step cannot reliably retain finer input. |
+| <a name="control-region_x"></a>Region X (px)<br>[Atlas crop](#group-assets-crop) | 0 | 0 … 32768; 1 | X pixel coordinate of the crop's top-left corner in the source image, increasing rightward; not a world coordinate. |
+| <a name="control-region_y"></a>Region Y (px)<br>[Atlas crop](#group-assets-crop) | 0 | 0 … 32768; 1 | Y pixel coordinate of the crop's top-left corner, increasing downward. |
+| <a name="control-region_w"></a>Region width (px)<br>[Atlas crop](#group-assets-crop) | 0 | 0 … 32768; 1 | Crop width in source pixels. Both width and height must be zero to use the entire image. |
+| <a name="control-region_h"></a>Region height (px)<br>[Atlas crop](#group-assets-crop) | 0 | 0 … 32768; 1 | Crop height in source pixels; keep the rectangle inside the source image. |
+
+<a name="manual-section-13"></a>
 
 ## Other visible controls
 
@@ -290,11 +348,15 @@ Ranges show minimum … maximum; step. Options show the available choices. Units
 | Name search and thumbnails | Typing searches names, categories and paths immediately. Ctrl-select supports mixed brushes; drag thumbnails for placement. |
 | Yellow atlas crop rectangle | Drag in the preview to update four region fields. This changes sampling, not the PNG file; apply to commit. |
 
+<a name="manual-section-14"></a>
+
 ## Recommended sequence and pitfalls
 
 Place first, then select a scene object and apply parameters. Use Godot’s native move/rotate/scale gizmos to edit individual placed nodes. Copy complete dependency folders for glTF/scenes into the project and let Godot finish importing.
 
 Use the shared toolbar reference for saving, stopping tools and previews. This workflow uses the dock, thumbnails, brush and native Inspector; you do not need to write GDScript to author the scene.
+
+<a name="manual-section-15"></a>
 
 ## Drop files from an OS folder
 
@@ -303,6 +365,8 @@ Choose the import destination; an active stage is required only for the Current 
 Use the plugin's drop window for OS files, not an arbitrary part of Godot's main window. The latter uses Godot's native copy handling and does not necessarily populate this library. The drop window is not a second scene editor and does not overwrite originals.
 
 Formats: PNG, WebP, JPG/JPEG, SVG, GLB, glTF, 3D Godot scenes and Mesh. With the Current Scene target, external images / GLB are copied to res://hd2d_imports. Shared imports validate and copy dependencies in an isolated staging project. Different content sharing a filename gets a distinct path/title; an already imported source is skipped. For Current Scene imports of external glTF, tscn/scn or tres/res, copy the complete dependency directory into the project first. The plugin does not fetch arbitrary external dependencies. GLB files with external references also require their dependencies. Folder batches allow up to200 assets and8 levels, excluding hidden folders, symbolic links and addons. Use Character, Terrain and Music for those inputs rather than importing them as plants.
+
+<a name="manual-section-16"></a>
 
 ## New controls, categories and missing files
 
@@ -316,6 +380,8 @@ Formats: PNG, WebP, JPG/JPEG, SVG, GLB, glTF, 3D Godot scenes and Mesh. With the
 | Relink Source File… | Replaces the source, resets crop, disables sheet playback and clears the old thumbnail. Other dimensions remain; review the aspect ratio. Supports undo. |
 | Fit Width to Frame Aspect | Computes frame width from region, grid and card height, within the width field's range. Apply to commit. |
 | Fit Box to Card Size | Drafts a box matching card width/height with0.5 m depth and anchor-aligned center. Enable collision and Apply. Not opaque-pixel detection or fitting a3D model's bounds. |
+
+<a name="manual-section-17"></a>
 
 ## Sprite sheets: static crops and looping animation
 
@@ -333,6 +399,8 @@ Example: a128×128 image containing2×2 cells of64×64 pixels. Enable looping, s
 | Play applied asset preview | On | Plays/pauses only the dock preview. Apply drafts first; this toggle does not change scene playback. |
 
 Scene sheets use shader engine time, including MultiMesh batches, synchronized per asset. **Stage pause does not pause this material animation.** Irregular packed-atlas JSON, variable frame durations, per-instance actions and arbitrary frame ordering are unsupported here. Missing frames are not synthesized. Use [Character](character.md) for directional actors, PNG sequences and SpriteFrames. Align frame canvases and feet in advance.
+
+<a name="manual-section-18"></a>
 
 ## Add collision volume
 
@@ -355,3 +423,7 @@ Earlier independent MeshInstance3D placements are not automatically converted. K
 External asset Resources participate in unsaved warnings and the save hook. Shared settings affect every reference; Duplicate Entry or Make Unique creates independent variants. Save with Cmd+S / Ctrl+S and reopen to check. Preview is not Save.
 
 ![0.4.6 · Selected instance and actual thumbnails, Warm Paper](../../images/046_asset_instances_en.png)
+
+---
+
+[← Previous: Generation](generation.md) · [↑ Up one level](README.md) · [Manual contents](../../README.md) · [↑ Back to top](#manual-top) · [Next: Scatter and roads →](scatter.md)

@@ -1,4 +1,12 @@
+<a name="manual-top"></a>
+
 # 音乐与外部资源来源
+
+<!-- manual-navigation:start -->
+[项目首页](../../../README.md) / [说明书总目录](../../README.md) / [中文说明书](../index.md) / [参考资料](README.md)
+
+[← 返回上一级](README.md) · [English](../../en/appendices/music_sources.md)
+<!-- manual-navigation:end -->
 
 > **GitHub 公开版说明：**下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。[查看分发说明](../../DISTRIBUTION.md)
 
@@ -7,3 +15,7 @@
 历史案例的音乐来源与处理方式留在原版本随包说明书中，参见[旧版案例与资源](../history.md)。插件代码许可不覆盖外部歌曲、提取美术或共享库内容。
 
 本版新增的参数化建筑及其基础像素材质由插件代码和确定性参数生成，不读取 ronin 或提取游戏素材。生成后保存在当前工程的 `hd2d_generated` 目录；与场景一起备份，不要当作缓存删除。
+
+---
+
+[← 上一章：场景入口](scenes.md) · [↑ 返回上一级](README.md) · [说明书总目录](../../README.md) · [↑ 回到页首](#manual-top)
