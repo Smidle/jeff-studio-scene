@@ -45,3 +45,14 @@ Install only `addons/hd2d_scene_tools` into an existing Godot project and enable
 ## 许可 / License
 
 插件代码沿用 [MIT License](LICENSE)。Sky3D 及其纹理保留各自许可证和署名，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+## 交流群 / Community
+
+欢迎交流插件使用、作品与反馈，自愿加入。/ Join the community to discuss the plugin, share your work and give feedback. Joining is optional.
+
+| 微信：Jeff Studio 内测群 / WeChat | QQ：Jeff Studio 插件 |
+| :---: | :---: |
+| [<img src="community/jeff-studio-wechat-20261011.jpg" alt="Jeff Studio 内测群微信二维码 / WeChat group QR code" width="300">](community/jeff-studio-wechat-20261011.jpg) | [<img src="community/jeff-studio-qq-20261011.jpg" alt="Jeff Studio 插件 QQ 群二维码，群号 482858198 / QQ group QR code" width="300">](community/jeff-studio-qq-20261011.jpg) |
+| 原图注明：**10 月 18 日前有效**。/ Valid before **October 18**, as stated in the image. | 群号 / Group number: **482858198** |
+
+点击图片查看原图。/ Click an image to view the original at full resolution.
