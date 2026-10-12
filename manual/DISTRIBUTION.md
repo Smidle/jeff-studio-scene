@@ -1,6 +1,6 @@
-# 0.4.7 公开分发说明 / Public distribution
+# 0.4.7.1 公开分发说明 / Public distribution
 
-本仓库与 GitHub Release 仅包含插件及用户说明。下载包名称为 `01_HD2D_0.4.7_Plugin_Manual.zip`。
+本仓库与 GitHub Release 仅包含插件及用户说明。下载包名称为 `01_HD2D_0.4.7.1_Plugin_Manual.zip`。
 
 - 插件代码、参数预设、原创建筑图集、35 张原创地表纹理、界面和天气图集。
 - 中英文 Markdown 与离线 HTML 说明书；仅使用插件 UI 截图和原创内置建筑／地表配图。

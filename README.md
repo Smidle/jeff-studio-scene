@@ -4,9 +4,16 @@
 
 Jeff Studio Scene 将地形、一键生成、素材、铺设、角色、镜头、环境和音乐集中在编辑器中，提供中文／英文界面。
 
-[下载 0.4.7](https://github.com/Smidle/jeff-studio-scene/releases/tag/v0.4.7) · [中文说明书](manual/zh/index.md) · [English Manual](manual/en/index.md) · [更新说明](manual/zh/release_notes.md) · [反馈问题](https://github.com/Smidle/jeff-studio-scene/issues)
+[下载 0.4.7.1](https://github.com/Smidle/jeff-studio-scene/releases/tag/v0.4.7.1) · [中文说明书](manual/zh/index.md) · [English Manual](manual/en/index.md) · [更新说明](manual/zh/release_notes.md) · [反馈问题](https://github.com/Smidle/jeff-studio-scene/issues)
 
 ![内置建筑工作台](manual/images/046_v5_workbench_zh.png)
+
+## 0.4.7.1 修复
+
+- 新生成的建筑、小镇地形和道路／围墙网格自动使用工程内的压缩 `.res`，减少 `.tscn` 重复嵌入数据。
+- 旧场景可通过 **素材 → 导入与检查 → 优化场景文件** 一次转存；先自动备份，再由用户保存。移动或备份工程时保留 `hd2d_generated`。
+- 地表八层占满时，自动道路改用贴地像素网格，继续蓝图摆放，保留已有纹理。
+- 更新中英文说明书。仅交付插件与说明书，不含本地测试内容。
 
 ## 0.4.7 新增与优化
 
@@ -21,7 +28,7 @@ Jeff Studio Scene 将地形、一键生成、素材、铺设、角色、镜头�
 
 ## 安装
 
-1. 在 [Release](https://github.com/Smidle/jeff-studio-scene/releases/tag/v0.4.7) 下载 `01_HD2D_0.4.7_Plugin_Manual.zip`。
+1. 在 [Release](https://github.com/Smidle/jeff-studio-scene/releases/tag/v0.4.7.1) 下载 `01_HD2D_0.4.7.1_Plugin_Manual.zip`。
 2. 关闭 Godot 并备份旧插件，把解压后的 `addons/hd2d_scene_tools` 放入自己的 Godot 工程。
 3. 等待资源导入，在 **项目 → 项目设置 → 插件** 启用 **Jeff Studio Scene**。
 4. 点击 **新建地图** 开始制作；说明书留在工程外，浏览器打开 `START_HERE.html`。
@@ -36,7 +43,7 @@ Jeff Studio Scene 将地形、一键生成、素材、铺设、角色、镜头�
 
 ## English
 
-Jeff Studio Scene is a bilingual Godot HD-2D authoring addon. Version **0.4.7** adds a 24-hour day/night cycle, enhanced 3D weather, leaf/petal randomness controls, six additional architectural styles (nine total), textured GLB export for Blender, compact double-row towns and automatic character-container creation.
+Jeff Studio Scene is a bilingual Godot HD-2D authoring addon. Version **0.4.7.1** fixes generated-resource storage and full-layer paving fallback. New generated scenes use compressed external resources automatically; old scenes have a one-time Optimize Scene File action. It retains the **0.4.7** features: a 24-hour day/night cycle, enhanced 3D weather, leaf/petal randomness controls, six additional architectural styles (nine total), textured GLB export for Blender, compact double-row towns and automatic character-container creation.
 
 Install only `addons/hd2d_scene_tools` into an existing Godot project and enable the plugin. Verified on Godot 4.7.2 with Compatibility and Forward+. This public distribution includes the plugin, original built-in assets and manuals only; shared libraries, cases, local tests, caches and extracted character artwork are excluded.
 

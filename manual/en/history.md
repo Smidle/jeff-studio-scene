@@ -1,9 +1,9 @@
 # 03 · Case Bundle: Cases 01–05 and 07
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
-0.4.7 ships the plugin and manuals only. The following is a reference for existing separate resource packages; these resources are not bundled and do not need reinstalling.
+0.4.7.1 ships the plugin and manuals only. The following is a reference for existing separate resource packages; these resources are not bundled and do not need reinstalling.
 
 `03_HD2D_0.4.6_Case_Assets.zip` combines original Cases 01–05 with Case07, Desert Waystation, including all required resources. Original files remain unchanged. The large world-map case is not included.
 

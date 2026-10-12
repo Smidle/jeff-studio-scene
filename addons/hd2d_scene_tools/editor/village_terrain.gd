@@ -68,6 +68,8 @@ static func prepare(plan: Dictionary,t: HD2DTerrain,world: Transform3D,stage: HD
 		d.layer_names[0]="小镇底材";d.layer_preset_ids[0]="builtin-v1/"+material_style+"/ground"
 	if mode!=2:
 		layer=d.layer_preset_ids.find(paving_id)
+		var reuse: bool=layer>=0 and layer<d.layer_count and layer<d.textures.size() and d.textures[layer]!=null
+		if not reuse: layer=-1
 		if mode==1: layer=int(options.get("paving_layer",1))-1
 		elif layer<0:
 			for i in d.layer_count:
@@ -77,8 +79,14 @@ static func prepare(plan: Dictionary,t: HD2DTerrain,world: Transform3D,stage: HD
 					if (d.weights[at][i] if i<4 else d.weights_extra[at][i-4])>0.001: used=true; break
 				if not used: layer=i; break
 			if layer<0 and d.layer_count<8: layer=d.layer_count; d.layer_count+=1; d.ensure_extra_weights()
-		if layer<0 or layer>=d.layer_count: return {"error":"地表没有空层；请选择已有层，或改用贴地像素铺装网格。"}
-		if mode==0:
+		if mode==0 and layer<0:
+			# The same decision serves sidebar preview, blueprint and final commit.
+			# Keep every occupied texture layer intact; fitted paving needs no slot.
+			mode=2;result.options.paving_mode=2
+			result.road_notice="地表层已满，道路自动使用贴地像素网格；已有地表保持不变。"
+		elif layer<0 or layer>=d.layer_count:
+			return {"error":"所选道路地表层不存在，请选择有效的已有层。"}
+		if mode==0 and not reuse:
 			d.textures.resize(d.layer_count); d.layer_names.resize(d.layer_count); d.layer_preset_ids.resize(d.layer_count)
 			d.colors.resize(maxi(d.colors.size(),d.layer_count)); d.colors[layer]=Color.WHITE
 			d.textures[layer]=Materials.texture(material_style,"paving",int(options.get("appearance",0)),int(options.get("appearance_seed",101)))

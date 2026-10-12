@@ -201,8 +201,7 @@ func save_asset() -> bool:
 	if FileAccess.file_exists(path):
 		var saved := load(path) as HD2DAsset
 		if saved: asset=saved;return true
-	if ResourceSaver.save(asset,path,ResourceSaver.FLAG_CHANGE_PATH)==OK:
-		asset.take_over_path(path);return true
+	if preload("generated_resources.gd").save_binary(asset,path)==OK: return true
 	say("生成资源保存失败，请检查工程目录权限。");return false
 
 func apply_selected() -> void:

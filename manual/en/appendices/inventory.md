@@ -1,6 +1,6 @@
 # Assets and Delivery
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
 Package 01 contains three styles, ten categories and 46 parametric building types, 35 lightweight terrain textures, 14 schemes and three local-study characters. Package 02 is the external shared library. Package 03 combines Cases 01–05 and 07 with their dependencies. The large-world case is not included. See [installation order](../quick_start.md), [shared library](../shared_library.md) and [case entries](../history.md).

@@ -1,6 +1,6 @@
 # Environment: Day/Night and Weather
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
 ## 3D weather enhancements (0.4.7)

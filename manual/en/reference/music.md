@@ -1,6 +1,6 @@
 # Part III · Music
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
 Import and select a track, audition it, adjust and apply settings, then set it as scene BGM. List selection is not activation: the ♪ mark identifies the active scene track.

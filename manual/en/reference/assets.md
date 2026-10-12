@@ -1,6 +1,6 @@
 # Assets and Scene Instance Editing
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
 <span id="builtin-buildings"></span>
@@ -366,6 +366,21 @@ After importing the GLB, switch Blender to Material Preview to see the textures.
 **Export to Blender…** sits directly below **Place Building**. Choose a location to save one `.glb` containing meshes, UVs, the selected appearance and embedded PNG textures. No prior placement or Apply is required. To export a placed building, select it and use **Read Selected Building** first.
 
 In Blender use **File → Import → glTF 2.0 (.glb/.gltf)**. The model uses metres, with its foot at the local origin, grouped into material parts. This is an editable visual snapshot; Godot scripts, physics collision and procedural editing controls are not exported. Blender edits do not automatically update the original building. Cancel leaves the scene unchanged; the save dialog confirms overwriting an existing file.
+
+## Scene size and generated resources
+
+New towns save buildings, terrain, road and wall meshes as compressed binary `.res` files in the project's `hd2d_generated` folder. Text `.tscn` scenes retain nodes and external references. Do not disable Godot's large-text-scene warning or convert the entire scene to `.scn` to hide embedded data.
+
+For an existing scene:
+
+1. Save it and select the stage root.
+2. Open **Assets → Import & Check → Optimize Scene File**.
+3. The plugin backs up the saved scene and moves embedded built-in buildings, terrain and generated meshes to external resources. Appearance, transforms and collision are unchanged.
+4. Press **Ctrl / Cmd + S** after completion, then reopen to confirm. The status reports the backup path; existing resources are not deleted.
+
+These `.res` files are authored scene dependencies, not caches. Keep `hd2d_generated` when moving, backing up or sharing the project; copying only the `.tscn` is insufficient. Already external resources are left in place.
+
+![0.4.7.1 · Optimize Scene File: Assets → Import & Check](../../images/047_storage_scene_en.png)
 
 
 [← Manual contents](../index.md) · [Release notes](../release_notes.md)

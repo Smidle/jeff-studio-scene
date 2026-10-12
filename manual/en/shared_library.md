@@ -1,9 +1,9 @@
 # 02 · Shared Asset Library
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
-0.4.7 ships the plugin and manuals only. The following is a reference for existing separate resource packages; these resources are not bundled and do not need reinstalling.
+0.4.7.1 ships the plugin and manuals only. The following is a reference for existing separate resource packages; these resources are not bundled and do not need reinstalling.
 
 File: `02_HD2D_0.4.6_Shared_Asset_Library.zip`. Install package 01 first, extract this library outside the project, then use **Location… → HD2D_Shared_Asset_Library → Recheck** at the top of the plugin.
 

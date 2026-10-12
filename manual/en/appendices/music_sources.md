@@ -1,6 +1,6 @@
 # Music and External Resource Provenance
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
 Package 01 includes three local-study characters, but no game music or case scenes. Cases and their dependencies are in package 03. The Music module imports audio you supply and configures audition, looping, fades and scene playback.

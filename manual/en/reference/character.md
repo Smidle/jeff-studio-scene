@@ -1,6 +1,6 @@
 # Characters
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
 The public plugin does not bundle extracted character presets. Import your own frames or connect a compatible character library.

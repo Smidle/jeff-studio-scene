@@ -6,6 +6,7 @@ const Generator=preload("building_generator.gd")
 const TerrainPlan=preload("village_terrain.gd")
 const Materials=preload("../runtime/building_materials.gd")
 const Layout=preload("village_layout.gd")
+const GeneratedResources=preload("generated_resources.gd")
 var placement
 var controller
 var ui
@@ -436,19 +437,24 @@ func commit(replace: bool) -> void:
 	# Recheck terrain/obstacles immediately before committing, even if the preview is old.
 	busy=true
 	# Saved output is portable runtime data, not an editor cache or source-library mutation.
-	var directory := "res://hd2d_generated/"+str(Time.get_unix_time_from_system()).replace(".","_")
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(directory))
+	var directory := GeneratedResources.new_directory()
+	if directory.is_empty():
+		busy=false;say("生成资源保存失败，请检查工程目录权限。");return
 	for item in palette:
-		if item.asset.building_profile:
+		if item.asset.building_profile and not GeneratedResources.is_external(item.asset):
 			var asset_file := directory.path_join(item.asset.building_profile.identity()+".res")
-			if ResourceSaver.save(item.asset,asset_file,ResourceSaver.FLAG_CHANGE_PATH)!=OK:
+			if GeneratedResources.save_binary(item.asset,asset_file)!=OK:
 				busy=false;say("生成资源保存失败，请检查工程目录权限。");return
 	if checked.has("draft_terrain"):
-		if ResourceSaver.save(checked.draft_terrain,directory.path_join("terrain.res"),ResourceSaver.FLAG_CHANGE_PATH)!=OK:
+		if GeneratedResources.save_binary(checked.draft_terrain,directory.path_join("terrain.res"))!=OK:
 			busy=false;say("生成资源保存失败，请检查工程目录权限。");return
+	var village := build_node(checked)
+	var resources := GeneratedResources.new();resources.directory=directory
+	resources.village_visuals(village)
+	if resources.error!=OK:
+		village.free();busy=false;say("生成资源保存失败，请检查工程目录权限。");return
 	if placement and placement.active: placement.stop(false)
 	controller.set_tool("select")
-	var village := build_node(checked)
 	var stage: HD2DStage=controller.stage
 	var parent := target.get_parent() as Node3D if replace else stage.get_node_or_null("Scenery") as Node3D
 	if parent==null: village.free(); busy=false; invalidate(); return

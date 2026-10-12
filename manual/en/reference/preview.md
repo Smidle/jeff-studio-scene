@@ -1,6 +1,6 @@
 # Part III · Isolated Preview and final checks
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
 Use **Camera → Preview Scene**. The plugin copies the current stage into a separate World3D so test movement, observation and music state do not modify production resources. This window is not another scene editor.

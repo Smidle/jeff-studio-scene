@@ -1,4 +1,29 @@
-# 0.4.7 release notes (since 0.4.6)
+# 0.4.7.1 release notes
+
+A scene-storage and paving fix for 0.4.7. Existing building, weather and character features remain compatible.
+
+## Smaller text scenes
+
+- Fixes generated resources being written to disk but embedded again in the text scene because the live resource was not bound to its external path. New buildings, town terrain and generated road/wall meshes automatically use compressed project-owned `.res` files; `.tscn` retains nodes and external references.
+- Adds **Assets → Import & Check → Optimize Scene File**. For an old scene, save first and run this once. The saved scene is backed up before migration; press **Ctrl / Cmd + S** afterward.
+- A representative saved-scene copy shrank from **8.09 MiB to about 227 KiB of text**, with model data retained in external resources. Geometry, texture pixels, transforms, skins, collision and terrain remain consistent after reopening. Results depend on scene content.
+- Keep `hd2d_generated` when moving, backing up or sharing your project. It contains required scene resources, not disposable caches.
+
+## Placement with eight occupied terrain layers
+
+- Fixes town blueprint placement failing when all eight terrain layers are occupied; this was not a twelve-building limit.
+- **Auto** paving first reuses a matching road layer. With no free layer, it switches to a **fitted pixel paving mesh** and reports the fallback without overwriting existing textures.
+- Sidebar preview, blueprint and final placement share the decision. Reused road layers retain their appearance. Explicit layer selection, bounds and object-conflict checks remain active.
+
+## Installation and validation
+
+Download only `01_HD2D_0.4.7.1_Plugin_Manual.zip`. Close Godot, back up the old plugin and replace `addons/hd2d_scene_tools`; retain your scenes and generated resources. Both manuals now explain the optimization action and saving workflow with actual interface captures.
+
+Plugin and manuals only: no shared libraries, cases, local test scenes or caches. Public downloads continue to exclude extracted character images and indexes. Targeted Compatibility and Forward+ checks cover external storage, runtime reopening, eight occupied layers, thirteen consecutive blueprint placements and undo/redo. No case or full regression was rerun.
+
+---
+
+## 0.4.7 release notes (since 0.4.6)
 
 ## Day/night and weather
 

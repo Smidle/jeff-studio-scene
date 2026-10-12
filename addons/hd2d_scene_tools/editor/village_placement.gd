@@ -123,6 +123,7 @@ func validate_position() -> void:
 		build_visual(checked)
 		material.albedo_color=Color(0.12,0.75,1.0,0.58)
 		panel.say("蓝图可放置 · Q / E 旋转 15° · 左键确认 · Esc 取消")
+		if checked.has("road_notice"): panel.say(panel.status.text+"\n"+controller.i18n.t(checked.road_notice))
 	else:
 		material.albedo_color=Color(1.0,0.22,0.18,0.65)
 		panel.say("此处不能放置：%s"%controller.i18n.t(error))

@@ -1,6 +1,6 @@
 # Part III · Camera and looping
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
 New free maps default to an overhead 45° orthographic camera. Placing a player enables orthographic follow in the same undo action; existing saved scenes are not rewritten. Preset characters fully face the camera to preserve their proportions; the visual rotates while feet, body and collision stay anchored.

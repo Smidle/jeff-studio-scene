@@ -1305,5 +1305,14 @@
 	"数量上限配合上方天气强度控制疏密；风向、风速和覆盖范围在天气范围与风力中调整。": "Particle budget and Weather Intensity control density. Adjust wind and coverage in Weather Coverage & Wind.",
 	"出现时间随机度 0 为均匀出现，1 更不规则。速度差异 0 为同速，0.25 为上下浮动 25%；飘摆幅度 0 关闭左右摆动，仍受风影响。": "Timing: 0 is even, 1 irregular. Speed variation: 0 is uniform, 0.25 varies by ±25%. Sway 0 removes flutter; wind still applies.",
 	"出生位置始终随机分布。开启每次运行随机可换分布；关闭后使用固定种子。调整后先应用，再重新预览比较。": "Spawn positions remain random. Randomize each run for a fresh distribution, or disable it for a fixed seed. Apply and reopen Preview to compare.",
-	"暂无角色预设。可导入自己的角色素材或连接角色素材库。": "No character presets are installed. Import your own character artwork or connect a character library."
+	"暂无角色预设。可导入自己的角色素材或连接角色素材库。": "No character presets are installed. Import your own character artwork or connect a character library.",
+	"地表层已满，道路自动使用贴地像素网格；已有地表保持不变。": "All surface layers are occupied. Roads use fitted pixel paving; existing surfaces remain unchanged.",
+	"所选道路地表层不存在，请选择有效的已有层。": "The selected road surface layer does not exist. Choose an available layer.",
+	"优化场景文件": "Optimize Scene File",
+	"将内置建筑、地形和生成网格转存为工程内的二进制资源；先备份已保存场景，不改变外观、位置或碰撞。完成后保存场景。": "Back up the saved scene, then move built-in buildings, terrain and generated meshes into project-owned binary resources. Appearance, placement and collision stay unchanged. Save the scene afterward.",
+	"请先保存场景，再优化场景资源。": "Save the scene before optimizing its resources.",
+	"无法备份原场景，未执行资源优化。": "Unable to back up the scene; resource optimization was not performed.",
+	"资源转存失败（%s），请检查工程目录权限；原场景文件保持不变。": "Resource externalization failed (%s). Check project folder permissions; the original scene file is unchanged.",
+	"当前生成资源已使用外部文件，无需再次优化。": "Generated resources already use external files; no further optimization is needed.",
+	"已转存 %d 项资源。Ctrl / Cmd + S 保存场景；原场景备份：%s": "Externalized %d resources. Save with Ctrl / Cmd + S. Original scene backup: %s"
 }

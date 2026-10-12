@@ -1,6 +1,6 @@
 # Part III · Scatter and roads
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
 Ctrl-select plants in Assets, switch to Scatter, select the brush or circular scatter tool, then click the terrain. A road requires at least two control points to generate a surface.

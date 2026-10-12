@@ -284,8 +284,27 @@ func _get_unsaved_status(_for_scene: String) -> String:
 
 func _save_external_data() -> void:
 	for resource in external_dirty.keys():
-		if ResourceSaver.save(resource)==OK: external_dirty.erase(resource)
+		var flags := ResourceSaver.FLAG_COMPRESS if resource.resource_path.get_extension()=="res" else 0
+		if ResourceSaver.save(resource,"",flags)==OK: external_dirty.erase(resource)
 		else: push_error(i18n.t("HD2D 无法保存："+resource.resource_path))
+
+func optimize_scene_resources() -> void:
+	if not require_stage(): return
+	var root := EditorInterface.get_edited_scene_root()
+	if root==null or root.scene_file_path.is_empty() or not FileAccess.file_exists(root.scene_file_path):
+		message("请先保存场景，再优化场景资源。");return
+	var backup_dir := "res://.godot/hd2d_scene_backups"
+	var backup := backup_dir.path_join(root.scene_file_path.get_file().get_basename()+"_"+str(Time.get_ticks_usec())+"."+root.scene_file_path.get_extension())
+	if DirAccess.make_dir_recursive_absolute(backup_dir)!=OK or DirAccess.copy_absolute(root.scene_file_path,backup)!=OK:
+		message("无法备份原场景，未执行资源优化。");return
+	var result: Dictionary=preload("generated_resources.gd").new().optimize(stage)
+	if result.error!=OK:
+		message("资源转存失败（%s），请检查工程目录权限；原场景文件保持不变。"%error_string(result.error));return
+	if result.saved==0:
+		message("当前生成资源已使用外部文件，无需再次优化。");return
+	mark_changed()
+	EditorInterface.get_resource_filesystem().scan()
+	message("已转存 %d 项资源。Ctrl / Cmd + S 保存场景；原场景备份：%s"%[result.saved,backup])
 
 func create_template(loop: bool) -> bool:
 	var meters: float = ui.terrain_panel.map_meters()

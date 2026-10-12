@@ -1,15 +1,17 @@
-# Install and get started with 0.4.7
+# Install and get started with 0.4.7.1
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
-Download only **01_HD2D_0.4.7_Plugin_Manual.zip**. No second or third package is required. Cases, shared-library payloads and local test projects are not included. Verified with **Godot 4.7.2**, Compatibility and Forward+. Back up your plugin and project before upgrading.
+Download only **01_HD2D_0.4.7.1_Plugin_Manual.zip**. No second or third package is required. Cases, shared-library payloads and local test projects are not included. Verified with **Godot 4.7.2**, Compatibility and Forward+. Back up your plugin and project before upgrading.
 
 ## 1. Install the plugin
 
 Extract and copy only `addons/hd2d_scene_tools` into an existing Godot project's `addons` directory. Wait for imports, then enable **Jeff Studio Scene** in **Project → Project Settings → Plugins**. Keep the manual outside the project and open `START_HERE.html` in a browser.
 
 For an upgrade, close Godot, back up and replace the old addon directory, then reopen. Keep your scenes, `hd2d_generated`, `hd2d_imports` and external shared library in place. The package does not include or replace `project.godot`.
+
+For an older large scene, run **Assets → Import & Check → Optimize Scene File** once, then save. New buildings and towns use external resources automatically. Retain the project’s `hd2d_generated` folder.
 
 ## 2. Create a scene
 

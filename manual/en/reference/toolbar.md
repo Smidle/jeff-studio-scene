@@ -1,6 +1,6 @@
 # Interface, Asset Workbench and saving
 
-> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
+> Public 0.4.7.1 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
 
 **Jeff Studio Scene 0.4.7.** Select objects in Godot's scene tree, place and paint in the central 3D viewport, and adjust settings in the right-hand plugin dock.

@@ -1,7 +1,26 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jeff Studio Scene 0.4.7 · 更新说明</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}aside{position:fixed;inset:0 auto 0 0;width:250px;overflow:auto;background:#173e32;color:#fff;padding:24px}aside a{display:block;color:#e2ddaa;text-decoration:none;padding:4px}aside a[aria-current]{background:#31594b;border-radius:4px}main{margin-left:270px;max-width:1060px;padding:30px}a{color:#13765d}img{max-width:100%;height:auto;display:block;margin:20px auto}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bacbc1;padding:10px}pre{overflow:auto;background:#e7e5d9;padding:12px}h1,h2{line-height:1.4}.notice{background:#fff4ce;padding:16px;border-left:4px solid #b88b35}code{overflow-wrap:anywhere}@media(max-width:850px){aside{position:static;width:auto}aside nav{display:flex;flex-wrap:wrap;gap:6px}main{margin:0;padding:20px}}</style><aside><strong>Jeff Studio Scene<br>0.4.7</strong><nav><a href="index.html" >说明书首页</a><a href="quick_start.html" >安装插件</a><a href="release_notes.html" aria-current="page">更新说明</a><a href="shared_library.html" >可选共享库</a><a href="history.html" >历史案例参考</a><a href="reference/toolbar.html" >界面与保存</a><a href="reference/terrain.html" >地形</a><a href="reference/generation.html" >一键生成</a><a href="reference/assets.html" >素材与建筑</a><a href="reference/scatter.html" >铺设</a><a href="reference/character.html" >角色</a><a href="reference/camera.html" >镜头</a><a href="reference/environment.html" >昼夜与天气</a><a href="reference/music.html" >音乐</a><a href="reference/preview.html" >预览</a><a href="appendices/inventory.html" >资源清单</a><a href="appendices/scenes.html" >历史场景入口</a><a href="appendices/music_sources.html" >音乐来源</a></nav><a href="../en/release_notes.html">English Manual</a></aside><main><h1>0.4.7 更新说明（相比 0.4.6）</h1>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jeff Studio Scene 0.4.7.1 · 更新说明</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}aside{position:fixed;inset:0 auto 0 0;width:250px;overflow:auto;background:#173e32;color:#fff;padding:24px}aside a{display:block;color:#e2ddaa;text-decoration:none;padding:4px}aside a[aria-current]{background:#31594b;border-radius:4px}main{margin-left:270px;max-width:1060px;padding:30px}a{color:#13765d}img{max-width:100%;height:auto;display:block;margin:20px auto}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bacbc1;padding:10px}pre{overflow:auto;background:#e7e5d9;padding:12px}h1,h2{line-height:1.4}.notice{background:#fff4ce;padding:16px;border-left:4px solid #b88b35}code{overflow-wrap:anywhere}@media(max-width:850px){aside{position:static;width:auto}aside nav{display:flex;flex-wrap:wrap;gap:6px}main{margin:0;padding:20px}}</style><aside><strong>Jeff Studio Scene<br>0.4.7.1</strong><nav><a href="index.html" >说明书首页</a><a href="quick_start.html" >安装插件</a><a href="release_notes.html" aria-current="page">更新说明</a><a href="shared_library.html" >可选共享库</a><a href="history.html" >历史案例参考</a><a href="reference/toolbar.html" >界面与保存</a><a href="reference/terrain.html" >地形</a><a href="reference/generation.html" >一键生成</a><a href="reference/assets.html" >素材与建筑</a><a href="reference/scatter.html" >铺设</a><a href="reference/character.html" >角色</a><a href="reference/camera.html" >镜头</a><a href="reference/environment.html" >昼夜与天气</a><a href="reference/music.html" >音乐</a><a href="reference/preview.html" >预览</a><a href="appendices/inventory.html" >资源清单</a><a href="appendices/scenes.html" >历史场景入口</a><a href="appendices/music_sources.html" >音乐来源</a></nav><a href="../en/release_notes.html">English Manual</a></aside><main><h1>0.4.7.1 更新说明</h1>
 <blockquote>
-<p>公开版 0.4.7 · 仅插件与说明书，不附带提取角色图片、共享素材库、案例或本地测试工程。</p>
+<p>公开版 0.4.7.1 · 仅插件与说明书，不附带提取角色图片、共享素材库、案例或本地测试工程。</p>
 </blockquote>
+<p>本次为 0.4.7 的场景保存与道路铺装修复，原有建筑、天气和角色功能保持兼容。</p>
+<h2>场景保存更轻量</h2>
+<ul>
+<li>修复一键生成后资源已写出、但保存场景时仍重复嵌入网格和贴图的问题。新生成的建筑、小镇地形及道路／围墙网格自动保存为工程内的压缩 <code>.res</code>，场景保留 <code>.tscn</code> 节点和外部引用，无需逐次手动优化。</li>
+<li>新增 <strong>素材 → 导入与检查 → 优化场景文件</strong>。旧场景先保存，再执行一次；插件先备份已保存的场景，完成后按 <strong>Ctrl / Cmd + S</strong> 保存。</li>
+<li>代表性旧场景副本的文本体积由 <strong>8.09 MiB 降至约 227 KiB</strong>；模型数据保留在外部资源中。保存重开后的几何、贴图、位置、皮肤、碰撞和地形一致。具体体积取决于场景内容。</li>
+<li><code>hd2d_generated</code> 是工程正式依赖，移动、备份或分享工程时必须一起保留。</li>
+</ul>
+<h2>地表层占满后仍可生成</h2>
+<ul>
+<li>修复地表八层占满时小镇蓝图无法应用的问题，这不是十二栋建筑上限。</li>
+<li>道路铺装为 <strong>自动</strong> 时优先复用已有同风格道路层；没有空层时自动切换为 <strong>贴地像素铺装网格</strong> 并提示，不覆盖已有纹理。</li>
+<li>预览、蓝图和最终放置使用同一判断；复用已有道路层时保留其外观。主动选择已有层时继续检查其有效性，越界和物件冲突检查保持有效。</li>
+</ul>
+<h2>安装与验证</h2>
+<p>只需下载 <code>01_HD2D_0.4.7.1_Plugin_Manual.zip</code>，关闭 Godot、备份旧插件后替换 <code>addons/hd2d_scene_tools</code>，保留自己的场景和生成资源。更新后的中英文说明书包含优化入口、保存步骤及真实界面截图。</p>
+<p>仅包含插件与说明书；不含共享库、案例、本地测试场景或缓存。公开版继续排除游戏提取角色图片与索引。Compatibility 与 Forward+ 定向检查覆盖外置保存、重开运行、地表八层占满、连续 13 次蓝图放置及撤销重做；未重新执行案例或全量回归。</p>
+<hr>
+<h2>0.4.7 更新说明（相比 0.4.6）</h2>
 <h2>昼夜与天气</h2>
 <ul>
 <li>新增 24 小时昼夜系统：固定开始时间、黎明／正午／黄昏／午夜、自动循环、一天时长、夜间补光与月光。</li>
