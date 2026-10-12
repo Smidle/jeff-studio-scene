@@ -1,73 +1,15 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第三部分 · 角色 · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
-.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
-.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
-.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
-.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
-.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
-.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
-.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
-.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
-@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
-@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
-.manual-page{--nav-width:248px}
-.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
-.skip-link:focus{top:12px}
-.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
-.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
-.manual-sidebar>summary::-webkit-details-marker{display:none}
-.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
-.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
-.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
-.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
-.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
-.nav-group{margin:0 0 20px}
-.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
-.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
-.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
-.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
-.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
-.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
-.manual-content>h1:first-child{margin-top:0}
-.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
-.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
-.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
-@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
-@media(max-width:860px){
- .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
- .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
- .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
- .manual-sidebar[open]>summary::after{content:'−'}
- .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
- .manual-content{margin:0;padding:26px 18px 52px}
- .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
- .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
- .skip-link{left:18px}
-}
-@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
-</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">跳到正文</a><details class="manual-sidebar" open><summary>目录 · Jeff Studio 场景</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio 场景<span class="manual-version">用户说明书 · 0.4.6</span></a><nav aria-label="说明书目录"><section class="nav-group"><h2 class="nav-group-title">开始使用</h2><a class="nav-link" href="../index.html">说明书首页</a><a class="nav-link" href="../quick_start.html">01 安装插件</a><a class="nav-link" href="../shared_library.html">02 共享素材库</a><a class="nav-link" href="../history.html">03 案例与历史资源</a></section><section class="nav-group"><h2 class="nav-group-title">功能指南</h2><a class="nav-link" href="toolbar.html">界面与保存</a><a class="nav-link" href="terrain.html">地形制作</a><a class="nav-link" href="generation.html">一键生成</a><a class="nav-link" href="assets.html">素材与实例编辑</a><a class="nav-link" href="scatter.html">铺设与道路</a><a class="nav-link" href="character.html" aria-current="page">角色</a><a class="nav-link" href="camera.html">镜头</a><a class="nav-link" href="environment.html">环境</a><a class="nav-link" href="music.html">音乐</a><a class="nav-link" href="preview.html">场景预览</a></section><section class="nav-group"><h2 class="nav-group-title">参考资料</h2><a class="nav-link" href="../appendices/inventory.html">资源清单</a><a class="nav-link" href="../appendices/scenes.html">场景入口</a><a class="nav-link" href="../appendices/music_sources.html">音乐来源</a></section></nav><a class="language-switch" lang="en" href="../../en/reference/character.html">English Manual ↗</a></div></details><main class="manual-content" id="manual-content"><h1>第三部分 · 角色</h1>
-<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub 公开版说明：</strong>下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。<a href="../../DISTRIBUTION.md">查看分发说明</a></p></aside>
-<p>0.4.6 已修复角色起步、转向及切换跑步时偶发的乱帧或贴图块。关闭 Godot 后更新第一包中的插件，再打开工程即可；已放置角色直接生效，无需重新导入图片或重新摆放。</p>
-<p>主角默认使用正交跟随镜头。预设角色的显示面自动朝向镜头俯仰，避免正交／透视俯视时显得矮；角色根节点、脚底和碰撞不会随镜头倾斜。旧手动导入角色可在“脚底锚点与显示”开启“角色画面正对镜头”，再应用配置。</p>
-<p>在场景树选择角色；未指定时使用 Hero。按每个动作和方向分别导入图片，在预览图点击脚底，然后应用。并不是导入一张图就能自动补齐所有动作。</p>
-<p>三个预设角色的脚底已校准到可见鞋底，避免放置后脚部埋入地面。更新第一包后重新打开场景即可：仍使用旧默认锚点的预设角色会在本地副本中修正，保存场景保留结果；已手动修改的锚点与自行导入的角色保持原设置。无需重装共享素材包，也不需要抬高角色节点或碰撞体。</p>
-<h2>角色贴近建筑时的遮挡</h2>
-<p>开启“角色画面正对镜头”后，角色保留正交和透视镜头下的完整比例；与墙面、建筑的遮挡以脚底为基准，在碰撞体朝向镜头的一侧计算显示深度，避免贴近屋檐边缘时头顶被切掉。这样贴近墙面时，上半身不会因显示面向后倾斜而插入墙内，走到建筑后面仍会被正常遮挡。已有案例和新放置角色都使用此修正；关闭 Godot、替换第一包插件后重新打开工程即可，不需要改案例或共享素材包。</p>
-<p>碰撞半径、碰撞高度决定身体能否通过；脚底锚点决定图片从哪里落地。如果身体已停住，仅上半身被截断，是上述显示遮挡问题。若整个角色能走进建筑，请检查建筑是否启用静态碰撞，以及碰撞形状、尺寸、偏移是否覆盖墙体；在“素材 → 静态碰撞”开启“显示碰撞参考线”核对。不同问题需要分别调整。</p>
-<p>以下使用案例 5 的武馆模型与角色，在独立场景中以原网格碰撞对比；机位和碰撞保持相同。</p>
-<h2>放置预设角色</h2>
-<p>打开 <strong>角色 → 放置预设角色</strong>。0.4.6 学习版第一包已内置斗笠侠客、冷无情、吕小玲，无需共享库或案例包。9 张原图及动作索引约 179 KiB，ZIP 中约 154 KiB；选择时只准备当前角色的三张图片。外部角色作为可选扩展，同标识不会重复列出，库断开或索引损坏不影响内置角色。</p>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jeff Studio Scene 0.4.7 · 角色</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}aside{position:fixed;inset:0 auto 0 0;width:250px;overflow:auto;background:#173e32;color:#fff;padding:24px}aside a{display:block;color:#e2ddaa;text-decoration:none;padding:4px}aside a[aria-current]{background:#31594b;border-radius:4px}main{margin-left:270px;max-width:1060px;padding:30px}a{color:#13765d}img{max-width:100%;height:auto;display:block;margin:20px auto}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bacbc1;padding:10px}pre{overflow:auto;background:#e7e5d9;padding:12px}h1,h2{line-height:1.4}.notice{background:#fff4ce;padding:16px;border-left:4px solid #b88b35}code{overflow-wrap:anywhere}@media(max-width:850px){aside{position:static;width:auto}aside nav{display:flex;flex-wrap:wrap;gap:6px}main{margin:0;padding:20px}}</style><aside><strong>Jeff Studio Scene<br>0.4.7</strong><nav><a href="../index.html" >说明书首页</a><a href="../quick_start.html" >安装插件</a><a href="../release_notes.html" >更新说明</a><a href="../shared_library.html" >可选共享库</a><a href="../history.html" >历史案例参考</a><a href="toolbar.html" >界面与保存</a><a href="terrain.html" >地形</a><a href="generation.html" >一键生成</a><a href="assets.html" >素材与建筑</a><a href="scatter.html" >铺设</a><a href="character.html" aria-current="page">角色</a><a href="camera.html" >镜头</a><a href="environment.html" >昼夜与天气</a><a href="music.html" >音乐</a><a href="preview.html" >预览</a><a href="../appendices/inventory.html" >资源清单</a><a href="../appendices/scenes.html" >历史场景入口</a><a href="../appendices/music_sources.html" >音乐来源</a></nav><a href="../../en/reference/character.html">English Manual</a></aside><main><h1>角色</h1>
+<blockquote>
+<p>公开版 0.4.7 · 仅插件与说明书，不附带提取角色图片、共享素材库、案例或本地测试工程。</p>
+</blockquote>
+<p>公开插件不附带游戏提取角色预设。请导入自己的动作帧，或连接兼容角色素材库。</p>
 <ol>
-<li>下拉选择斗笠侠客、冷无情或吕小玲，等待动作预览。只准备所选角色的三张图片，不导入整个素材库；可切换待机、行走、跑步和四个方向检查动作。</li>
-<li>在预览下方选择身份：<strong>主角（唯一）／队友（跟随主角）／NPC（原地待机）</strong>。</li>
-<li>点击 <strong>在 3D 视图放置角色</strong>，再点击地面或桥面。Esc 取消；每次放置可以撤销。再次放置主角会替换同一个主角的外观并移动位置，不会增加第二个主角。</li>
-<li>保存场景，主动预览或运行。自由地图中主角用 WASD／方向键行走，按住 Shift 跑步；镜头跟随主角，编辑器的自由视角不受影响。队友沿主角经过的路线跟随，距离较远时跑步追赶。NPC 在原位播放待机。</li>
+<li>新建自由地图，选中 Hero。设置动作、素材方向、帧数和 FPS。</li>
+<li>导入 PNG 序列、图集行或 SpriteFrames；分别导入待机、行走、跑步及所需方向。缺失方向会提示，不自动补造动作。</li>
+<li>设置脚底锚点、每像素米数、行走速度与碰撞，然后应用角色设置。</li>
+<li>把角色摆放到地面，保存，从镜头页预览检查。</li>
+<li>连接兼容预设库后，可选角色和主角／队友／NPC 身份，再点在 3D 视图放置角色。缺少 Characters 容器时自动创建，可一起撤销／重做。主角唯一，队友跟随，NPC 原地待机。</li>
 </ol>
-<p>队友可以先于主角放置；没有主角时保持待机。跟随使用实际物理碰撞，不包含自动绕障寻路；主角穿过不可通行的障碍时，应先修正场景碰撞或道路。此版本的角色身份放置面向自由地图，循环展示仍沿用原有舞台行为。</p>
-<p><strong>修改角色：</strong> 选中场景中的角色，在原有“脚底锚点与显示”“行走与碰撞”中调整，再点击“应用角色配置 / 脚底锚点”。行走默认 3.5 米／秒，跑步默认 6.5 米／秒，队友默认间距 1.8 米；间距可在队友节点的 <code>follow_spacing</code> 调整。身份用于新放置，切换下拉框不会改写已放置物件。</p>
-<p>角色资源按内容哈希进入工程内 <code>hd2d_imports/characters</code> 后，保存场景即可断开共享库继续运行。动画帧、速度、身份和原点随场景保存，不依赖开发者目录。东侧明确使用西侧素材镜像；这些游戏提取预设继续标为本机学习素材，不代表可商用授权。未来 GitHub 公开分发将排除 <code>addons/hd2d_scene_tools/assets/local_study_characters</code> 及其索引；本轮不上传。</p>
-<figure id="group-character-presets"><a href="../../images/046_builtin_character_zh.png"><img src="../../images/046_builtin_character_zh.png" alt="放置预设角色" width="960"></a><figcaption>0.4.6 · 无共享库的内置角色、动作、身份与放置。</figcaption></figure>
-
 <h2>可折叠功能分组</h2>
 <p>点击带边框的标题展开或收起。★为首次默认展开，之后记住本工程的选择。<strong>全部展开／全部收起</strong>只作用于当前页。可用Tab聚焦标题，Enter/Space切换，左/右键收起或展开。收起保留草稿和正在使用的工具／试听，不会应用或保存；跨组“应用”按钮保留在方框外。</p>
 <table>
@@ -102,13 +44,14 @@
 <td>脚下接触阴影和平地投影阴影开关。</td>
 </tr>
 </tbody></table>
+<p>以下是 0.4.5 / Godot 4.7.2 / Compatibility 界面。点击图片可放大，每图展开一个分组；较长的分组附下半部分。</p>
 <div class="ui-gallery">
-<section id="group-character-action"><strong>动作与方向</strong></section>
-<section id="group-character-import"><strong>素材导入</strong></section>
-<section id="group-character-mapping"><strong>动画映射</strong></section>
-<section id="group-character-appearance"><strong>脚底锚点与显示</strong></section>
-<section id="group-character-movement"><strong>行走与碰撞</strong></section>
-<section id="group-character-shadow"><strong>角色阴影</strong></section>
+<a id="group-character-action" name="group-character-action"></a><p><strong>动作与方向</strong></p>
+<a id="group-character-import" name="group-character-import"></a><p><strong>素材导入</strong></p>
+<a id="group-character-mapping" name="group-character-mapping"></a><p><strong>动画映射</strong></p>
+<a id="group-character-appearance" name="group-character-appearance"></a><p><strong>脚底锚点与显示</strong></p>
+<a id="group-character-movement" name="group-character-movement"></a><p><strong>行走与碰撞</strong></p>
+<a id="group-character-shadow" name="group-character-shadow"></a><p><strong>角色阴影</strong></p>
 </div>
 
 <h2>按钮与操作</h2>
@@ -323,4 +266,5 @@
 <td>自由地图按住 Shift 使用；预设跑步动画随速度切换。</td>
 </tr>
 </tbody></table>
-</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>
+<p><a href="../index.html">← 说明书目录</a> · <a href="../release_notes.html">更新说明</a></p>
+</main></html>

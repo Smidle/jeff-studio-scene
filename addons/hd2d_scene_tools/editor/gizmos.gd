@@ -7,7 +7,7 @@ func _init() -> void:
 	create_material("boundary",Color(1,0.7,0.2))
 	create_handle_material("handles")
 
-func _has_gizmo(node: Node3D) -> bool: return node is HD2DRoad or node is HD2DStage or node is HD2DCameraRig or node is HD2DProp
+func _has_gizmo(node: Node3D) -> bool: return node is HD2DRoad or node is HD2DStage or node is HD2DCameraRig or node is HD2DProp or node is HD2DWeatherShelter
 func _get_gizmo_name() -> String: return "HD2D Scene Handles"
 
 func _redraw(gizmo: EditorNode3DGizmo) -> void:
@@ -15,7 +15,14 @@ func _redraw(gizmo: EditorNode3DGizmo) -> void:
 	var node := gizmo.get_node_3d()
 	var lines := PackedVector3Array()
 	var handles := PackedVector3Array()
-	if node is HD2DProp:
+	if node is HD2DWeatherShelter:
+		var half:Vector3=node.size*0.5
+		for axis in 3:
+			for a in [-1,1]:
+				for b in [-1,1]:
+					var p:=Vector3.ZERO;p[axis]=-half[axis];p[(axis+1)%3]=half[(axis+1)%3]*a;p[(axis+2)%3]=half[(axis+2)%3]*b
+					var q:=p;q[axis]=half[axis];lines.append_array(PackedVector3Array([p,q]))
+	elif node is HD2DProp:
 		if controller.parameters and controller.parameters.target==node: lines=controller.parameters.lines
 	elif node is HD2DRoad and node.curve:
 		var points: PackedVector3Array=node.curve.get_baked_points()

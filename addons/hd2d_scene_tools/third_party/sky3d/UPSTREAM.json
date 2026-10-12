@@ -1,0 +1,103 @@
+{
+  "repository": "https://github.com/TokisanGames/Sky3D",
+  "version": "v2.1.0",
+  "commit": "6e151bc3d941906643443b3751a1df545a08feda",
+  "files": [
+    {
+      "path": "LICENSE.txt",
+      "upstream_sha256": "7c281db7f6aa4d2fcf4f67dceb2ef7f30a6292b2f327ffb0fb7bc4f9391c959d"
+    },
+    {
+      "path": "README.md",
+      "upstream_sha256": "72dbd66d89c30847f572f92ee254e29265769e211be6e2efd746e0a393241e97"
+    },
+    {
+      "path": "ThirdParty.md",
+      "upstream_sha256": "4011d016e162db9327966306dd1267311509b072faabb854ada1c9a25fb537b8"
+    },
+    {
+      "path": "assets/resources/SNoise.tres",
+      "upstream_sha256": "3449626d36d2541afb3dab6cfb38c51fd32531297521b7a11a4868fe4b13aef5"
+    },
+    {
+      "path": "assets/resources/SunMoonLightFade.tres",
+      "upstream_sha256": "c2661ed74885e6491fdb92d528451948f12aad7a19732c65158ebca0d85a559c"
+    },
+    {
+      "path": "assets/textures/SkyIcon.png",
+      "upstream_sha256": "223f2de7d03b46ac3bfad4e6df489153a148cef6eecd94f8404eb9a8775a2367"
+    },
+    {
+      "path": "assets/textures/noise.jpg",
+      "upstream_sha256": "0f9cee41ac4b23a013f65c2fb91c17262a32f2e30e20912cfc7a2428df8302fa"
+    },
+    {
+      "path": "assets/textures/noise2.png",
+      "upstream_sha256": "6a2479230d29ea9e7e7b447eaedb12175143fae01e2ced63751b2828f9665193"
+    },
+    {
+      "path": "assets/textures/noiseClouds.png",
+      "upstream_sha256": "c7e202bec424f46e3d6183886e621c4121e0a2d120370602016b8cf9fdb2136f"
+    },
+    {
+      "path": "assets/thirdparty/textures/milkyway/LICENSE.md",
+      "upstream_sha256": "8ac38558c09ccff1d8c286857e0d472580044ebe46a85665c62f3d9fd0643e90"
+    },
+    {
+      "path": "assets/thirdparty/textures/milkyway/Milkyway.jpg",
+      "upstream_sha256": "f677f84f8e44b30b0cfbe423a795aab30e1f19cbaba86d355be6dfa0a7bb9c5e"
+    },
+    {
+      "path": "assets/thirdparty/textures/milkyway/StarField.jpg",
+      "upstream_sha256": "2d1b7915ff1c5e9cbe8a85698b4f0938b13131294d9c92deeeb68b558a09f25c"
+    },
+    {
+      "path": "assets/thirdparty/textures/moon/LICENSE.md",
+      "upstream_sha256": "b4766b01e92ab5d23082aea6c0221897b0157112df5db096e422c98ce939451c"
+    },
+    {
+      "path": "assets/thirdparty/textures/moon/MoonMap.png",
+      "upstream_sha256": "5eec6a4b631e9948f5c10be8b1d417bb8fca294b6321d2a993fc7198b62c384a"
+    },
+    {
+      "path": "shaders/AtmFog.gdshader",
+      "upstream_sha256": "79e4005b6f94a4b99d1eb0cf32e18b9b58b9a6947676467882a418938e6b8359"
+    },
+    {
+      "path": "shaders/Common.gdshaderinc",
+      "upstream_sha256": "6265f2967250679e1b350b6133046c4f9b5b54029aea728f3a4aeb21685853c7"
+    },
+    {
+      "path": "shaders/LICENSE",
+      "upstream_sha256": "7e43f8609882c3b10828a055a6cffdf573ca66feb463c5db26c6696523315ce7"
+    },
+    {
+      "path": "shaders/SkyMaterial.gdshader",
+      "upstream_sha256": "3c50b68b3b21ff4942b907e387482db67b392e3e9ba647acbcc742911818e18c"
+    },
+    {
+      "path": "src/OrbitalElements.gd",
+      "upstream_sha256": "5b4f059b6d5b1eafc13398b67196c6c4006072a33788c1dfeb49f3b74e3842d1"
+    },
+    {
+      "path": "src/ScatterLib.gd",
+      "upstream_sha256": "1bfa8aa26926abb0b58fc613aca80878e4fa8c15c85ec7aae9f78aab28f52abe"
+    },
+    {
+      "path": "src/Sky3D.gd",
+      "upstream_sha256": "cc1735064fd944a60c25dfa2c8e2c6c1bcae9e50f56156162b501bf751d6afcb"
+    },
+    {
+      "path": "src/SkyDome.gd",
+      "upstream_sha256": "07ca59041e6ddf3a613fbe636bddf0f1a8cbb04a3a36f6bfcd12c23712e14531"
+    },
+    {
+      "path": "src/TOD_Math.gd",
+      "upstream_sha256": "1991e8d4ea803c258c91d7644e366fe3d45207e4de01a7e227f2c893e8b40e12"
+    },
+    {
+      "path": "src/TimeOfDay.gd",
+      "upstream_sha256": "6ce84332c13046fd520d01eb7ce3a058c1a4426f7daeabd5cb82851e4000d983"
+    }
+  ]
+}

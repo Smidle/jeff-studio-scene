@@ -23,7 +23,7 @@ func catalog() -> Array:
 func read_catalog(root: String) -> Array:
 	var path := root.path_join("character-index.json")
 	if not FileAccess.file_exists(path):
-		if root==BUILTIN_ROOT: error="内置角色预设缺失，请重新安装学习版插件。"
+		if root==BUILTIN_ROOT: error="暂无角色预设。可导入自己的角色素材或连接角色素材库。"
 		return []
 	var data: Variant=controller.shared_library.read_index_document(path)
 	if not data is Dictionary or data.get("schema_version")!=1 or not data.get("entries") is Array:

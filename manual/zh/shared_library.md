@@ -1,14 +1,9 @@
-<a name="manual-top"></a>
-
 # 02 · 共享素材库
 
-<!-- manual-navigation:start -->
-[项目首页](../../README.md) / [说明书总目录](../README.md) / [中文说明书](index.md)
+> 公开版 0.4.7 · 仅插件与说明书，不附带提取角色图片、共享素材库、案例或本地测试工程。
 
-[← 返回上一级](../README.md) · [English](../en/shared_library.md)
-<!-- manual-navigation:end -->
 
-> **GitHub 公开版说明：**下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。[查看分发说明](../DISTRIBUTION.md)
+本次 0.4.7 仅更新插件与说明书，下面是已有独立资源包的参考用法；资源未随本包提供，也不需要重新安装。
 
 文件：`02_HD2D_0.4.6_Shared_Asset_Library.zip`。先安装第一包插件，将本包解压到工程外，再在插件顶部 **位置… → HD2D_Shared_Asset_Library → 重新检查** 连接。
 
@@ -20,6 +15,5 @@
 
 本包保留既有共享资源内容与本机学习来源标识；提取美术不属于插件 MIT 许可。不包含案例场景。案例位于第三包。
 
----
 
-[← 上一章：安装插件](quick_start.md) · [↑ 返回上一级](../README.md) · [说明书总目录](../README.md) · [↑ 回到页首](#manual-top) · [下一章：案例与历史资源 →](history.md)
+[← 说明书目录](index.md) · [更新说明](release_notes.md)

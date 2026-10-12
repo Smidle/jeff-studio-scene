@@ -1,37 +1,59 @@
-<a name="manual-top"></a>
+# 03 · Case Bundle: Cases 01–05 and 07
 
-# 03 · Cases and Historical Resources
+> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
-<!-- manual-navigation:start -->
-[Project home](../../README.md) / [Manual contents](../README.md) / [English manual](index.md)
 
-[← Up one level](../README.md) · [中文](../zh/history.md)
-<!-- manual-navigation:end -->
+0.4.7 ships the plugin and manuals only. The following is a reference for existing separate resource packages; these resources are not bundled and do not need reinstalling.
 
-> **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../DISTRIBUTION.md)
+`03_HD2D_0.4.6_Case_Assets.zip` combines original Cases 01–05 with Case07, Desert Waystation, including all required resources. Original files remain unchanged. The large world-map case is not included.
 
-`03_HD2D_0.4.6_Case_Assets.zip` contains Cases 1–5 and their complete dependencies, preserved from 0.4.5 without regeneration. Case 6 remains in the earlier standalone world-map package.
+Install package 01 first. All six cases run and remain editable without package 02.
 
-Install package 01 first, then copy `showcase`, `case01` and `local_study` from package 03 into the project root, retaining relative paths. Package 02 is not required. Back up same-path files before merging into an existing project.
+## Step 1: Copy complete folders
 
-| Case | Scene path |
-| --- | --- |
-| 1 · Canola field | `res://showcase/Case01_Canola.tscn` |
-| 2 · Lily path | `res://showcase/Case02_Lily.tscn` |
-| 3 · Grain field | `res://showcase/Case03_Grain.tscn` |
-| 4 · Bamboo path | `res://showcase/Case04_Bamboo.tscn` |
-| 5 · Jiangnan town | `res://showcase/Case05_Jiangnan.tscn` |
+Copy `showcase`, `case01`, `case07` and `local_study` together into the project root alongside `addons`. Retain paths; do not copy only a tscn file. Back up existing same-path files before merging.
 
-Wait for Godot imports, open a scene and select its root to continue editing. Keep adjacent terrain resources and all asset folders. Use F6 to run; the Camera module retains the explicit scene preview entry.
+## Step 2: Open a scene
 
-This acceptance run covers only the plugin and shared library. Cases have not been rerun. Historical case walkthroughs remain in `01_HD2D_0.4.5_Plugin_Manual.zip`; use this version's feature reference for current controls.
+Wait for imports, double-click a scene in FileSystem, then select its stage root.
 
-### Standalone world map and older files
+| Case | Features | Scene path |
+|---|---|---|
+| 01 · Canola Field | Looping plants and characters | `res://showcase/Case01_Canola.tscn` |
+| 02 · Lily Path | Layered flowers and woodland | `res://showcase/Case02_Lily.tscn` |
+| 03 · Grain Field | Crops and grass | `res://showcase/Case03_Grain.tscn` |
+| 04 · Bamboo Path | Bamboo, flowers and looping | `res://showcase/Case04_Bamboo.tscn` |
+| 05 · Jiangnan Town | Native models and free movement | `res://showcase/Case05_Jiangnan.tscn` |
+| 07 · Desert Waystation | 20 buildings, 72 plants, ring roads | `res://case07/Case07_Desert_Town.tscn` |
 
-For Case 6, obtain `04_HD2D_0.4.5_Case06_WorldMap.zip` from the earlier release and follow its included guide, preferably in a separate project. Older releases use package 02 for cases and 03 for the shared library; **0.4.6 uses 02 for the shared library and 03 for cases**. Identify each package by its filename.
+## Step 3: Run or preview
 
-Extracted artwork, music and screenshots retain their local-study designation and are not covered by the plugin's MIT code license. Original release files remain unchanged; installed project resources are never automatically migrated or deleted.
+Press **F6**, or open **Camera → Preview Scene**. Cases 01–04 loop automatically; Cases 05 and 07 support free movement. Case07 uses WASD / arrow keys, Shift to run, the wheel to zoom and Tab for the town overview.
 
----
+## Step 4: Edit and save
 
-[← Previous: Shared asset library](shared_library.md) · [↑ Up one level](../README.md) · [Manual contents](../README.md) · [↑ Back to top](#manual-top) · [Next: Interface and saving →](reference/toolbar.md)
+Close the running window or preview, then use the relevant plugin module. Gold Apply buttons commit drafts; **Ctrl / Cmd + S** saves. Back up case folders before creating a variant. Saving a scene under another name still shares referenced terrain and assets.
+
+Extracted art, music and related screenshots remain for local study, outside the plugin code's MIT license. Historical releases are preserved.
+
+
+<details><summary>View actual running captures of all six cases</summary>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
+
+
+[← Manual contents](index.md) · [Release notes](release_notes.md)

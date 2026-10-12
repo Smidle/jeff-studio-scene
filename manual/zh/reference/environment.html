@@ -1,254 +1,277 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第三部分 · 环境 · Jeff Studio Scene 0.4.6</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}header,main{max-width:1060px;margin:auto;padding:24px}header{background:#173e32;color:#fff}nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#13765d}header a{color:#f6dc8e}main{min-height:80vh}h1,h2{line-height:1.4}img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:8px}table{border-collapse:collapse;width:100%;display:block;overflow:auto}th,td{border:1px solid #bacbc1;padding:10px}pre{overflow:auto}code{overflow-wrap:anywhere}a.card{display:block;border:2px solid #648773;background:#fff7d6;padding:26px;margin:18px 0;border-radius:12px;font-size:27px;font-weight:bold}p,li{overflow-wrap:anywhere}@media(max-width:600px){header,main{padding:16px}}.community{margin:52px 0 24px;padding-top:30px;border-top:1px solid #d4ded8;color:#233d37}
-.community-heading{margin-bottom:22px}.community-heading h3{font-size:25px;margin:6px 0 10px;line-height:1.4}.community-heading p{font-size:14px;line-height:1.7;margin:0;color:#556a64}.community-heading .community-eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#58736a}
-.community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.community-card{padding:24px;min-width:0;background:#fff;border:1px solid #d5e1da;border-radius:18px;text-align:center;break-inside:avoid;border-top:4px solid #228465}.community-card.qq{border-top-color:#397da4}
-.community-copy p{margin:6px 0;line-height:1.5}.community-copy .community-platform{font-size:12px;font-weight:750;color:#216e56}.qq .community-platform{color:#286887}.community-copy .community-title{font-size:21px;margin:8px 0;line-height:1.4}.community-action{font-size:14px;color:#52655e}
-.community-qr{display:block;position:relative;width:248px;max-width:100%;aspect-ratio:1;overflow:hidden;background:#fff;margin:16px auto 6px;outline-offset:5px}
-.community-qr img{position:absolute;display:block;max-width:none!important;height:auto!important;border-radius:0!important;margin:0!important}
-.community-enlarge{display:inline-block;font-size:12px;color:#315d50;text-underline-offset:4px;line-height:1.6}
-.community-expiry,.community-note{font-size:12px;line-height:1.7;color:#66716b;margin:14px 0 0}.community-expiry{color:#855422}.community-number{font-size:13px;margin:16px 0 0}.community-number strong{display:inline-block;font-size:22px;letter-spacing:.06em;color:#275e7b;user-select:all}.community-note{margin-top:4px}
-.community a:focus-visible{outline:3px solid #c58d36;outline-offset:5px}
-@media(max-width:760px){.community-grid{grid-template-columns:1fr}.community-card{padding:20px}.community{margin-top:36px}.community-heading h3{font-size:22px}}
-@media print{.community-card{box-shadow:none}.community-qr{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
-.manual-page{--nav-width:248px}
-.skip-link{position:fixed;top:-80px;left:264px;z-index:50;background:#f6dc8e;color:#173e32;padding:8px 16px;border-radius:6px}
-.skip-link:focus{top:12px}
-.manual-sidebar{position:fixed;inset:0 auto 0 0;width:var(--nav-width);height:100vh;height:100dvh;background:#173e32;color:#eef4e9;border-right:1px solid #315549;z-index:20}
-.manual-sidebar>summary{display:none;cursor:pointer;font-weight:700;list-style:none}
-.manual-sidebar>summary::-webkit-details-marker{display:none}
-.manual-nav-inner{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding:26px 18px 22px}
-.manual-brand{display:block;color:#fff;font-size:20px;line-height:1.35;font-weight:750;text-decoration:none;padding:0 10px}
-.manual-version{display:block;font-size:12px;letter-spacing:.06em;font-weight:500;color:#b4c9bc;margin-top:8px}
-.manual-sidebar nav{display:block;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin-top:26px;scrollbar-color:#769585 #173e32;scrollbar-width:thin}
-.manual-brand,.manual-sidebar .language-switch{flex-shrink:0}
-.nav-group{margin:0 0 20px}
-.nav-group-title{font-size:11px;font-weight:700;letter-spacing:.1em;color:#a7bdaf;margin:0 10px 7px}
-.manual-sidebar .nav-link{display:block;color:#dce9dd;text-decoration:none;font-size:14px;line-height:1.5;padding:8px 10px;margin:3px 0;border:1px solid transparent;border-radius:6px;overflow-wrap:anywhere}
-.manual-sidebar .nav-link:hover{background:#254f3f;color:#fff}
-.manual-sidebar .nav-link[aria-current="page"]{background:#efd792;border-color:#efd792;color:#193d31;font-weight:750}
-.manual-sidebar .language-switch{display:block;margin:6px 10px 0;padding-top:15px;border-top:1px solid #426252;font-size:13px;color:#f6dc8e;text-underline-offset:4px}
-.manual-content{max-width:1160px;margin:0 0 0 var(--nav-width);padding:38px 46px 80px;min-width:0}
-.manual-content>h1:first-child{margin-top:0}
-.manual-content .community-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
-.manual-content :is(h1,h2,h3,[id]){scroll-margin-top:24px}
-.manual-sidebar a:focus-visible,.manual-sidebar>summary:focus-visible,.manual-content a:focus-visible{outline:3px solid #e0b756;outline-offset:2px}
-@media(min-width:1700px){.manual-content{margin-left:calc(var(--nav-width) + (100vw - var(--nav-width) - 1160px)/2)}}
-@media(max-width:860px){
- .manual-sidebar{position:sticky;top:0;width:100%;height:auto;border-right:0;border-bottom:1px solid #426252}
- .manual-sidebar>summary{display:block;padding:13px 18px;font-size:15px}
- .manual-sidebar>summary::after{content:'＋';float:right;color:#f6dc8e}
- .manual-sidebar[open]>summary::after{content:'−'}
- .manual-nav-inner{height:auto;max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);padding:14px 18px 22px}
- .manual-content{margin:0;padding:26px 18px 52px}
- .manual-content h1{font-size:28px}.manual-content h2{font-size:24px}
- .manual-content :is(h1,h2,h3,[id]){scroll-margin-top:70px}
- .skip-link{left:18px}
-}
-@media print{.manual-sidebar,.skip-link{display:none}.manual-content{margin:0;padding:0;max-width:none}}
-</style></head><body class="manual-page"><a class="skip-link" href="#manual-content">跳到正文</a><details class="manual-sidebar" open><summary>目录 · Jeff Studio 场景</summary><div class="manual-nav-inner"><a class="manual-brand" href="../index.html">Jeff Studio 场景<span class="manual-version">用户说明书 · 0.4.6</span></a><nav aria-label="说明书目录"><section class="nav-group"><h2 class="nav-group-title">开始使用</h2><a class="nav-link" href="../index.html">说明书首页</a><a class="nav-link" href="../quick_start.html">01 安装插件</a><a class="nav-link" href="../shared_library.html">02 共享素材库</a><a class="nav-link" href="../history.html">03 案例与历史资源</a></section><section class="nav-group"><h2 class="nav-group-title">功能指南</h2><a class="nav-link" href="toolbar.html">界面与保存</a><a class="nav-link" href="terrain.html">地形制作</a><a class="nav-link" href="generation.html">一键生成</a><a class="nav-link" href="assets.html">素材与实例编辑</a><a class="nav-link" href="scatter.html">铺设与道路</a><a class="nav-link" href="character.html">角色</a><a class="nav-link" href="camera.html">镜头</a><a class="nav-link" href="environment.html" aria-current="page">环境</a><a class="nav-link" href="music.html">音乐</a><a class="nav-link" href="preview.html">场景预览</a></section><section class="nav-group"><h2 class="nav-group-title">参考资料</h2><a class="nav-link" href="../appendices/inventory.html">资源清单</a><a class="nav-link" href="../appendices/scenes.html">场景入口</a><a class="nav-link" href="../appendices/music_sources.html">音乐来源</a></section></nav><a class="language-switch" lang="en" href="../../en/reference/environment.html">English Manual ↗</a></div></details><main class="manual-content" id="manual-content"><h1>第三部分 · 环境</h1>
-<aside id="public-distribution-note" style="padding:16px;border:1px solid #bacbc1;border-radius:8px;margin:20px 0;background:#fff7d6"><p><strong>GitHub 公开版说明：</strong>下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。<a href="../../DISTRIBUTION.md">查看分发说明</a></p></aside>
-<p>选中场景根节点，调节天空、日光与效果，再点“应用环境参数”。只有演出后期需要在游戏或隔离测试中看；原生编辑视口保持用于编辑。</p>
-<h2>可折叠功能分组</h2>
-<p>点击带边框的标题展开或收起。★为首次默认展开，之后记住本工程的选择。<strong>全部展开／全部收起</strong>只作用于当前页。可用Tab聚焦标题，Enter/Space切换，左/右键收起或展开。收起保留草稿和正在使用的工具／试听，不会应用或保存；跨组“应用”按钮保留在方框外。</p>
-<table>
-<thead>
-<tr>
-<th>分组</th>
-<th>包含功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>★ <a href="#group-environment-sky">天空与背景</a></td>
-<td>天空模式、天空颜色及地平线/雾颜色；不自动生成天空模型。</td>
-</tr>
-<tr>
-<td>★ <a href="#group-environment-sun">日光与阴影</a></td>
-<td>日光颜色、强度、太阳方位/高度及投影开关。</td>
-</tr>
-<tr>
-<td><a href="#group-environment-ambient">环境补光</a></td>
-<td>环境补光颜色与强度，提亮阴影区域。</td>
-</tr>
-<tr>
-<td><a href="#group-environment-wind">风与云影</a></td>
-<td>全舞台植物风力与程序云影浓度；单素材风摆在素材页。</td>
-</tr>
-<tr>
-<td><a href="#group-environment-fog">距离雾</a></td>
-<td>普通距离雾开关和浓度；不是体积雾。</td>
-</tr>
-<tr>
-<td><a href="#group-environment-color">调色</a></td>
-<td>饱和度与对比度。</td>
-</tr>
-<tr>
-<td><a href="#group-environment-dof">真实景深</a></td>
-<td>远景景深强度；Compatibility灰显，限制说明在方框外。</td>
-</tr>
-<tr>
-<td><a href="#group-environment-post">演出后期</a></td>
-<td>演出后期开关、暗角、分区虚化；只影响游戏和隔离预览。</td>
-</tr>
-</tbody></table>
-<div class="ui-gallery">
-<section id="group-environment-sky"><strong>天空与背景</strong></section>
-<section id="group-environment-sun"><strong>日光与阴影</strong></section>
-<section id="group-environment-ambient"><strong>环境补光</strong></section>
-<section id="group-environment-wind"><strong>风与云影</strong></section>
-<section id="group-environment-fog"><strong>距离雾</strong></section>
-<section id="group-environment-color"><strong>调色</strong></section>
-<section id="group-environment-dof"><strong>真实景深</strong></section>
-<section id="group-environment-post"><strong>演出后期</strong></section>
-</div>
-
-<h2>按钮与操作</h2>
-<table>
-<thead>
-<tr>
-<th>界面按钮</th>
-<th>作用 / 何时生效</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>应用环境参数</td>
-<td>一次提交天空、日光、雾、风、云影与后期设置，可撤销；不切换项目渲染器。</td>
-</tr>
-</tbody></table>
-<h2>逐项参数</h2>
-<p>多数数值先留在面板草稿，点击对应“应用”才提交。笔刷参数在绘制时读取；导入和选择纹理等动作立即执行。应用不等于磁盘保存，最后按 Ctrl+S / Cmd+S。例外以各按钮说明为准。</p>
-<p>范围列中“最小值 … 最大值；步长”对应控件限制；下拉框列出可选值。单位和前提写在含义列。滑块与右侧数字框是同一个参数的两种输入方式。</p>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jeff Studio Scene 0.4.7 · 昼夜与天气</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}aside{position:fixed;inset:0 auto 0 0;width:250px;overflow:auto;background:#173e32;color:#fff;padding:24px}aside a{display:block;color:#e2ddaa;text-decoration:none;padding:4px}aside a[aria-current]{background:#31594b;border-radius:4px}main{margin-left:270px;max-width:1060px;padding:30px}a{color:#13765d}img{max-width:100%;height:auto;display:block;margin:20px auto}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bacbc1;padding:10px}pre{overflow:auto;background:#e7e5d9;padding:12px}h1,h2{line-height:1.4}.notice{background:#fff4ce;padding:16px;border-left:4px solid #b88b35}code{overflow-wrap:anywhere}@media(max-width:850px){aside{position:static;width:auto}aside nav{display:flex;flex-wrap:wrap;gap:6px}main{margin:0;padding:20px}}</style><aside><strong>Jeff Studio Scene<br>0.4.7</strong><nav><a href="../index.html" >说明书首页</a><a href="../quick_start.html" >安装插件</a><a href="../release_notes.html" >更新说明</a><a href="../shared_library.html" >可选共享库</a><a href="../history.html" >历史案例参考</a><a href="toolbar.html" >界面与保存</a><a href="terrain.html" >地形</a><a href="generation.html" >一键生成</a><a href="assets.html" >素材与建筑</a><a href="scatter.html" >铺设</a><a href="character.html" >角色</a><a href="camera.html" >镜头</a><a href="environment.html" aria-current="page">昼夜与天气</a><a href="music.html" >音乐</a><a href="preview.html" >预览</a><a href="../appendices/inventory.html" >资源清单</a><a href="../appendices/scenes.html" >历史场景入口</a><a href="../appendices/music_sources.html" >音乐来源</a></nav><a href="../../en/reference/environment.html">English Manual</a></aside><main><h1>环境：昼夜与天气</h1>
+<blockquote>
+<p>公开版 0.4.7 · 仅插件与说明书，不附带提取角色图片、共享素材库、案例或本地测试工程。</p>
+</blockquote>
+<h2>三维天气增强（0.4.7）</h2>
+<p>本节介绍 0.4.7 的三维天气功能。旧场景默认沿用原效果，新建舞台默认开启 <strong>三维天气增强</strong>。开启或关闭增强仍需点击底部 <strong>应用环境设置</strong>，并支持一次撤销。</p>
+<ol>
+<li>选中舞台根节点，展开 <strong>环境 → 天气系统</strong>，勾选 <strong>三维天气增强</strong>。选择天气、强度和质量，然后应用。</li>
+<li>保留下雨、下雪、雾天、沙尘暴和雷雨；暴风雪已移除，旧编号 7 按晴天处理；新增 <strong>秋日枫叶／春日樱花</strong>，与雨雪互斥。选择花叶会在草稿中自动开启增强。花叶有三种外形、八帧翻转；空中随风飘动，触地后贴合表面并停止旋转和翻帧，在约 1.5 秒内淡出。</li>
+<li>雨雪在 <strong>天气范围与风力</strong> 调整粒子大小和下落速度；选择花叶后，在 <strong>秋日枫叶设置／春日樱花设置</strong> 调整数量、大小和随机运动。运行中切换天气默认渐变 5 秒，0 秒直接切换；“轻柔／强烈”只修改强度。</li>
+<li>普通屋顶自动参与高度场遮雨。室内、廊下和洞穴从距离雾组点击 <strong>添加天气遮挡盒</strong>，移动、旋转或缩放线框，原生检查器的 <code>size</code> 修改尺寸。盒子创建有独立撤销，配置随场景保存；它不改变人物物理碰撞。相机进入盒子不会隐藏窗外天气。</li>
+<li>开启 <strong>增强天气：全部地表湿润</strong>，整片内置地形和分层地面同步渐湿，忽略屋顶、遮挡盒和粒子覆盖范围。雨停后一起逐渐干燥；不生成真实积水。<strong>雨滴落地水花</strong>仍仅在露天命中处生成，天气遮挡仍用于雨雪粒子。</li>
+<li>在 <strong>昼夜 → 天空与背景 → 增强天空来源</strong> 可选 <strong>Sky3D 像素天空</strong>；默认沿用原环境。时间仍使用本页唯一的昼夜设置，天空不额外开启屏幕雾或体积雾。</li>
+<li>应用后从 <strong>镜头 → 预览当前场景</strong> 检查，再保存。天气循环音效支持自选 AudioStream，留空静音；雷雨原有程序雷声仍由雷声音量控制。</li>
+</ol>
+<p>增强默认中档、总粒子预算 2400；雨雪、花叶、过渡效果和水花共同受预算约束，最高 6000。最大粒子数优先分配给当前天气，过渡期间由前后天气共用；低／中／高只影响碰撞分辨率和水花容量，不再偷偷压低粒子数量。每个主相机附近最多选择 16 个遮挡盒，优先包含相机的区域和近处区域；超限会报告提示。单层高度场无法表达复杂多层室内，必须配合遮挡盒。</p>
+<p>“天气联动植物风”保留物件自身的风摆开关和幅度。自定义材质不会被替换；本次不包含树木换季、脚印、自动天气排程或多相机独立天气。沙尘暴沿用原粒子实现。多云仍不提供，旧编号 1 继续按晴天处理。</p>
+<p>沙尘暴为保持原效果，继续使用原路径，不应用新增的逐粒子排除盒。粒子数还受天气强度、镜头覆盖面积和遮挡影响，并非每个预算槽都同时出现在画面里。</p>
+<p>以下原有参数与操作仍适用于关闭增强的场景；其中“不包含湿润／逐粒子碰撞”的说明仅指原天气路径。</p>
+<p>0.4.7 将环境页整理为 <strong>昼夜系统、天气系统、其他环境设置</strong>。先选中场景的舞台根节点，再调整参数，最后点击侧栏底部金色 <strong>应用环境设置</strong>。底部方框固定在滚动区域外。</p>
+<p>调整控件只改变草稿；切换模块不会丢失草稿。应用后可一次撤销／重做，<strong>Ctrl / Cmd + S</strong> 保存。切换场景或在其他位置修改环境，会同步新目标并提示。旧场景默认关闭昼夜、天气为晴天，原有光照保持不变。</p>
+<h3>粒子数量与随机分布</h3>
+<ol>
+<li>选中舞台根节点，打开 <strong>环境 → 天气系统</strong>，天气选 <strong>秋日枫叶</strong> 或 <strong>春日樱花</strong>。下方只显示对应的专用设置区。</li>
+<li>调 <strong>最大粒子数</strong>（100–6000）控制当前天气的数量上限；上方 <strong>天气强度</strong> 控制疏密。同样数量下，覆盖面积越大，画面越稀疏；强度为 0 则不显示。数量上限不等于屏幕同时可见数量。</li>
+<li>在专用区调整下面的参数。枫叶／樱花共用当前舞台的花叶参数，切换天气不重置数值。</li>
+</ol>
 <table>
 <thead>
 <tr>
 <th>参数</th>
-<th>初始默认</th>
-<th>范围 / 步长 / 选项</th>
-<th>含义与限制</th>
+<th align="right">默认值</th>
+<th>效果</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><span id="control-sky_color"></span>天空<br><a href="#group-environment-sky">天空与背景</a></td>
-<td>72b5cd</td>
-<td>Color</td>
-<td>程序天空的天顶颜色或背景颜色，取决于天空模式。</td>
+<td>花叶大小（倍）</td>
+<td align="right">1</td>
+<td>单片大小，不改变数量。</td>
 </tr>
 <tr>
-<td><span id="control-sky_mode"></span>天空模式<br><a href="#group-environment-sky">天空与背景</a></td>
-<td>程序天空</td>
-<td>程序天空,背景色 / 天空模型</td>
-<td>程序天空生成渐变天空；背景色/天空模型模式只提供背景色，不自动创建云图平面或模型。</td>
+<td>出现时间随机度</td>
+<td align="right">0.5</td>
+<td>0 为均匀发射，1 为更不规则的出现节奏；出生位置始终按种子随机分布。</td>
 </tr>
 <tr>
-<td><span id="control-ambient_color"></span>环境补光颜色<br><a href="#group-environment-ambient">环境补光</a></td>
-<td>0.86,0.91,0.76</td>
-<td>Color</td>
-<td>阴影区域等处环境补光的颜色。</td>
+<td>下落速度（倍）</td>
+<td align="right">1</td>
+<td>所有花叶的整体速度。</td>
 </tr>
 <tr>
-<td><span id="control-horizon_color"></span>地平线 / 雾颜色<br><a href="#group-environment-sky">天空与背景</a></td>
-<td>e4e7d0</td>
-<td>Color</td>
-<td>程序地平线与距离雾的颜色，有助于统一远景色调。</td>
+<td>下落速度差异</td>
+<td align="right">0.25</td>
+<td>每片在基准速度上下浮动 25%；0 为同速，最高 0.9（±90%）。</td>
 </tr>
 <tr>
-<td><span id="control-sun_color"></span>日光<br><a href="#group-environment-sun">日光与阴影</a></td>
-<td>fff2ca</td>
-<td>Color</td>
-<td>主方向光的颜色；不是设置太阳图片。</td>
+<td>随机飘摆幅度（米/秒）</td>
+<td align="right">0.7</td>
+<td>各片以不同相位左右飘摆；0 关闭飘摆，仍受风向与风速影响。</td>
 </tr>
 <tr>
-<td><span id="control-sun_energy"></span>日光强度<br><a href="#group-environment-sun">日光与阴影</a></td>
-<td>0.85</td>
-<td>0 … 8; 0.01</td>
-<td>主日光强度；过高会让贴图高光和浅色部分过曝。</td>
-</tr>
-<tr>
-<td><span id="control-sun_yaw"></span>太阳方位<br><a href="#group-environment-sun">日光与阴影</a></td>
-<td>-35</td>
-<td>-180 … 180; 0.01</td>
-<td>太阳绕世界竖直轴的方位，单位度，决定阴影方向。</td>
-</tr>
-<tr>
-<td><span id="control-sun_elevation"></span>太阳高度<br><a href="#group-environment-sun">日光与阴影</a></td>
-<td>48</td>
-<td>0 … 90; 0.01</td>
-<td>太阳离地平线的高度角，单位度，较低通常阴影更长。</td>
-</tr>
-<tr>
-<td><span id="control-shadows"></span>投射阴影<br><a href="#group-environment-sun">日光与阴影</a></td>
-<td>On / 开</td>
-<td>—</td>
-<td>是否启用日光投射阴影；物体还需自身允许投影。</td>
-</tr>
-<tr>
-<td><span id="control-ambient_energy"></span>环境补光<br><a href="#group-environment-ambient">环境补光</a></td>
-<td>0.35</td>
-<td>0 … 1; 0.01</td>
-<td>环境补光强度；调高可提亮背光处，但会降低明暗对比。</td>
-</tr>
-<tr>
-<td><span id="control-wind_strength"></span>植物风力<br><a href="#group-environment-wind">风与云影</a></td>
-<td>0.5</td>
-<td>0 … 3; 0.01</td>
-<td>插件植物材质的程序风摆强度；任意导入材质不一定支持。</td>
-</tr>
-<tr>
-<td><span id="control-cloud_shadows"></span>云影浓度<br><a href="#group-environment-wind">风与云影</a></td>
-<td>0.18</td>
-<td>0 … 1; 0.01</td>
-<td>插件材质的程序云影浓度，不是自动调用游戏的云影 PNG。</td>
-</tr>
-<tr>
-<td><span id="control-fog_enabled"></span>距离雾<br><a href="#group-environment-fog">距离雾</a></td>
-<td>On / 开</td>
-<td>—</td>
-<td>开启普通距离雾；不是体积雾。</td>
-</tr>
-<tr>
-<td><span id="control-fog_density"></span>雾浓度<br><a href="#group-environment-fog">距离雾</a></td>
-<td>0.001</td>
-<td>0 … 0.1; 0.001</td>
-<td>距离雾浓度，越高越快遮住远处；过大可能整幅泛白。</td>
-</tr>
-<tr>
-<td><span id="control-saturation"></span>饱和度<br><a href="#group-environment-color">调色</a></td>
-<td>1.05</td>
-<td>0.2 … 2; 0.01</td>
-<td>调色饱和度，1 为中性；原生视口与演出后期路径可能不同，最终以预览为准。</td>
-</tr>
-<tr>
-<td><span id="control-contrast"></span>对比度<br><a href="#group-environment-color">调色</a></td>
-<td>1.04</td>
-<td>0.2 … 2; 0.01</td>
-<td>调色对比度，1 为中性；数值高加重明暗差。</td>
-</tr>
-<tr>
-<td><span id="control-depth_blur"></span>远景景深虚化<br><a href="#group-environment-dof">真实景深</a></td>
-<td>0</td>
-<td>0 … 1; 0.01</td>
-<td>真正按深度的远景景深强度；Compatibility 禁用，Forward+ / Mobile 提供对应路径。</td>
-</tr>
-<tr>
-<td><span id="control-presentation_enabled"></span>演出后期（仅游戏 / 隔离测试）<br><a href="#group-environment-post">演出后期</a></td>
-<td>Off / 关</td>
-<td>—</td>
-<td>开启游戏/隔离测试中的演出后期；不会把原生编辑视口改成成片滤镜。</td>
-</tr>
-<tr>
-<td><span id="control-vignette"></span>暗角<br><a href="#group-environment-post">演出后期</a></td>
-<td>0.36</td>
-<td>0 … 1; 0.01</td>
-<td>演出后期的边缘变暗强度，需要开启演出后期。</td>
-</tr>
-<tr>
-<td><span id="control-zone_blur"></span>画面分区虚化（不是景深）<br><a href="#group-environment-post">演出后期</a></td>
-<td>0</td>
-<td>0 … 2; 0.01</td>
-<td>按屏幕区域而非物体距离虚化；Compatibility 可用，不能冒充真正景深。</td>
+<td>花叶翻转速度（倍）</td>
+<td align="right">1</td>
+<td>翻转动画速度；0 停止翻转。</td>
 </tr>
 </tbody></table>
-<h2>操作顺序与常见误区</h2>
-<p>先只用程序天空和日光，确认构图后再加雾与后期。PNG 云图需要在素材页导入平面，并用原生 Inspector 配置位置与无光照材质；没有一键天空模型生成器。这里截图来自 Compatibility，真实景深灰显是正常功能提示，不是插件损坏。</p>
-<p>保存、退出笔刷和预览请看顶部工具栏说明。这里使用侧栏、缩略图、笔刷和原生 Inspector 完成布景，不要求用户编写 GDScript。</p>
-<p>只让一个火盆停止摇摆，请在素材页把该条目的“此素材风摆幅度”设0并应用。这里的“植物风力”影响整个舞台；分类名称不会自动启用或禁用风。详见<a href="assets.html#control-asset_wind">素材页火盆示例</a>。</p>
-</main><script>const menu=document.querySelector('.manual-sidebar'),media=matchMedia('(min-width:861px)');function adapt(){menu.open=media.matches}adapt();media.addEventListener('change',adapt);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!media.matches&&menu.open){menu.open=false;menu.querySelector('summary').focus()}});</script></body></html>
+<ol start="4">
+<li><strong>每次运行随机花叶与雨雪</strong> 默认开启，每次运行或新开预览换一个分布。关闭后设置 <strong>天气随机种子</strong>，相同参数和种子可重现初始位置、形状及运动相位。只改数量、大小或运动参数不重新抽取本次种子。</li>
+<li>点击底部金色 <strong>应用环境设置</strong>，再运行场景或从 <strong>镜头 → 预览当前场景</strong> 重新预览。数量和发射节奏变化需要几秒显现，已有粒子的速度差异会在重新出生后更新。<strong>Ctrl / Cmd + S</strong> 保存；一次撤销可以还原本次环境修改。</li>
+</ol>
+<p>建议轻柔樱花从数量 1200、强度 0.5、时间随机度 0.6、速度差异 0.25、飘摆幅度 0.5 开始；增加数量和强度可变得更密。风向、风速和覆盖范围仍在 <strong>天气范围与风力</strong>。</p>
+<p><img src="../../images/047_petals_maple_zh.png" alt="秋日枫叶的专用数量和随机运动设置，0.4.7 0.4.7">
+<img src="../../images/047_petals_sakura_zh.png" alt="春日樱花的专用数量和随机运动设置，0.4.7 0.4.7"></p>
+<h2>0.4.7 当前操作界面</h2>
+<p>先填写草稿，再用固定底部应用按钮提交。天气覆盖、粒子大小、闪电和地表湿润分别见下图。</p>
+<p><img src="../../images/047_release_daynight_zh.png" alt="昼夜系统"></p>
+<p><img src="../../images/047_release_weather_zh.png" alt="天气与增强"></p>
+<p><img src="../../images/047_release_precipitation_zh.png" alt="覆盖与粒子大小"></p>
+<p><img src="../../images/047_release_lightning_zh.png" alt="随机种子与闪电"></p>
+<p><img src="../../images/047_release_fog_zh.png" alt="地面湿润与遮挡"></p>
+<h2>快速操作</h2>
+<ol>
+<li><strong>固定黄昏：</strong> 展开“昼夜系统”，点击“黄昏”，再应用。时间为 18:00；关闭“运行时自动循环”即可一直保持该时刻。</li>
+<li><strong>自动昼夜：</strong> 开启“启用昼夜系统”和“运行时自动循环”，开始时间设为 12，一天时长设为 600 秒，再应用。切到 <strong>镜头 → 预览当前场景</strong>，10 分钟走完一天。编辑视图保持开始时间，方便布景。</li>
+<li><strong>雨雪：</strong> 在“天气系统”选择“下雨”或“下雪”，强度设为 0.65，再应用和预览。切换“晴天”可停止雨雪。天气与昼夜可以组合，例如午夜下雨。</li>
+<li><strong>检查并保存：</strong> 预览里的时间与角色移动不写回源场景。关闭预览，确认底部显示已应用后保存。未应用草稿不会进入预览。</li>
+</ol>
+<h2><span id="group-environment-daynight"></span>昼夜系统</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="right">默认值</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启用昼夜系统</td>
+<td align="right">关闭</td>
+<td>开启后由时间控制太阳高度、天空、日光和月光；关闭后恢复静态环境。</td>
+</tr>
+<tr>
+<td>开始时间（24小时制）</td>
+<td align="right">12</td>
+<td>0–23.99；下方显示时分。黎明／正午／黄昏／午夜分别为 6／12／18／0 点。</td>
+</tr>
+<tr>
+<td>运行时自动循环</td>
+<td align="right">关闭</td>
+<td>运行或隔离场景预览中推进时间；不开启则使用固定时刻。</td>
+</tr>
+<tr>
+<td>一天时长（秒）</td>
+<td align="right">600</td>
+<td>30–7200 秒对应完整 24 小时。预览暂停会同时暂停时钟和雨雪。</td>
+</tr>
+</tbody></table>
+<p>白天到夜晚平滑过渡，午夜循环不跳色。每次应用从选定的开始时间重新播放；保存的是开始时间和循环设置，运行中的时钟不回写场景。</p>
+<h3><span id="group-environment-night"></span>夜晚与月光</h3>
+<p>夜间补光默认 <strong>0.12</strong>，月光强度 <strong>0.18</strong>。夜空默认 <code>#0c1733</code>，夜晚地平线 <code>#27314c</code>。夜景过暗时先适量增加夜间补光；需要明显的照射方向时再调整月光。关闭“投射阴影”会同时关闭日光与月光阴影。</p>
+<h3><span id="group-environment-sky"></span>天空与背景</h3>
+<p>保留程序天空和背景色两种模式。白天天空及地平线作为日间基准；夜空颜色在“夜晚与月光”中设置。这里不会生成实体天空模型。</p>
+<h3><span id="group-environment-sun"></span>日光与阴影</h3>
+<p>日光颜色、强度和太阳方位继续可调。<strong>太阳高度（静态）</strong> 仅在昼夜关闭时可改；开启后由时钟控制，不需要同时调整两套高度。旧场景的日光参数不会被预设覆盖。</p>
+<h3><span id="group-environment-ambient"></span>环境补光</h3>
+<p>调整白天背光面的颜色和亮度。昼夜开启时，白天补光会与夜间补光渐变。补光过高会削弱建筑的明暗层次。</p>
+<h2><span id="group-environment-weather"></span>天气系统</h2>
+<table>
+<thead>
+<tr>
+<th>天气</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>晴天</td>
+<td>使用基础环境，不生成雨雪。</td>
+</tr>
+<tr>
+<td>下雨</td>
+<td>阴雨光照及像素雨线，受雨雪风向和速度影响。</td>
+</tr>
+<tr>
+<td>下雪</td>
+<td>冷色轻雾及缓慢飘落的像素雪花。</td>
+</tr>
+<tr>
+<td>雾天</td>
+<td>冷灰色浓雾，降低远处能见度，不生成雨雪粒子。</td>
+</tr>
+<tr>
+<td>沙尘暴</td>
+<td>暖黄色雾气与横向风沙，自带至少 9 米/秒的风。</td>
+</tr>
+<tr>
+<td>雷雨</td>
+<td>阴暗雨幕、间歇闪电和延迟雷声；闪电频率和闪白时长可调。</td>
+</tr>
+</tbody></table>
+<p>天气强度为 <strong>0–1</strong>，默认 <strong>0.65</strong>，同时影响气氛和粒子数量。设为 0 会移除天气效果，恢复当前时刻的基础环境。</p>
+<p>多云天气已移除；旧场景保存的多云设置按晴天显示。其他天气的保存编号不变。</p>
+<h3><span id="group-environment-precipitation"></span>天气范围与风力</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="right">默认值</th>
+<th>调整建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>天气风向（度）</td>
+<td align="right">-30</td>
+<td>-180–180；控制世界 X/Z 平面内的吹动方向。</td>
+</tr>
+<tr>
+<td>天气风速（米/秒）</td>
+<td align="right">2</td>
+<td>0–10；与“植物风力”分开，风暴天气有最低风速。</td>
+</tr>
+<tr>
+<td>基础覆盖半径（米）</td>
+<td align="right">40</td>
+<td>8–120；默认水平发射范围约 80×80 米，原默认约 48×48 米。围绕主角，没有主角时使用镜头架位置。</td>
+</tr>
+<tr>
+<td>随镜头扩大覆盖</td>
+<td align="right">开启</td>
+<td>按镜头与地面的交点扩大范围，最大约 240×240 米；关闭后使用基础范围。迎风侧另留粒子飘入余量。</td>
+</tr>
+<tr>
+<td>最大粒子数</td>
+<td align="right">2400</td>
+<td>100–6000；按范围和强度计算数量，再限制到上限。达到上限后继续拉远会变稀疏。</td>
+</tr>
+<tr>
+<td>雨滴大小（倍）</td>
+<td align="right">1</td>
+<td>0.25–4；同时缩放雨线的宽与长，适用于下雨和雷雨，不改变数量、速度和覆盖。</td>
+</tr>
+<tr>
+<td>雪花大小（倍）</td>
+<td align="right">1</td>
+<td>0.25–4；适用于下雪的雪花，不改变风力和数量。</td>
+</tr>
+<tr>
+<td>天气随机种子</td>
+<td align="right">4701</td>
+<td>关闭“每次运行随机花叶与雨雪”后，控制可重现的增强粒子分布；原雷雨闪电仍使用此种子。</td>
+</tr>
+<tr>
+<td>闪电频率（次/分钟）</td>
+<td align="right">6</td>
+<td>0–20；平均次数，间隔有 ±20% 随机变化。默认约 8–12 秒一次；0 关闭闪电及雷声，保留降雨。</td>
+</tr>
+<tr>
+<td>闪白持续时间（秒）</td>
+<td align="right">0.36</td>
+<td>0.05–2；闪光从亮到暗平滑衰减，数值越大持续越久。</td>
+</tr>
+<tr>
+<td>雷声音量（dB，-40 静音）</td>
+<td align="right">-12</td>
+<td>仅用于雷雨；-40 静音。雷声为插件内程序合成，不需要共享库。</td>
+</tr>
+</tbody></table>
+<p>雨雪大小位于“最大粒子数”下方；闪电频率和时长位于“雷声音量”上方。调整后点击底部 <strong>应用环境设置</strong>，再到镜头页预览。</p>
+<p>雨雪使用场景深度遮挡，无需共享素材库；Compatibility 和 Forward+ 都可用。这是户外视觉天气：<strong>不包含积雪、地面积水、湿润材质或逐粒子的屋顶碰撞</strong>。屋内场景可切换晴天或将强度设为 0。天气仅覆盖主角和镜头附近，极远总览超过上限时不会无限扩展。暂停会同时冻结粒子、阵风、闪电和雷声；晴天或强度为 0 会移除这些效果。</p>
+<h3><span id="group-environment-wind"></span>风与云影</h3>
+<p>“云影浓度”只保留旧版插件材质的明暗变化，不再生成多云天气的移动投影。</p>
+<p>原有植物风力及插件地表材质云影仍保留，与天气横风分开。只修改某一个物件的风摆，请使用素材页的单件参数。</p>
+<h3><span id="group-environment-fog"></span>距离雾</h3>
+<p>基础距离雾可单独开启并调整浓度，默认 0.001。雨雪叠加轻雾；雾天和沙尘暴使用更浓的距离雾。晴天恢复基础设置。这不是体积雾。</p>
+<h2><span id="group-environment-other"></span>其他环境设置</h2>
+<h3><span id="group-environment-color"></span>调色</h3>
+<p>饱和度默认 1.05，对比度默认 1.04；1 为中性值。与其他环境参数一起通过底部按钮应用。</p>
+<h3><span id="group-environment-dof"></span>真实景深</h3>
+<p>Forward+ 支持远景景深；Compatibility 控件禁用，其他环境功能仍可使用。景深依赖场景镜头，最终效果请在预览中检查。</p>
+<h3><span id="group-environment-post"></span>演出后期</h3>
+<p>暗角和分区虚化只作用于游戏／隔离预览，不改变 Godot 的原生编辑视口。分区虚化不是按距离计算的真实景深。开启后可调整原有暗角、虚化与调色参数。</p>
+<h3><span id="group-environment-world"></span>旧版大地图环境</h3>
+<p>仅供带 <code>WorldEnvironmentAdapter</code> 的旧版大地图使用，地区调色和水面／云雾速度继续通过自己的 <strong>应用大地图环境</strong> 按钮提交。普通地图不需要配置。</p>
+<h2>固定应用区</h2>
+<ul>
+<li><strong>应用环境设置：</strong> 一次提交本页环境草稿。无场景或没有修改时禁用；不重建建筑、道路或地形，也不改变跟随镜头。</li>
+<li><strong>状态提示：</strong> 区分未应用、已应用待保存、已保存，以及目标变化后的同步。</li>
+</ul>
+<p>底部只保留应用按钮与状态提示。需要查看昼夜、雨雪及角色行走时，先应用，再从 <strong>镜头 → 预览当前场景</strong> 打开独立副本；预览不会提交环境草稿。</p>
+<p>折叠分组、滚动参数或打开底部素材工作台，都不会遮住应用区。旧场景不必重新制作；开启需要的新功能并保存即可。</p>
+<h2>真实界面与案例 07 效果</h2>
+<p>界面截图来自 Godot 4.7.2 / Compatibility / 0.4.7。案例 07 副本使用相同机位；下方注明各效果的渲染器。</p>
+<p><strong>昼夜与固定应用区</strong></p>
+
+<p><strong>天气设置</strong></p>
+
+<p><strong>正午 / Compatibility</strong></p>
+
+<p><strong>午夜 / Compatibility</strong></p>
+
+<p><strong>下雨 / Forward+</strong></p>
+
+<p><strong>下雪 / Forward+</strong></p>
+
+<h2>新增天气：案例 07 实拍</h2>
+<p>以下使用同一宽镜头、天气强度 0.85；画面没有添加后期天气。雾天、沙尘暴为 Compatibility，其余为 Forward+。</p>
+<p><strong>雾天</strong></p>
+
+<p><strong>沙尘暴</strong></p>
+
+<p><strong>雷雨</strong></p>
+
+<p><strong>雷雨中的闪电</strong></p>
+
+
+
+<p><a href="../index.html">← 说明书目录</a> · <a href="../release_notes.html">更新说明</a></p>
+</main></html>

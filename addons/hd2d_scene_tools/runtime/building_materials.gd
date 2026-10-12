@@ -7,11 +7,18 @@ const COLORS := {
  "jiangnan":["405b60","d9d4b8","664431","878f82","e8be6d","a64d39","87928b","708352"],
  "forest":["77543d","decaa0","594233","93908a","edc983","698471","928e81","647947"],
  "desert":["b58456","d6b878","725643","ae8e66","405f68","3e9192","ad9573","c0ac74"]}
+const EXTENDED_COLORS := {
+ "machiya":["353b42","dad2bb","514035","737675","e8c787","243950","777a7c","938d79"],
+ "nordic":["596776","dbc9ac","873d32","8c969a","edc781","42676f","89999f","d6dfe1"],
+ "harbor":["b56948","a6c2ba","9a7f59","bcb29a","e5bc72","458881","b6aa8e","aeb388"],
+ "palace":["b78a31","d2c1a1","993f30","bdb8aa","ddbd68","408b87","aaa58e","8c9877"],
+ "gothic":["404c64","9b9699","514239","7a7983","bfa477","67556c","747582","879082"],
+ "steamworks":["4e827a","9a6050","554c42","747578","d8b572","ad875a","7d7972","938e7e"]}
 static var cache := {}
 static func texture(style: String, role: String, look: int=0, seed_value: int=101) -> Texture2D:
 	var key := "%s/%s/%s/%s"%[style,role,look,seed_value]
 	if cache.has(key): return cache[key]
-	var colors: Array=COLORS.get(style,COLORS.jiangnan)
+	var colors: Array=COLORS.get(style,EXTENDED_COLORS.get(style,COLORS.jiangnan))
 	var base := Color(colors[maxi(0,ROLES.find(role))])
 	if look==1: base=base.lerp(Color("c9c9b7"),0.23)
 	if look==2: base=base.lerp(Color("e4a454"),0.2)

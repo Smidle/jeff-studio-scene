@@ -1,31 +1,13 @@
-<a name="manual-top"></a>
-
 # 第三部分 · 镜头与循环
 
-<!-- manual-navigation:start -->
-[项目首页](../../../README.md) / [说明书总目录](../../README.md) / [中文说明书](../index.md) / [功能指南](README.md)
+> 公开版 0.4.7 · 仅插件与说明书，不附带提取角色图片、共享素材库、案例或本地测试工程。
 
-[← 返回上一级](README.md) · [English](../../en/reference/camera.md)
-
-<details>
-<summary>本页目录（点击展开）</summary>
-
-- [一键镜头预设](#manual-section-01)
-- [可折叠功能分组](#manual-section-02)
-- [按钮与操作](#manual-section-03)
-- [逐项参数](#manual-section-04)
-- [操作顺序与常见误区](#manual-section-05)
-
-</details>
-<!-- manual-navigation:end -->
-
-> **GitHub 公开版说明：**下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。[查看分发说明](../../DISTRIBUTION.md)
 
 新建自由地图默认斜俯视 45° 正交镜头。放置主角时设置正交跟随，可撤销；已保存场景不会被自动改写。四个预设提供通用构图，投影与数值仍可主动调整。预设角色画面完整正对镜头，避免俯视时压扁；只旋转显示面，脚底、角色节点与碰撞保持原位。
 
+
 先设置正式构图并应用，再进入隔离测试观察。上方“锁定角度并跟随”用于测试观察模式；不会把自由观察角度写回正式镜头。
 
-<a name="manual-section-01"></a>
 
 ## 一键镜头预设
 
@@ -35,8 +17,10 @@
 
 底部显示“未应用修改”“已应用，请保存”或无法应用的原因。切换模块、折叠分组和普通界面刷新会保留草稿；切换场景或镜头、外部修改镜头、撤销重做会同步实际数据并提示。**应用不等于保存**：应用后可预览，最后按 Ctrl / Cmd + S 保存。
 
+
+
 | 预设（顺序） | 投影 | 朝向 / 俯角 | 距离 | FOV | 焦点高 | 正交高度 |
-| --- | --- | --- | --- | --- | --- | --- |
+|---|---|---|---|---|---|---|
 | 1 · 横向跟随 · 低角度透视 | 透视 | 0° / 5.19° | 43.9米 | 15.01° | 2.02米 | 18米（不生效） |
 | 2 · 斜俯视 45° · 正交 | 正交 | 0° / 45° | 36米 | 50°（不生效） | 2米 | 17米 |
 | 3 · 斜俯视 45° · 透视 25° | 透视 | 0° / 45° | 35米 | 25° | 2米 | 17米（不生效） |
@@ -50,45 +34,33 @@
 
 查看效果：先关闭已经打开的隔离测试 → 选场景根节点 → 选择预设并应用 → 再点“预览当前场景” → WASD走动。每轮关闭预览后再换预设；不把上一次隔离副本当作新参数。Cmd+Z可撤销，Cmd+S才保存。已有工程升级addon不会自动重写场景；需要自己重新应用第2项或选择第3/4项。详见[案例05](../history.md)。
 
-<a name="manual-section-02"></a>
 
 ## 可折叠功能分组
 
 点击带边框的标题展开或收起。★为首次默认展开，之后记住本工程的选择。**全部展开／全部收起**只作用于当前页。可用Tab聚焦标题，Enter/Space切换，左/右键收起或展开。收起保留草稿和正在使用的工具／试听，不会应用或保存；跨组“应用”按钮保留在方框外。
 
 | 分组 | 包含功能 |
-| --- | --- |
+|---|---|
 | ★ [镜头预设与预览锁定](#group-camera-presets) | 四项预设、自定义状态与预览锁定；统一在底部应用。 |
 | ★ [正式镜头构图](#group-camera-framing) | 朝向、俯角、距离、FOV、焦点高度、正交高度及投影。 |
 | [跟随边界](#group-camera-bounds) | 边界开关以及X/Z起点、宽度、深度；与正式构图共用应用按钮。 |
 | [循环舞台](#group-camera-loop) | 段长、速度、暂停和接缝预览；循环参数单独应用。 |
 
-<a name="group-camera-presets"></a>
+以下是 0.4.5 / Godot 4.7.2 / Compatibility 界面。点击图片可放大，每图展开一个分组；较长的分组附下半部分。
 
-**镜头预设与预览锁定**
-
-<a name="group-camera-framing"></a>
-
-**正式镜头构图**
-
-<a name="group-camera-bounds"></a>
-
-**跟随边界**
-
-<a name="group-camera-loop"></a>
-
-**循环舞台**
-
-<a name="manual-section-03"></a>
+<div class="ui-gallery">
+<a id="group-camera-presets" name="group-camera-presets"></a><p><strong>镜头预设与预览锁定</strong></p>
+<a id="group-camera-framing" name="group-camera-framing"></a><p><strong>正式镜头构图</strong></p>
+<a id="group-camera-bounds" name="group-camera-bounds"></a><p><strong>跟随边界</strong></p>
+<a id="group-camera-loop" name="group-camera-loop"></a><p><strong>循环舞台</strong></p>
+</div>
 
 ## 按钮与操作
 
 | 界面按钮 | 作用 / 何时生效 |
-| --- | --- |
+|---|---|
 | 应用镜头设置 | 提交正式镜头投影、构图与跟随边界；自由观察角度不被当成这些参数。 |
 | 应用循环参数 | 提交段长、速度、暂停和边界显示；运行检查接缝，模式本身由模板决定。 |
-
-<a name="manual-section-04"></a>
 
 ## 逐项参数
 
@@ -99,26 +71,24 @@
 范围列中“最小值 … 最大值；步长”对应控件限制；下拉框列出可选值。单位和前提写在含义列。滑块与右侧数字框是同一个参数的两种输入方式。 已有镜头超出通常范围的跟随边界会扩展输入范围并显示原值；带小数的边界使用 0.01 米步长，未修改的字段保持原值。
 
 | 参数 | 初始默认 | 范围 / 步长 / 选项 | 含义与限制 |
-| --- | --- | --- | --- |
-| <a name="control-camera_locked"></a>锁定角度并跟随（隔离测试）<br>[镜头预设与预览锁定](#group-camera-presets) | On / 开 | — | 立即切换隔离测试观察模式；不改 Godot 原生编辑器的自由视角。 |
-| <a name="control-camera_yaw"></a>正式镜头朝向<br>[正式镜头构图](#group-camera-framing) | 0 | -180 … 180; 0.01 | 正式镜头绕 Y 轴的方位角，单位度。 |
-| <a name="control-camera_pitch"></a>正式镜头俯角<br>[正式镜头构图](#group-camera-framing) | 45 | 5 … 85; 0.01 | 正式镜头向下看的俯角，单位度；较小更接近平视。 |
-| <a name="control-camera_distance"></a>镜头距离<br>[正式镜头构图](#group-camera-framing) | 36 | 2 … 100; 0.1 | 镜头与跟随焦点的距离，单位米；透视下影响构图，正交下不作为缩放控制。 |
-| <a name="control-camera_fov"></a>透视视角 FOV<br>[正式镜头构图](#group-camera-framing) | 50 | 5 … 100; 0.01 | 透视投影的视角，单位度；正交投影时不控制画面大小。 |
-| <a name="control-camera_focus"></a>跟随焦点高度<br>[正式镜头构图](#group-camera-framing) | 2 | 0 … 10; 0.01 | 跟随焦点相对角色的高度偏移，单位米。 |
-| <a name="control-camera_size"></a>正交画面高度<br>[正式镜头构图](#group-camera-framing) | 17 | 2 … 100; 0.1 | 正交投影画面高度，单位米；数值小会放大物体。透视模式不使用。 |
-| <a name="control-orthographic"></a>使用正交投影<br>[正式镜头构图](#group-camera-framing) | On / 开 | — | 开启为正交，无远近缩小；关闭为透视，有近大远小。 |
-| <a name="control-bounds"></a>启用跟随边界<br>[跟随边界](#group-camera-bounds) | Off / 关 | — | 限制跟随焦点的 X/Z 范围，不是保证整个镜头画面都不会看到地图外。 |
-| <a name="control-bound_x"></a>边界起点 X<br>[跟随边界](#group-camera-bounds) | -120 | -512 … 512; 1 | 边界矩形起点 X，单位米。 |
-| <a name="control-bound_z"></a>边界起点 Z<br>[跟随边界](#group-camera-bounds) | -120 | -512 … 512; 1 | 边界矩形起点 Z，单位米。 |
-| <a name="control-bound_w"></a>边界宽度<br>[跟随边界](#group-camera-bounds) | 240 | 1 … 1024; 1 | 边界沿 X 方向宽度，单位米。 |
-| <a name="control-bound_d"></a>边界深度<br>[跟随边界](#group-camera-bounds) | 240 | 1 … 1024; 1 | 边界沿 Z 方向深度，单位米。 |
-| <a name="control-segment_length"></a>单段长度（米）<br>[循环舞台](#group-camera-loop) | 40 | 4 … 256; 0.1 | 三段复用中的单段宽度，单位米。素材应在边缘连续；不等于自动生成无缝地形。 |
-| <a name="control-scroll_speed"></a>滚动速度（负数反向）<br>[循环舞台](#group-camera-loop) | 2 | -20 … 20; 0.1 | 滚动速度，单位米/秒；负数反向，0 停止。 |
-| <a name="control-loop_pause"></a>暂停循环<br>[循环舞台](#group-camera-loop) | Off / 关 | — | 暂停循环背景移动，保留当前位置；音乐是否暂停由音乐页另行控制。 |
-| <a name="control-seams"></a>显示段边界预览<br>[循环舞台](#group-camera-loop) | Off / 关 | — | 显示段边界辅助线以检查接缝，最终画面检查完后关闭。 |
-
-<a name="manual-section-05"></a>
+|---|---|---|---|
+| <span id="control-camera_locked"></span>锁定角度并跟随（隔离测试）<br>[镜头预设与预览锁定](#group-camera-presets) | On / 开 | — | 立即切换隔离测试观察模式；不改 Godot 原生编辑器的自由视角。 |
+| <span id="control-camera_yaw"></span>正式镜头朝向<br>[正式镜头构图](#group-camera-framing) | 0 | -180 … 180; 0.01 | 正式镜头绕 Y 轴的方位角，单位度。 |
+| <span id="control-camera_pitch"></span>正式镜头俯角<br>[正式镜头构图](#group-camera-framing) | 45 | 5 … 85; 0.01 | 正式镜头向下看的俯角，单位度；较小更接近平视。 |
+| <span id="control-camera_distance"></span>镜头距离<br>[正式镜头构图](#group-camera-framing) | 36 | 2 … 100; 0.1 | 镜头与跟随焦点的距离，单位米；透视下影响构图，正交下不作为缩放控制。 |
+| <span id="control-camera_fov"></span>透视视角 FOV<br>[正式镜头构图](#group-camera-framing) | 50 | 5 … 100; 0.01 | 透视投影的视角，单位度；正交投影时不控制画面大小。 |
+| <span id="control-camera_focus"></span>跟随焦点高度<br>[正式镜头构图](#group-camera-framing) | 2 | 0 … 10; 0.01 | 跟随焦点相对角色的高度偏移，单位米。 |
+| <span id="control-camera_size"></span>正交画面高度<br>[正式镜头构图](#group-camera-framing) | 17 | 2 … 100; 0.1 | 正交投影画面高度，单位米；数值小会放大物体。透视模式不使用。 |
+| <span id="control-orthographic"></span>使用正交投影<br>[正式镜头构图](#group-camera-framing) | On / 开 | — | 开启为正交，无远近缩小；关闭为透视，有近大远小。 |
+| <span id="control-bounds"></span>启用跟随边界<br>[跟随边界](#group-camera-bounds) | Off / 关 | — | 限制跟随焦点的 X/Z 范围，不是保证整个镜头画面都不会看到地图外。 |
+| <span id="control-bound_x"></span>边界起点 X<br>[跟随边界](#group-camera-bounds) | -120 | -512 … 512; 1 | 边界矩形起点 X，单位米。 |
+| <span id="control-bound_z"></span>边界起点 Z<br>[跟随边界](#group-camera-bounds) | -120 | -512 … 512; 1 | 边界矩形起点 Z，单位米。 |
+| <span id="control-bound_w"></span>边界宽度<br>[跟随边界](#group-camera-bounds) | 240 | 1 … 1024; 1 | 边界沿 X 方向宽度，单位米。 |
+| <span id="control-bound_d"></span>边界深度<br>[跟随边界](#group-camera-bounds) | 240 | 1 … 1024; 1 | 边界沿 Z 方向深度，单位米。 |
+| <span id="control-segment_length"></span>单段长度（米）<br>[循环舞台](#group-camera-loop) | 40 | 4 … 256; 0.1 | 三段复用中的单段宽度，单位米。素材应在边缘连续；不等于自动生成无缝地形。 |
+| <span id="control-scroll_speed"></span>滚动速度（负数反向）<br>[循环舞台](#group-camera-loop) | 2 | -20 … 20; 0.1 | 滚动速度，单位米/秒；负数反向，0 停止。 |
+| <span id="control-loop_pause"></span>暂停循环<br>[循环舞台](#group-camera-loop) | Off / 关 | — | 暂停循环背景移动，保留当前位置；音乐是否暂停由音乐页另行控制。 |
+| <span id="control-seams"></span>显示段边界预览<br>[循环舞台](#group-camera-loop) | Off / 关 | — | 显示段边界辅助线以检查接缝，最终画面检查完后关闭。 |
 
 ## 操作顺序与常见误区
 
@@ -126,6 +96,5 @@ Scenery 是滚动容器；Characters、静态天空与相机留在根节点相�
 
 保存、退出笔刷和预览请看顶部工具栏说明。这里使用侧栏、缩略图、笔刷和原生 Inspector 完成布景，不要求用户编写 GDScript。
 
----
 
-[← 上一章：角色](character.md) · [↑ 返回上一级](README.md) · [说明书总目录](../../README.md) · [↑ 回到页首](#manual-top) · [下一章：环境 →](environment.md)
+[← 说明书目录](../index.md) · [更新说明](../release_notes.md)

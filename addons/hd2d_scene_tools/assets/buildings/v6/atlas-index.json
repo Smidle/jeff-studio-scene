@@ -1,0 +1,87 @@
+{
+  "version": 6,
+  "grid": [
+    4,
+    4
+  ],
+  "rows": [
+    {
+      "style": "machiya",
+      "file": "machiya.png",
+      "sha256": "c3d90280c96c84e0253f43ce0a525d2dcc9304943b8ec5c1c1622f4736924887",
+      "size": [
+        1254,
+        1254
+      ],
+      "source": "Original built-in imagegen artwork, 2026-09-26"
+    },
+    {
+      "style": "nordic",
+      "file": "nordic.png",
+      "sha256": "81e901922eb56816d79421787da2dc28d41ea49bc7fc762d05013f353a4474a9",
+      "size": [
+        1254,
+        1254
+      ],
+      "source": "Original built-in imagegen artwork, 2026-09-26"
+    },
+    {
+      "style": "harbor",
+      "file": "harbor.png",
+      "sha256": "fa6735cb1774b88073e6c25a5aeace26ee8b0ad69cc8fccac123d0cb63987d64",
+      "size": [
+        1254,
+        1254
+      ],
+      "source": "Original built-in imagegen artwork, 2026-09-26"
+    },
+    {
+      "style": "palace",
+      "file": "palace.png",
+      "sha256": "41dd02f5e3a9df933d906e3d4e35ae26f3c9a324048de88d415bf27229a75861",
+      "size": [
+        1254,
+        1254
+      ],
+      "source": "Original built-in imagegen artwork, 2026-09-26"
+    },
+    {
+      "style": "gothic",
+      "file": "gothic.png",
+      "sha256": "247737f64cdfb5388013c36f90f9a13e70a7b718a9b3e7af3e85cbef4d7b6f68",
+      "size": [
+        1254,
+        1254
+      ],
+      "source": "Original built-in imagegen artwork, 2026-09-26"
+    },
+    {
+      "style": "steamworks",
+      "file": "steamworks.png",
+      "sha256": "ad1b799535bc9a5b11c8e7a84f2baa3f54cd5b9105d45439316482db3920531d",
+      "size": [
+        1254,
+        1254
+      ],
+      "source": "Original built-in imagegen artwork, 2026-09-26"
+    }
+  ],
+  "roles": [
+    "roof",
+    "wood",
+    "wall",
+    "stone",
+    "trim",
+    "glass",
+    "cloth",
+    "metal",
+    "shadow",
+    "accent",
+    "door",
+    "window",
+    "roof_edge",
+    "wall_base",
+    "sign",
+    "shutter"
+  ]
+}

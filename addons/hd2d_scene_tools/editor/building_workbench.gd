@@ -4,13 +4,18 @@ const Generator=preload("building_generator.gd")
 const Catalog=preload("building_catalog.gd")
 const Presets=preload("building_presets.gd")
 const Layout=preload("village_layout.gd")
-const STYLES=["jiangnan","forest","desert"]
+const Styles=preload("building_styles.gd")
+const STYLES=Styles.IDS
 const SKINS=["","elegant","warm","weathered"]
 var controller
 var controls := {}
 var preview
 var status: Label
 var place_button: Button
+var export_button: Button
+var export_dialog: EditorFileDialog
+var export_asset: HD2DAsset
+var export_skin: StringName
 var apply_button: Button
 var timer: Timer
 var asset: HD2DAsset
@@ -33,7 +38,7 @@ func setup(plugin) -> void:
 	var split := HSplitContainer.new();split.size_flags_vertical=Control.SIZE_EXPAND_FILL;add_child(split)
 	var scroll := ScrollContainer.new();scroll.custom_minimum_size.x=240*EditorInterface.get_editor_scale();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;split.add_child(scroll)
 	var form := VBoxContainer.new();form.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(form)
-	option(form,"style","建筑风格",["江南古镇","欧式风格","沙漠聚落"])
+	option(form,"style","建筑风格",Styles.TITLES)
 	option(form,"category","建筑大类",[])
 	option(form,"type","具体建筑",[])
 	controls.category.set_meta("hd2d_managed_text",true);controls.type.set_meta("hd2d_managed_text",true)
@@ -67,6 +72,14 @@ func setup(plugin) -> void:
 	var actions := VBoxContainer.new();footer.add_child(actions)
 	status=controller.ui.label(actions,"")
 	place_button=controller.ui.button(actions,"摆放此建筑",begin_placement);place_button.theme_type_variation="JeffPrimaryButton"
+	export_button=controller.ui.button(actions,"导出到 Blender…",open_export)
+	controller.i18n.watch_property(export_button,"tooltip_text","导出当前建筑草稿与所选外观为 GLB，包含贴图；在 Blender 中导入 glTF 2.0。")
+	export_dialog=EditorFileDialog.new();export_dialog.access=EditorFileDialog.ACCESS_FILESYSTEM
+	export_dialog.file_mode=EditorFileDialog.FILE_MODE_SAVE_FILE;export_dialog.filters=PackedStringArray(["*.glb ; Blender / glTF 2.0 Binary"])
+	export_dialog.theme=EditorInterface.get_editor_theme();add_child(export_dialog)
+	controller.i18n.watch_property(export_dialog,"title","导出到 Blender…")
+	export_dialog.file_selected.connect(export_selected)
+	export_dialog.canceled.connect(func(): export_asset=null)
 	var row := HBoxContainer.new();actions.add_child(row)
 	controller.ui.button(row,"读取选中建筑",read_selected).size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	apply_button=controller.ui.button(row,"应用到选中建筑",apply_selected);apply_button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -80,7 +93,7 @@ func setup(plugin) -> void:
 	tree_exiting.connect(func():
 		cancel()
 		if EditorInterface.get_selection().selection_changed.is_connected(selection_changed): EditorInterface.get_selection().selection_changed.disconnect(selection_changed))
-	place_button.disabled=true;apply_button.disabled=true
+	place_button.disabled=true;export_button.disabled=true;apply_button.disabled=true
 	refresh_catalog_names()
 	controller.i18n.changed.connect(refresh_catalog_names)
 	load_parameters(Catalog.parameters(type_id,"jiangnan"))
@@ -98,7 +111,7 @@ func skin_id() -> StringName: return StringName(SKINS[controls.look.selected])
 
 func invalidate() -> void:
 	if syncing: return
-	cancel();place_button.disabled=true;apply_button.disabled=true
+	cancel();place_button.disabled=true;export_button.disabled=true;apply_button.disabled=true
 	if is_instance_valid(timer): timer.start()
 
 func rebuild() -> void:
@@ -118,7 +131,7 @@ func rebuild() -> void:
 	controls.ornament.disabled=generator_version<2
 	refresh_fields()
 	asset=preload("building_cache.gd").obtain(profile);preview.show_asset(asset,skin_id())
-	place_button.disabled=false;refresh_apply()
+	place_button.disabled=false;export_button.disabled=false;refresh_apply()
 	say("建筑草稿已更新；摆放到场景，或应用到已读取的建筑。")
 
 func selected_prop() -> HD2DProp:
@@ -157,8 +170,28 @@ func read_selected() -> void:
 	syncing=false
 	# Reading is an exact snapshot, including old optional fields and numeric types.
 	# Rebuild only after an explicit parameter change; never normalize old identities on read.
-	asset=node.asset;preview.show_asset(asset,skin_id());refresh_fields();place_button.disabled=false;refresh_apply()
+	asset=node.asset;preview.show_asset(asset,skin_id());refresh_fields();place_button.disabled=false;export_button.disabled=false;refresh_apply()
 	say("已读取：%s。修改草稿后应用，只改变此建筑。"%node.name)
+
+func open_export() -> void:
+	if asset==null or export_button.disabled: return
+	cancel();export_asset=asset;export_skin=skin_id()
+	var directory := str(EditorInterface.get_editor_settings().get_project_metadata("hd2d_scene_tools","building_export_directory",OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)))
+	if DirAccess.dir_exists_absolute(directory): export_dialog.current_dir=directory
+	var profile := asset.building_profile
+	export_dialog.current_file="Jeff_"+profile.style+"_"+profile.type_id+".glb"
+	export_dialog.popup_centered_ratio(0.7)
+
+func export_selected(path: String) -> void:
+	if export_asset==null: return
+	if path.get_extension().to_lower()!="glb":
+		export_asset=null;say("导出失败（%s）；请选择可写入的位置后重试。"%error_string(ERR_INVALID_PARAMETER));return
+	var result := preload("building_export.gd").write_glb(export_asset,export_skin,path)
+	export_asset=null
+	if result!=OK:
+		say("导出失败（%s）；请选择可写入的位置后重试。"%error_string(result));return
+	EditorInterface.get_editor_settings().set_project_metadata("hd2d_scene_tools","building_export_directory",path.get_base_dir())
+	say("已导出：%s。Blender：文件 → 导入 → glTF 2.0。"%path)
 
 func save_asset() -> bool:
 	var directory := "res://hd2d_generated/buildings"
@@ -284,7 +317,7 @@ func refresh_fields() -> void:
 	controller.i18n.bind(field_rows.depth.get_child(0),"text",depth_label)
 
 func load_sample() -> void:
-	cancel();generator_version=Catalog.VERSION;preset_version=Catalog.VERSION
+	cancel();generator_version=Styles.version(STYLES[controls.style.selected]);preset_version=generator_version
 	load_parameters(Catalog.parameters(type_id,STYLES[controls.style.selected]))
 	controls.shape_seed.set_value_no_signal(60421);controls.detail_seed.set_value_no_signal(101)
 	refresh_catalog_names();rebuild()

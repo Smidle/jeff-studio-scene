@@ -1,46 +1,47 @@
-# Jeff Studio Godot场景插件
+# Jeff Studio Godot 场景插件
 
-**在 Godot 中，通过可视化工具制作 HD-2D 地形、建筑与小镇。**
+**在 Godot 中制作 HD-2D 地形、建筑、小镇和昼夜天气。**
 
-Jeff Studio Godot场景插件（Jeff Studio Scene）是一款 Godot 场景制作插件，提供中英文界面，将地形编辑、建筑生成、素材摆放、角色、镜头、环境和音乐工具集中在编辑器中。
+Jeff Studio Scene 将地形、一键生成、素材、铺设、角色、镜头、环境和音乐集中在编辑器中，提供中文／英文界面。
 
-[下载 0.4.6](https://github.com/Smidle/jeff-studio-scene/releases/tag/v0.4.6) · [独立说明书](manual/README.md) · [反馈问题](https://github.com/Smidle/jeff-studio-scene/issues)
+[下载 0.4.7](https://github.com/Smidle/jeff-studio-scene/releases/tag/v0.4.7) · [中文说明书](manual/zh/index.md) · [English Manual](manual/en/index.md) · [更新说明](manual/zh/release_notes.md) · [反馈问题](https://github.com/Smidle/jeff-studio-scene/issues)
 
-![内置建筑工作台：江南风格杂货铺](manual/images/046_v5_workbench_zh.png)
+![内置建筑工作台](manual/images/046_v5_workbench_zh.png)
 
-## 主要功能
+## 0.4.7 新增与优化
 
-- **地形编辑**：升高、降低、平滑、平整、斜坡及地表绘制；提供 35 张内置原创地表纹理和 14 套地表方案。
-- **内置建筑工作台**：江南古镇、欧式风格、沙漠聚落三种风格，覆盖 10 大类、46 种建筑类型；可调整外形、门窗、屋顶、外观和随机种子。
-- **小镇生成**：单排、双排和中心环绕布局，支持道路、广场、围墙、局部整地与蓝图摆放；参数及种子随场景保存，便于重复生成。
-- **素材与实例编辑**：导入和摆放自有素材，编辑已放置实例，通过笔刷铺设物件与道路；支持按需连接工程外的共享素材库。
-- **角色与镜头**：导入自己的角色序列帧，设置动画、脚底锚点和移动参数，配置自由地图、循环场景及镜头。
-- **环境、音乐与预览**：调整场景环境，管理音乐，并使用独立场景预览检查行走效果。
-- **中英文界面**：主要操作通过侧栏、工作台和原生 Inspector 完成。
+- **昼夜系统**：24 小时开始时间、自动循环、昼夜时长、夜间补光和月光。
+- **天气系统**：雨、雪、雾、沙尘暴、雷雨、秋日枫叶和春日樱花；三维天气、屋顶遮雨、室内遮挡盒、水花、整片地表同步湿润、可选 Sky3D 像素天空。
+- **花叶专用设置**：数量、大小、出现节奏、下落速度差异、飘摆、翻转和随机种子。雨雪大小及雷雨闪电频率、时长可调。
+- **九种建筑风格**：原江南、欧式、沙漠之外，新增日式町屋、北欧雪乡、热带海港、中式宫阙、哥特城镇和蒸汽工业。沿用 10 大类、46 个功能类型。
+- **Blender 导出**：工作台当前内置建筑可导出含贴图与材质的 GLB。
+- **操作修订**：环境模块固定金色应用区；小镇默认双排、间隔更紧凑；放置角色时自动补建缺失容器，支持撤销。
 
-## 安装概要
+完整差异见 [0.4.6 → 0.4.7](manual/zh/release_notes.md)。多云与暴风雪未纳入最终版本。
 
-1. 打开或新建一个 **Godot 工程**。
-2. 从 [Releases](https://github.com/Smidle/jeff-studio-scene/releases/tag/v0.4.6) 下载 `01_HD2D_0.4.6_Plugin_Manual.zip` 并解压。
-3. 将 `addons/hd2d_scene_tools/` 复制到已有 Godot 工程的 `addons/` 目录。
-4. 等待资源导入完成，在 **项目 → 项目设置 → 插件** 中启用 **Jeff Studio Scene**。
+## 安装
 
-此仓库是插件与文档包。使用前需要已有 Godot 工程；更新插件前请备份旧版本。
+1. 在 [Release](https://github.com/Smidle/jeff-studio-scene/releases/tag/v0.4.7) 下载 `01_HD2D_0.4.7_Plugin_Manual.zip`。
+2. 关闭 Godot 并备份旧插件，把解压后的 `addons/hd2d_scene_tools` 放入自己的 Godot 工程。
+3. 等待资源导入，在 **项目 → 项目设置 → 插件** 启用 **Jeff Studio Scene**。
+4. 点击 **新建地图** 开始制作；说明书留在工程外，浏览器打开 `START_HERE.html`。
 
-## 文档与资源
+已验证 **Godot 4.7.2 / Compatibility、Forward+**。本仓库不是独立游戏工程，不附带或覆盖 `project.godot`。
 
-完整的安装步骤、功能参数、操作顺序和参考资料放在独立的 **[说明书目录](manual/README.md)**，可在 GitHub 阅读 Markdown 版，或下载后在浏览器中打开 `START_HERE.html` 阅读中英文 HTML 版。
+## 内容范围
 
-内置建筑与地表可直接使用。共享素材库和历史案例是可选的独立资源包，本仓库及本次 Release 仅包含第一包「插件与说明书」。
+内置建筑、35 张原创地表纹理及 14 套方案可直接使用。共享素材库可选，本仓库和 Release **不包含共享素材库、案例、任何本地测试场景、生成缓存或提取角色图片／索引**。角色导入、动画、身份和放置功能保留，可使用自有素材或兼容的外部角色库。
 
-公开版本不附带原学习包中的三位游戏提取角色预设；角色导入功能保留，可使用自己的角色素材。公开版与学习版的资源差异见 [分发说明](manual/DISTRIBUTION.md)。
+[分发说明](manual/DISTRIBUTION.md) · [第三方许可与署名](THIRD_PARTY_NOTICES.md)。原有场景不会自动重建；新建舞台默认开启三维天气增强，旧场景可手动开启并应用。
 
-## 版本与反馈
+## English
 
-当前插件版本为 **0.4.6**，发布标签为 **`v0.4.6`**。下载包、更新说明和后续版本统一在 [Releases](https://github.com/Smidle/jeff-studio-scene/releases) 中发布。
+Jeff Studio Scene is a bilingual Godot HD-2D authoring addon. Version **0.4.7** adds a 24-hour day/night cycle, enhanced 3D weather, leaf/petal randomness controls, six additional architectural styles (nine total), textured GLB export for Blender, compact double-row towns and automatic character-container creation.
 
-通过 [Issues](https://github.com/Smidle/jeff-studio-scene/issues) 报告问题时，请附上 Godot 版本、操作系统、复现步骤和报错信息；功能建议也欢迎提交。
+Install only `addons/hd2d_scene_tools` into an existing Godot project and enable the plugin. Verified on Godot 4.7.2 with Compatibility and Forward+. This public distribution includes the plugin, original built-in assets and manuals only; shared libraries, cases, local tests, caches and extracted character artwork are excluded.
 
-## 许可
+[English manual](manual/en/index.md) · [English release notes](manual/en/release_notes.md).
 
-插件代码沿用原包中的 [MIT License](LICENSE)，原始许可证同时保留在 `addons/hd2d_scene_tools/LICENSE`。资源的来源与分发标识见 [分发说明](manual/DISTRIBUTION.md)。
+## 许可 / License
+
+插件代码沿用 [MIT License](LICENSE)。Sky3D 及其纹理保留各自许可证和署名，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

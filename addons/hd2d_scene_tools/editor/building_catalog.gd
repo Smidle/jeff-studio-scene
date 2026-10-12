@@ -1,7 +1,8 @@
 @tool
 extends RefCounted
 const VERSION := 5
-const STYLES := ["jiangnan","forest","desert"]
+const Styles=preload("building_styles.gd")
+const STYLES := Styles.IDS
 const DEFAULT_TYPES := ["house","farmhouse","inn","tavern","general_store","apothecary","forge","carpenter","town_hall"]
 const DEFAULT_WEIGHTS := {"residential":50.0,"hospitality":15.0,"commerce":15.0,"craft":10.0,"public":10.0,"agriculture":0.0}
 static var data: Dictionary={}
@@ -20,7 +21,7 @@ static func entry(id: String) -> Dictionary:
 
 static func title(id: String, style: String, language: String="zh") -> String:
 	var row := entry(id)
-	return id if row.is_empty() else str(row.names.get(style,row.names.jiangnan).get(language,row.names.jiangnan.zh))
+	return id if row.is_empty() else str(row.names.get(style,row.names.get(Styles.BASES.get(style,style),row.names.jiangnan)).get(language,row.names.jiangnan.zh))
 
 static func parameters(id: String, style: String, seed_value: int=60421, random_shape: bool=false, version: int=VERSION) -> Dictionary:
 	var row := entry(id);var p: Dictionary=row.defaults.duplicate(true)
@@ -28,6 +29,10 @@ static func parameters(id: String, style: String, seed_value: int=60421, random_
 	elif style=="desert": p.pitch=24;p.eave=0.25
 	if version>=5 and id in ["house","general_store","inn"]:
 		p.merge(preload("building_designs_v5.gd").defaults(id,style),true)
+	if Styles.BASES.has(style):
+		if row.archetype=="house": p=Styles.defaults(style,id,p)
+		else:
+			var roof_defaults := Styles.defaults(style,id,p);p.pitch=roof_defaults.pitch;p.eave=roof_defaults.eave
 	if random_shape:
 		var rng := RandomNumberGenerator.new();rng.seed=seed_value+id.hash()+style.hash()
 		p.width=snappedf(clampf(p.width*rng.randf_range(0.82,1.15),3,10),0.25)
@@ -44,7 +49,7 @@ static func parameters(id: String, style: String, seed_value: int=60421, random_
 
 static func profile(id: String, style: String="jiangnan", seed_value: int=60421, detail: int=101, random_shape: bool=false, version: int=VERSION) -> HD2DBuildingProfile:
 	var row := entry(id);var result := HD2DBuildingProfile.new()
-	result.generator_version=version;result.preset_version=version;result.style=style
+	result.generator_version=Styles.version(style) if Styles.BASES.has(style) else version;result.preset_version=result.generator_version;result.style=style
 	result.type_id=id;result.category_id=row.category;result.kind=int(row.kind)
 	result.shape_seed=seed_value;result.detail_seed=detail
 	result.parameters=parameters(id,style,seed_value,random_shape,version)

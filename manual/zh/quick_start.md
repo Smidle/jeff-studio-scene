@@ -1,94 +1,33 @@
-<a name="manual-top"></a>
+# 安装与首次使用 0.4.7
 
-# 按顺序安装 0.4.6
+> 公开版 0.4.7 · 仅插件与说明书，不附带提取角色图片、共享素材库、案例或本地测试工程。
 
-<!-- manual-navigation:start -->
-[项目首页](../../README.md) / [说明书总目录](../README.md) / [中文说明书](index.md)
 
-[← 返回上一级](../README.md) · [English](../en/quick_start.md)
+本次只下载 **01_HD2D_0.4.7_Plugin_Manual.zip**。不需要第二、第三包；不含案例、共享素材库或本地测试工程。Godot **4.7.2** 已验证 Compatibility 与 Forward+。更新前备份已有插件和自己的工程资源。
 
-<details>
-<summary>本页目录（点击展开）</summary>
+## 1. 安装插件
 
-- [1. 插件与说明书](#manual-section-01)
-- [2. 共享素材库（按需）](#manual-section-02)
-- [3. 案例（按需）](#manual-section-03)
+解压后只把 `addons/hd2d_scene_tools` 复制到已有 Godot 工程的 `addons` 下。等待导入结束，在 **项目 → 项目设置 → 插件** 启用 **Jeff Studio Scene**。不要把说明书复制进工程；用浏览器打开 `START_HERE.html` 阅读。
 
-</details>
-<!-- manual-navigation:end -->
+升级时关闭 Godot，备份旧插件目录后替换整个目录，再重新打开。自己的场景、`hd2d_generated`、`hd2d_imports` 和已连接的外部共享库保持原位。此包不提供或覆盖 `project.godot`。
 
-> **GitHub 公开版说明：**下文保留 0.4.6 原学习版说明。三位游戏提取角色预设、可选共享素材库与历史案例包未随公开版提供；内置建筑与地表已包含，角色可使用自己的素材。[查看分发说明](../DISTRIBUTION.md)
+## 2. 创建自己的场景
 
-<a name="manual-section-01"></a>
+点击 **新建地图**，选择自由地图、128 米、129 个高度采样点；用纯色或内置地表方案，在地形模块底部应用草稿。
 
-## 1. 插件与说明书
+打开 **一键生成**，选择九种内置风格之一；默认双排街村，建筑间隔和门前退距均为 1 米。点击金色 **应用到场景**，移动蓝图、Q / E 旋转、左键放置，Esc 取消。Ctrl / Cmd + S 保存。也可在 **素材工作台 → 内置建筑** 单独摆放或导出 GLB 给 Blender。
 
-解压 `01_HD2D_0.4.6_Plugin_Manual.zip`，只把 `addons` 复制到 Godot 工程根目录。在“项目 → 项目设置 → 插件”启用 **Jeff Studio 场景**。说明书留在浏览器中阅读；更新前备份已有插件。
+## 3. 设置环境、检查并保存
 
-只安装第一包，即可使用内置建筑、35 张地表纹理和三位学习版预设角色。
+选择舞台根节点 → **环境**。设置昼夜时间和天气；花叶天气会显示枫叶／樱花专用参数。点击固定底部 **应用环境设置**，从 **镜头 → 预览当前场景** 检查，再保存。
 
-<a name="manual-section-02"></a>
+自己的角色可通过角色模块导入动作帧。本地学习版仍附带三位角色预设；公开 GitHub 版不含提取角色，可导入自有素材或连接适用的角色库。使用预设放置时，缺少 `Characters` 容器会自动补建，并支持一次撤销。
 
-## 2. 共享素材库（按需）
+## 可选资源
 
-将 `02_HD2D_0.4.6_Shared_Asset_Library.zip` 解压到 **Godot 工程外**。在插件顶部 **位置…** 选择含 `preset-index.json` 的 `HD2D_Shared_Asset_Library` 文件夹，再点 **重新检查**。在素材工作台浏览、选择和摆放；只准备选中条目所需资源。
+已有的共享库可继续通过顶部 **位置… → 重新检查** 连接；只准备选中素材所需依赖，不要把整库复制进工程。[连接说明](shared_library.md)。历史案例留在旧版包中，本次不重发，[历史案例参考](history.md)。
 
-不要将整个库复制进工程。已有共享库时先备份，保留自己的 `index.json` 与 `objects`。[共享库详细安装](shared_library.md)。
+继续阅读：[更新说明](release_notes.md) · [环境](reference/environment.md) · [建筑与导出](reference/assets.md)。
 
-<a name="manual-section-03"></a>
 
-## 3. 案例（按需）
-
-解压 `03_HD2D_0.4.6_Case_Assets.zip`，按包内说明将 `showcase`、`case01`、`local_study` 复制到工程根目录，保持相对路径，等待 Godot 导入。案例包自带所需资源；安装第一包后即可使用，不要求连接第二包。
-
-案例沿用既有成品，具体场景入口见[案例与历史资源](history.md)。本轮只检查插件与共享素材库，不将案例标为已重新测试。所有资源包都不包含 `project.godot`；遇到同名资源先备份核对。
-
-### 制作自己的场景
-
-点击 **新建地图**，选择自由地图、128 米、129 个高度采样点；用纯色或内置地表方案，在地形模块底部应用草稿。打开 **一键生成**，选择内置风格，点击金色 **应用到场景**，移动蓝图、Q / E 旋转、左键放置，Esc 取消。Ctrl+S / Cmd+S 保存。
-
-在 **角色 → 放置预设角色** 选择角色及主角／队友／NPC 身份。继续阅读[一键生成](reference/generation.md)与[素材及实例编辑](reference/assets.md)。
-
-<a name="community"></a>
-
-JEFF STUDIO · COMMUNITY
-
-<a name="community-title"></a>
-
-### 交流与反馈
-
-交流场景制作、反馈问题、关注版本更新。自愿加入，说明书可离线阅读。
-
-微信群
-
-<a name="community-wechat-title"></a>
-
-### Jeff Studio 内测群
-
-打开微信扫一扫
-
-[![Jeff Studio 内测群 WeChat QR code](../images/jeff_studio_wechat_20260924.jpg)](../images/jeff_studio_wechat_20260924.jpg)
-
-[点击二维码查看原图 ↗](../images/jeff_studio_wechat_20260924.jpg)
-
-原图注明：2026 年 10 月 1 日前有效。失效后可用 QQ 群号加入，或向发布者索取新码。
-
-QQ 群
-
-<a name="community-qq-title"></a>
-
-### Jeff Studio 插件
-
-打开 QQ 扫一扫
-
-[![Jeff Studio 插件 QQ QR code](../images/jeff_studio_qq_20260912.jpg)](../images/jeff_studio_qq_20260912.jpg)
-
-[点击二维码查看原图 ↗](../images/jeff_studio_qq_20260912.jpg)
-
-群号 **482858198**
-
-也可在 QQ 中搜索群号加入。
-
----
-
-[← 上一章：中文说明书](index.md) · [↑ 返回上一级](../README.md) · [说明书总目录](../README.md) · [↑ 回到页首](#manual-top) · [下一章：共享素材库 →](shared_library.md)
+[← 说明书目录](index.md) · [更新说明](release_notes.md)

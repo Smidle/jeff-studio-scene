@@ -5,14 +5,19 @@ uniform sampler2D cloud_texture : filter_linear, repeat_enable;
 uniform vec4 tint : source_color = vec4(1.0);
 uniform float cutoff = 0.5;
 uniform float wind_strength = 0.5;
+uniform bool weather_world_wind = false;
+uniform vec2 weather_wind = vec2(0.0);
+uniform float weather_clock = 0.0;
 uniform float sway_amount = 0.036;
 uniform float cloud_strength = 0.18;
 uniform float clock = 0.0;
 varying vec3 world_position;
 void vertex(){
 	vec3 origin=MODEL_MATRIX[3].xyz;
-	float sway=sin(clock*1.7+origin.x*0.41+origin.z*0.23);
-	VERTEX.x+=sway*max(VERTEX.y,0.0)*sway_amount*wind_strength;
+	float sway=sin((weather_world_wind ? weather_clock : clock)*1.7+origin.x*0.41+origin.z*0.23);
+	vec3 axis=vec3(1.0,0.0,0.0);
+	if(weather_world_wind) axis=inverse(mat3(MODEL_MATRIX))*vec3(weather_wind.x,0.0,weather_wind.y)*0.5;
+	VERTEX+=axis*sway*max(VERTEX.y,0.0)*sway_amount*wind_strength;
 	world_position=(MODEL_MATRIX*vec4(VERTEX,1)).xyz;
 }
 void fragment(){

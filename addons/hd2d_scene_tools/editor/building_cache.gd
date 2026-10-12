@@ -30,7 +30,7 @@ static func obtain(profile: HD2DBuildingProfile) -> HD2DAsset:
 	var result: HD2DAsset=cached.duplicate(true)
 	result.building_profile=profile.duplicate(true)
 	result.library_entry_id=StringName("generated-"+profile.identity());result.asset_id=result.library_entry_id
-	var provider=preload("../runtime/building_materials_v5.gd")
+	var provider=preload("../runtime/building_materials_v6.gd") if profile.generator_version>=6 else preload("../runtime/building_materials_v5.gd")
 	var root: Node3D=result.source.instantiate()
 	for role in result.material_slots:
 		var node: MeshInstance3D=root.get_node(NodePath(role))

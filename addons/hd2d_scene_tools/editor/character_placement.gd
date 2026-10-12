@@ -87,19 +87,30 @@ func begin_placement() -> void:
 func place_at(world_position: Vector3) -> HD2DCharacter:
 	if not profile or not is_instance_valid(target_stage) or controller.stage!=target_stage:return null
 	var stage: HD2DStage=target_stage
-	var parent := stage.get_node_or_null("Characters") as Node3D
-	if not parent:controller.message("舞台缺少 Characters 节点，无法放置角色。");return null
+	var container := stage.get_node_or_null("Characters")
+	if container and not container is Node3D:
+		controller.message("Characters 节点必须是 Node3D；请先检查同名节点。");return null
 	var root: Node=EditorInterface.get_edited_scene_root()
+	if not root or (root!=stage and not root.is_ancestor_of(stage)):return null
+	var parent := container as Node3D
+	var create_container := parent==null
+	var local_position := stage.to_local(world_position) if create_container else parent.to_local(world_position)
+	if create_container:
+		parent=Node3D.new();parent.name="Characters"
 	var actor: HD2DCharacter=stage.character() if role.selected==0 else null
 	var fresh := actor==null
 	if fresh:
 		actor=HD2DCharacter.new();actor.name=["Player","Companion","NPC"][role.selected]
 	var undo=controller.get_undo_redo()
 	undo.create_action(controller.i18n.t("放置预设角色"),UndoRedo.MERGE_DISABLE,stage)
+	if create_container:
+		undo.add_do_method(stage,"add_child",parent)
+		undo.add_do_method(parent,"set_owner",root)
+		undo.add_do_reference(parent)
 	if fresh:
 		undo.add_do_method(parent,"add_child",actor,true);undo.add_do_method(actor,"set_owner",root)
-		undo.add_do_reference(actor);undo.add_undo_method(self,"detach_actor",parent,actor)
-	var values := {"profile":profile.duplicate(),"preset_id":prepared_id,"role":role.selected,"position":parent.to_local(world_position)+Vector3.UP*0.03,"keyboard_control":role.selected==0,"collision_layer":2,"collision_mask":1}
+		undo.add_do_reference(actor);undo.add_undo_method(self,"detach_actor",parent,actor,create_container)
+	var values := {"profile":profile.duplicate(),"preset_id":prepared_id,"role":role.selected,"position":local_position+Vector3.UP*0.03,"keyboard_control":role.selected==0,"collision_layer":2,"collision_mask":1}
 	for key in values:
 		undo.add_do_property(actor,key,values[key])
 		if not fresh:undo.add_undo_property(actor,key,actor.get(key))
@@ -115,13 +126,16 @@ func place_at(world_position: Vector3) -> HD2DCharacter:
 	controller.i18n.text(status,"角色已放置。保存场景后，运行或主动预览可测试移动与跟随。")
 	return actor
 
-func detach_actor(parent: Node, actor: HD2DCharacter) -> void:
+func detach_actor(parent: Node, actor: HD2DCharacter, remove_container: bool=false) -> void:
 	# Clear the editor's inspected node before undo removes it from the scene tree.
 	if EditorInterface.get_selection().get_selected_nodes().has(actor):
 		EditorInterface.get_selection().remove_node(actor)
 		EditorInterface.inspect_object(null)
 	if controller.selection==actor:controller.selection=null
 	if actor.get_parent()==parent:parent.remove_child(actor)
+	# Remove only the container created by this placement, after detaching its actor.
+	if remove_container and parent.get_child_count()==0 and parent.get_parent():
+		parent.get_parent().remove_child(parent)
 
 func dispose() -> void:
 	context_changed()

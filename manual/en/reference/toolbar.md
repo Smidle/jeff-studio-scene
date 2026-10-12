@@ -1,31 +1,11 @@
-<a name="manual-top"></a>
-
 # Interface, Asset Workbench and saving
 
-<!-- manual-navigation:start -->
-[Project home](../../../README.md) / [Manual contents](../../README.md) / [English manual](../index.md) / [Tool guides](README.md)
+> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
-[← Up one level](README.md) · [中文](../../zh/reference/toolbar.md)
 
-<details>
-<summary>On this page (expand)</summary>
+**Jeff Studio Scene 0.4.7.** Select objects in Godot's scene tree, place and paint in the central 3D viewport, and adjust settings in the right-hand plugin dock.
 
-- [Top toolbar and right dock](#manual-section-01)
-- [Eight modules and fixed Apply frames](#manual-section-02)
-- [Asset Workbench](#manual-section-03)
-- [What a new map contains](#manual-section-04)
-- [Native Inspector and handles](#manual-section-05)
-- [Apply, Undo and Save](#manual-section-06)
-- [File selection and operation messages](#manual-section-07)
 
-</details>
-<!-- manual-navigation:end -->
-
-> **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../../DISTRIBUTION.md)
-
-**Jeff Studio Scene 0.4.6.** Select objects in Godot's scene tree, place and paint in the central 3D viewport, and adjust settings in the right-hand plugin dock.
-
-<a name="manual-section-01"></a>
 
 ## Top toolbar and right dock
 
@@ -34,8 +14,6 @@ The 3D toolbar contains **New Map, Asset Workbench and the current tool**. Hover
 The brand card displays the name, version, language and theme. Choose Chinese or English, and **Jade Bamboo, Obsidian or Warm Paper**. These are per-project editor preferences; they do not change Godot's language or the rendered scene. The brazier and library stars animate while their panels are visible.
 
 Under the library status, **Location…** connects an external library folder; **Recheck** reloads its indexes and refreshes the lists, then displays the completion time. Hover for the complete path and any error. A location already set in another project on this computer can be reused. Solid-color terrain and local assets work without a shared library.
-
-<a name="manual-section-02"></a>
 
 ## Eight modules and fixed Apply frames
 
@@ -49,32 +27,29 @@ Terrain, One-click and Camera keep their Apply frame at the bottom while setting
 
 Tab focuses module buttons and section headings. Use Left/Right to change modules, Home/End for first/last. Enter/Space toggles a section; Left/Right collapses or expands it.
 
-<a name="manual-section-03"></a>
-
 ## Asset Workbench
 
-Click **Asset Workbench** in the top toolbar to open the bottom panel. Drag its upper edge to resize it. The workbench uses the chosen theme and contains three sources:
+Click **Asset Workbench** in the top toolbar to open the bottom panel. Drag its upper edge to resize it. The workbench uses the chosen theme and contains four tabs:
 
 | Source | How to use it |
-| --- | --- |
+|---|---|
 | Presets | Search, filter and page through entries; wait for selection preparation, inspect the preview, then Place Selected Asset |
 | My Assets | Browse your own shared-library imports using the same controls |
 | Terrain Textures | Choose one texture or a complete scheme; clicking a thumbnail selects it into the target layer or new-map draft, then apply from the right dock |
+| Built-in Buildings | Choose style, category and type; edit parameters and seeds, then use the gold button for blueprint placement, or read and apply an existing building |
 
 Left-drag rotates a model preview. Selecting a skin affects future placements; use **Apply Skin** and its scope selector for existing objects. Terrain textures do not become placeable object entries.
 
 Choosing a new map's scheme hides the settings window while retaining its specifications. Inspect the right-side terrain preview before applying. Selection alone does not create a scene. Browsing reads indexes and current-page thumbnails; selecting an entry prepares its own files.
 
-<a name="manual-section-04"></a>
-
 ## What a new map contains
 
-<a name="new-free-template"></a>
+<span id="new-free-template"></span>
 
 Both **New Map…** entries open the same settings window. Defaults are a free map, 64 meters per side and 129 height samples per side. Set specifications, choose solid colors or a preset, then click **Apply: Create Map** in the dock footer. See [Terrain](terrain.md) for the detailed flow.
 
 | Node or file | Purpose |
-| --- | --- |
+|---|---|
 | HD2D_FreeWalk / HD2D_LoopStage | Stage root, mode, asset and music libraries, and stage settings |
 | Terrain | Editable height and blend weights; generates ground and collision |
 | Scenery → Foliage | Scenery and editable plant scatter records |
@@ -84,15 +59,11 @@ Both **New Map…** entries open the same settings window. Defaults are a free m
 
 The basic map contains no buildings, flower fields or BGM. Add these using their modules. Loop stages keep their presentation-oriented camera and playback behavior.
 
-<a name="manual-section-05"></a>
-
 ## Native Inspector and handles
 
 Selecting a Stage, Terrain, Character, CameraRig or Road exposes **Edit in Jeff Studio Scene** in the Inspector to open the corresponding plugin controls. Native Transform fields edit position, rotation and scale; Godot's handles provide direct manipulation. Selected roads also expose curve points and tangents.
 
 Keeping terrain at the origin with Scale=1 makes authoring easier. Generated Chunk meshes are rebuilt from terrain data; edit with terrain brushes. Erase Plants operates on Foliage records; remove ordinary objects through the scene tree.
-
-<a name="manual-section-06"></a>
 
 ## Apply, Undo and Save
 
@@ -104,18 +75,20 @@ Keeping terrain at the origin with Scale=1 makes authoring easier. Generated Chu
 
 Runtime scenes still require the addon's runtime and shaders. Disabling the editor plugin is fine; keep its directory installed.
 
-<a name="manual-section-07"></a>
-
 ## File selection and operation messages
 
 Library Location and import windows use Godot’s complete native editor theme. Back, Forward, Parent Folder and view controls keep their native icons across plugin theme changes. Plugin-owned actions retain pixel icons.
+
+
 
 The message under the library status keeps the result and a suggested next step. Creating a map suggests adding characters and plants; applying a camera suggests previewing and saving. Passive refreshes keep the message until another operation or scene change replaces it.
 
 The fixed Apply action keeps the same location and behavior in all themes. These genuine captures show Warm Paper (English) and Obsidian (Chinese):
 
+
+
+
 The workbench also has a **Built-in Buildings** tab for previewing, configuring and placing parametric buildings without a shared library.
 
----
 
-[← Previous: Cases and history](../history.md) · [↑ Up one level](README.md) · [Manual contents](../../README.md) · [↑ Back to top](#manual-top) · [Next: Terrain →](terrain.md)
+[← Manual contents](../index.md) · [Release notes](../release_notes.md)

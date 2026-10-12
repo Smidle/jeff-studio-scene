@@ -21,3 +21,16 @@ desktop.ini
 .idea/
 .vscode/
 __pycache__/
+
+# Bundled import settings are part of reproducible weather/sky rendering
+!addons/hd2d_scene_tools/assets/weather/*.png.import
+!addons/hd2d_scene_tools/third_party/sky3d/**/*.import
+
+# Never distribute local QA or optional library projects
+/local_tests/
+/tests/
+/qa/
+/case*/
+/showcase/
+/local_study/
+/HD2D_Shared_Asset_Library/

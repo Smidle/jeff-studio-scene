@@ -208,6 +208,7 @@ func _scene_changed(scene_root: Node) -> void:
 	if ui:
 		ui.status.hide()
 		if ui.camera_panel: ui.camera_panel.sync_target()
+		if ui.environment_panel: ui.environment_panel.sync_target()
 		# A search belongs to the previous editing context, not the new scene's library.
 		ui.search.clear()
 		ui.category_filter.select(0)
@@ -1120,13 +1121,24 @@ func apply_loop_settings() -> void:
 	if require_stage(): set_properties(stage,{"segment_length":ui.value("segment_length"),"scroll_speed":ui.value("scroll_speed"),"paused":ui.checked("loop_pause"),"seam_preview":ui.checked("seams")},"循环舞台配置")
 
 func apply_environment_settings() -> void:
-	if not require_stage(): return
-	var values: Dictionary={}
-	for key in ["sky_color","horizon_color","sun_color","ambient_color"]: values[key]=ui.controls[key].color
-	for key in ["sun_energy","sun_yaw","sun_elevation","ambient_energy","wind_strength","cloud_shadows","fog_density","saturation","contrast","depth_blur","vignette","zone_blur"]: values[key]=ui.value(key)
-	for key in ["shadows","fog_enabled","presentation_enabled"]: values[key]=ui.checked(key)
-	values.sky_mode=ui.controls.sky_mode.selected
-	set_properties(stage,values,"环境参数")
+	if ui and ui.environment_panel:ui.environment_panel.apply()
+
+func commit_environment_settings(target: HD2DStage, values: Dictionary) -> void:
+	if not is_instance_valid(target) or target!=stage:return
+	var undo := get_undo_redo()
+	undo.create_action(i18n.t("应用环境设置"),UndoRedo.MERGE_DISABLE,target)
+	for key in values:
+		undo.add_do_property(target,key,values[key])
+		undo.add_undo_property(target,key,target.get(key))
+	undo.add_do_method(self,"refresh_environment_settings",target)
+	undo.add_undo_method(self,"refresh_environment_settings",target)
+	undo.commit_action();mark_changed()
+
+func refresh_environment_settings(target: HD2DStage) -> void:
+	if not is_instance_valid(target):return
+	# Environment Apply must not rebuild roads or reset the production camera.
+	target.apply_environment()
+	if ui and ui.environment_panel:ui.environment_panel.sync_target()
 
 func open_preview() -> void:
 	if ui and is_instance_valid(ui.music_panel): ui.music_panel.stop_now()

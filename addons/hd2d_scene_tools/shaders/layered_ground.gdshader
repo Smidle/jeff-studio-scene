@@ -1,4 +1,5 @@
 shader_type spatial;
+#include "weather_surface.gdshaderinc"
 render_mode cull_disabled, diffuse_lambert, specular_disabled;
 uniform sampler2D control_texture : filter_linear, repeat_disable;
 uniform sampler2D base_texture : source_color, filter_nearest_mipmap, repeat_enable;
@@ -30,5 +31,7 @@ void fragment(){
 	float cloud=soft_cloud(world_position.xz*vec2(0.023,0.028)+vec2(clock*0.003,0.21));
 	float shade=mix(1.42,0.53,smoothstep(0.05,0.9,cloud));
 	ALBEDO=c*mix(1.0,shade,clamp(cloud_strength/0.18,0.0,2.0))*vec3(1.27,1.24,1.18);
-	ROUGHNESS=1.0;
+	float wet=weather_surface_wetness(world_position);
+	ALBEDO*=mix(1.0,0.72,wet);
+	ROUGHNESS=mix(1.0,0.32,wet);
 }

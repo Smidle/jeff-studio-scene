@@ -1,31 +1,10 @@
-<a name="manual-top"></a>
-
 # Part III · Terrain
 
-<!-- manual-navigation:start -->
-[Project home](../../../README.md) / [Manual contents](../../README.md) / [English manual](../index.md) / [Tool guides](README.md)
+> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
-[← Up one level](README.md) · [中文](../../zh/reference/terrain.md)
 
-<details>
-<summary>On this page (expand)</summary>
-
-- [Terrain Creation Guide](#manual-section-01)
-- [Collapsible visual groups](#manual-section-02)
-- [1. Create a map](#manual-section-03)
-- [2. Sculpt height](#manual-section-04)
-- [3. Choose built-in surfaces](#manual-section-05)
-- [4. Paint and maintain terrain](#manual-section-06)
-- [Every parameter](#manual-section-07)
-
-</details>
-<!-- manual-navigation:end -->
-
-> **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../../DISTRIBUTION.md)
 
 **Set map specifications → Choose a surface → Inspect the right-side preview → Apply at the bottom.** Existing terrain can be sculpted and painted directly.
-
-<a name="manual-section-01"></a>
 
 ## Terrain Creation Guide
 
@@ -33,41 +12,31 @@ The first section displays a live terrain preview of the new-map draft, or the c
 
 The gold-bordered Apply frame stays outside the scrolling operations area, with a pale-yellow primary button. It shows **Apply: Create Map** for a new draft, or **Apply Surface Settings** for existing terrain. The preview uses a simplified mesh; creation uses your requested sample count. Sculpting and painting change the scene directly. Apply commits a new map or surface draft; save with Cmd+S / Ctrl+S.
 
-<a name="manual-section-02"></a>
+
 
 ## Collapsible visual groups
 
 Click a heading to toggle. ★ starts open; the project remembers your choices. **Expand All / Collapse All** affects this page only. Tab to a heading, then use Enter/Space or Left/Right. Folding keeps drafts and active tools without applying or saving.
 
 | Group | When it takes effect |
-| --- | --- |
+|---|---|
 | [New Map](#group-terrain-template) | Set specifications and surface, then Apply: Create Map in the dock footer. |
 | ★ [Terrain sculpting](#group-terrain-brush) | Hold the left mouse button in the native 3D viewport to edit height. |
 | [Surface layers & painting](#group-terrain-layers) | Choose textures into a draft; apply before painting blend weights. |
 | [Terrain conformance](#group-terrain-conform) | Automatically or manually update linked plants and roads after sculpting. |
 | [Terrain Creation Guide](#group-terrain-world) | New-map/current-terrain preview, and map specifications. |
 
-<a name="group-terrain-world"></a>
 
-<a name="group-terrain-template"></a>
+Godot 4.7.2 / Compatibility / 0.4.5 parameter sections. Click a capture to enlarge.
 
-**New Map**
+<div class="ui-gallery">
+<span id="group-terrain-world"></span>
+<a id="group-terrain-template" name="group-terrain-template"></a><p><strong>New Map</strong></p>
+<a id="group-terrain-brush" name="group-terrain-brush"></a><p><strong>Terrain sculpting</strong></p>
+<a id="group-terrain-layers" name="group-terrain-layers"></a><p><strong>Surface layers & painting</strong></p>
+<a id="group-terrain-conform" name="group-terrain-conform"></a><p><strong>Terrain conformance</strong></p>
 
-<a name="group-terrain-brush"></a>
-
-**Terrain sculpting**
-
-<a name="group-terrain-layers"></a>
-
-**Surface layers & painting**
-
-<a name="group-terrain-conform"></a>
-
-**Terrain conformance**
-
-****
-
-<a name="manual-section-03"></a>
+</div>
 
 ## 1. Create a map
 
@@ -75,9 +44,12 @@ Both **New Map…** entries open the same dialog. Defaults are **Free map, 64 me
 
 Select **Custom…** for either value: side length 1–4096 m in 0.5 m steps, samples per side 3–513 in integer steps. For example, 75.5 m / 100 samples gives about 0.763 m spacing. Denser grids capture finer slopes and cost more memory and editing time. At the bottom choose **Use Solid Colors**, or **Choose Preset Scheme…** and click a scheme in the workbench. Settings close with parameters retained. Inspect the right-side preview and click **Apply: Create Map** in the dock footer. Choosing a scheme does not create a scene or reopen settings. The settings window’s × abandons the new-map draft.
 
+
+
 Each creation saves an independent scene and external terrain resource under levels. Existing filenames get a unique suffix. This does not resize, resample or clear existing terrain. Save As still does not duplicate all referenced resources.
 
 ### Lakes, rivers, seas and volcanoes
+
 
 **Landform** offers Flat Ground, Lake and Shore, Winding River, Coast and Beach, Sea and Island, and Volcanic Crater. The right side previews the shape independently; creation uses your sample count. Landform presets use free maps. Loop stages use flat ground so scrolling scenery stays aligned.
 
@@ -88,17 +60,13 @@ Each creation saves an independent scene and external terrain resource under lev
 
 Water and lava are animated visuals without fluid simulation, swimming, buoyancy or damage. The surface has no collision; characters still stand on the heightfield. Add gameplay logic for swimming or lava damage.
 
-**Lake and Shore**
-
-**Winding River**
-
-**Coast and Beach**
-
-**Sea and Island**
-
-**Volcanic Crater**
-
-<a name="manual-section-04"></a>
+<div class="landform-gallery">
+<p><strong>Lake and Shore</strong></p>
+<p><strong>Winding River</strong></p>
+<p><strong>Coast and Beach</strong></p>
+<p><strong>Sea and Island</strong></p>
+<p><strong>Volcanic Crater</strong></p>
+</div>
 
 ## 2. Sculpt height
 
@@ -106,8 +74,14 @@ Water and lava are animated visuals without fluid simulation, swimming, buoyancy
 
 **Show Terrain Only (Temporary)** at the top of the Terrain page hides buildings, characters, foliage, roads, water/lava and scene UI, while retaining terrain, lighting and the brush cursor. Newly created scenery is hidden too. Turn it off, leave the Terrain page, switch scenes or disable the plugin to restore the view. Objects originally hidden remain hidden. This affects the editor view only: saved scenes, the game and isolated previews keep their normal visibility. No Apply action is needed.
 
+
+
+
+
+
+
 | Tool | Behavior |
-| --- | --- |
+|---|---|
 | Raise / Lower | Adds or subtracts height per second, strongest at the brush center. |
 | Smooth | Reduces neighboring height differences without resetting the ground. |
 | Flatten | Gradually approaches the target height; entering a value alone does nothing. |
@@ -116,8 +90,6 @@ Water and lava are animated visuals without fluid simulation, swimming, buoyancy
 Raise, Lower, Smooth, Flatten and painting work while **holding the mouse still**. Strength accumulates with time. Release, Esc or focus loss ends the stroke; one stroke is one undo. Sculpt and paint settings are remembered separately. Only Flatten/Ramp show target height.
 
 Terrain tools hit the current heightfield behind scene props. Use the native 3D editor, not the isolated preview. Keeping terrain at the origin with scale 1 makes meter-based authoring easier.
-
-<a name="manual-section-05"></a>
 
 ## 3. Choose built-in surfaces
 
@@ -137,10 +109,11 @@ Browsing reads only the index and current-page thumbnails. Startup does not impo
 4. Adjust the shared tiling period: **larger values make texture features larger**. **Apply Surface Settings** in the dock footer commits the changes together; **Revert Unapplied Changes** discards them.
 5. Click a layer card, then **Paint Layer N**. Apply or revert pending changes first. Replacing textures preserves heights and painted distribution.
 
+
 35 original 512×512 PNGs form 14 schemes. Shore schemes reuse appropriate textures in the following order:
 
 | Scheme | Texture order |
-| --- | --- |
+|---|---|
 | Grassland | Short grass, Yellow-green grass, Bare earth, Fine gravel earth |
 | Forest | Mossy grass, Forest humus, Leaf litter, Mossy stone |
 | Farmland | Field-edge grass, Tilled soil, Dry earth, Earth path |
@@ -158,8 +131,6 @@ Browsing reads only the index and current-page thumbnails. Startup does not impo
 
 These textures were newly made with imagegen, referring to broad pixel-art wuxia characteristics without copying, collaging or simply recoloring extracted originals. Permission for commercial use and raw redistribution of those originals has not been established. New terrain provenance is separate. **Existing extracted models, music and screenshots remain private local-study content; the complete shared package is not a commercial asset pack.**
 
-<a name="manual-section-06"></a>
-
 ## 4. Paint and maintain terrain
 
 Flat ground initially uses layer 1 everywhere. Applying that image shows the base immediately; other layers appear where painted. This is conventional terrain texture painting: textures blend on one surface by weight. Layer numbers do not control stacking. Increasing one weight reduces the others. Paint layer 1 to restore the base. Landform recipes already paint upland, bank and bed distributions.
@@ -174,27 +145,26 @@ Old composite materials remain unchanged. Inspect **Preview Four Surface Layers*
 
 Applying is not saving. Press **Cmd+S / Ctrl+S**, then reopen to inspect strokes. Switching terrain clears unapplied drafts; undo and redo synchronize the cards.
 
-<a name="manual-section-07"></a>
-
 ## Every parameter
 
 | Parameter | Initial default | Range / step / options | Meaning |
-| --- | --- | --- | --- |
-| <a name="control-terrain_map_type"></a>Map type | 自由地图 / Free map | 自由地图／循环舞台 · Free / Loop | New maps only. |
-| <a name="control-terrain_size"></a>Map side length (m) | 64 | 64, 128, 256, 512; custom 1–4096 / 0.5 | Length on both X and Z; new maps only. |
-| <a name="control-terrain_resolution"></a>Samples per side | 129 | 129, 257, 513; custom 3–513 / 1 | Spacing=size÷(samples−1). |
-| <a name="control-terrain_only_view"></a>Show Terrain Only (Temporary) | Off | On / Off | Temporary editor view; never saved into the scene. |
-| <a name="control-radius"></a>Sculpt radius (m) | 4 | 0.2 … 64; 0.1 | Radius, not diameter. |
-| <a name="control-strength"></a>Sculpt strength / second | 3 | 0.05 … 30; 0.05 | Height or approach rate per second. |
-| <a name="control-level"></a>Flatten / ramp endpoint height | 2 | -50 … 100; 0.1 | Terrain-local height in meters. |
-| <a name="control-layer"></a>Active layer card | 1 | 1–8 | Actual image name; empty slots show Unset (plain color). |
-| <a name="control-texture_scale"></a>Texture repeat period (m) | 2 | 0.1 … 32; 0.1 | Shared by all layers; requires Apply. |
-| <a name="control-paint_radius"></a>Paint radius (m) | 4 | 0.2 … 64; 0.1 | Remembered separately from sculpting. |
-| <a name="control-paint_strength"></a>Paint strength / second | 3 | 0.05 … 30; 0.05 | Changes weights, never height. |
-| <a name="control-terrain_auto_conform"></a>Auto-conform after sculpting | 开启 / On | 开／关 · On / Off | Remembered per project. |
+|---|---|---|---|
+| <span id="control-terrain_map_type"></span>Map type | 自由地图 / Free map | 自由地图／循环舞台 · Free / Loop | New maps only. |
+| <span id="control-terrain_size"></span>Map side length (m) | 64 | 64, 128, 256, 512; custom 1–4096 / 0.5 | Length on both X and Z; new maps only. |
+| <span id="control-terrain_resolution"></span>Samples per side | 129 | 129, 257, 513; custom 3–513 / 1 | Spacing=size÷(samples−1). |
+| <span id="control-terrain_only_view"></span>Show Terrain Only (Temporary) | Off | On / Off | Temporary editor view; never saved into the scene. |
+| <span id="control-radius"></span>Sculpt radius (m) | 4 | 0.2 … 64; 0.1 | Radius, not diameter. |
+| <span id="control-strength"></span>Sculpt strength / second | 3 | 0.05 … 30; 0.05 | Height or approach rate per second. |
+| <span id="control-level"></span>Flatten / ramp endpoint height | 2 | -50 … 100; 0.1 | Terrain-local height in meters. |
+| <span id="control-layer"></span>Active layer card | 1 | 1–8 | Actual image name; empty slots show Unset (plain color). |
+| <span id="control-texture_scale"></span>Texture repeat period (m) | 2 | 0.1 … 32; 0.1 | Shared by all layers; requires Apply. |
+| <span id="control-paint_radius"></span>Paint radius (m) | 4 | 0.2 … 64; 0.1 | Remembered separately from sculpting. |
+| <span id="control-paint_strength"></span>Paint strength / second | 3 | 0.05 … 30; 0.05 | Changes weights, never height. |
+| <span id="control-terrain_auto_conform"></span>Auto-conform after sculpting | 开启 / On | 开／关 · On / Off | Remembered per project. |
 
 This version provides fixed landforms and simple animated water/lava visuals. It does not resample existing maps or add random generation, caves, overhangs, LOD or fluid simulation. Start at 64 m / 129 samples; larger grids cost more. Loop stages with height changes along the scrolling axis still need scenery/ground alignment checks.
 
----
 
-[← Previous: Interface and saving](toolbar.md) · [↑ Up one level](README.md) · [Manual contents](../../README.md) · [↑ Back to top](#manual-top) · [Next: Generation →](generation.md)
+
+
+[← Manual contents](../index.md) · [Release notes](../release_notes.md)

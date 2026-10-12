@@ -51,7 +51,7 @@ func setup(plugin, root: VBoxContainer, dock_ui) -> void:
 	var fold_actions: Node=root.get_child(0)
 	root.remove_child(fold_actions)
 	var box: VBoxContainer=ui.section(root,"generation.palette","建筑风格",true)
-	styles=[{"id":"native-jiangnan","title":"内置 · 江南古镇","native":"jiangnan","color":"b5b0a0"},{"id":"native-forest","title":"内置 · 欧式风格","native":"forest","color":"81715c"},{"id":"native-desert","title":"内置 · 沙漠聚落","native":"desert","color":"b89968"}]+styles
+	styles=preload("building_styles.gd").towns()+styles
 	for style in styles:
 		if not style.has("native"): style.title+="（共享库）"
 	var titles: Array=[]
@@ -75,7 +75,7 @@ func setup(plugin, root: VBoxContainer, dock_ui) -> void:
 		ui.controls.village_center_type.set_item_disabled(2,index!=2)
 		if index!=2 and ui.controls.village_center_type.selected==2: ui.controls.village_center_type.select(1))
 	for key in ["layout","center_type"]: ui.controls["village_"+key].item_selected.connect(func(_index): invalidate())
-	for spec in [["count","建筑数量",1,24,1,8],["seed","随机种子",0,2147483647,1,12345],["road_width","主路宽度（米）",1,12,0.5,3],["gap","建筑间隔（米）",0.5,12,0.5,2],["setback","门前退距（米）",0.5,12,0.5,2],["yaw","村落方向（度）",-180,180,5,0],["wall_height","围墙高度（米）",0.5,5,0.1,1.8],["wall_margin","围墙退距（米）",1,10,0.5,2],["max_slope","最大地基高差（米）",0,3,0.05,0.5]]:
+	for spec in [["count","建筑数量",1,24,1,8],["seed","随机种子",0,2147483647,1,12345],["road_width","主路宽度（米）",1,12,0.5,3],["gap","建筑间隔（米）",0.5,12,0.5,1],["setback","门前退距（米）",0.5,12,0.5,1],["yaw","村落方向（度）",-180,180,5,0],["wall_height","围墙高度（米）",0.5,5,0.1,1.8],["wall_margin","围墙退距（米）",1,10,0.5,2],["max_slope","最大地基高差（米）",0,3,0.05,0.5]]:
 		ui.number(box,"village_"+spec[0],spec[1],spec[2],spec[3],spec[4],spec[5]).value_changed.connect(func(_v): invalidate())
 	ui.check(box,"village_collision","生成建筑碰撞",true).toggled.connect(func(_on): invalidate())
 	ui.label(box,"预览包含局部整地；应用后才修改地形。外部模型保持原尺寸。")
@@ -96,7 +96,8 @@ func setup(plugin, root: VBoxContainer, dock_ui) -> void:
 	legacy_shape_controls.append(porch_control);porch_control.toggled.connect(func(_v): rebuild_native())
 	ui.option(box,"village_appearance","建筑外观",["原色","素雅","暖色","风化"]).item_selected.connect(func(_v): rebuild_native())
 	ui.controls.village_max_slope.value=2
-	ui.controls.village_layout.select(2);ui.controls.village_center_type.select(1)
+	ui.controls.village_layout.select(0);ui.controls.village_center_type.select(0)
+	ui.controls.village_center_type.set_item_disabled(2,true)
 	composition=preload("building_composition.gd").new();composition.setup(self,box)
 	ui.label(box,"自定义建筑：可在预设基础上增删；不会修改共享库。")
 	ui.button(box,"选择建筑素材…",func(): controller.workbench.open_objects())
@@ -183,7 +184,7 @@ func select_style(index: int) -> void:
 	palette.clear(); refresh_list()
 	loading=true; say("正在准备建筑风格…")
 	if styles[index].has("native"):
-		loaded_style=styles[index].id;native_generator_version=Catalog.VERSION;native_preset_version=Catalog.VERSION;loading=false
+		loaded_style=styles[index].id;native_generator_version=preload("building_styles.gd").version(str(styles[index].native));native_preset_version=native_generator_version;loading=false
 		composition.reset()
 		var defaults := Presets.sample(str(styles[index].native))
 		for key in ["width","depth","floors","pitch","eave","windows"]: ui.controls["village_"+key].set_value_no_signal(defaults[key])

@@ -1,17 +1,17 @@
-<a name="manual-top"></a>
-
 # Assets and Delivery
 
-<!-- manual-navigation:start -->
-[Project home](../../../README.md) / [Manual contents](../../README.md) / [English manual](../index.md) / [Reference appendices](README.md)
+> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
-[← Up one level](README.md) · [中文](../../zh/appendices/inventory.md)
-<!-- manual-navigation:end -->
 
-> **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../../DISTRIBUTION.md)
+Package 01 contains three styles, ten categories and 46 parametric building types, 35 lightweight terrain textures, 14 schemes and three local-study characters. Package 02 is the external shared library. Package 03 combines Cases 01–05 and 07 with their dependencies. The large-world case is not included. See [installation order](../quick_start.md), [shared library](../shared_library.md) and [case entries](../history.md).
 
-Package 01 includes built-in buildings, 35 original terrain textures, 14 schemes and three local-study characters. Package 02 is the external shared library. Package 03 contains Cases 1–5 and their dependencies. Case 6 remains separate in the older release. See [installation order](../quick_start.md), [shared library](../shared_library.md) and [case entries](../history.md).
+| Package | Destination | Required? |
+|---|---|---|
+| 01 Plugin & Manual | addons in the project root; read the manual in a browser | Yes |
+| 02 Shared Library | Outside the project; connect through the plugin | Optional |
+| 03 Cases 01–05 & 07 | showcase, case01, case07 and local_study in the project root | Optional; cases require only 01 + 03 |
 
----
+Do not drag the whole release folder into a Godot project. Extracted study assets retain their source and usage restrictions; they are not covered by the plugin code's MIT license.
 
-[← Previous: Scene preview](../reference/preview.md) · [↑ Up one level](README.md) · [Manual contents](../../README.md) · [↑ Back to top](#manual-top) · [Next: Scene paths →](scenes.md)
+
+[← Manual contents](../index.md) · [Release notes](../release_notes.md)

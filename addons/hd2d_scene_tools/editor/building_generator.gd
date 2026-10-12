@@ -49,6 +49,7 @@ func roof(w: float,d: float,y: float,rise: float,eave: float,flat: bool,style: S
 		face(pts,"wall")
 	box(Vector3(0,y+rise+0.06,0),Vector3(0.2,0.15,d+eave*2+0.2),"roof")
 func build(profile: HD2DBuildingProfile) -> HD2DAsset:
+	if profile.generator_version>=6: return preload("building_architecture_v6.gd").new().build(profile)
 	if profile.generator_version>=5: return preload("building_architecture_v5.gd").new().build(profile)
 	if profile.generator_version>=4: return preload("building_architecture_v4.gd").new().build(profile)
 	if profile.generator_version>=3: return preload("building_architecture_v3.gd").new().build(profile)

@@ -1,0 +1,29 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jeff Studio Scene 0.4.7 · 更新说明</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}aside{position:fixed;inset:0 auto 0 0;width:250px;overflow:auto;background:#173e32;color:#fff;padding:24px}aside a{display:block;color:#e2ddaa;text-decoration:none;padding:4px}aside a[aria-current]{background:#31594b;border-radius:4px}main{margin-left:270px;max-width:1060px;padding:30px}a{color:#13765d}img{max-width:100%;height:auto;display:block;margin:20px auto}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bacbc1;padding:10px}pre{overflow:auto;background:#e7e5d9;padding:12px}h1,h2{line-height:1.4}.notice{background:#fff4ce;padding:16px;border-left:4px solid #b88b35}code{overflow-wrap:anywhere}@media(max-width:850px){aside{position:static;width:auto}aside nav{display:flex;flex-wrap:wrap;gap:6px}main{margin:0;padding:20px}}</style><aside><strong>Jeff Studio Scene<br>0.4.7</strong><nav><a href="index.html" >说明书首页</a><a href="quick_start.html" >安装插件</a><a href="release_notes.html" aria-current="page">更新说明</a><a href="shared_library.html" >可选共享库</a><a href="history.html" >历史案例参考</a><a href="reference/toolbar.html" >界面与保存</a><a href="reference/terrain.html" >地形</a><a href="reference/generation.html" >一键生成</a><a href="reference/assets.html" >素材与建筑</a><a href="reference/scatter.html" >铺设</a><a href="reference/character.html" >角色</a><a href="reference/camera.html" >镜头</a><a href="reference/environment.html" >昼夜与天气</a><a href="reference/music.html" >音乐</a><a href="reference/preview.html" >预览</a><a href="appendices/inventory.html" >资源清单</a><a href="appendices/scenes.html" >历史场景入口</a><a href="appendices/music_sources.html" >音乐来源</a></nav><a href="../en/release_notes.html">English Manual</a></aside><main><h1>0.4.7 更新说明（相比 0.4.6）</h1>
+<blockquote>
+<p>公开版 0.4.7 · 仅插件与说明书，不附带提取角色图片、共享素材库、案例或本地测试工程。</p>
+</blockquote>
+<h2>昼夜与天气</h2>
+<ul>
+<li>新增 24 小时昼夜系统：固定开始时间、黎明／正午／黄昏／午夜、自动循环、一天时长、夜间补光与月光。</li>
+<li>天气支持晴天、下雨、下雪、雾天、沙尘暴、雷雨、秋日枫叶、春日樱花。多云和暴风雪未纳入最终版本，旧编号按晴天处理。</li>
+<li>新增可选三维天气增强、平滑天气过渡、屋顶遮雨与室内遮挡盒、限量落地水花、植物风向联动，以及可选 Sky3D 像素天空。新地图默认增强；旧场景可自行开启。</li>
+<li>内置地形和分层地面整片同步渐湿／干燥，忽略屋顶遮挡，修正边界突兀和分块变色。自定义材质不会自动湿润。</li>
+<li>新增雨雪大小、闪电频率／持续时间，以及枫叶、樱花专用数量、大小、出现时间随机度、下落速度差异、飘摆、翻转和随机种子控制。粒子预算优先供当前天气使用，过渡时共同使用上限。</li>
+<li>环境面板重组为昼夜、天气、其他；固定金色应用区，草稿一次提交并可撤销。预览继续从镜头页进入。</li>
+</ul>
+<h2>建筑与小镇</h2>
+<ul>
+<li>在江南、欧式、沙漠之外新增 <strong>日式町屋、北欧雪乡、热带海港、中式宫阙、哥特城镇、蒸汽工业</strong>，合计九种风格。沿用 10 大类、46 个建筑功能条目。</li>
+<li>内置建筑可 <strong>导出带材质和贴图的 GLB</strong>，用于 Blender；不更改场景内原物件。原三套保持 v5，新风格使用 v6，旧配方不自动重建。</li>
+<li>小镇默认采用 <strong>双排街村</strong>，建筑间隔和门前退距默认均为 <strong>1 米</strong>；保留单排、中心环绕、蓝图摆放和 Q/E 旋转。</li>
+</ul>
+<h2>修复与交付</h2>
+<ul>
+<li>角色放置遇到缺失 <code>Characters</code> 容器时自动创建，角色与容器一起撤销／重做并可保存。</li>
+<li>改善雨雪、花叶的数量预算及随机分布；固定种子可重现，每次运行随机可切换分布。</li>
+<li>更新中英文说明、对应界面图和安装流程。本次仅交付插件与说明书，不含任何案例、共享素材库、本地树林、测试场景或缓存。</li>
+</ul>
+<p><strong>公开版与本地学习版：</strong> 公开 GitHub 包不包含游戏提取角色图片和索引；角色导入、动画和身份功能保留。本地学习包保留原有三位预设，不新增外部资源包。</p>
+<p><strong>使用边界：</strong> 天气不是积水、积雪或脚印模拟；不自动替换树木季节贴图。自动屋顶遮挡采用顶层高度场，多层室内需补遮挡盒。真实景深仅 Forward+ 提供；两种渲染器均已进行相关功能检查。</p>
+<p><a href="index.html">← 说明书目录</a> · <a href="release_notes.html">更新说明</a></p>
+</main></html>

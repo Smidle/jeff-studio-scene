@@ -4,6 +4,7 @@ extends RefCounted
 
 static func create_stage(loop: bool = false, meters: float = 256, samples: int = 257) -> HD2DStage:
 	var stage := HD2DStage.new()
+	stage.weather_3d_enabled=true
 	stage.name="HD2D_LoopStage" if loop else "HD2D_FreeWalk"
 	stage.stage_mode=1 if loop else 0
 	stage.library=HD2DAssetLibrary.new()
@@ -41,7 +42,10 @@ static func attach(parent: Node, node: Node, scene_owner: Node) -> void:
 static func isolated_copy(stage: HD2DStage) -> HD2DStage:
 	# Packing persists only owned authoring nodes, NOT transient MM/camera/physics children.
 	var packed := PackedScene.new()
+	if stage.weather_controller:stage.weather_controller.reset_materials()
 	packed.pack(stage)
+	if stage.weather_controller:
+		stage.weather_controller.collect_materials();stage.weather_controller._update_materials()
 	var copy := packed.instantiate() as HD2DStage
 	copy.music_library=stage.music_library.copy_settings() if stage.music_library else HD2DMusicLibrary.new()
 	# Deep-copy mutable resources explicitly; source edits/preview movement never share data.

@@ -1,50 +1,19 @@
-<a name="manual-top"></a>
+# 0.4.7 公开分发说明 / Public distribution
 
-# 0.4.6 公开分发说明
+本仓库与 GitHub Release 仅包含插件及用户说明。下载包名称为 `01_HD2D_0.4.7_Plugin_Manual.zip`。
 
-[← 返回上一级：说明书目录](README.md) · [项目首页](../README.md)
+- 插件代码、参数预设、原创建筑图集、35 张原创地表纹理、界面和天气图集。
+- 中英文 Markdown 与离线 HTML 说明书；仅使用插件 UI 截图和原创内置建筑／地表配图。
+- 必要的 Sky3D 依赖、原始许可证、来源和修改记录。
 
-## 本仓库与 Release 包含的内容
+不包含共享素材库、提取模型／角色、案例、本地枫树林／花树林、测试脚本、测试工程、工作目录、生成缓存或 `project.godot`。
 
-- `addons/hd2d_scene_tools/`：Jeff Studio Scene 0.4.6 插件源码、着色器、编辑器美术、建筑图集和原创地表资源。
-- `manual/`：中英文完整说明书、文档图片，以及便于 GitHub 阅读的 Markdown 版本。
-- `START_HERE.html`：离线说明书语言选择入口。
-- `README.md` 与 `LICENSE`：项目介绍及原插件 MIT 许可证。
+本地学习版原有三位游戏提取角色的目录与索引标记为 `local-study-only` / `exclude_from_public`，因此没有进入本仓库或公开压缩包。公开版角色预设列表在没有外部角色库时为空，会提示导入自己的素材或连接适用库；这不是插件安装失败。角色导入、动画、身份、跟随、锚点和摆放功能继续可用。
 
-共享素材库与历史案例包是另外的交付内容，未附在本仓库和本次 Release 中。说明书中保留这些功能与资源包的使用方式，便于已有对应资源的用户查阅。
+用户已有的外部共享库和历史案例继续兼容，本次不重新分发。请按各素材原有来源和授权使用。
 
-## 学习版角色素材
+原三个建筑风格使用 v5，新六套使用 v6。原参数化资源保持兼容；旧场景不会因升级自动替换模型。
 
-原包的 `addons/hd2d_scene_tools/assets/local_study_characters/distribution.json` 明确标记：
+The public repository/release contains the addon, original built-in building/surface/UI/weather assets, required Sky3D dependencies with licenses, and bilingual documentation. Shared libraries, extracted artwork/indexes, cases, local forests, test projects/scripts, caches and project.godot are excluded. The local-study bundle's three extracted character presets are deliberately absent. Import your own artwork or connect a compatible character library; an empty preset list is expected without one.
 
-```json
-{
-  "distribution": "local-study-only",
-  "exclude_from_public": true
-}
-```
-
-该目录包含游戏提取角色图集及其索引，按原分发标记从公开 Git 历史和 Release ZIP 中排除。原有本地文件保留。
-
-因此，公开版不附带「斗笠侠客、冷无情、吕小玲」三位预设角色。插件中的角色导入、动画、锚点、身份和移动功能仍然保留，可使用自己的素材，或连接已有的适用角色库。未连接角色库时，预设列表可能为空，并显示学习版预设缺失提示；这不表示建筑或地形安装失败。
-
-说明书中的学习版角色截图与参数演示用于解释功能，不表示公开下载包附带对应角色图集。历史案例和音乐来源章节同样是参考资料，不代表本次发布包含这些资源。
-
-## 原创资源与许可证记录
-
-- 插件源码沿用原包 MIT 许可证，根目录 `LICENSE` 与插件目录内的许可证内容一致。
-- 地表目录的 `catalog.json` 标记为 `builtin-original-surfaces`，记录了原创来源、纹理和缩略图校验值。
-- 建筑目录的 `v5/atlas-index.json` 保留三个原创风格图集的来源与校验值。
-- 编辑器美术的 `editor/art/provenance.json` 保留像素图标与动画的制作记录。
-
-## Public distribution (English)
-
-This repository and its 0.4.6 release contain the plugin, its original built-in building and terrain assets, and the bilingual manual. Optional shared-library and historical case packages are separate and are not included.
-
-The original `local_study_characters` directory is marked `local-study-only` and `exclude_from_public: true`; it is excluded from public Git history and release archives. The three extracted game-character presets are not bundled. Character import and configuration tools remain available for your own assets or an applicable external library. An empty preset list or a missing study-preset message is expected without such a library.
-
-Manual screenshots demonstrate the original learning package. They do not imply that the displayed character sheets, historical cases, or music are included in this public release.
-
----
-
-[← 返回上一级：说明书目录](README.md) · [项目首页](../README.md) · [↑ 回到页首](#manual-top)
+[返回说明书 / Manual contents](README.md) · [第三方声明 / Notices](../THIRD_PARTY_NOTICES.md)

@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jeff Studio Scene 0.4.7 · Release notes</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f3e9;color:#253c35;font:17px/1.8 system-ui}aside{position:fixed;inset:0 auto 0 0;width:250px;overflow:auto;background:#173e32;color:#fff;padding:24px}aside a{display:block;color:#e2ddaa;text-decoration:none;padding:4px}aside a[aria-current]{background:#31594b;border-radius:4px}main{margin-left:270px;max-width:1060px;padding:30px}a{color:#13765d}img{max-width:100%;height:auto;display:block;margin:20px auto}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bacbc1;padding:10px}pre{overflow:auto;background:#e7e5d9;padding:12px}h1,h2{line-height:1.4}.notice{background:#fff4ce;padding:16px;border-left:4px solid #b88b35}code{overflow-wrap:anywhere}@media(max-width:850px){aside{position:static;width:auto}aside nav{display:flex;flex-wrap:wrap;gap:6px}main{margin:0;padding:20px}}</style><aside><strong>Jeff Studio Scene<br>0.4.7</strong><nav><a href="index.html" >Manual home</a><a href="quick_start.html" >Install</a><a href="release_notes.html" aria-current="page">Release notes</a><a href="shared_library.html" >Optional library</a><a href="history.html" >Historical cases</a><a href="reference/toolbar.html" >Interface</a><a href="reference/terrain.html" >Terrain</a><a href="reference/generation.html" >One-click towns</a><a href="reference/assets.html" >Assets & buildings</a><a href="reference/scatter.html" >Scatter</a><a href="reference/character.html" >Characters</a><a href="reference/camera.html" >Camera</a><a href="reference/environment.html" >Day/night & weather</a><a href="reference/music.html" >Music</a><a href="reference/preview.html" >Preview</a><a href="appendices/inventory.html" >Inventory</a><a href="appendices/scenes.html" >Scene reference</a><a href="appendices/music_sources.html" >Music sources</a></nav><a href="../zh/release_notes.html">中文说明书</a></aside><main><h1>0.4.7 release notes (since 0.4.6)</h1>
+<blockquote>
+<p>Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.</p>
+</blockquote>
+<h2>Day/night and weather</h2>
+<ul>
+<li>A 24-hour clock: authored start time, dawn/noon/dusk/midnight shortcuts, automatic cycles, day duration, night fill and moonlight.</li>
+<li>Clear, Rain, Snow, Fog, Sandstorm, Thunderstorm, Autumn Maple and Spring Sakura. Cloudy and Blizzard are excluded from the final release; their retired IDs fall back to Clear.</li>
+<li>Optional world-space 3D weather, smooth transitions, roof sheltering and interior exclusion boxes, bounded splashes, vegetation wind linkage and an optional Sky3D pixel sky. New maps enable enhancements; older scenes opt in.</li>
+<li>Plugin terrain and layered ground become uniformly wet/dry, ignoring roof sheltering for wetness. Fixes abrupt coverage edges and mismatched chunk colors. Custom materials are not automatically wetted.</li>
+<li>Rain/snow size, lightning frequency/duration and dedicated Maple/Sakura controls for budget, size, emission timing randomness, individual fall-speed variation, sway, flipping and seeds. Active weather receives the available budget; transitions share it.</li>
+<li>Environment is grouped into Day &amp; Night, Weather and Other, with a fixed gold Apply area and one undo transaction. Scene preview remains in Camera.</li>
+</ul>
+<h2>Buildings and towns</h2>
+<ul>
+<li>Adds <strong>Machiya, Nordic, Tropical Harbor, Chinese Palace, Gothic and Steamworks</strong>, for nine styles alongside Jiangnan, European and Desert. The existing 10 categories / 46 functional types remain.</li>
+<li>Export the current built-in building as a <strong>textured GLB for Blender</strong>, without changing the scene instance. Original styles retain v5; new styles use v6; old recipes are not automatically rebuilt.</li>
+<li><strong>Double-row street village</strong> becomes the default, with <strong>one-meter building gaps and front setbacks</strong>. Single rows, concentric layouts, blueprint placement and Q/E rotation remain.</li>
+</ul>
+<h2>Fixes and delivery</h2>
+<ul>
+<li>Preset character placement automatically creates a missing <code>Characters</code> container; one undo/redo covers both container and character and the result saves normally.</li>
+<li>Improved particle budget allocation and random distribution, with fixed-seed reproducibility or a fresh distribution per run.</li>
+<li>Updated bilingual manuals, UI images and installation instructions. Only the plugin and manuals ship; no cases, shared libraries, local forests, test scenes or caches.</li>
+</ul>
+<p><strong>Public versus local-study:</strong> the public GitHub package excludes extracted character images and indexes. Character import, animation and role tools remain available. The local-study package retains its three existing presets, without another resource package.</p>
+<p><strong>Limits:</strong> no persistent puddles, snow accumulation, footprints or automatic seasonal tree textures. Roof collision is a top-surface heightfield; multilevel interiors need exclusion boxes. True depth of field requires Forward+; relevant features have been checked on both renderers.</p>
+<p><a href="index.html">← Manual contents</a> · <a href="release_notes.html">Release notes</a></p>
+</main></html>

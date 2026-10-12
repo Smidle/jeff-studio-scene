@@ -43,6 +43,7 @@ var sheet_preview
 var preset_panel
 var terrain_panel
 var camera_panel
+var environment_panel
 var library_connection
 var thumbnails
 var library_generation := 0
@@ -160,6 +161,7 @@ func _process(delta: float) -> void:
 	if activity_elapsed<0.15: return
 	activity_elapsed=0
 	if camera_panel: camera_panel.sync_target()
+	if environment_panel: environment_panel.sync_target()
 	for id in sections:
 		var active := false
 		for key in tool_buttons:
@@ -516,51 +518,8 @@ func _camera_tab(root_box: VBoxContainer) -> void:
 	camera_panel.setup(controller,self,scene_preview)
 
 func _environment_tab(root_box: VBoxContainer) -> void:
-	var box := section(root_box,"environment.sky","天空与背景",true)
-	var method := RenderingServer.get_current_rendering_method()
-	label(root_box,"当前渲染器："+method+"\n插件不会更改项目渲染器。")
-	color_field(box,"sky_color","天空",Color("72b5cd"))
-	option(box,"sky_mode","天空模式",["程序天空","背景色 / 天空模型"])
-	color_field(box,"horizon_color","地平线 / 雾颜色",Color("e4e7d0"))
-	box=section(root_box,"environment.sun","日光与阴影",true)
-	color_field(box,"sun_color","日光",Color("fff2ca"))
-	slider(box,"sun_energy","日光强度",0,8,0.85)
-	slider(box,"sun_yaw","太阳方位",-180,180,-35)
-	slider(box,"sun_elevation","太阳高度",0,90,48)
-	check(box,"shadows","投射阴影",true)
-	box=section(root_box,"environment.ambient","环境补光",false)
-	color_field(box,"ambient_color","环境补光颜色",Color(0.86,0.91,0.76))
-	slider(box,"ambient_energy","环境补光",0,1,0.35)
-	box=section(root_box,"environment.wind","风与云影",false)
-	slider(box,"wind_strength","植物风力",0,3,0.5)
-	slider(box,"cloud_shadows","云影浓度",0,1,0.18)
-	box=section(root_box,"environment.fog","距离雾",false)
-	check(box,"fog_enabled","距离雾",true)
-	number(box,"fog_density","雾浓度",0,0.1,0.001,0.001)
-	box=section(root_box,"environment.color","调色",false)
-	slider(box,"saturation","饱和度",0.2,2,1.05)
-	slider(box,"contrast","对比度",0.2,2,1.04)
-	box=section(root_box,"environment.dof","真实景深",false)
-	slider(box,"depth_blur","远景景深虚化",0,1,0)
-	if method=="gl_compatibility":
-		controls.depth_blur.editable=false
-		controls.depth_blur_slider.editable=false
-		label(root_box,"Compatibility：无真实景深、体积雾。距离雾和云影可用；虚化参数不生效。")
-	else: label(root_box,"Forward+ / Mobile：支持真实远景景深；本版使用普通距离雾。")
-	box=section(root_box,"environment.post","演出后期",false)
-	check(box,"presentation_enabled","演出后期（仅游戏 / 隔离测试）",false)
-	slider(box,"vignette","暗角",0,1,0.36)
-	slider(box,"zone_blur","画面分区虚化（不是景深）",0,2,0)
-	label(box,"分区虚化在 Compatibility 也可用；与真实景深分开，不改变原生编辑视口。")
-	label(box,"案例 6 地区环境（原地图调色适配）")
-	check(box,"world_region_grade","启用原地图地区调色",true)
-	number(box,"world_region_strength","地区调色强度",0,1,0.01,0.35)
-	number(box,"world_effect_speed","水面与云雾速度",0,3,0.05,1)
-	button(box,"应用大地图环境",func():
-		if controller.stage and controller.stage.has_node("WorldEnvironmentAdapter"):
-			controller.set_properties(controller.stage.get_node("WorldEnvironmentAdapter"),{"regional_grading":checked("world_region_grade"),"region_strength":value("world_region_strength"),"effect_speed":value("world_effect_speed")},"应用大地图环境")
-		else: controller.message("先创建并选中制作副本的舞台。"))
-	button(root_box,"应用环境参数",func(): controller.apply_environment_settings())
+	environment_panel=preload("environment_panel.gd").new()
+	environment_panel.setup(controller,self,root_box)
 
 func pick(filters: Array, multiple: bool, callback: Callable) -> void:
 	picker_callback=callback
@@ -688,15 +647,13 @@ func palette() -> Array:
 
 func sync_stage() -> void:
 	if camera_panel: camera_panel.sync_target()
+	if environment_panel: environment_panel.sync_target()
 	if terrain_panel: terrain_panel.sync_target()
 	if is_instance_valid(music_panel): music_panel.sync_stage()
 	if not controller.stage: return
 	syncing=true
 	var stage: HD2DStage=controller.stage
-	for key in ["sky_color","horizon_color","sun_color","ambient_color"]: controls[key].color=stage.get(key)
-	for key in ["sun_energy","sun_yaw","sun_elevation","ambient_energy","wind_strength","cloud_shadows","fog_density","saturation","contrast","depth_blur","segment_length","scroll_speed","vignette","zone_blur"]: controls[key].value=stage.get(key)
-	controls.sky_mode.select(stage.sky_mode)
-	controls.presentation_enabled.button_pressed=stage.presentation_enabled
+	for key in ["segment_length","scroll_speed"]: controls[key].value=stage.get(key)
 	if stage.has_node("WorldEnvironmentAdapter"):
 		var climate=stage.get_node("WorldEnvironmentAdapter")
 		controls.world_region_grade.set_pressed_no_signal(climate.regional_grading)
@@ -704,7 +661,6 @@ func sync_stage() -> void:
 	if stage.has_node("WorldParty"):
 		controls.world_party_spacing.value=stage.get_node("WorldParty").spacing
 		controls.world_party_speed.value=stage.get_node("WorldParty").movement_speed
-	for key in ["shadows","fog_enabled"]: controls[key].button_pressed=stage.get(key)
 	controls.loop_pause.button_pressed=stage.paused
 	controls.seams.button_pressed=stage.seam_preview
 	var hero: HD2DCharacter=controller.current_character()

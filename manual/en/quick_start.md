@@ -1,94 +1,33 @@
-<a name="manual-top"></a>
+# Install and get started with 0.4.7
 
-# Install 0.4.6 in Package Order
+> Public 0.4.7 · Plugin and manual only. No extracted character sheets, shared-library payloads, cases or local test projects are bundled.
 
-<!-- manual-navigation:start -->
-[Project home](../../README.md) / [Manual contents](../README.md) / [English manual](index.md)
 
-[← Up one level](../README.md) · [中文](../zh/quick_start.md)
+Download only **01_HD2D_0.4.7_Plugin_Manual.zip**. No second or third package is required. Cases, shared-library payloads and local test projects are not included. Verified with **Godot 4.7.2**, Compatibility and Forward+. Back up your plugin and project before upgrading.
 
-<details>
-<summary>On this page (expand)</summary>
+## 1. Install the plugin
 
-- [1. Plugin and manual](#manual-section-01)
-- [2. Shared library (optional)](#manual-section-02)
-- [3. Cases (optional)](#manual-section-03)
+Extract and copy only `addons/hd2d_scene_tools` into an existing Godot project's `addons` directory. Wait for imports, then enable **Jeff Studio Scene** in **Project → Project Settings → Plugins**. Keep the manual outside the project and open `START_HERE.html` in a browser.
 
-</details>
-<!-- manual-navigation:end -->
+For an upgrade, close Godot, back up and replace the old addon directory, then reopen. Keep your scenes, `hd2d_generated`, `hd2d_imports` and external shared library in place. The package does not include or replace `project.godot`.
 
-> **GitHub public edition:** The original 0.4.6 learning manual is retained below. The three extracted character presets, optional shared library and historical case packages are not bundled in this public release. Built-in buildings and terrain are included; use your own character assets. [Public distribution details](../DISTRIBUTION.md)
+## 2. Create a scene
 
-<a name="manual-section-01"></a>
+Choose **New Map**, a free map of 128 meters and 129 height samples per side. Choose plain colors or a built-in surface scheme, then apply in Terrain.
 
-## 1. Plugin and manual
+Open **One-click**, select one of nine built-in styles. Double-row layout is the default, with one-meter building gaps and front setbacks. Click the gold **Apply to Scene**, move the blueprint, rotate with Q / E and left-click to place; Esc cancels. Save with Ctrl / Cmd + S. **Asset Workbench → Built-in Buildings** also supports individual placement and textured GLB export for Blender.
 
-Extract `01_HD2D_0.4.6_Plugin_Manual.zip`. Copy only `addons` into your Godot project root and enable **Jeff Studio Scene** under Project → Project Settings → Plugins. Read the manual in a browser; back up an existing addon before updating.
+## 3. Apply environment and preview
 
-Package 01 alone provides built-in buildings, 35 terrain textures and three local-study character presets.
+Select the stage root → **Environment**. Set time and weather; Maple and Sakura show dedicated controls. Click the fixed **Apply Environment Settings**, inspect **Camera → Preview Current Scene**, then save.
 
-<a name="manual-section-02"></a>
+Import your own character frames in Characters. The local-study package retains its three presets; the public GitHub package excludes extracted artwork. You may use your own artwork or an applicable character library. Preset placement automatically creates a missing `Characters` container and supports one undo.
 
-## 2. Shared library (optional)
+## Optional resources
 
-Extract `02_HD2D_0.4.6_Shared_Asset_Library.zip` **outside your Godot project**. At the top of the plugin, choose **Location…**, select `HD2D_Shared_Asset_Library` containing `preset-index.json`, then **Recheck**. Browse, select and place assets from the workbench; only selected dependencies are prepared.
+An existing external library remains compatible: **Location… → Recheck**, then prepare selected entries only. Keep the full library outside the project. [Library guide](shared_library.md). Historical cases remain in older packages and are not reissued here; [case reference](history.md).
 
-Do not copy the entire library into the project. Back up an existing library and preserve your own `index.json` and `objects`. See [shared-library installation](shared_library.md).
+Continue with [release notes](release_notes.md), [environment](reference/environment.md) or [buildings and export](reference/assets.md).
 
-<a name="manual-section-03"></a>
 
-## 3. Cases (optional)
-
-Extract `03_HD2D_0.4.6_Case_Assets.zip`. Follow its guide to copy `showcase`, `case01` and `local_study` into the project root without changing their relative paths. Wait for Godot to import them. Cases include their dependencies and require package 01, not package 02.
-
-These are existing finished scenes; see [Cases and Historical Resources](history.md) for scene paths. This run checks the plugin and shared library only; cases are not claimed as retested. No resource package supplies `project.godot`. Back up and compare same-path files before merging.
-
-### Create your own scene
-
-Choose **New Map**, a free map of 128 meters and 129 height samples per side, then solid colors or a built-in surface scheme. Apply the draft in Terrain. In **One-click**, choose a built-in style and click the gold **Apply to Scene** button. Move the blueprint, rotate with Q / E and left-click to place; Esc cancels. Save with Ctrl+S / Cmd+S.
-
-Use **Character → Place Preset Character** to choose a character and Player / Companion / NPC role. Continue with [Generation](reference/generation.md) and [Assets and instance editing](reference/assets.md).
-
-<a name="community"></a>
-
-JEFF STUDIO · COMMUNITY
-
-<a name="community-title"></a>
-
-### Community & feedback
-
-Share scenes, report issues and follow updates. Joining is optional; the manual works offline.
-
-WeChat group
-
-<a name="community-wechat-title"></a>
-
-### Jeff Studio 内测群
-
-Scan with WeChat
-
-[![Jeff Studio 内测群 WeChat QR code](../images/jeff_studio_wechat_20260924.jpg)](../images/jeff_studio_wechat_20260924.jpg)
-
-[Open original QR image ↗](../images/jeff_studio_wechat_20260924.jpg)
-
-Image states: valid before 1 October 2026. If expired, use the QQ group number or ask the publisher for a new code.
-
-QQ group
-
-<a name="community-qq-title"></a>
-
-### Jeff Studio 插件
-
-Scan with QQ
-
-[![Jeff Studio 插件 QQ QR code](../images/jeff_studio_qq_20260912.jpg)](../images/jeff_studio_qq_20260912.jpg)
-
-[Open original QR image ↗](../images/jeff_studio_qq_20260912.jpg)
-
-Group ID **482858198**
-
-You can also search this group ID in QQ.
-
----
-
-[← Previous: English manual](index.md) · [↑ Up one level](../README.md) · [Manual contents](../README.md) · [↑ Back to top](#manual-top) · [Next: Shared asset library →](shared_library.md)
+[← Manual contents](index.md) · [Release notes](release_notes.md)

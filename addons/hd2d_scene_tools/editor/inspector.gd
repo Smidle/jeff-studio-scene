@@ -25,4 +25,5 @@ func _parse_begin(object: Object) -> void:
 	add_custom_control(box)
 	controller.i18n.watch(box)
 	controller.skin.register(box)
-	box.tree_exiting.connect(func():controller.skin.unregister(box),CONNECT_ONE_SHOT)
+	box.tree_exiting.connect(func():
+		if is_instance_valid(controller) and controller.skin:controller.skin.unregister(box),CONNECT_ONE_SHOT)
